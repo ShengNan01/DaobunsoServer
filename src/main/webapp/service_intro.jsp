@@ -1,0 +1,222 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務介紹</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/service_intro.css">
+</head>
+<body>
+    <header>
+        <div id="header_media">
+            <a href="#"><img id="header_media_fb" src="./image/FB.png" alt="fb sign" width="30rem"></a>
+            <a href="#"><img id="header_media_IG" src="./image/IG.png" alt="IG sign" width="30rem"></a>
+            <a href="#"><img id="header_media_Line" src="./image/Line.png" alt="IG sign" width="30rem"></a>
+            <a href="#"><img id="header_media_twitter" src="./image/Twitter.png" alt="IG sign" width="30rem"></a>
+      
+        </div>
+      
+      
+      
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./frontpage.html"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./frontpage.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./about_us.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Shopping</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./service.html">Service</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./shopping_cart.html">Shopping Cart</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Log In</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">個人資訊</a></li>
+                      <li><a class="dropdown-item" href="#">訂單管理</a></li>
+                      <li><a class="dropdown-item" href="./shopping_cart.html">購物車</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="./login.html">Log In</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+      </header>
+    <nav>
+        <div id="nav_title">服務介紹 Service Introduction</div>
+    </nav>
+    <section>
+        <div id = "sec_area_1">
+            <img id="main_pic" src="./image/service_intro picture/log-cabin-1886620_1920.jpg" alt="main_pic">
+            <p class="p1">SERVICE</p>
+        </div>
+        <div id ="sec_area_2">
+            <p class="p1">各項服務</p><br>
+            <hr style="width:80%">
+        </div>
+        <center>
+        <div id="sec_area_3" >
+            <div id = "sec_area3_top">
+                <div style="flex:2;margin: 0.8rem;">
+                    <p class="area3_p1">住宅型垃圾代收</p> <br>
+                    <p class="area3_p2">為您的家庭或個人提供廢棄物與回收物的快速解決方案。</p>
+                </div>
+                <div style="flex:2;margin: 0.8rem;">
+                    <p class="area3_p1">垃圾箱定點收取</p> <br>
+                    <p class="area3_p2" >為您設置廢棄物與回收物定點垃圾箱，方便您用於交付和儲放訂單物品，能有效提升個人的時間安排。</p>
+                </div>
+                <div style="flex:2;margin: 0.8rem;">
+                    <p class="area3_p1">垃圾箱出售</p> <br>
+                    <p class="area3_p2">我們為服務項目提供多種尺寸的專屬垃圾箱可供購買</p>
+                </div>
+            </div>
+            <div id = "sec_area3_bot">
+                <div style="flex:2;margin: 0.8rem">
+                    <p class="area3_p1">回收物分類代收</p> <br>
+                    <p class="area3_p2">為各種類回收物品提供代收服務(不包含大型回收物件，且須完成回收分類)，若有破碎物請先排除安全性問題並備註內容物後再發佈訂單</p>
+                </div>
+                <div style="flex:2;margin: 0.8rem">
+                    <p class="area3_p1">燈泡.電池和電子產品</p> <br>
+                    <p class="area3_p2" >為燈泡、電池及電子產品等特殊回收物提供專屬的回收服務</p>
+                </div>
+                <div style="flex:2;margin: 0.8rem">
+                    <p class="area3_p1">社區共同訂單</p> <br>
+                    <p class="area3_p2">以社區為單位提供大型訂單，可與服務人員聯繫並確認訂單相關內容與收取時間</p>
+                </div>
+            </div>
+        </div>
+        </center>
+        <center>
+        <nav>
+            <div id="nav_title">流程介紹 Process Introduction</div>
+        </nav>
+        <div id="sec_area_4" style="text-align: center;">
+            <div style="flex:1">
+                <img src="./image/service_intro picture/iconmonstr-home-4-240.png"width="50rem" height="50rem">
+                <p class="area4_p">會員登入</p>
+            </div>
+            <div style="flex:1">
+                <img src="./image/service_intro picture/iconmonstr-text-25-240.png" width="50rem" height="50rem">
+                <p class="area4_p">訂單填寫&發佈</p>
+            </div>
+
+            <div style="flex:1">
+                <img src="./image/service_intro picture/iconmonstr-bicycle-1-240.png"width="50rem" height="50rem">
+                <p class="area4_p">專人派遣</p>
+            </div>
+            
+            <div style="flex:1">
+                <img src="./image/service_intro picture/iconmonstr-construction-1-240.png"width="50rem" height="50rem">
+                <p class="area4_p">訂單確認&費用收取</p>
+            </div>
+            <div style="flex:1">
+                <img src="./image/service_intro picture/iconmonstr-check-mark-13-240.png" width="50rem" height="50rem">
+                <p class="area4_p">完成訂單</p>
+            </div>
+        </div>
+        <div id="sec_area_6">
+            <div style ="flex:1rem;margin-top: 5rem;">
+                <p class="area6_p1">DAOBUNSO<br>流程內容說明</p>
+            </div>
+            <div style ="flex:1rem;margin-top: 2rem;margin-left: 2rem">
+
+                <div>
+                <img src="./image/service_intro picture/iconmonstr-home-4-240.png" width="50rem" height="50rem">
+                <p class="area6_p1">會員登入</p>
+                </div>
+
+                <p class="area6_p2">登入網頁版Daobunso會員帳號，或使用Daobunso App登入帳號，確認訂單發佈者身分與相關身份訊息。</p>
+            </div>
+            <div style ="flex:1rem;margin-top: 2rem;margin-left: 2rem">
+                
+                <div>
+                <img src="./image/service_intro picture/iconmonstr-text-25-240.png"  width="50rem" height="50rem">
+                <p class="area6_p1">訂單填寫&發佈</p>
+                </div>
+
+                <p class="area6_p2">登入帳號後點選"訂單管理">"新建訂單"，即可開始填寫新訂單相關內容，確認完內容後可進行訂單發佈。</p>
+            </div>
+        </div>
+        <div id="sec_area_6">
+            <div style ="flex:1rem">
+                
+                <div>
+                <img src="./image/service_intro picture/iconmonstr-bicycle-1-240.png"  width="50rem" height="50rem">
+                <p class="area6_p1">專人派遣</p>
+                </div>
+
+                <p class="area6_p2">訂單發佈後，系統將會確認相關資訊，並分派人員於指定時間到地點進行代收作業。</p>
+            </div>
+            <div style ="flex:1rem;margin-left: 2rem">
+                
+                <div>
+                <img src="./image/service_intro picture/iconmonstr-construction-1-240.png"  width="50rem" height="50rem">
+                <p class="area6_p1">訂單確認&費用收取</p>
+                </div>
+
+                <p class="area6_p2">代收人員到達後將訂單內容與實際代收項目進行比對，並評估使否需要額外服務費用。</p>
+            </div>
+            <div style ="flex:1rem;margin-left: 2rem">
+                
+                <div>
+                <img src="./image/service_intro picture/iconmonstr-check-mark-13-240.png"  width="50rem" height="50rem">
+                <p class="area6_p1">完成訂單<p>
+                </div>
+
+                <p class="area6_p2">確認相關事項完成後，代收人員將會收取代收項目，並完成該筆訂單，系統將會另外通知您的訂單已完成。</p>
+            </div>
+        </div>
+        </center>
+        <center>
+            <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;margin-top: 3rem;"> <br>
+            <hr style="width:90%;"> <br>
+        </center>
+        <div id="sec_area_8">
+            <a href="./about_us.html">關於我們</a>
+            <a href="./service_intro.html">服務介紹</a>
+            <a href="./User terms.html">使用須知</a>
+            <a href="./problem.html">常見問題</a>
+            <a href="#">使用回饋</a>
+            <a href="./service.html">購買服務</a>
+            <a href="#">購物商城</a>
+        </div>
+    </section>
+    <footer>
+        <img id="footer_logo" src="./image/LOGO2.png" alt="footer_logo" width="200rem">
+        <a href="#"><img id="footer_media_fb" src="./image/iconmonstr-facebook-3-240.png" alt="fb sign" width="30rem"></a>
+        <a href="#"><img id="footer_media_IG" src="./image/iconmonstr-instagram-11-240.png" alt="IG sign" width="30rem"></a>
+        <a href="#"><img id="footer_media_Line" src="./image/iconmonstr-line-3-240.png" alt="Line sign" width="30rem"></a>
+        <a href="#"><img id="footer_media_Twitter" src="./image/iconmonstr-twitter-3-240.png" alt="Twitter sign" width="30rem"></a>
+      
+        <p>DAOBUNSO &copy; 2021 Garbage Connections. All Rights Reserved.<br>
+        僅為北科大 Java 017 班專題展示使用 <br>
+        如有任何問題請聯絡：XXXXX@gmail.com</p>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+</body>
+</html>
