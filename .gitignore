@@ -1,2 +1,2 @@
 /target/
-/src/main/java/test_springboot
+/src/main/resources/application.properties
