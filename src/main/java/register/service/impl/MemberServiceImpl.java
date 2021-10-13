@@ -22,13 +22,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean existsByMemberName(String name) {
+	public boolean existsByMemberAccount(String account) {
 		boolean exists = false;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			exists = memberDao.existsByMemberName(name);
+			exists = memberDao.existsByMemberAccount(account);
 			tx.commit();
 		}catch(Exception e) {
 			if(tx !=null) {

@@ -71,7 +71,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6 mx-auto">
-                        <form action="http://localhost:8080/Daobunso_Project/register.do" method="POST" id="form_in">
+                        <form id="form_in">
                             <div class="mb-3 mx-auto">
                               <label class="form-label" for="account">帳號</label>
                               <input class="form-control w-80 p-2" id="account" name="account" type="text" required pattern="^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$">
@@ -88,7 +88,7 @@
                             <button type="submit" class="btn btn-primary btn-lg">登入</button>
                             <button type="button" class="btn btn-primary btn-lg register">註冊</button>
                         </form>
-                        <form action="" method="POST" id="form_reg" style="display: none;">
+                        <form id="form_reg" style="display: none;">
                             <div class="mb-3 mx-auto">
                                 <label class="form-label" for="username">姓名</label>
                                 <input class="form-control w-80 p-2" id="username" type="text" name="username" placeholder="請輸入姓名" required>
@@ -169,7 +169,7 @@
                 return true;
               }
             });
-            const url = 'register.do';
+            let urlReg = 'http://localhost:8080/Daobunso_Project/register.do';
             
             $('#signup_btn').click(function(){ 
               member = {
@@ -179,7 +179,7 @@
               "Password":$('#pswdNew').val()
             };
             //   console.log(JSON.stringify(member));
-            fetch(url, {
+            fetch(urlReg, {
                     method: 'POST',
                     body: JSON.stringify(member),
                     headers: { 'Content-Type': 'application/json' },

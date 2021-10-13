@@ -6,7 +6,7 @@ import register.model.MemberBean;
 
 public interface MemberDao {
 	
- boolean existsByMemberName(String name);
+ boolean existsByMemberAccount(String account);
  
  void save(MemberBean memberBean);
  

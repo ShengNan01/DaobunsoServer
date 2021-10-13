@@ -7,7 +7,7 @@ import register.model.MemberBean;
 
 public interface MemberService {
 
-	boolean existsByMemberName(String name);
+	boolean existsByMemberAccount(String account);
 
 	void save(MemberBean memberBean);
 

@@ -17,12 +17,12 @@ public class MemberDaoImpl implements MemberDao{
 	}
 
 	@Override
-	public boolean existsByMemberName(String name) {
+	public boolean existsByMemberAccount(String account) {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM MemberBean m WHERE m.Member_name = :name";
+		String hql = "FROM MemberBean m WHERE m.Account = :account";
 		boolean result = false;
 		List<MemberBean> beans = session.createQuery(hql, MemberBean.class)
-                .setParameter("name", name)
+                .setParameter("account", account)
                 .getResultList();
 		if (beans.size() > 0) {
 			result = true;
