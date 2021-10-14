@@ -6,6 +6,14 @@ let product_price   = spcatch.p_price;
 
 
 $('.product-img img').attr('src',imgsrc);
+$('.product-img img').height(600);
+$('.product-img img').width(400);
+
+
+// document.getElementById('.product-img img').style.left=800;
+// document.getElementById('.product-img img').style.top=200; 
+$('.product-img img').css({position: 'relative',left:offsetleft =50,});  
+
 $('.product-name h3').html(product_name);
 $('.product-content').html(spcatch.p_content);
 $('.product-price').html(product_price);

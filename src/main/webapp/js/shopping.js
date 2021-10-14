@@ -1,6 +1,6 @@
-let p1imgsrc = "./image/service_intro picture/holo/pekora.png"; 
-let p2imgsrc = "./image/service_intro picture/holo/marine.png"; 
-let p3imgsrc = "./image/service_intro picture/holo/noel.png";
+let p1imgsrc = "./image/trashbag1.jpg"; 
+let p2imgsrc = "./image/trashbag2.jpg"; 
+let p3imgsrc = "./image/trashbag3.jpg";
 let p1name ="Usada Pekora";
 let p2name ="Houshou Marine";
 let p3name ="Shirogane Noel";
