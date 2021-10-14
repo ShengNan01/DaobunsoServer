@@ -71,7 +71,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6 mx-auto">
-                        <form action="" method="POST" id="form_in">
+                        <form id="form_in">
                             <div class="mb-3 mx-auto">
                               <label class="form-label" for="account">帳號</label>
                               <input class="form-control w-80 p-2" id="account" name="account" type="text" required pattern="^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$">
@@ -85,10 +85,10 @@
                               <label class="form-check-label" for="rememberMe">記住我</label>
                               <a href="#">忘記密碼?</a>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg">登入</button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="login_btn">登入</button>
                             <button type="button" class="btn btn-primary btn-lg register">註冊</button>
                         </form>
-                        <form action="" method="POST" id="form_reg">
+                        <form id="form_reg" style="display: none;">
                             <div class="mb-3 mx-auto">
                                 <label class="form-label" for="username">姓名</label>
                                 <input class="form-control w-80 p-2" id="username" type="text" name="username" placeholder="請輸入姓名" required>
@@ -109,7 +109,7 @@
                                 <label class="form-label" for="repswd">密碼確認</label>
                                 <input class="form-control w-80 p-2" type="password" id="repswd" name="repswd" placeholder="請確認密碼" required>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg" id="register">註冊</button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="signup_btn">註冊</button>
                     </form>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
             <a class="nav-link" href="./service.html">購買服務</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">購物商城</a>
+            <a class="nav-link" href="./shopping.html">購物商城</a>
           </li>
         </ul>
     </section>
@@ -157,9 +157,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
     <script>
-            $(window).on('load',function(){
-                $("#form_reg").hide();
-            });
             $(".register").on('click',function(){
                 $("#form_in").hide();
                 $("#form_reg").show();
@@ -172,6 +169,28 @@
                 return true;
               }
             });
+            let urlReg = 'http://localhost:8080/Daobunso_Project/register.do';
+            
+            $('#signup_btn').click(function(){ 
+              member = {
+              "Member_name":$('#username').val(),
+              "Email":$('#email').val(),
+              "Account":$('#accountNew').val(),
+              "Password":$('#pswdNew').val()
+            };
+            //   console.log(JSON.stringify(member));
+            fetch(urlReg, {
+                    method: 'POST',
+                    body: JSON.stringify(member),
+                    headers: { 'Content-Type': 'application/json' },
+                })
+                .then(response => console.log(response))
+                // .then(res => {
+                //   text = JSON.parse(res);
+                //   alert(text);
+                // })
+            });
+
     </script>
 </body>
 </html>

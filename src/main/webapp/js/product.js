@@ -53,6 +53,7 @@ $('.product-dropdown .dropdown-item4').click(()=>{
 }
 //cart-add
 cart_add.click( () => {
+    alert("已加入購物車");
    
     cart.push({
         type    :   "product",
@@ -64,7 +65,6 @@ cart_add.click( () => {
         date:"",
     });
     localStorage.setItem('cart',JSON.stringify(cart));
-    alert("送出購物車\n內容為:\n"+ localStorage.getItem('cart'));
 });
 //cart-add
 
