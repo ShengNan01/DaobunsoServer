@@ -1,4 +1,5 @@
 /src/main/resources/application.properties
 /target/m2e-wtp/
-/target/
-pom.xml
+/src/test/
+src/main/java/test_springboot
+target/classes/application.properties
