@@ -1,9 +1,9 @@
-// 接收shopping頁面的sessionStorage
+//接收shopping頁面的sessionStorage
 let spcatch = JSON.parse(sessionStorage.getItem('splink'))[0];
 let imgsrc  = spcatch.p_imgsrc;
 let product_name    = spcatch.p_name;
 let product_price   = spcatch.p_price;
-
+//~接收shopping頁面的sessionStorage
 
 $('.product-img img').attr('src',imgsrc);
 $('.product-img img').height(600);
@@ -23,12 +23,12 @@ const cart_add = $('.cart-add');
 
 let product_amount  = $('.product-dropdown button').html();
 
-// amount
+//amount
 {
 $('.product-dropdown .dropdown-item1').click(()=>{
-    // button 換字
+    //button 換字
     $('.product-dropdown button').html("1");
-    // button 換字
+    //~button 換字
     product_amount = 1;
 });
 $('.product-dropdown .dropdown-item2').click(()=>{
@@ -44,7 +44,8 @@ $('.product-dropdown .dropdown-item4').click(()=>{
     product_amount = 4;
 });
 }
-// amount
+//~amount
+
  let cartJson = localStorage.getItem('cart');
  let cart = [];
 
@@ -66,5 +67,5 @@ cart_add.click( () => {
     });
     localStorage.setItem('cart',JSON.stringify(cart));
 });
-//cart-add
+//~cart-add
 
