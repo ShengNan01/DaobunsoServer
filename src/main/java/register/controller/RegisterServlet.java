@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import register.model.MemberBean;
 import register.service.MemberService;
 import register.service.impl.MemberServiceImpl;
+import util.GlobalService;
 
 @WebServlet("/register.do")
 public class RegisterServlet extends HttpServlet {
@@ -26,6 +27,8 @@ public class RegisterServlet extends HttpServlet {
 //		System.out.println(member.getEmail());
 //		System.out.println(member.getMember_name());
 //		System.out.println(member.getPassword());
+		String enPswd = GlobalService.encryptString(member.getPassword());
+//		System.out.println(enPswd);
 		MemberService ms = new MemberServiceImpl();
 		if (ms.existsByMemberAccount(member.getAccount())){
 			response.setContentType("application/json");
@@ -34,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
 		}else{
 		Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());
 		MemberBean bean = new MemberBean(null,member.getEmail(),member.getAccount()
-							,member.getPassword(),member.getMember_name(),ts);
+							,enPswd,member.getMember_name(),ts);
 		ms.save(bean);
 
 		response.setContentType("application/json");

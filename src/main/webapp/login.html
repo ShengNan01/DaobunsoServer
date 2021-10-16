@@ -71,7 +71,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6 mx-auto">
-                        <form id="form_in">
+                        <form method="POST" id="form_in">
                             <div class="mb-3 mx-auto">
                               <label class="form-label" for="account">帳號</label>
                               <input class="form-control w-80 p-2" id="account" name="account" type="text" required pattern="^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$">
@@ -88,7 +88,7 @@
                             <button type="submit" class="btn btn-primary btn-lg" id="login_btn">登入</button>
                             <button type="button" class="btn btn-primary btn-lg register">註冊</button>
                         </form>
-                        <form id="form_reg" style="display: none;">
+                        <form method="POST" id="form_reg" style="display: none;">
                             <div class="mb-3 mx-auto">
                                 <label class="form-label" for="username">姓名</label>
                                 <input class="form-control w-80 p-2" id="username" type="text" name="username" placeholder="請輸入姓名" required>
@@ -171,7 +171,10 @@
             });
             let urlReg = 'http://localhost:8080/Daobunso_Project/register.do';
             
-            $('#signup_btn').click(function(){ 
+            $('#signup_btn').click(function(e){
+              $(this).width('5.5rem');
+              $(this).text("傳送中");
+              e.preventDefault();
               member = {
               "Member_name":$('#username').val(),
               "Email":$('#email').val(),
@@ -179,17 +182,23 @@
               "Password":$('#pswdNew').val()
             };
             //   console.log(JSON.stringify(member));
-            fetch(urlReg, {
+           fetch(urlReg, {
                     method: 'POST',
                     body: JSON.stringify(member),
                     headers: { 'Content-Type': 'application/json' },
                 })
-                .then(response => console.log(response))
-                // .then(res => {
-                //   text = JSON.parse(res);
-                //   alert(text);
-                // })
-            });
+                .then(response => { response.text()
+                .then(text => {
+                  if( text === "註冊成功，請重新登入"){
+                    alert(text);
+                    location.reload();
+                  } else {
+                    $(this).width('5rem');
+                    $(this).text("註冊");
+                    alert(text)}
+                  })
+                });
+              });
 
     </script>
 </body>
