@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import com.google.gson.Gson;
 
 import register.model.MemberBean;
 import register.service.MemberService;
-import register.service.impl.MemberServiceImpl;
 import util.GlobalService;
 
 @WebServlet("/register.do")
@@ -29,7 +31,8 @@ public class RegisterServlet extends HttpServlet {
 //		System.out.println(member.getPassword());
 		String enPswd = GlobalService.encryptString(member.getPassword());
 //		System.out.println(enPswd);
-		MemberService ms = new MemberServiceImpl();
+		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		MemberService ms = ctx.getBean(MemberService.class);
 		if (ms.existsByMemberAccount(member.getAccount())){
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");

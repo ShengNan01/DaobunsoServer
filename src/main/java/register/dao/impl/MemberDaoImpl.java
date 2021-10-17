@@ -4,26 +4,32 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import register.dao.MemberDao;
 import register.model.MemberBean;
-import util.HibernateUtils;
 
-public class MemberDaoImpl implements MemberDao{
+@Repository
+public class MemberDaoImpl implements MemberDao {
 	SessionFactory factory;
 
-	public MemberDaoImpl() {
-		this.factory = HibernateUtils.getSessionFactory();
+	@Autowired
+	public MemberDaoImpl(SessionFactory factory) {
+		this.factory = factory;
 	}
+
+//	public MemberDaoImpl() {
+//		this.factory = HibernateUtils.getSessionFactory();
+//	}
 
 	@Override
 	public boolean existsByMemberAccount(String account) {
 		Session session = factory.getCurrentSession();
 		String hql = "FROM MemberBean m WHERE m.Account = :account";
 		boolean result = false;
-		List<MemberBean> beans = session.createQuery(hql, MemberBean.class)
-                .setParameter("account", account)
-                .getResultList();
+		List<MemberBean> beans = session.createQuery(hql, MemberBean.class).setParameter("account", account)
+				.getResultList();
 		if (beans.size() > 0) {
 			result = true;
 		} else {
@@ -36,15 +42,14 @@ public class MemberDaoImpl implements MemberDao{
 	public void save(MemberBean memberBean) {
 		Session session = factory.getCurrentSession();
 		session.save(memberBean);
-		
+
 	}
 
 	@Override
 	public List<MemberBean> findAll() {
 		Session session = factory.getCurrentSession();
 		String hql = "FROM MemberBean";
-		List<MemberBean> beans = session.createQuery(hql, MemberBean.class)
-				.getResultList();
+		List<MemberBean> beans = session.createQuery(hql, MemberBean.class).getResultList();
 		return beans;
 	}
 
@@ -60,14 +65,14 @@ public class MemberDaoImpl implements MemberDao{
 		MemberBean memberBean = new MemberBean();
 		memberBean.setMemberId(memberId);
 		session.delete(memberBean);
-		
+
 	}
 
 	@Override
 	public void update(MemberBean memberBean) {
 		Session session = factory.getCurrentSession();
 		session.update(memberBean);
-		
+
 	}
 
 }
