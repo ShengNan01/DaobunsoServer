@@ -7,7 +7,7 @@ let uname = "pekora";
 //Feedback定義變數
 let oid ="";
 let uid ="";
-let getstar = 0;
+let getstar;
 let ucomment = "";
 let wdate = Date();
 
@@ -43,38 +43,27 @@ $('.btn-feedback').click(()=>{
         comment     :   ucomment,
     });
 
-    console.log(JSON.stringify(feedback));
-    localStorage.setItem('feedback',JSON.stringify(feedback));
 
-    alert("感謝你寶貴的意見!\n"+ localStorage.getItem('feedback'));
+    sessionStorage.setItem('feedback',JSON.stringify(feedback));
+
+    alert("感謝你寶貴的意見!\n"+ sessionStorage.getItem('feedback'));
+
+    // GET
+    // const x = "哈囉 我是Pekora";
+    // http://localhost:8080/feedback${x}
 
 
-//傳送請求
-// let sss ;
-// if(getstar==1){
-//     sss = 'GET';
-// }if(getstar==2){
-//     sss = 'POST';
-// }if (getstar==3) {
-//     sss = 'PUT';
-// }if (getstar==4) {
-//     sss = 'DELETE';
-// } else {
-//     console.log("star = 5");
-// }
-    const x = "哈囉 我是Pekora";
-    let url = `http://localhost:8080/feedback.html/submit${x}`
+    let url = `http://localhost:8080/feedback`
     fetch(url,{
-                method: "POST",
+                method: 'POST',
                 body: JSON.stringify(feedback),
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded', },
     }).then((response) =>{
         response.json()
         .then(res =>{
-            console.log(res.name)
+            console.log(res)
         });
     });
-
 
 });
 //~意見送出按鈕
