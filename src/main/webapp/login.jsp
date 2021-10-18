@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/login.css">
     <script src="./js/jquery-3.6.0.js"></script>
-    <!-- <script src="./js/login.js"></script> -->
 </head>
 <body>
     <header>
@@ -40,7 +39,7 @@
                     <a class="nav-link" href="./about_us.html">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./shopping.html">Shopping</a>
+                    <a class="nav-link" href="#">Shopping</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="./service.html">Service</a>
@@ -75,7 +74,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6 mx-auto">
-                        <form method="POST" id="form_in">
+                        <form action="" method="POST" id="form_in">
                             <div class="mb-3 mx-auto">
                               <label class="form-label" for="account">帳號</label>
                               <input class="form-control w-80 p-2" id="account" name="account" type="text" required pattern="^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$">
@@ -89,10 +88,10 @@
                               <label class="form-check-label" for="rememberMe">記住我</label>
                               <a href="#">忘記密碼?</a>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg" id="login_btn">登入</button>
+                            <button type="submit" class="btn btn-primary btn-lg">登入</button>
                             <button type="button" class="btn btn-primary btn-lg register">註冊</button>
                         </form>
-                        <form method="POST" id="form_reg" style="display: none;">
+                        <form action="" method="POST" id="form_reg">
                             <div class="mb-3 mx-auto">
                                 <label class="form-label" for="username">姓名</label>
                                 <input class="form-control w-80 p-2" id="username" type="text" name="username" placeholder="請輸入姓名" required>
@@ -113,7 +112,7 @@
                                 <label class="form-label" for="repswd">密碼確認</label>
                                 <input class="form-control w-80 p-2" type="password" id="repswd" name="repswd" placeholder="請確認密碼" required>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg" id="signup_btn">註冊</button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="register">註冊</button>
                     </form>
                     </div>
                 </div>
@@ -143,7 +142,7 @@
             <a class="nav-link" href="./service.html">購買服務</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./shopping.html">購物商城</a>
+            <a class="nav-link" href="#">購物商城</a>
           </li>
         </ul>
     </section>
@@ -159,6 +158,23 @@
       如有任何問題請聯絡：XXXXX@gmail.com</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="./js/login.js"></script>
-  </body>
+
+    <script>
+            $(window).on('load',function(){
+                $("#form_reg").hide();
+            });
+            $(".register").on('click',function(){
+                $("#form_in").hide();
+                $("#form_reg").show();
+            })
+            $('#form_reg').submit(function () { 
+              if($('#pswdNew').val() != $('#repswd').val()){
+                alert('兩次輸入的密碼不相符，請重新輸入！');
+                return false;
+              } else {
+                return true;
+              }
+            });
+    </script>
+</body>
 </html>

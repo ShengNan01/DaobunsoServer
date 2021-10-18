@@ -1,18 +1,22 @@
+//定義頁面
 const starimg = "./image/service_intro picture/holo/noel.png";
 
-let oid ="";
 let uimgsrc = "./image/service_intro picture/holo/pekora.png";
 let uname = "pekora";
+
+//Feedback定義變數
+let oid ="";
 let uid ="";
 let getstar = 0;
-let ucontent = "";
+let ucomment = "";
 let wdate = Date();
 
+//頁面初始化
 $('.feedback').hide();
 $('.user-img img').attr('src',uimgsrc);
 $('.star img').attr('src',starimg);
 $('.user-name h2').text(uname);
-
+//展開按鈕
 $('.btn-ex').click(function(){
 
     $(this).toggleClass('tog');
@@ -24,9 +28,10 @@ $('.btn-ex').click(function(){
         $('.btn-ex').text("填寫意見");
     }
 });
-
+//~展開按鈕
+//意見送出按鈕
 $('.btn-feedback').click(()=>{
-    ucontent = $('.form-control').val();
+    ucomment = $('#feedback-comment').val();
     let feedback = [];
     
     feedback.push({
@@ -35,15 +40,45 @@ $('.btn-feedback').click(()=>{
         userid      :   uid,
         star        :   getstar,
         date        :   wdate,
-        content     :   ucontent,
+        comment     :   ucomment,
     });
 
     console.log(JSON.stringify(feedback));
     localStorage.setItem('feedback',JSON.stringify(feedback));
 
     alert("感謝你寶貴的意見!\n"+ localStorage.getItem('feedback'));
+
+
+//傳送請求
+// let sss ;
+// if(getstar==1){
+//     sss = 'GET';
+// }if(getstar==2){
+//     sss = 'POST';
+// }if (getstar==3) {
+//     sss = 'PUT';
+// }if (getstar==4) {
+//     sss = 'DELETE';
+// } else {
+//     console.log("star = 5");
+// }
+    const x = "哈囉 我是Pekora";
+    let url = `http://localhost:8080/feedback.html/submit${x}`
+    fetch(url,{
+                method: "POST",
+                body: JSON.stringify(feedback),
+                headers: { 'Content-Type': 'application/json' },
+    }).then((response) =>{
+        response.json()
+        .then(res =>{
+            console.log(res.name)
+        });
+    });
+
+
 });
-// star
+//~意見送出按鈕
+//star
 {
     $('.star1').hover(()=>{
         $('.star1').addClass('star-act')
@@ -139,4 +174,4 @@ $('.btn-feedback').click(()=>{
         getstar = 5;
     });
 }
-// star
+//~star
