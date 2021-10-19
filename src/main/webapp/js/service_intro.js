@@ -1,3 +1,15 @@
+$(function(){
+    memberData = JSON.parse(localStorage.getItem('member'));
+    if(memberData.Login === 'OK'){
+        $('.dropdown-toggle').text(memberData.member_name);
+        $('.dropdown-item:eq(3)').text('Log out');
+        $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+    }
+})
+$('.dropdown-item:eq(3)').click(function () {
+    localStorage.removeItem('member');
+});
+
 $(".card_b1").hover(function () {
         $('#card_f1').show();
     }, function () {

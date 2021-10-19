@@ -1,7 +1,18 @@
-storage = localStorage;
+$(function(){
+    memberData = JSON.parse(localStorage.getItem('member'));
+    if(memberData.Login === 'OK'){
+        $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
+        $('.dropdown-item:eq(3)').text('Log out');
+        $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+    }
+})
+$('.dropdown-item:eq(3)').click(function () {
+    localStorage.removeItem('member');
+});
+
 $(function(){
     tbody = $('tbody');
-    jsonData = JSON.parse(storage.getItem('cart'));
+    jsonData = JSON.parse(localStorage.getItem('cart'));
     
     // console.log(jsonData.length);
     total = 0;
@@ -105,7 +116,7 @@ function deleteItem(){
     $('#total').text(total);
     jsonData.splice(index, 1);
     // console.log(jsonData);
-    storage.setItem('cart', JSON.stringify(jsonData));
+    localStorage.setItem('cart', JSON.stringify(jsonData));
     tbody.remove($(this).parent().parent());
     location.reload(); 
 }

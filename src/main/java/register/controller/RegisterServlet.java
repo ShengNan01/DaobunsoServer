@@ -3,6 +3,7 @@ package register.controller;
 import java.io.IOException;
 import java.sql.Timestamp;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +32,9 @@ public class RegisterServlet extends HttpServlet {
 //		System.out.println(member.getPassword());
 		String enPswd = GlobalService.encryptString(member.getPassword());
 //		System.out.println(enPswd);
-		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		ServletContext sc = getServletContext();
+		WebApplicationContext ctx = WebApplicationContextUtils
+									 .getWebApplicationContext(sc);
 		MemberService ms = ctx.getBean(MemberService.class);
 		if (ms.existsByMemberAccount(member.getAccount())){
 			response.setContentType("application/json");

@@ -51,3 +51,46 @@ $('#signup_btn').click(function(e){
         })
     };
 });
+
+let urlLogin = 'http://localhost:8080/Daobunso_Project/login.do';
+$('#login_btn').click(function(e){
+    e.preventDefault();
+    if($('#account').val() === "" || $('#pswd').val() === "" ){
+         alert('有欄位未填寫，請檢查！');
+    } 
+    else {
+            login = {
+                "account":$('#account').val(),
+                "password":$('#pswd').val(),               
+            };
+
+            // console.log(JSON.stringify(login));
+           
+    fetch(urlLogin, {
+                method: 'POST',
+                body: JSON.stringify(login),  //將JavaScript物件轉為JSON物件
+                headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => { response.json()
+        .then(res => { console.log(res)
+            if( res.Login === "NO"){
+            alert('帳號或密碼不正確');
+            location.reload();
+            } else {
+                   alert("登入成功");
+                   $('.dropdown-toggle').text(res.member_name);
+                   $('.dropdown-item:eq(3)').text('Log out');
+                   $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+                   localStorage.setItem('member',JSON.stringify(res));
+                   history.go(-1);
+
+                //    location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
+            }
+        })
+        })
+    };      
+});
+
+$('.dropdown-item:eq(3)').click(function () { 
+    localStorage.removeItem('member');
+});
