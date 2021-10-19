@@ -26,6 +26,9 @@ import util.GlobalService;
 @WebServlet("/login.do")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	String decryptPassword;
+	String EncryptPassword;
+	MemberBean member;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
