@@ -36,16 +36,6 @@
 			<version>1.2</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.7</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 		</dependency>
@@ -76,19 +66,15 @@
 		    <groupId>org.springframework.boot</groupId> 
 		    <artifactId>spring-boot-starter-aop</artifactId> 
 	    </dependency>
-	    <dependency> 
-		    <groupId>org.springframework</groupId> 
-		    <artifactId>spring-tx</artifactId> 
-	    </dependency>
-	    <dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-jms</artifactId>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>com.google.code.gson</groupId>
-		    <artifactId>gson</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
-
 	</dependencies>
 	<build>
 	    <plugins>

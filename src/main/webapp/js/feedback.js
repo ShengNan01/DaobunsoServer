@@ -57,7 +57,7 @@ $('.btn-feedback').click(()=>{
     fetch(url,{
                 method: 'POST',
                 body: JSON.stringify(feedback),
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded', },
+                headers: { 'Content-Type': 'application/json'},
     }).then((response) =>{
         response.json()
         .then(res =>{
