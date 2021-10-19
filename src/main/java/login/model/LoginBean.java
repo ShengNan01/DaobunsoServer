@@ -2,13 +2,12 @@ package login.model;
 
 import java.io.Serializable;
 
-import org.springframework.stereotype.Component;
-@Component
 public class LoginBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private String account;
 	private String password;
+	private boolean rememberMe;
 	
 	
 	public LoginBean() {
@@ -16,10 +15,11 @@ public class LoginBean implements Serializable{
 	}
 
 
-	public LoginBean(String account, String password) {
+	public LoginBean(String account, String password,Boolean rememberMe) {
 		super();
 		this.account = account;
 		this.password = password;
+		this.rememberMe = rememberMe;
 	}
 
 	public String getAccount() {
@@ -40,10 +40,26 @@ public class LoginBean implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+
+	public boolean getRememberMe() {
+		return rememberMe;
+	}
+
+
+	public void setRememberMe(boolean rememberMe) {
+		this.rememberMe = rememberMe;
+	}
+
 
 	@Override
 	public String toString() {
-		return "LoginBean [account=" + account + ", password=" + password + "]";
+		return "LoginBean [account=" + account + ", password=" + password + ", rememberMe=" + rememberMe + "]";
 	}
+	
+	
+
+
 	
 }

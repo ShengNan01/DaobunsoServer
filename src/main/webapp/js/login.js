@@ -53,18 +53,41 @@ $('#signup_btn').click(function(e){
 });
 
 let urlLogin = 'http://localhost:8080/Daobunso_Project/login.do';
+
+$(document).ready(function(){
+    if (getCookieByName('account') != "" && getCookieByName('daobunsopppp') != "") {
+           
+            $("#account").val(getCookieByName('account'));
+            $("#pswd").val(getCookieByName('daobunsopppp')); 
+            
+    
+
+    }
+
+})
+
+var checkis;
+    $("#rememberMe").click(function(){
+        checkis = $(this).is(":checked");
+        console.log(checkis);
+    });
+
 $('#login_btn').click(function(e){
     e.preventDefault();
+    
     if($('#account').val() === "" || $('#pswd').val() === "" ){
          alert('有欄位未填寫，請檢查！');
     } 
     else {
+       
+
             login = {
                 "account":$('#account').val(),
-                "password":$('#pswd').val(),               
+                "password":$('#pswd').val(),
+                "RememberMe":checkis,               
             };
 
-            // console.log(JSON.stringify(login));
+            console.log(JSON.stringify(login));
            
     fetch(urlLogin, {
                 method: 'POST',
@@ -90,6 +113,31 @@ $('#login_btn').click(function(e){
         })
     };      
 });
+
+function parseCookie() {
+    var cookieObj = {};
+    var cookieAry = document.cookie.split(';');
+    var cookie;
+    
+    for (var i=0, l=cookieAry.length; i<l; ++i) {
+        cookie = jQuery.trim(cookieAry[i]);
+        cookie = cookie.split('=');
+        cookieObj[cookie[0]] = cookie[1];
+    }
+    
+    return cookieObj;
+}
+
+
+function getCookieByName(name) {
+    var value = parseCookie()[name];
+    if (value) {
+        value = decodeURIComponent(value);
+    }
+
+    return value;
+}
+
 
 $('.dropdown-item:eq(3)').click(function () { 
     localStorage.removeItem('member');
