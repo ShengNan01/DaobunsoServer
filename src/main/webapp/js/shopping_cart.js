@@ -99,6 +99,7 @@ function changItemCount() {
     // console.log(itemPrice);
     jsonData[index].amount = newNum;
     // console.log(jsonData[index].amount);
+    localStorage.setItem('cart', JSON.stringify(jsonData));
 
     let subtotal = newNum * itemPrice;
     // console.log(subtotal);

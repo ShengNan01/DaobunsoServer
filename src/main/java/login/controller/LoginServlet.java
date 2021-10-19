@@ -32,7 +32,6 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 
-		// 詠慈方法
 		LoginBean login = gson.fromJson(request.getReader(), LoginBean.class);
 //		System.out.println(login.getAccount());
 //		System.out.println(login.getPassword());

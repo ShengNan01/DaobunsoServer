@@ -2,6 +2,8 @@ package login.model;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Component;
+@Component
 public class LoginBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
