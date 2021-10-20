@@ -1,0 +1,5 @@
+spring:
+  database:
+    user:  root
+    password: 
+  

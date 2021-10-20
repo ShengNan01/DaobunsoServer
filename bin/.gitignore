@@ -1,0 +1,12 @@
+/src/main/resources/application.properties
+/target/m2e-wtp/
+/target/
+pom.xml
+src/main/java/test_springboot
+src/main/resources/holo.properties
+src/main/resources/Holodb.properties
+src/main/resources/MCV_config.properties
+target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+target/m2e-wtp/web-resources/META-INF/maven/edu.ntut.Daobunso/Daobunso_Project/pom.properties
+target/classes/test_springboot

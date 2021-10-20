@@ -1,10 +1,5 @@
 {"properties": [{
-  "name": "feedback",
+  "name": "feedback1",
   "type": "java.lang.String",
-  "objectid": "java.lang.String",
-  "userid": "java.lang.String",
-  "star": "java.lang.String",
-  "date": "java.lang.String",
-  "comment": "java.lang.String",
-  "description": "A description for 'feedback'"
+  "description": "A description for 'feedback1'"
 }]}
