@@ -107,7 +107,7 @@ public class LoginServlet extends HttpServlet {
 	String memberAccount = null;
 	
 	// 如果前端有勾選remember me，rm = true
-	if (rm) {
+	if (!rm) {
 		
 		memberAccount = member.getAccount();
 		cookieUser = new Cookie("account", memberAccount);
