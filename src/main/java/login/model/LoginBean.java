@@ -21,6 +21,13 @@ public class LoginBean implements Serializable{
 		this.password = password;
 		this.rememberMe = rememberMe;
 	}
+	
+	public LoginBean(String account, String password) {
+		super();
+		this.account = account;
+		this.password = password;
+		
+	}
 
 	public String getAccount() {
 		return account;
