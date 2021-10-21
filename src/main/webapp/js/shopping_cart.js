@@ -1,14 +1,32 @@
 $(function(){
-    memberData = JSON.parse(localStorage.getItem('member'));
-    if(memberData.Login === 'OK'){
+    if(localStorage.getItem('member') != null){
+        memberData = JSON.parse(localStorage.getItem('member'));
+        if(memberData.Login === 'OK'){
         $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
         $('.dropdown-item:eq(3)').text('Log out');
         $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
-    }
+        }
+        $('.dropdown-item:eq(3)').click(function () {
+            localStorage.removeItem('member');
+        });
+        $('#payment_btn').click(function () {
+            if(memberData.Login === 'OK') {
+                if(confirm("確定要結帳了嗎？")){
+                    location.href='./payment.html';
+                } 
+            } else {
+                alert("請先登入會員")
+                location.href='./login.html';
+            }
+        });
+    } else {
+        $('#payment_btn').click(function (){
+            alert("請先登入會員")
+            location.href='./login.html';
+        })
+    }   
 })
-$('.dropdown-item:eq(3)').click(function () {
-    localStorage.removeItem('member');
-});
+
 
 $(function(){
     tbody = $('tbody');
