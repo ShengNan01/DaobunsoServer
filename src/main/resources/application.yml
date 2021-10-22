@@ -1,5 +1,8 @@
-spring:
-  database:
-    user:  root
-    password: 
-  
+spring: 
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/testjpa?serverTimezone=Asia/Taipei&characterEncoding=utf-8
+    username: manager
+    password: $2a$08$bZJeeZKCnq5fU.aiPPsgtuIn.Xs99Eu0.oaBiWjohOzZPNEoPa7R6
+  jpa: 
+    hibernate:      ddl-auto: update

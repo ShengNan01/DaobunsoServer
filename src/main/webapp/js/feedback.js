@@ -5,8 +5,8 @@ let uimgsrc = "./image/service_intro picture/holo/pekora.png";
 let uname = "pekora";
 
 //Feedback定義變數
-let oid ="f0800092000";
-let uid ="pekopeko333";
+let oid ="";
+let uid ="";
 let getstar;
 let ucomment = "";
 let wdate = Date();
@@ -32,22 +32,19 @@ $('.btn-ex').click(function(){
 //意見送出按鈕
 $('.btn-feedback').click(()=>{
     ucomment = $('#feedback-comment').val();
-    let feedback = [];
     
-    feedback.push({
-        type        :   "feedback",
-        objectid    :   oid,
-        userid      :   uid,
-        star        :   getstar,
-        date        :   wdate,
-        comment     :   ucomment,
-    });
     // sessionStorage.setItem('feedback',JSON.stringify(feedback));
     // alert("感謝你寶貴的意見!\n"+ sessionStorage.getItem('feedback'));
     let url = `http://localhost:8080/feedback`
     fetch(url,{
                 method: 'POST',
-                body: JSON.stringify(feedback[0]),
+                body: JSON.stringify({
+                    objectid    :   oid,
+                    userid      :   uid,
+                    star        :   getstar,
+                    date        :   wdate,
+                    comment     :   ucomment,
+                }),
                 headers: { 'Content-Type': 'application/json'},
     }).then((response) =>{
         response.json()
