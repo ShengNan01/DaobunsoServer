@@ -6,7 +6,7 @@ let uname = "pekora";
 
 //Feedback定義變數
 let oid ="";
-let uid ="";
+let uaccount ="toyz1234";
 let getstar;
 let ucomment = "";
 let wdate = Date();
@@ -29,18 +29,31 @@ $('.btn-ex').click(function(){
     }
 });
 //~展開按鈕
+
+//編輯意見按鈕
+$('.btn-edit').click(()=>{
+// GET
+    fetch(`http://localhost:8080/grading?uaccount=${uaccount}`,{
+                method: 'GET',
+    }).then((response) =>{
+        response.json()
+        .then(res =>{
+            console.log(res)
+        });
+    });
+})
+//~編輯意見按鈕
+
 //意見送出按鈕
 $('.btn-feedback').click(()=>{
     ucomment = $('#feedback-comment').val();
-    
-    // sessionStorage.setItem('feedback',JSON.stringify(feedback));
-    // alert("感謝你寶貴的意見!\n"+ sessionStorage.getItem('feedback'));
-    let url = `http://localhost:8080/feedback`
-    fetch(url,{
+    // sessionStorage.setItem('grading',JSON.stringify(grading));
+    // alert("感謝你寶貴的意見!\n"+ sessionStorage.getItem('grading'));
+    fetch(`http://localhost:8080/grading`,{
                 method: 'POST',
                 body: JSON.stringify({
                     objectid    :   oid,
-                    userid      :   uid,
+                    user_account:   uaccount,
                     star        :   getstar,
                     date        :   wdate,
                     comment     :   ucomment,
@@ -52,12 +65,6 @@ $('.btn-feedback').click(()=>{
             console.log(res)
         });
     });
-    // GET
-    // const x = "哈囉 我是Pekora";
-    // let url = `http://localhost:8080/verify?uid=${uid}&email=${email}`
-    // let uid ="peko123";
-    // let email= "pekopeko@xxx.xxx";
-
 });
 //~意見送出按鈕
 //star

@@ -1,0 +1,20 @@
+package test_springboot;
+
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+//@EnableJpaRepositories
+@Repository
+public interface GradingRepo extends JpaRepository<Grading,Integer> {
+//	@Query("SELECT* FROM grading WHERE Account =user_account")
+	public List<Grading> findByUser_account(String user_account);
+	
+}
