@@ -1,3 +1,10 @@
+let myModal = new bootstrap.Modal(document.getElementById('myModal'))
+
+function updateModal(title, massage) {
+$('#modal-title').text(title);
+$('#massage-content').text(massage);
+}
+
 $(function(){
     if(localStorage.getItem('member') != null){
         memberData = JSON.parse(localStorage.getItem('member'));
@@ -68,7 +75,9 @@ $('.product-dropdown .dropdown-item4').click(()=>{
 }
 //cart-add
 cart_add.click( () => {
-    alert("已加入購物車");
+    // alert("已加入購物車");
+    updateModal("Thanks!", "已加入購物車囉！");
+    myModal.show();
    
     cart.push({
         type    :   "product",
@@ -83,3 +92,8 @@ cart_add.click( () => {
 });
 //~cart-add
 
+// reset modal when modal was hidden
+let myModalEl = document.getElementById('myModal')
+myModalEl.addEventListener('hidden.bs.modal', function (event) {
+    updateModal("","");
+})

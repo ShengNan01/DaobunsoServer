@@ -1,3 +1,10 @@
+let myModal = new bootstrap.Modal(document.getElementById('myModal'))
+
+function updateModal(title, massage) {
+$('#modal-title').text(title);
+$('#massage-content').text(massage);
+}
+
 $(function(){
     if(localStorage.getItem('member') != null){
         memberData = JSON.parse(localStorage.getItem('member'));
@@ -15,18 +22,31 @@ $(function(){
                     location.href='./payment.html';
                 } 
             } else {
-                alert("請先登入會員")
-                location.href='./login.html';
+                // alert("請先登入會員")
+                updateModal("Oops!", "請先登入會員！");
+                myModal.show();
+                $('.modal-footer>button').click(function(){
+                    location.href='./login.html';
+                }) 
             }
         });
     } else {
         $('#payment_btn').click(function (){
-            alert("請先登入會員")
-            location.href='./login.html';
+            // alert("請先登入會員")
+            updateModal("Oops!", "請先登入會員！");
+            myModal.show();
+            $('.modal-footer>button').click(function(){
+                location.href='./login.html';
+            })
         })
     }   
 })
 
+// reset modal when modal was hidden
+let myModalEl = document.getElementById('myModal')
+myModalEl.addEventListener('hidden.bs.modal', function (event) {
+    updateModal("","");
+})
 
 $(function(){
     tbody = $('tbody');

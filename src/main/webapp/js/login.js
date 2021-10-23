@@ -1,3 +1,10 @@
+let myModal = new bootstrap.Modal(document.getElementById('myModal'))
+
+function updateModal(title, massage) {
+$('#modal-title').text(title);
+$('#massage-content').text(massage);
+}
+
 $(".register").on('click',function(){
     $("#form_in").hide();
     $("#form_reg").show();
@@ -19,10 +26,16 @@ let urlReg = 'http://localhost:8080/Daobunso_Project/register.do';
 $('#signup_btn').click(function(e){
     e.preventDefault();
     if($('#pswdNew').val() !== $('#repswd').val()){
-        alert('兩次輸入的密碼不相符，請重新輸入！');
+        // alert('兩次輸入的密碼不相符，請重新輸入！');
+        updateModal("Oops!", "兩次輸入的密碼不相符，請重新輸入！");
+        myModal.show();
+        return;
     } else if($('#username').val() === "" || $('#email').val() === "" 
     || $('#accountNew').val() === "" || $('#pswdNew').val() ===""){
-    alert('有欄位未填寫，請檢查！');
+    // alert('有欄位未填寫，請檢查！');
+        updateModal("Oops!", "有欄位未填寫，請檢查！！");
+        myModal.show();
+        return;
     } else {
         member = {
             "Member_name":$('#username').val(),
@@ -41,12 +54,18 @@ $('#signup_btn').click(function(e){
     .then(response => { response.text()
     .then(text => {
       if( text === "註冊成功，請重新登入"){
-        alert(text);
+        // alert(text);
+        updateModal("Congratulations!", text);
+        myModal.show();
         location.reload();
       } else {
         $(this).width('5rem');
         $(this).text("註冊");
-        alert(text)}
+        // alert(text)
+        updateModal("Oops!", text);
+        myModal.show();
+        return;
+        }
         })
         })
     };
@@ -56,14 +75,9 @@ let urlLogin = 'http://localhost:8080/Daobunso_Project/login.do';
 
 $(document).ready(function(){
     if (getCookieByName('account') != "" && getCookieByName('daobunsopppp') != "") {
-           
             $("#account").val(getCookieByName('account'));
             $("#pswd").val(getCookieByName('daobunsopppp')); 
-            
-    
-
     }
-
 })
 
 var checkis;
@@ -76,11 +90,12 @@ $('#login_btn').click(function(e){
     e.preventDefault();
     
     if($('#account').val() === "" || $('#pswd').val() === "" ){
-         alert('有欄位未填寫，請檢查！');
+        //  alert('有欄位未填寫，請檢查！');
+        updateModal("Oops!", "有欄位未填寫，請檢查！！");
+        myModal.show();
+        return;
     } 
     else {
-       
-
             login = {
                 "account":$('#account').val(),
                 "password":$('#pswd').val(),
@@ -97,10 +112,14 @@ $('#login_btn').click(function(e){
         .then(response => { response.json()
         .then(res => { console.log(res)
             if( res.Login === "NO"){
-            alert('帳號或密碼不正確');
+            // alert('帳號或密碼不正確');
+            updateModal("Oops!", "帳號或密碼不正確！！");
+            myModal.show();
             location.reload();
             } else {
-                   alert("登入成功");
+                //    alert("登入成功");
+                   updateModal("Welcome!", "登入成功");
+                   myModal.show();
                    $('.dropdown-toggle').text(res.member_name);
                    $('.dropdown-item:eq(3)').text('Log out');
                    $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
@@ -134,11 +153,15 @@ function getCookieByName(name) {
     if (value) {
         value = decodeURIComponent(value);
     }
-
     return value;
 }
-
 
 $('.dropdown-item:eq(3)').click(function () { 
     localStorage.removeItem('member');
 });
+
+// reset modal when modal was hidden
+let myModalEl = document.getElementById('myModal')
+myModalEl.addEventListener('hidden.bs.modal', function (event) {
+    updateModal("","");
+})
