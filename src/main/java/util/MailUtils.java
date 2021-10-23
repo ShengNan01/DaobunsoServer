@@ -54,7 +54,7 @@ public class MailUtils {
         //設置發送方式與接收者
         message.setRecipient(RecipientType.TO, new InternetAddress(email));
         //郵件主題
-        message.setSubject("Daobunso註冊信");
+        message.setSubject("Daobunso修改密碼");
         //郵件內容
         message.setContent(emailMsg, "text/html;charset=utf-8");
 
