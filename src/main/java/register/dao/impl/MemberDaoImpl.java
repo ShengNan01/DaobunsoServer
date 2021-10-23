@@ -75,4 +75,19 @@ public class MemberDaoImpl implements MemberDao {
 
 	}
 
+	@Override
+	public boolean existsByMemberEmail(String email) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM MemberBean m WHERE m.Email = :email";
+		boolean result = false;
+		List<MemberBean> beans = session.createQuery(hql, MemberBean.class).setParameter("email", email)
+				.getResultList();
+		if (beans.size() > 0) {
+			result = true;
+		} else {
+			result = false;
+		}
+		return result;
+	}
+
 }

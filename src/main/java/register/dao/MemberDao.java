@@ -17,4 +17,6 @@ public interface MemberDao {
  void delete(Integer memberId);
  
  void update(MemberBean memberBean);
+ 
+ boolean existsByMemberEmail(String email);
 }

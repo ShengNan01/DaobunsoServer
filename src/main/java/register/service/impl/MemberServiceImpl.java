@@ -63,5 +63,12 @@ public class MemberServiceImpl implements MemberService {
 	public void update(MemberBean memberBean) {
 			memberDao.update(memberBean);
 	}
+	@Transactional
+	@Override
+	public boolean existsByMemberEmail(String email) {
+		boolean exists = false;
+		exists = memberDao.existsByMemberEmail(email);
+		return exists;
+	}
 
 }
