@@ -57,7 +57,9 @@ $('#signup_btn').click(function(e){
         // alert(text);
         updateModal("Congratulations!", text);
         myModal.show();
-        location.reload();
+        $('.modal-footer>button').click(function(){
+            location.reload();
+        })
       } else {
         $(this).width('5rem');
         $(this).text("註冊");
@@ -120,11 +122,13 @@ $('#login_btn').click(function(e){
                 //    alert("登入成功");
                    updateModal("Welcome!", "登入成功");
                    myModal.show();
-                   $('.dropdown-toggle').text(res.member_name);
+                   $('.modal-footer>button').click(function(){
+                    $('.dropdown-toggle').text(res.member_name);
                    $('.dropdown-item:eq(3)').text('Log out');
                    $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
                    localStorage.setItem('member',JSON.stringify(res));
                    history.go(-1);
+                    })
 
                 //    location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
             }
