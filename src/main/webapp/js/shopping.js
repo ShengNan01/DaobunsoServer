@@ -1,14 +1,16 @@
 $(function(){
-    memberData = JSON.parse(localStorage.getItem('member'));
-    if(memberData.Login === 'OK'){
-        $('.dropdown-toggle').text(memberData.member_name);
+    if(localStorage.getItem('member') != null){
+        memberData = JSON.parse(localStorage.getItem('member'));
+        if(memberData.Login === 'OK'){
+        $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
         $('.dropdown-item:eq(3)').text('Log out');
         $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
-    }
+        }
+        $('.dropdown-item:eq(3)').click(function () {
+            localStorage.removeItem('member');
+        });
+    } 
 })
-$('.dropdown-item:eq(3)').click(function () {
-    localStorage.removeItem('member');
-});
 
 let p1imgsrc = "./image/trashbag1.jpg"; 
 let p2imgsrc = "./image/trashbag2.jpg"; 
