@@ -6,7 +6,7 @@ let uname = "pekora";
 
 //Feedback定義變數
 let oid ="";
-let uaccount ="toyz1234";
+let uaccount ="bcioooher1";
 let getstar;
 let ucomment = "";
 let wdate = Date();

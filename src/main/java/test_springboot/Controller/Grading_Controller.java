@@ -4,9 +4,12 @@ import org.springframework.web.bind.annotation.RestController;
 import test_springboot.Grading;
 import test_springboot.GradingRepo;
 import test_springboot.Grading;
-
+import java.lang.StackWalker.Option;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,21 +21,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class Grading_Controller {
 	@Autowired
-	private GradingRepo gradingRepo;
+	GradingRepo gradingRepo;
+	
 	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
 	
 	@PostMapping("/grading")
 	public Grading postG(@RequestBody Grading g) {
-		fMultiValueMap.add(g.getUser_account(), g);
+//		fMultiValueMap.add(g.getUser_account(), g);
 		System.out.println(fMultiValueMap);
 		gradingRepo.save(g);
 		return g;
 	}
 	@GetMapping("/grading")
-	public void getG(
+	public Object getG(
 			@RequestParam("uaccount") String uaccount) {
-		System.out.println(uaccount);
-		gradingRepo.findall(uaccount);
+		System.out.println((List<Grading>) gradingRepo.findByStar(2));
+		return gradingRepo.findByStar(2);	
 	}
 	
 //	@PutMapping("/feedback")
