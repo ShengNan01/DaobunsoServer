@@ -7,9 +7,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/frontpage.css">
     <title>DAOBUNSO</title>
+    <script src="./js/jquery-3.6.0.js"></script>
 </head>
 <body>
 <!-- 頭部條列 -->
@@ -19,43 +20,39 @@
       <a href="#"><img id="header_media_IG" src="./image/IG.png" alt="IG sign" width="30rem"></a>
       <a href="#"><img id="header_media_Line" src="./image/Line.png" alt="IG sign" width="30rem"></a>
       <a href="#"><img id="header_media_twitter" src="./image/Twitter.png" alt="IG sign" width="30rem"></a>
-
   </div>
 
-
-
-  
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="./frontpage.html"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
+        <a class="navbar-brand" href="<c:url value='/frontpage.jsp' />"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="./frontpage.html">Home</a>
+              <a class="nav-link" href="<c:url value='/frontpage.jsp' />">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./about_us.html">About</a>
+              <a class="nav-link" href="<c:url value='/about_us.jsp' />">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Shopping</a>
+              <a class="nav-link" href="<c:url value='/shopping.jsp' />">Shopping</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./service.html">Service</a>
+              <a class="nav-link" href="<c:url value='/service.jsp' />">Service</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./shopping_cart.html">Shopping Cart</a>
+              <a class="nav-link" href="<c:url value='/shopping_cart.jsp' />">Shopping Cart</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Log In</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">個人資訊</a></li>
-                <li><a class="dropdown-item" href="#">訂單管理</a></li>
-                <li><a class="dropdown-item" href="./shopping_cart.html">購物車</a></li>
+                <li><a class="dropdown-item" href="<c:url value='/profiles.jsp' />">個人資訊</a></li>
+                <li><a class="dropdown-item" href="<c:url value='/order_main.jsp' />">訂單管理</a></li>
+                <li><a class="dropdown-item" href="<c:url value='/shopping_cart.jsp' />">購物車</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="./login.html">Log In</a></li>
+                <li><a class="dropdown-item" href="<c:url value='/login.jsp' />">Log In</a></li>
               </ul>
             </li>
           </ul>
@@ -68,10 +65,7 @@
     </nav>
 </header>
 
-
-
 <!-- 頭部條列 -->
-
 
 <main class="maintitle">
 <!-- 目錄表 -->
@@ -134,7 +128,6 @@
       </div>
 <!-- 最新消息 -->
 
-
 <!-- 熱門服務 -->
 <div class="card-main">
 <div class="card-box">
@@ -172,13 +165,9 @@
     </div>
   </div>
 
-  
-
   </div>
 </div>
     <!-- 熱門服務 -->
-
-
 
 <!-- 底部 -->
 <center>
@@ -186,13 +175,13 @@
     <hr id="line" style="width:70%;"> <br>
 </center>
 <div id="sec_area_8">
-    <a href="./about_us.html">關於我們</a>
-    <a href="./service_intro.html">服務介紹</a>
-    <a href="./User terms.html">使用須知</a>
-    <a href="./problem.html">常見問題</a>
-    <a href="#">使用回饋</a>
-    <a href="./service.html">購買服務</a>
-    <a href="#">購物商城</a>
+    <a href="<c:url value='/about_us.jsp' />">關於我們</a>
+    <a href="<c:url value='/service_intro.jsp' />">服務介紹</a>
+    <a href="<c:url value='/User terms.jsp' />">使用須知</a>
+    <a href="<c:url value='/problem.jsp' />">常見問題</a>
+    <a href="<c:url value='/feedback.jsp' />">使用回饋</a>
+    <a href="<c:url value='/service.jsp' />">購買服務</a>
+    <a href="<c:url value='/shopping.jsp' />">購物商城</a>
 </div>
 </section>
 <footer>
@@ -206,8 +195,28 @@
   僅為北科大 Java 017 班專題展示使用 <br>
   如有任何問題請聯絡：XXXXX@gmail.com</p>
 </footer>
+
+
 <!-- 底部 -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-</body>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="massage-content">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/frontpage.js"></script>
+  </body>
 </html>
