@@ -1,15 +1,63 @@
+let myModal = new bootstrap.Modal(document.getElementById('myModal'))
+
+function updateModal(title, massage) {
+$('#modal-title').text(title);
+$('#massage-content').text(massage);
+}
+
+$(function () {
+    if (localStorage.getItem("member") != null) {
+      memberData = JSON.parse(localStorage.getItem("member"));
+      if (memberData.Login === "OK") {
+        $(".dropdown-toggle:not(.btn)").text(memberData.member_name);
+        $(".dropdown-item:eq(3)").text("Log out");
+        $(".dropdown-item:eq(3)").attr("href", "./frontpage.html");
+      }
+      $(".dropdown-item:eq(3)").click(function () {
+        localStorage.removeItem("member");
+      });
+      $(".dropdown-item:eq(0),.dropdown-item:eq(1)").click(function (e) {
+        if (memberData.Login !== "OK") {
+          e.preventDefault();
+          // alert("請先登入會員")
+          updateModal("Oops!", "請先登入會員！");
+          myModal.show();
+          $(".modal-footer>button").click(function () {
+            location.href = "./login.html";
+          });
+        }
+      });
+    } else {
+      $(".dropdown-item:eq(0),.dropdown-item:eq(1)").click(function (e) {
+        e.preventDefault();
+        // alert("請先登入會員")
+        updateModal("Oops!", "請先登入會員！");
+        myModal.show();
+        $(".modal-footer>button").click(function () {
+          location.href = "./login.html";
+        });
+      });
+    }
+  });
+
+  // reset modal when modal was hidden
+  let myModalEl = document.getElementById("myModal");
+  myModalEl.addEventListener("hidden.bs.modal", function (event) {
+    updateModal("", "");
+  });
+
 let p1imgsrc = "./image/trashbag1.jpg"; 
 let p2imgsrc = "./image/trashbag2.jpg"; 
 let p3imgsrc = "./image/trashbag3.jpg";
-let p1name ="Usada Pekora";
-let p2name ="Houshou Marine";
-let p3name ="Shirogane Noel";
-let p1content ="pekopekopeko!";
-let p2content ="ERO GAKI!";
-let p3content ="neolneol!";
-let p1price =20;
-let p2price =50;
-let p3price =100;
+let p1name ="一般垃圾袋";
+let p2name ="廚餘垃圾袋";
+let p3name ="回收垃圾袋";
+let p1content ="1組/6入";
+let p2content ="1組/6入";
+let p3content ="1組/6入";
+let p1price = 60;
+let p2price = 80;
+let p3price = 100;
 let plink = "product.html";
 const p1btn = $('.product1 a');
 const p2btn = $('.product2 a');

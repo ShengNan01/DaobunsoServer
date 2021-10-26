@@ -1,0 +1,247 @@
+.col{
+  position: relative;
+  margin: 0;
+  padding: auto;
+  width: 100%;
+}
+
+.nav_content{
+  margin:  rem;
+  font-size: 1.5rem;
+  text-align: start;
+  line-height: 6rem;
+  list-style: none;
+}
+
+.info-title{
+  width: 15%;
+}
+.content-page{
+  width: 70%;
+  border-left: 2px solid #2d3e4d ;
+}
+
+.li-item{
+  text-align: left  ;
+}
+
+.alertmsg{
+  display:none ;
+}
+
+.emailbtn{
+  margin-bottom: 50px;
+}
+
+.nav1:hover{
+ background: #3eb595;
+}
+
+.form-control{
+  inset  -1.8em 1em 0 rgba(0,0,0,0)
+}
+
+.password_btn{
+  margin-bottom: 100px;
+  display:inline-block;
+}
+
+}
+/* --------------------------------------------- */
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#header_media {
+  background-color: #2d3e4d;
+  width: 100vw;
+  height: 3rem;
+}
+
+#header_media_fb {
+  position: absolute;
+  right: 6rem;
+  top: 0.5rem;
+}
+
+#header_media_IG {
+  position: absolute;
+  right: 3rem;
+  top: 0.5rem;
+}
+
+#header_media_Line {
+  position: absolute;
+  right: 9rem;
+  top: 0.5rem;
+}
+
+#header_media_twitter {
+  position: absolute;
+  right: 12rem;
+  top: 0.5rem;
+  height: 30px;
+}
+
+.navbar-light a.nav-link a.nav-link-person{
+  color: #2d3e4d !important;
+}
+
+.navbar-light a.nav-link:hover a.nav-link-person{
+  color: #3eb595 !important;
+}
+
+form .btn {
+  font-size: 1rem;
+  width: 7rem;
+  color: #fff;
+  background-color: #2d3e4d;
+}
+
+form .btn:hover {
+  background-color: #3eb595;
+}
+
+a.nav-link {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d3e4d;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+a.nav-link:hover {
+  color: #3eb595;
+}
+
+
+a.nav-link-person{
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d3e4d;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  margin-left: 5px 10px;
+  text-decoration:none;
+  margin:  20px;
+  padding: 10px;
+}
+a.nav-link-person:hover {
+  color: #3eb595;
+}
+
+
+
+#nav_title {
+  margin-top: 0.5rem;
+  background-color: #2d3e4d;
+  width: 100vw;
+  height: 3rem;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  line-height: 3rem;
+}
+
+.container {
+  border: 3px  #2d3e4d;
+  margin: 2rem auto;
+  padding: 2rem 0;
+  color: #fff;
+  font-size: 1.25em;
+ 
+}
+
+.container label {
+  font-size: 1.25rem;
+  color: #2d3e4d;
+  font-weight: 900;
+}
+
+.container .btn {
+  font-size: 1.25rem;
+  width: 8rem;
+  color: #fff;
+  background-color: #2d3e4d;
+  
+
+}
+.btn{
+  margin: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.container .btn:hover {
+  background-color: #3eb595;
+}
+
+.container form a {
+  margin-left: 20rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #000;
+}
+
+.container form a:hover {
+  color: #2f2fec;
+}
+
+footer {
+  width: 100vw;
+  height: 13rem;
+  background-color: #c9c3b9;
+  position: relative;
+}
+
+#footer_logo {
+  position: absolute;
+  left: 25rem;
+  top: 2rem;
+}
+
+#footer_media_fb {
+  position: absolute;
+  left: 40rem;
+  top: 3rem;
+}
+
+#footer_media_IG {
+  position: absolute;
+  left: 48rem;
+  top: 3rem;
+}
+
+#footer_media_Line {
+  position: absolute;
+  left: 44rem;
+  top: 3rem;
+}
+
+#footer_media_Twitter {
+  position: absolute;
+  left: 52rem;
+  top: 3rem;
+}
+
+footer p {
+  position: absolute;
+  left: 40rem;
+  top: 6rem;
+  font-size: 1.25rem;
+}
+
+
+/*# sourceMappingURL=login.css.map */
