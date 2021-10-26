@@ -118,10 +118,23 @@ $(document).ready(function(){
 })
 
 var checkis;
+var remember;
+    var isClick = false;
+    //先判斷有沒有被點擊過，有被點過 => isClick = true;，再判斷是否是勾起的狀態
     $("#rememberMe").click(function(){
+        isClick = true;
         checkis = $(this).is(":checked");
-        console.log(checkis);
+        if (checkis) {
+            remember = "rememberOk";
+        } else {
+            remember = "rememberNo";
+        }
+    
     });
+    //如果rememberMe連點都沒被點過 => isClick就會是false
+    if(!isClick){
+        remember = "rememberNo";
+    }
 
 $('#login_btn').click(function(e){
     e.preventDefault();
@@ -136,7 +149,7 @@ $('#login_btn').click(function(e){
             login = {
                 "account":$('#account').val(),
                 "password":$('#pswd').val(),
-                "RememberMe":checkis,               
+                "rememberMe":remember,               
             };
 
             console.log(JSON.stringify(login));
