@@ -5,6 +5,41 @@ $('#modal-title').text(title);
 $('#massage-content').text(massage);
 }
 
+$(function(){
+    if(localStorage.getItem('member') != null){
+        memberData = JSON.parse(localStorage.getItem('member'));
+        if(memberData.Login === 'OK'){
+        $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
+        $('.dropdown-item:eq(3)').text('Log out');
+        $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+        }
+        $('.dropdown-item:eq(3)').click(function () {
+            localStorage.removeItem('member');
+        });
+        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e) {
+            if(memberData.Login !== 'OK'){
+                e.preventDefault();
+                // alert("請先登入會員")
+                updateModal("Oops!", "請先登入會員！");
+                myModal.show();
+                $('.modal-footer>button').click(function(){
+                    location.href='./login.html';
+                })
+            }
+        });
+    } else {
+        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e){
+            e.preventDefault();
+            // alert("請先登入會員")
+            updateModal("Oops!", "請先登入會員！");
+            myModal.show();
+            $('.modal-footer>button').click(function(){
+                location.href='./login.html';
+            })
+        })
+    }   
+})
+
 $(".register").on('click',function(){
     $("#form_in").hide();
     $("#form_reg").show();
@@ -117,7 +152,8 @@ $('#login_btn').click(function(e){
             // alert('帳號或密碼不正確');
             updateModal("Oops!", "帳號或密碼不正確！！");
             myModal.show();
-            location.reload();
+            localStorage.setItem('member',JSON.stringify(res));
+            // location.reload();
             } else {
                 //    alert("登入成功");
                    updateModal("Welcome!", "登入成功");
