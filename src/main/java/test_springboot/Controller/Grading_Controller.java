@@ -28,15 +28,14 @@ public class Grading_Controller {
 	@PostMapping("/grading")
 	public Grading postG(@RequestBody Grading g) {
 //		fMultiValueMap.add(g.getUser_account(), g);
-		System.out.println(fMultiValueMap);
+//		System.out.println(fMultiValueMap);
 		gradingRepo.save(g);
 		return g;
 	}
 	@GetMapping("/grading")
-	public Object getG(
+	public List<Grading> getG(
 			@RequestParam("uaccount") String uaccount) {
-		System.out.println((List<Grading>) gradingRepo.findByStar(2));
-		return gradingRepo.findByStar(2);	
+		return gradingRepo.findByAccount (uaccount);	
 	}
 	
 //	@PutMapping("/feedback")
