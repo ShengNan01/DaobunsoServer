@@ -7,7 +7,7 @@ public class LoginBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String account;
 	private String password;
-	private boolean rememberMe;
+	private String rememberMe;
 	
 	
 	public LoginBean() {
@@ -15,7 +15,7 @@ public class LoginBean implements Serializable{
 	}
 
 
-	public LoginBean(String account, String password,Boolean rememberMe) {
+	public LoginBean(String account, String password,String rememberMe) {
 		super();
 		this.account = account;
 		this.password = password;
@@ -50,12 +50,12 @@ public class LoginBean implements Serializable{
 	
 	
 
-	public boolean getRememberMe() {
+	public String getRememberMe() {
 		return rememberMe;
 	}
 
 
-	public void setRememberMe(boolean rememberMe) {
+	public void setRememberMe(String rememberMe) {
 		this.rememberMe = rememberMe;
 	}
 
