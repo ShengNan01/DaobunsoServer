@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>忘記密碼</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/shopping_cart.css">
+    <link rel="stylesheet" href="./css/forget_password.css">
     <script src="./js/jquery-3.6.0.js"></script>
 </head>
 <body>

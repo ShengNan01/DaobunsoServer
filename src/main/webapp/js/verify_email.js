@@ -26,9 +26,11 @@ $("#verify_email_btn").click(function () {
                     if (text === "Success") {
                         updateModal("發送郵件成功!", "請至信箱收取信件修改密碼。");
                         myModal.show();
-                        setTimeout(nextPage, 3000);
+                        $('.modal-footer>button').click(function(){
+                            location.href='./frontpage.html';
+                        })
                     } else if (text === "Fail") {
-                        updateModal("Oops!", "必須輸入此帳號的電子信箱");
+                        updateModal("Oops!", "必須輸入此帳號註冊時的電子信箱");
                         myModal.show();
                     }
 
@@ -46,6 +48,42 @@ let myModalEl = document.getElementById('myModal')
 myModalEl.addEventListener('hidden.bs.modal', function() {
     updateModal("","");
 })
+
+$(function(){
+    if(localStorage.getItem('member') != null){
+        memberData = JSON.parse(localStorage.getItem('member'));
+        if(memberData.Login === 'OK'){
+        $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
+        $('.dropdown-item:eq(3)').text('Log out');
+        $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+        }
+        $('.dropdown-item:eq(3)').click(function () {
+            localStorage.removeItem('member');
+        });
+        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e) {
+            if(memberData.Login !== 'OK'){
+                e.preventDefault();
+                // alert("請先登入會員")
+                updateModal("Oops!", "請先登入會員！");
+                myModal.show();
+                $('.modal-footer>button').click(function(){
+                    location.href='./login.html';
+                })
+            }
+        });
+        } else {
+            $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e){
+                e.preventDefault();
+                // alert("請先登入會員")
+                updateModal("Oops!", "請先登入會員！");
+                myModal.show();
+                $('.modal-footer>button').click(function(){
+                    location.href='./login.html';
+                })
+            })
+        }   
+    })
+
 //跳頁
 function nextPage(){
     location.href = "http://localhost:8080/Daobunso_Project/"
