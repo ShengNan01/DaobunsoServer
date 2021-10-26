@@ -17,24 +17,24 @@ $('.user-img img').attr('src',uimgsrc);
 $('.star img').attr('src',starimg);
 $('.user-name h2').text(uname);
 //展開按鈕
-$('.btn-ex').click(function(){
+$('#btn-ex').click(function(){
 
     $(this).toggleClass('tog');
-    if($('.btn-ex').hasClass('tog')){
+    if($('#btn-ex').hasClass('tog')){
         $('.feedback').show();
-        $('.btn-ex').text("收起");
+        $('#btn-ex').text("收起");
     }else{
         $('.feedback').hide()
-        $('.btn-ex').text("填寫意見");
+        $('#btn-ex').text("填寫意見");
     }
 });
 //~展開按鈕
 
 //編輯意見按鈕
-$('.btn-edit').click(()=>{
+$('#btn-edit').click(()=>{
 // GET
     fetch(`http://localhost:8080/grading?uaccount=${uaccount}`,{
-                method: 'GET',
+        method: 'GET',
     }).then((response) =>{
         response.json()
         .then(res =>{
@@ -45,20 +45,18 @@ $('.btn-edit').click(()=>{
 //~編輯意見按鈕
 
 //意見送出按鈕
-$('.btn-feedback').click(()=>{
+$('#btn-feedback').click(()=>{
     ucomment = $('#feedback-comment').val();
-    // sessionStorage.setItem('grading',JSON.stringify(grading));
-    // alert("感謝你寶貴的意見!\n"+ sessionStorage.getItem('grading'));
     fetch(`http://localhost:8080/grading`,{
-                method: 'POST',
-                body: JSON.stringify({
-                    objectid    :   oid,
-                    user_account:   uaccount,
-                    star        :   getstar,
-                    date        :   wdate,
-                    comment     :   ucomment,
-                }),
-                headers: { 'Content-Type': 'application/json'},
+        method: 'POST',
+        body: JSON.stringify({
+            objectid    :   oid,
+            account     :   uaccount,
+            star        :   getstar,
+            date        :   wdate,
+            comment     :   ucomment,
+            }),
+        headers: { 'Content-Type': 'application/json'},
     }).then((response) =>{
         response.json()
         .then(res =>{

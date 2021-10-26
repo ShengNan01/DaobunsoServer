@@ -48,6 +48,55 @@
     </head>
 
   <body>
+    <header>
+        <div id="header_media">
+            <a href="#"><img id="header_media_fb" src="./image/FB.png" alt="fb sign" width="30rem"></a>
+            <a href="#"><img id="header_media_IG" src="./image/IG.png" alt="IG sign" width="30rem"></a>
+            <a href="#"><img id="header_media_Line" src="./image/Line.png" alt="IG sign" width="30rem"></a>
+            <a href="#"><img id="header_media_twitter" src="./image/Twitter.png" alt="IG sign" width="30rem"></a>     
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./frontpage.html"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./frontpage.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./about_us.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./shopping.html">Shopping</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./service.html">Service</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./shopping_cart.html">Shopping Cart</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Log In</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="./profiles.html">個人資訊</a></li>
+                      <li><a class="dropdown-item" href="./order_main.html">訂單管理</a></li>
+                      <li><a class="dropdown-item" href="./shopping_cart.html">購物車</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="./login.html">Log In</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
 
     <div class="main">
         <div class="container w-100 h-100">
@@ -68,13 +117,13 @@
     <div class="row">
         <!-- /意見領域展開!!! -->
         <div class="col-2 mt-4 mx-auto">
-            <button type="button" class="btn-ex btn btn-outline-primary mx-auto">填寫意見</button>
+            <button id="btn-ex" class="btn btn-outline-primary mx-auto">填寫意見</button>
         </div>
         <!-- 意見領域展開!!! -->
 
         <!-- 修改刪除按鈕 -->
         <div class="col-2 mt-4 mx-auto">
-            <button type="button" class="btn-edit btn btn-primary mx-auto" style="height: 2.5rem; width: 9rem;" >修改/刪除意見</button>
+            <button id="btn-edit" class="btn btn-primary mx-auto" style="height: 2.5rem; width: 9rem;" >修改/刪除意見</button>
         </div>
         <!-- /修改刪除按鈕 -->
     </div>
@@ -135,7 +184,7 @@
 
                         <!-- 送出按鈕 -->
                         <div class="col-2 d-grid gap-2 d-md-flex me-5">
-                            <button class="btn-feedback btn btn-primary" type="button" style="height: 3rem; width: 6rem;">送出</button>
+                            <button id="btn-feedback" class="btn btn-primary" type="button" style="height: 3rem; width: 6rem;">送出</button>
                         </div>
                         <!-- /送出按鈕 -->
 

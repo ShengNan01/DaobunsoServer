@@ -35,6 +35,7 @@ public class Grading_Controller {
 	@GetMapping("/grading")
 	public List<Grading> getG(
 			@RequestParam("uaccount") String uaccount) {
+
 		return gradingRepo.findByAccount (uaccount);	
 	}
 	
