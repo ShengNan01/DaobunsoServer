@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>購物車</title>
+    <title>忘記密碼</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/shopping_cart.css">
     <script src="./js/jquery-3.6.0.js"></script>
@@ -19,7 +19,6 @@
         <a href="#"><img id="header_media_IG" src="./image/IG.png" alt="IG sign" width="30rem"></a>
         <a href="#"><img id="header_media_Line" src="./image/Line.png" alt="IG sign" width="30rem"></a>
         <a href="#"><img id="header_media_twitter" src="./image/Twitter.png" alt="IG sign" width="30rem"></a>
-
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -64,59 +63,30 @@
         </div>
       </nav>
 </header>
-    <div id="nav_title">購物車  Shopping Cart</div>
-    <center><h1>購物清單</h1></center>
+    <div id="nav_title">忘記密碼</div>
+    <center><h2>請填寫以下資訊</h2></center>
+    <center><h2>我們將寄送更改密碼信件給您</h2></center>
     <div class="container">
-        <!-- 列表 -->
         <table class="cart_table table table-hover">
-            <thead class="cart_table_head">
-                <tr>
-                    <th class="col">圖片</th>
-                    <th class="col">名稱</th>
-                    <th class="col">日期</th>
-                    <th class="col">時間</th>
-                    <th class="col">數量</th>
-                    <th class="col">價格</th>
-                    <th class="col">操作</th>
-                </tr>
-            </thead>
-            <tbody class="cart_table_body">
-                <!-- <tr>
-                    <td>
-                      <img src="./image/FB.png" style="width: 2rem"></td>
-                    <td>
-                      <span id="">名稱</span>
-                    </td>
-                    <td>
-                      <span>日期</span>
-                  </td>
-                  <td>
-                    <span>時間</span>
-                </td>
-                  <td>
-                      <input type="number" value="1" min="1"/>
-                  </td>
-                  <td>
-                      <span> 100 </span>
-                  </td>
-                  <td>
-                      <button class="btn btn-primary btn-sm text-light btn_delete">刪除 </button>
-                  </td>
-                </tr> -->
-            </tbody>
-        </table>
-
-        <!-- 結算 -->
-        <div class="pay_box d-flex justify-content-end">
-            
-            <div>
-                <div class="right_price" >
-                    <span>總價：</span><span id="total">0</span><span> 元</span>
+           
+            <tbody class="cart_table_body" id="order_main">
+             
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">ACCOUNT 請輸入您的帳號*</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
                 </div>
-                <br>
-                <input id="payment_btn" class="btn" type="button" value="結帳">
-            </div>
-        </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Email 請輸入您的信箱*</label>
+                  <input type="email" class="form-control" id="exampleInputPassword1">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </tbody>
+        </table>        
     </div>
     <center>
       <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;"> <br>
@@ -160,7 +130,9 @@
     </div>
   </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="./js/shopping_cart.js"></script>
+<script src="./js/forget_password.js"></script>
+
 </body>
 </html>

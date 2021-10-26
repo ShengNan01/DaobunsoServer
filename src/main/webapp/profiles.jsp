@@ -1,14 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>更改密碼_信箱確認	</title>
+    <title>個人資訊</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/personal_info.css">
     <script src="./js/jquery-3.6.0.js"></script>
     <!-- <script src="./js/login.js"></script> -->
-    
 </head>
 <body>
     <header>
@@ -17,7 +20,7 @@
             <a href="#"><img id="header_media_IG" src="./image/IG.png" alt="IG sign" width="30rem"></a>
             <a href="#"><img id="header_media_Line" src="./image/Line.png" alt="IG sign" width="30rem"></a>
             <a href="#"><img id="header_media_twitter" src="./image/Twitter.png" alt="IG sign" width="30rem"></a>
-          
+
         </div>
 
 
@@ -25,36 +28,35 @@
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="./frontpage.html"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
+              <a class="navbar-brand" href="<c:url value='/frontpage.jsp' />"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" href="./frontpage.html">Home</a>
+                    <a class="nav-link" href="<c:url value='/frontpage.jsp' />">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./about_us.html">About</a>
+                    <a class="nav-link" href="<c:url value='/about_us.jsp' />">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./shopping.html">Shopping</a>
+                    <a class="nav-link" href="<c:url value='/shopping.jsp' />">Shopping</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./service.html">Service</a>
+                    <a class="nav-link" href="<c:url value='/service.jsp' />">Service</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./shopping_cart.html">Shopping Cart</a>
+                    <a class="nav-link" href="<c:url value='/shopping_cart.jsp' />">Shopping Cart</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Log In</a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="./profiles.html">個人資訊</a></li>
-                      <li><a class="dropdown-item" href="./order_main.html">訂單管理</a></li>
-                      <li><a class="dropdown-item" href="./shopping_cart.html">購物車</a></li>
+                      <li><a class="dropdown-item" href="<c:url value='/profiles.jsp' />">個人資訊</a></li>
+                      <li><a class="dropdown-item" href="<c:url value='/order_main.jsp' />">訂單管理</a></li>
+                      <li><a class="dropdown-item" href="<c:url value='/shopping_cart.jsp' />">購物車</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="./login.html">Log In</a></li>
-
+                      <li><a class="dropdown-item" href="<c:url value='/login.jsp' />">Log In</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -67,11 +69,7 @@
           </nav>
     </header>
 
-    <nav>
-        <div id="nav_title"> 更改密碼 </div>
-    </nav>
-
-
+    
     <div>
       <ul class="nav navbar  nav-fill  nav-tabs justify-content-center">
         <li class="nav-item">
@@ -87,70 +85,81 @@
           <a class="nav-link" href="#!">登出</a>
         </li>
       </ul>
+
+    </div>
+    <div class ="container ">
+        <div class="col">
+            <form class="form-inline col-5  mx-auto ">
+                <fieldset>
+                    <legend></legend>
+                      <label class="form-label" for="account">帳號*</label>
+                      <div class="mb-3 mx-auto shadow-sm">
+                          <input class="form-control w-80 p-2" id="account" type="text" name="account" disabled="disabled">
+                      </div>
+                        <label class="form-label " for="last name">名稱*</label>
+                        <div class="mb-3 mx-auto shadow-sm ">
+                          <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName" name="inlineFormInputName" disabled="disabled">
+                        </div>
+                        <label class="form-label" for="email"> 電子信箱*</label>
+                        <div class="mb-3 mx-auto shadow-sm">
+                          <input class="form-control w-80 p-2" id="email" type="email" name="email" disabled="disabled">
+                        </div>
+                </fieldset>        
+                <fieldset>
+                      <div  class=" text-center mx_auto mb-5 ">
+                        <!-- <button type="submit" class="btn btn-primary btn-lg  " id="login_btn">修改密碼</button> -->
+                        <a href="./verify_email.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">修改密碼</a>
+                      
+                        <button type="button" class="btn btn-primary btn-lg ">顯示密碼</button>
+                      </div>
+                         
+                      <div  class=" text-center mx_auto mb-5">
+                        <button type="submit" class="btn btn-primary btn-lg "data-toggle="modal"  data-target="#exampleModalScrollable" id="btn">儲存設定</button>
+                      </div>   
+                      
+                      
+                </fieldset>
+         
+          
+            </form>
+        </div>
     </div>
     
-    <section>
-          <div class ="container ">
-            <div class="col">
-           
-                <div class=" col-6  mx-auto">
-                    <label class="form-label" for="email">請輸入信箱 </label>
-                    <input class="form-control  p-2 w-80 h-20" id="email" type="email" name="email" placeholder="請輸入信箱">
-
-                    <div class=" text-center mx_auto my-3 " id="verify_email_btn">
-
-                         <button type="submit" class=" btn btn-primary btn-lg " id="">信箱驗證</button>
-                        
-                    </div>
-
-                    <div class="alertmsg alert-success a" role="alert" >
-                      <h5 class="alert-heading">信箱驗證成功</h5>
-                      信箱驗證成功，請更改密碼!
-                    </div>
-                    <div class="alertmsg alert alert-warning" role="alert">
-                      <strong>信箱驗證失敗</strong> 信箱驗證失敗，請輸入註冊信箱!
-                    </div>
-                    
-                </div>
-                <form class=" col-6  mx-auto my-4 ">
-                      
-                     
+   
+    
 
 
-                </form>    
-            </div>
+
+
+
+
+
             
-          </div>
-             
-
-                    
-            
-    <center>
-        </li>
-        <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;"> <br>
-        <hr style="width:90%;">
-    </center>
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link" href="./about_us.html">關於我們</a>
-        </li>
+        <center>
+            <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;"> <br>
+            <hr style="width:90%;">
+        </center>
+        <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link" href="./service_intro.html">服務介紹</a>
+            <a class="nav-link" href="<c:url value='/about_us.jsp' />">關於我們</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./User terms.html">使用須知</a>
+            <a class="nav-link" href="<c:url value='/service_intro.jsp' />">服務介紹</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./problem.html">常見問題</a>
+            <a class="nav-link" href="<c:url value='/User terms.jsp' />">使用須知</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./feedback.html">使用回饋</a>
+            <a class="nav-link" href="<c:url value='/problem.jsp' />">常見問題</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./service.html">購買服務</a>
+            <a class="nav-link" href="<c:url value='/feedback.jsp' />">使用回饋</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./shopping.html">購物商城</a>
+            <a class="nav-link" href="<c:url value='/service.jsp' />">購買服務</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<c:url value='/shopping.jsp' />">購物商城</a>
           </li>
         </ul>
     </section>
@@ -165,25 +174,7 @@
       僅為北科大 Java 017 班專題展示使用 <br>
       如有任何問題請聯絡：XXXXX@gmail.com</p>
     </footer>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-title"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="massage-content">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="./js/verify_email.js"></script>
+    <script src="./js/personal_info.js"></script>
   </body>
 </html>
