@@ -1,14 +1,12 @@
-// $("#inlineFormInputName").val(JSON.parse(localStorage.member).member_id);
-// $('#inlineFormInputName').val("12345");
 const memberId = JSON.parse(localStorage.member).member_id;
-member = {
+mId = {
     "Member_Id": memberId,
 };
 
 let url = 'http://localhost:8080/Daobunso_Project/Personal_Info';
 fetch(url, {
     method: 'POST',
-    body: JSON.stringify(member),
+    body: JSON.stringify(mId),
     headers: { 'Content-Type': 'application/json' },
 }).then(response => {
     response.json()
