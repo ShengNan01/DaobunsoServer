@@ -1,48 +1,3 @@
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
-
-function updateModal(title, massage) {
-$('#modal-title').text(title);
-$('#massage-content').text(massage);
-}
-
-$(function() {
-    $( "#mydate" ).datepicker({ minDate: 0, maxDate: "+3M", dateFormat: 'yy-mm-dd' });
-});
-const btn = document.getElementById('save_cart_btn');
-const timeframe = document.getElementById('inputGroupSelect01')
-const date = document.getElementById('mydate');
-const price = document.getElementById('singleSelect');
-
-let cartJson = localStorage.getItem('cart');
-let cart = [];
-
-if (cartJson) {
-    cart = JSON.parse(cartJson);
-}
-
-btn.onclick = function () {
-    // alert("已加入購物車");
-    updateModal("Thanks!", "已加入購物車囉！");
-    myModal.show();
-           
-    cart.push({
-        type: "service",
-        image: "",
-        item: "單次方案",
-        date: date.value,
-        timeframe: timeframe.value,
-        price: price.value
-    });
-
-    localStorage.setItem('cart', JSON.stringify(cart))
-};
-
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("","");
-})
-
 $(function(){
     if(localStorage.getItem('member') != null){
         memberData = JSON.parse(localStorage.getItem('member'));
@@ -77,3 +32,26 @@ $(function(){
         })
     }   
 })
+
+// $("#inlineFormInputName").val(JSON.parse(localStorage.member).member_id);
+// $('#inlineFormInputName').val("12345");
+const memberId = JSON.parse(localStorage.member).member_id;
+member = {
+    "Member_Id": memberId,
+};
+
+let url = 'http://localhost:8080/Daobunso_Project/Personal_Info';
+fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(member),
+    headers: { 'Content-Type': 'application/json' },
+}).then(response => {
+    response.json()
+        .then(res => {
+            console.log(res);
+            $('#inlineFormInputName').val(res.Member_name);
+            $('#email').val(res.Email);
+            $('#account').val(res.Account);
+        });
+});
+window.onload;

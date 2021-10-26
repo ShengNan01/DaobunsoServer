@@ -18,5 +18,6 @@ public interface MemberService {
 	void delete(Integer memberId);
 
 	void update(MemberBean memberBean);
-
+	
+	boolean existsByMemberEmail(String email);
 }
