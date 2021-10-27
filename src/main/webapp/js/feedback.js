@@ -33,7 +33,7 @@ $('#btn-ex').click(function(){
 //編輯意見按鈕
 $('#btn-edit').click(()=>{
 // GET
-    fetch(`http://localhost:8080/grading?uaccount=${uaccount}`,{
+    fetch(`https://localhost:8443/grading?uaccount=${uaccount}`,{
         method: 'GET',
     }).then((response) =>{
         response.json()
@@ -47,7 +47,7 @@ $('#btn-edit').click(()=>{
 //意見送出按鈕
 $('#btn-feedback').click(()=>{
     ucomment = $('#feedback-comment').val();
-    fetch(`http://localhost:8080/grading`,{
+    fetch(`https://localhost:8443/grading`,{
         method: 'POST',
         body: JSON.stringify({
             objectid    :   oid,

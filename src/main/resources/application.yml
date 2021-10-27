@@ -7,3 +7,9 @@ spring:
   jpa: 
     hibernate:      ddl-auto: update
     show-sql: true
+server:
+  port: 8443
+  ssl:
+    key-store: "classpath:server.pfx"
+    key-store-password: "daobunso"
+    key-password: "daobunso"
