@@ -45,8 +45,8 @@ public class LoginServlet extends HttpServlet {
 
 			String account = login.getAccount();
 			String password = login.getPassword();
-			boolean rm = login.getRememberMe();
-			System.out.println(String.valueOf(rm)); //每次都是false!!!!!!!!!!!!!!!!!!!!!!!!! why!!!!!!!!!
+			String rm = login.getRememberMe();
+			System.out.println("RememberMe ===================================> " + rm); 
 
 			// 下面開始判斷資料庫有無此筆帳密(先呼叫service，再呼叫dao)
 			ServletContext sc = getServletContext();
@@ -99,7 +99,7 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	private void processCookies(HttpServletRequest request, HttpServletResponse response, 
-			String memberId, String password, boolean rm) {
+			String memberId, String password, String rm) {
 	// **********Remember Me****************************
 	Cookie cookieUser = null;
 	Cookie cookiePassword = null;
@@ -107,7 +107,7 @@ public class LoginServlet extends HttpServlet {
 	String memberAccount = null;
 	
 	// 如果前端有勾選remember me，rm = true
-	if (!rm) {
+	if (rm.equals("rememberOk")) {
 		
 		memberAccount = member.getAccount();
 		cookieUser = new Cookie("account", memberAccount);

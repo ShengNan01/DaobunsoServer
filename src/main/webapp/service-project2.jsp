@@ -8,13 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>月租方案</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/service-project2.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.9.1.js"></script>
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
-    <script src="./js/service-pro2.js"></script>
 </head>
 <body>
     <header>
@@ -23,43 +22,39 @@
             <a href="#"><img id="header_media_IG" src="./image/IG.png" alt="IG sign" width="30rem"></a>
             <a href="#"><img id="header_media_Line" src="./image/Line.png" alt="IG sign" width="30rem"></a>
             <a href="#"><img id="header_media_twitter" src="./image/Twitter.png" alt="IG sign" width="30rem"></a>
-
         </div>
-
-
-
-        
+       
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="./frontpage.html"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
+              <a class="navbar-brand" href="<c:url value='/frontpage.jsp' />"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" href="./frontpage.html">Home</a>
+                    <a class="nav-link" href="<c:url value='/frontpage.jsp' />">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./about_us.html">About</a>
+                    <a class="nav-link" href="<c:url value='/about_us.jsp' />">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Shopping</a>
+                    <a class="nav-link" href="<c:url value='/shopping.jsp' />">Shopping</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./service.html">Service</a>
+                    <a class="nav-link" href="<c:url value='/service.jsp' />">Service</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./shopping_cart.html">Shopping Cart</a>
+                    <a class="nav-link" href="<c:url value='/shopping_cart.jsp' />">Shopping Cart</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Log In</a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">個人資訊</a></li>
-                      <li><a class="dropdown-item" href="#">訂單管理</a></li>
-                      <li><a class="dropdown-item" href="./shopping_cart.html">購物車</a></li>
+                      <li><a class="dropdown-item" href="<c:url value='/profiles.jsp' />">個人資訊</a></li>
+                      <li><a class="dropdown-item" href="<c:url value='/order_main.jsp' />">訂單管理</a></li>
+                      <li><a class="dropdown-item" href="<c:url value='/shopping_cart.jsp' />">購物車</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="./login.html">Log In</a></li>
+                      <li><a class="dropdown-item" href="<c:url value='/login.jsp' />">Log In</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -149,13 +144,9 @@
             </ul><br>
            <hr class="lineproject" width="575px" size="5"><br>
     
-
  <!-- -------------------------------旁邊文字------------------------------- -->
 
-
-
 <!-- 旁邊選單 -->
-
            
     <form class="formtest" id="formid" action="">
       <form class="d-flex" id="Datatext" for="mydate">選取開始日期
@@ -163,8 +154,6 @@
     
         <form class="d-flex" id="Datatext" for="enddate">選取結束日期
           <input id="enddate" class="form-control me-2" name="Data" type="data" placeholder="結束日期" aria-label="Data"><br>
-         
-
 
           <h5 >選擇每周來收取日子(請選擇三日)</h5>
           <form onsubmit="return check()" for="selectday" > 
@@ -200,12 +189,8 @@
           </div>
           </form> 
 
-
-
             <br>
-
-
-            
+           
             <div id="myMoney" class="input-group mb-3" name="Time">
                 <label class="input-group-text" name="Time" for="inputGroupSelect01">時間選取 Time Selection</label>
                 <select class="form-select" id="inputGroupSelect01" name="Time">
@@ -235,31 +220,24 @@
         </form>
     </form>
 
-
           </div> 
-
-
         </div>
       </div>
 
-
 <!-- 旁邊選單 -->
-
-
-
 
     <center>
         <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;"> <br>
         <hr style="width:90%;"> <br>
     </center>
     <div id="sec_area_8">
-        <a href="./about_us.html">關於我們</a>
-        <a href="./service_intro.html">服務介紹</a>
-        <a href="./User terms.html">使用須知</a>
-        <a href="./problem.html">常見問題</a>
-        <a href="#">使用回饋</a>
-        <a href="./service.html">購買服務</a>
-        <a href="#">購物商城</a>
+        <a href="<c:url value='/about_us.jsp' />">關於我們</a>
+        <a href="<c:url value='/service_intro.jsp' />">服務介紹</a>
+        <a href="<c:url value='/User terms.jsp' />">使用須知</a>
+        <a href="<c:url value='/problem.jsp' />">常見問題</a>
+        <a href="<c:url value='/feedback.jsp' />">使用回饋</a>
+        <a href="<c:url value='/service.jsp' />">購買服務</a>
+        <a href="<c:url value='/shopping.jsp' />">購物商城</a>
     </div>
 
 <footer>
@@ -273,71 +251,25 @@
     僅為北科大 Java 017 班專題展示使用 <br>
     如有任何問題請聯絡：XXXXX@gmail.com</p>
   </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script>
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="massage-content">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-// 日期選取
-$(function () {
-      $("#mydate").datepicker({
-        minDate: 0,
-         maxDate: "+3M", dateFormat: 'yy-mm-dd',
-
-        onSelect: function(selected) {
-         $("#enddate").datepicker("option","minDate", selected); 
-         var date = $(this).datepicker('getDate');
-         var tempStartDate = new Date(date);
-         var default_end = new Date(tempStartDate.getFullYear(), tempStartDate.getMonth(), tempStartDate.getDate()+30); 
-         $('#enddate').datepicker('setDate', default_end);
-        }
-      });
-      $("#enddate").datepicker({
-        minDate: 0, maxDate: "+3M", dateFormat: 'yy-mm-dd',
-         
-        onSelect: function(selected) {
-     $("#mydate").datepicker("option","maxDate", selected); 
-        }
-      });
-    });
-
-    
-// 日期選取
-
-
-
-
-
-
-
-        const btn = document.getElementById('save_cart_btn');
-        const timeframe = document.getElementById('inputGroupSelect01')
-        const date = document.getElementById('mydate');
-        const enddate = document.getElementById('enddate');
-        const price = document.getElementById('singleSelect');
-        const selectday = document.getElementById('selectday');
-
-        let cartJson = localStorage.getItem('cart');
-        let cart = [];
-
-        if (cartJson) {
-            cart = JSON.parse(cartJson);
-        }
-
-        btn.onclick = function () {
-          alert("已加入購物車");
-            cart.push({
-              type: "service",
-              image: "",
-                item: "月租方案",
-                timeframe: timeframe.value,
-                date: date.value + " ~ " + enddate.value,
-                price: price.value,
-                selectday: selectday.value,
-
-            });
-
-            localStorage.setItem('cart', JSON.stringify(cart))
-        };
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/service-pro2.js"></script>
 </body>
 </html>

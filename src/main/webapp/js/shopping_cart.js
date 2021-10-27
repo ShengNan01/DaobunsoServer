@@ -16,6 +16,17 @@ $(function(){
         $('.dropdown-item:eq(3)').click(function () {
             localStorage.removeItem('member');
         });
+        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e) {
+            if(memberData.Login !== 'OK'){
+                e.preventDefault();
+                // alert("請先登入會員")
+                updateModal("Oops!", "請先登入會員！");
+                myModal.show();
+                $('.modal-footer>button').click(function(){
+                    location.href='./login.html';
+                })
+            }
+        });
         $('#payment_btn').click(function () {
             if(memberData.Login === 'OK') {
                 if(confirm("確定要結帳了嗎？")){
@@ -32,6 +43,15 @@ $(function(){
         });
     } else {
         $('#payment_btn').click(function (){
+            // alert("請先登入會員")
+            updateModal("Oops!", "請先登入會員！");
+            myModal.show();
+            $('.modal-footer>button').click(function(){
+                location.href='./login.html';
+            })
+        })
+        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e){
+            e.preventDefault();
             // alert("請先登入會員")
             updateModal("Oops!", "請先登入會員！");
             myModal.show();

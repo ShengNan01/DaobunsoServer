@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +25,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="./frontpage.html"><img src="./image/LOGO1.png" alt="LOGO" width="120rem" /></a>
+        <a class="navbar-brand" href="<c:url value='/frontpage.jsp' />"><img src="./image/LOGO1.png" alt="LOGO" width="120rem" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -30,38 +33,38 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="./frontpage.html">Home</a>
+              <a class="nav-link" href="<c:url value='/frontpage.jsp' />">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./about_us.html">About</a>
+              <a class="nav-link" href="<c:url value='/about_us.jsp' />">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./shopping.html">Shopping</a>
+              <a class="nav-link" href="<c:url value='/shopping.jsp' />">Shopping</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./service.html">Service</a>
+              <a class="nav-link" href="<c:url value='/service.jsp' />">Service</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./shopping_cart.html">Shopping Cart</a>
+              <a class="nav-link" href="<c:url value='/shopping_cart.jsp' />">Shopping Cart</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                 aria-expanded="false">Log In</a>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="dropdown-item" href="./profiles.html">個人資訊</a>
+                  <a class="dropdown-item" href="<c:url value='/profiles.jsp' />">個人資訊</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="./order_main.html">訂單管理</a>
+                  <a class="dropdown-item" href="<c:url value='/order_main.jsp' />">訂單管理</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="./shopping_cart.html">購物車</a>
+                  <a class="dropdown-item" href="<c:url value='/shopping_cart.jsp' />">購物車</a>
                 </li>
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="./login.html">Log In</a>
+                  <a class="dropdown-item" href="<c:url value='/login.jsp' />">Log In</a>
                 </li>
               </ul>
             </li>
@@ -152,13 +155,13 @@
     <br />
   </center>
   <div id="sec_area_8">
-    <a href="./about_us.html">關於我們</a>
-    <a href="./service_intro.html">服務介紹</a>
-    <a href="./User terms.html">使用須知</a>
-    <a href="./problem.html">常見問題</a>
-    <a href="./feedback.html">使用回饋</a>
-    <a href="./service.html">購買服務</a>
-    <a href="./shopping.html">購物商城</a>
+    <a href="<c:url value='/about_us.jsp' />">關於我們</a>
+    <a href="<c:url value='/service_intro.jsp' />">服務介紹</a>
+    <a href="<c:url value='/User terms.jsp' />">使用須知</a>
+    <a href="<c:url value='/problem.jsp' />">常見問題</a>
+    <a href="<c:url value='/feedback.jsp' />">使用回饋</a>
+    <a href="<c:url value='/service.jsp' />">購買服務</a>
+    <a href="<c:url value='/shopping.jsp' />">購物商城</a>
   </div>
 
   <footer>

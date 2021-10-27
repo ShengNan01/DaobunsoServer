@@ -1,23 +1,52 @@
+let myModal = new bootstrap.Modal(document.getElementById('myModal'));
+const memberId = JSON.parse(localStorage.member).member_id;
 const regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-$("#verify_email_btn").click(function () { 
-    if($("#email").val() === ""){
-        alert('請填入信箱');
-    }else if(!regex.test($("#email").val())){   
-        alert('輸入的信箱格式不正確');
-    }else{
-         let email = $('#email').val();
-         const Email = {Email:email}
-         
-         let url = 'http://localhost:8080/Daobunso_Project/Verifyemail';
-         fetch(url, {
+$("#verify_email_btn").click(function () {
+    if ($("#email").val() === "") {
+        updateModal("Oops!", "請輸入註冊之電子信箱");
+        myModal.show();
+    } else if (!regex.test($("#email").val())) {
+        updateModal("Oops!", "輸入電子信箱格式不正確");
+        myModal.show();
+    } else {
+        let email = $('#email').val();
+        const Email = {
+            Email: email,
+            "Member_Id": memberId,
+        }
+
+        let url = 'http://localhost:8080/Daobunso_Project/Verifyemail';
+        fetch(url, {
             method: 'POST',
             body: JSON.stringify(Email),
             headers: { 'Content-Type': 'application/json' },
-        }).then(response =>{
+        }).then(response => {
             response.text()
-            .then(text =>{
-                alert(text);
-            });
+                .then(text => {
+                    if (text === "Success") {
+                        updateModal("發送郵件成功!", "請至信箱收取信件修改密碼。");
+                        myModal.show();
+                        setTimeout(nextPage, 3000);
+                    } else if (text === "Fail") {
+                        updateModal("Oops!", "必須輸入此帳號的電子信箱");
+                        myModal.show();
+                    }
+
+                });
         });
     };
 });
+//Modal Function
+function updateModal(title, massage) {
+    $('#modal-title').text(title);
+    $('#massage-content').text(massage);
+    }
+// reset modal when modal was hidden
+let myModalEl = document.getElementById('myModal')
+myModalEl.addEventListener('hidden.bs.modal', function() {
+    updateModal("","");
+})
+//跳頁
+function nextPage(){
+    location.href = "http://localhost:8080/Daobunso_Project/"
+}
