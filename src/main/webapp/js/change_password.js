@@ -50,7 +50,7 @@ $('#change_btn').click(function(e){
         return;
     } else if($('#ogpswd').val() === "" || $('#pswdnew').val() === "" 
     || $('#confpswd').val() === "" ){
-        // alert('有欄位未填寫，請檢查！');
+         alert('有欄位未填寫，請檢查！');
         updateModal("Oops!", "有欄位未填寫，請檢查！！");
         myModal.show();
         return;
@@ -59,18 +59,30 @@ $('#change_btn').click(function(e){
 	const memberId = JSON.parse(localStorage.member).member_id;
         changepswd = {
 			"Member_Id": memberId,
-			"oldPassword":$('#ogpswd').val(),
-            "newPassword":$('#pswdnew').val()
+			"Password":$('#ogpswd').val(),
         };
-    fetch(urlReg,{
+    fetch('Change_pswd',{
+//    fetch(urlReg,{
         method:'POST',
         body:JSON.stringify(changepswd),
         headers:{ 'Content-Type' :'application/type'},
     })
     .then(response => { response.text()
+
+			const memberId = JSON.parse(localStorage.member).member_id;
+		        changepswd = {
+					"Member_Id": memberId,
+					"Password":$('#pswdnew').val()
+		        };
+		    fetch('Change_pswd',{
+		//    fetch(urlReg,{
+		        method:'POST',
+		        body:JSON.stringify(changepswd),
+		        headers:{ 'Content-Type' :'application/type'},
+		    })
     .then(text =>{
         if(text === "修改密碼成功，請重新登入！"){
-            // alert(text);
+             alert(text);
             updateModal("修改密碼成功，請重新登入")
                 Modal.show();
                 $('.modal-footer>button').click(function(){
@@ -78,7 +90,7 @@ $('#change_btn').click(function(e){
                 })
             
         } else {
-            // alert(text)
+//             alert(text)
             updateModal("修改密碼失敗，請重新輸入！",text);
             myModal.show();
             return;

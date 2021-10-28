@@ -40,20 +40,20 @@ public class Change_pswd extends HttpServlet {
 		
 				
 		Integer memberId = member.getMemberId();
-		String  oldPassword = member.getPassword();
-		String  newPassword = member.getPassword();
+		String  Password = member.getPassword();
+		
 		//解密
 		EncryptPassword = ms.findById(memberId).getPassword();
 		decryptPassword = GlobalService.decryptString(GlobalService.KEY, EncryptPassword);
 		//比對密碼
-		System.out.println("輸入密碼 = " + oldPassword);
-		if (oldPassword.equals(decryptPassword)) {
+		System.out.println("輸入密碼 = " + Password);
+		if (Password.equals(decryptPassword)) {
 			System.out.println("密碼比對正確");
 			member = ms.findById(memberId);
 		//更新密碼
-			String enPswd = GlobalService.encryptString(newPassword);
+			String enPswd = GlobalService.encryptString(Password);
 			ms.updateMemberPassword(enPswd,member.getMemberId());
-			System.out.println( "會員ID= " + memberId + "會員密碼= " + newPassword);
+			System.out.println( "會員ID= " + memberId + "會員密碼= " + Password);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write("修改密碼成功，請重新登入");		
