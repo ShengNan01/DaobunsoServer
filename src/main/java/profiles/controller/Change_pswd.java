@@ -22,35 +22,48 @@ import util.GlobalService;
 @WebServlet("/Change_pswd")
 public class Change_pswd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	String decryptPassword;
+	String EncryptPassword;
+	MemberBean member;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		MemberBean member = gson.fromJson(request.getReader(), MemberBean.class);
+		//下面開始比對密碼(先呼叫service，再呼叫dao)
 		ServletContext sc = getServletContext();
 		WebApplicationContext ctx = WebApplicationContextUtils
 									 .getWebApplicationContext(sc);
-		String enPswd = GlobalService.encryptString(member.getPassword());
+//		String enPswd = GlobalService.encryptString(member.getPassword());
 		MemberService ms = ctx.getBean(MemberService.class);
 		System.out.println(member.getPassword() +"會員ID= " + member.getMemberId());
-		ms.updateMemberPassword(enPswd,member.getMemberId());
+//		ms.updateMemberPassword(enPswd,member.getMemberId());
 		
-//		response.setContentType("application/json");
-//		response.setCharacterEncoding("UTF-8");
-//		response.getWriter().write(gson.toJson(bean));
-		
-//		if (ms.existsByMemberAccount(member.getAccount())){
-//			response.setContentType("application/json");
-//			response.setCharacterEncoding("UTF-8");
-//			response.getWriter().write("已有重複帳號，請更改");
-//		}else{
-//		Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());
-//		MemberBean bean = new MemberBean(null,member.getEmail(),member.getAccount()
-//							,enPswd,member.getMember_name(),ts);
-//		ms.save(bean);
-//
-//		response.setContentType("application/json");
-//		response.setCharacterEncoding("UTF-8");
-//		response.getWriter().write("註冊成功，請重新登入");
-//		}
+				
+		Integer memberId = member.getMemberId();
+		String  oldPassword = member.getPassword();
+		String  newPassword = member.getPassword();
+		//解密
+		EncryptPassword = ms.findById(memberId).getPassword();
+		decryptPassword = GlobalService.decryptString(GlobalService.KEY, EncryptPassword);
+		//比對密碼
+		System.out.println("輸入密碼 = " + oldPassword);
+		if (oldPassword.equals(decryptPassword)) {
+			System.out.println("密碼比對正確");
+			member = ms.findById(memberId);
+		//更新密碼
+			String enPswd = GlobalService.encryptString(newPassword);
+			ms.updateMemberPassword(enPswd,member.getMemberId());
+			System.out.println( "會員ID= " + memberId + "會員密碼= " + newPassword);
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write("修改密碼成功，請重新登入");		
+		}else {
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write("修改密碼失敗，請重新輸入！");
+		}
+
 	}
+		
 }
+

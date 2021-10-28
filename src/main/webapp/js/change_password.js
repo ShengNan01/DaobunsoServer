@@ -55,8 +55,12 @@ $('#change_btn').click(function(e){
         myModal.show();
         return;
     } else {
+	
+	const memberId = JSON.parse(localStorage.member).member_id;
         changepswd = {
-            "Password":$('#pswdNew').val()
+			"Member_Id": memberId,
+			"oldPassword":$('#ogpswd').val(),
+            "newPassword":$('#pswdnew').val()
         };
     fetch(urlReg,{
         method:'POST',
@@ -70,7 +74,7 @@ $('#change_btn').click(function(e){
             updateModal("修改密碼成功，請重新登入")
                 Modal.show();
                 $('.modal-footer>button').click(function(){
-                    location.reload();
+                    location.href='./frontpage.html';
                 })
             
         } else {
