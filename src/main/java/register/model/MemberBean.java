@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,15 @@ public class MemberBean {
 	String Password;
 	String Member_name;
 	Timestamp Join_Date;
+	@Transient
+	String NewPassword;
+	public String getNewPassword() {
+		return NewPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		NewPassword = newPassword;
+	}
 
 	public MemberBean() {
 		super();

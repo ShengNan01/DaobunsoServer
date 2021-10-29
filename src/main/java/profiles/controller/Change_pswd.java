@@ -38,29 +38,32 @@ public class Change_pswd extends HttpServlet {
 		System.out.println(member.getPassword() +"會員ID= " + member.getMemberId());
 //		ms.updateMemberPassword(enPswd,member.getMemberId());
 		
-				
+		String  oldPassword = member.getPassword();
 		Integer memberId = member.getMemberId();
-		String  Password = member.getPassword();
+		String  Password = member.getNewPassword();
 		
 		//解密
 		EncryptPassword = ms.findById(memberId).getPassword();
 		decryptPassword = GlobalService.decryptString(GlobalService.KEY, EncryptPassword);
 		//比對密碼
-		System.out.println("輸入密碼 = " + Password);
-		if (Password.equals(decryptPassword)) {
+		System.out.println("輸入的新密碼 = " + Password);
+		System.out.println("輸入的舊密碼 = " + oldPassword);
+		System.out.println("比對的原密碼 = " + decryptPassword);
+		
+		if (oldPassword.equals(decryptPassword)) {
 			System.out.println("密碼比對正確");
-			member = ms.findById(memberId);
+//			member = ms.findById(memberId);
 		//更新密碼
 			String enPswd = GlobalService.encryptString(Password);
-			ms.updateMemberPassword(enPswd,member.getMemberId());
-			System.out.println( "會員ID= " + memberId + "會員密碼= " + Password);
+			ms.updateMemberPassword(enPswd, memberId);
+			System.out.println( "會員ID= " + memberId + "   "+"會員密碼= " + Password);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().write("修改密碼成功，請重新登入");		
+			response.getWriter().write("Success");		
 		}else {
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().write("修改密碼失敗，請重新輸入！");
+			response.getWriter().write("Fail");
 		}
 
 	}
