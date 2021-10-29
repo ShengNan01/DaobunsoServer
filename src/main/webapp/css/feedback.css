@@ -1,0 +1,159 @@
+#header_media {
+    background-color: #2D3E4D;
+    width: 100vw;
+    height: 3rem;
+}
+  
+#header_media_fb {
+    position: absolute;
+    right: 6rem;
+    top: 0.5rem;
+}
+  
+#header_media_IG {
+    position: absolute;
+    right: 3rem;
+    top: 0.5rem;
+}
+  
+#header_media_Line {
+    position: absolute;
+    right: 9rem;
+    top: 0.5rem;
+}
+  
+#header_media_twitter {
+    position: absolute;
+    right: 12rem;
+    top: 0.5rem;
+    height: 30px;
+}
+  
+.navbar-light a.nav-link {
+    color: #2D3E4D !important;
+}
+  
+.navbar-light a.nav-link:hover {
+    color: #3EB595 !important;
+}
+  
+form .btn {
+    font-size: 1rem;
+    width: 7rem;
+    color: #FFF;
+    background-color: #2D3E4D;
+}
+  
+form .btn:hover {
+    background-color: #3EB595;
+}
+  
+a.nav-link {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2D3E4D;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+  
+a.nav-link:hover {
+    color: #3EB595;
+}
+  
+#nav_title {
+    margin-top: 0.5rem;
+    background-color: #2D3E4D;
+    width: 100vw;
+    height: 3rem;
+    font-size: 1.5rem;
+    color: #FFF;
+    text-align: center;
+    line-height: 3rem;
+}
+  /* ~header */
+.main{
+    width: 90%;
+    height: 40vh;
+    margin: auto;
+}
+.main .container{
+    background-image: url(../image/service_intro/log-cabin-1886620_1920.jpg);
+    background-size:cover;
+}
+.main .text{
+    text-align:center;
+    color: aliceblue;
+    background-color: cadetblue;
+    background: hsla(178,70%,60%,0.4);
+    margin-top: -13%;
+    margin-left: -10vh;
+}
+.nav_title{
+    margin-top: 0.5rem;
+    background-color: #2D3E4D;
+    width: 100vw;
+    height: 3rem;
+    font-size: 1.5rem;
+    color: #FFF;
+    text-align: center;
+    line-height: 3rem;
+}
+.marquee {
+    animation : slide 7s linear infinite ;
+    color:white;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.star-act{
+    background-color: yellow;
+}
+.star-cl{
+    background-color: darkgoldenrod;
+}
+
+/* footer */
+footer {
+    width: 100vw;
+    height: 13rem;
+    background-color: #C9C3B9;
+    position: relative;
+}
+  
+#footer_logo {
+    position: absolute;
+    left: 25rem;
+    top: 2rem;
+}
+  
+#footer_media_fb {
+    position: absolute;
+    left: 40rem;
+    top: 3rem;
+}
+  
+#footer_media_IG {
+    position: absolute;
+    left: 48rem;
+    top: 3rem;
+}
+  
+#footer_media_Line {
+    position: absolute;
+    left: 44rem;
+    top: 3rem;
+}
+  
+#footer_media_Twitter {
+    position: absolute;
+    left: 52rem;
+    top: 3rem;
+}
+  
+footer p {
+    position: absolute;
+    left: 40rem;
+    top: 6rem;
+    font-size: 1.25rem;
+}

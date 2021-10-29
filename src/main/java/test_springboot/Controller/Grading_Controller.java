@@ -3,10 +3,10 @@ package test_springboot.Controller;
 import org.springframework.web.bind.annotation.RestController;
 import test_springboot.Grading;
 import test_springboot.GradingRepo;
-import test_springboot.Grading;
-import java.lang.StackWalker.Option;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +17,32 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
 public class Grading_Controller {
 	@Autowired
 	GradingRepo gradingRepo;
+//	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
 	
-	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
 	
+	@GetMapping("/gradings")
+	public List<Optional<Grading>> getGradings() {
+		List<Optional<Grading>> gradings = new ArrayList<Optional<Grading>>();
+		
+		for(;gradings.size()<3;){
+			Integer randomidInteger = (Integer) (int) (1 + gradingRepo.findLastid() * Math.random());		
+			if(gradingRepo.existsById(randomidInteger)) {
+				gradings.add(gradingRepo.findById(randomidInteger));
+//				System.out.println("gradingRepo.existsById(selectidInteger) = "+ randomidInteger);
+			}else {
+//				System.err.println("Error!! gradingRepo.existsById(selectidInteger) = "+ randomidInteger);
+			}
+		}
+//		System.out.println(gradings);
+//		System.out.println(gradingRepo.findLastid());
+		return gradings;
+	}
 	@PostMapping("/grading")
 	public Grading postG(@RequestBody Grading g) {
 //		fMultiValueMap.add(g.getUser_account(), g);
@@ -35,8 +53,8 @@ public class Grading_Controller {
 	@GetMapping("/grading")
 	public List<Grading> getG(
 			@RequestParam("uaccount") String uaccount) {
-
-		return gradingRepo.findByAccount (uaccount);	
+//		System.out.println(gradingRepo.findByAccount (uaccount));
+		return gradingRepo.findByAccount (uaccount);
 	}
 	
 //	@PutMapping("/feedback")

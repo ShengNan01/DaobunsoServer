@@ -2,6 +2,7 @@ package test_springboot;
 
 import java.util.Iterator;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,7 +34,7 @@ public class boottest1 {
 		System.out.println("----------------------------------------");
 		
 		Mixer_interface Anniver2 = run.getBean("Mixer",Mixer_interface.class);
-		System.out.println("本次為2周年活動!\n"+Anniver2.mix2());
+		System.out.println("本次為2周年活動!\n"+Anniver2.mix2());	
 		
 		
 //練習
@@ -44,8 +45,6 @@ public class boottest1 {
 //		Holo_interface hi3 = run.getBean("Neol",Holo_interface.class);
 //		System.out.println("自我介紹為:\n"+hi3.getFeedback());
 		
-		
-		
 //1.IOC
 //		try (
 //				InputStream fis = run.getBean(InputStream.class);
@@ -53,14 +52,11 @@ public class boottest1 {
 //				){
 //		}.catch{
 //		}
-		
-		
+			
 //2.物件執行
 //		Music_interface music_interface = run.getBean("uta1",Music_interface.class);
 //		System.out.println("歌名為:"+music_interface.getName()+"\n類型:"+music_interface.getType()
 //		+"\n歌手:"+music_interface.getSinger()+"\n製作人:"+music_interface.getProducers());
-		
-		
 		
 //		用來建立類別的xml組態檔路徑
 //		ConfigurableApplicationContext run = new ClassPathXmlApplicationContext();

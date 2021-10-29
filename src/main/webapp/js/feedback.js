@@ -1,7 +1,7 @@
 //定義頁面
-const starimg = "./image/service_intro picture/holo/noel.png";
+const starimg = "./image/service_intro/holo/noel.png";
 
-let uimgsrc = "./image/service_intro picture/holo/pekora.png";
+let uimgsrc = "./image/service_intro/holo/pekora.png";
 let uname = "pekora";
 
 //Feedback定義變數
@@ -16,6 +16,33 @@ $('.feedback').hide();
 $('.user-img img').attr('src',uimgsrc);
 $('.star img').attr('src',starimg);
 $('.user-name h2').text(uname);
+
+//觀看意見領域
+fetch(`https://localhost:8443/gradings`,{
+    method: 'GET',
+}).then((response) =>{
+    response.json()
+    .then(res =>{
+        console.log(res);
+        $('#surf-0').html(JSON.stringify(res[0]));
+        $('#surf-1').html(JSON.stringify(res[1]));
+        $('#surf-2').html(JSON.stringify(res[2]));
+    });
+});
+$(".marquee").marquee({ 
+    yScroll: "bottom", 
+    showSpeed: 850,  // 初始下拉速度   , 
+    scrollSpeed: 12,  // 滾動速度   , 
+    pauseSpeed: 500,  // 滾動完到下一條的間隔時間   , 
+    pauseOnHover: true, // 滑鼠滑向文字時是否停止滾動   , 
+    loop: -1 ,    // 設定迴圈滾動次數 （-1為無限迴圈）   , 
+    fxEasingShow: "swing" , // 緩衝效果   , 
+    fxEasingScroll: "linear", // 緩衝效果   , 
+    cssShowing: "marquee-showing" //定義class 
+    });
+//~觀看意見領域
+//~頁面初始化
+
 //展開按鈕
 $('#btn-ex').click(function(){
 
@@ -38,7 +65,7 @@ $('#btn-edit').click(()=>{
     }).then((response) =>{
         response.json()
         .then(res =>{
-            console.log(res)
+            console.log(res);
         });
     });
 })
