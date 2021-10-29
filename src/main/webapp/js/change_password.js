@@ -19,7 +19,6 @@ $(function(){
         $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e) {
             if(memberData.Login !== 'OK'){
                 e.preventDefault();
-                // alert("請先登入會員")
                 updateModal("Oops!", "請先登入會員！");
                 myModal.show();
                 $('.modal-footer>button').click(function(){
@@ -30,7 +29,6 @@ $(function(){
     } else {
         $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e){
             e.preventDefault();
-            // alert("請先登入會員")
             updateModal("Oops!", "請先登入會員！");
             myModal.show();
             $('.modal-footer>button').click(function(){
@@ -44,13 +42,11 @@ let urlReg = 'http://localhost:8080/Daobunso_Project/Change_pswd';
 $('#change_btn').click(function(e){
     e.preventDefault();
     if($('#pswdnew').val() !== $('#confpswd').val()){
-        // alert('兩次輸入的密碼不相符，請重新輸入！');
         updateModal("Oops!", "兩次輸入的新密碼不相符，請重新輸入！");
         myModal.show();
         return;
     } else if($('#ogpswd').val() === "" || $('#pswdnew').val() === "" 
     || $('#confpswd').val() === "" ){
-         alert('有欄位未填寫，請檢查！');
         updateModal("Oops!", "有欄位未填寫，請檢查！！");
         myModal.show();
         return;
@@ -82,7 +78,6 @@ $('#change_btn').click(function(e){
 		    })
     .then(text =>{
         if(text === "修改密碼成功，請重新登入！"){
-             alert(text);
             updateModal("修改密碼成功，請重新登入")
                 Modal.show();
                 $('.modal-footer>button').click(function(){
@@ -90,7 +85,6 @@ $('#change_btn').click(function(e){
                 })
             
         } else {
-//             alert(text)
             updateModal("修改密碼失敗，請重新輸入！",text);
             myModal.show();
             return;
