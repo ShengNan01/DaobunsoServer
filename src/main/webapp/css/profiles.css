@@ -6,7 +6,6 @@
   height: 30rem;
   background: #fff;
   display: flex;
-  
 }
 
 .row{
@@ -83,6 +82,7 @@
 
 .border{
   padding: 15%;
+  border-radius: 18px;
 }
 
 
@@ -186,6 +186,7 @@ a.nav-link-person:hover {
 
 #nav_title {
   margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
   background-color: #2d3e4d;
   width: 100vw;
   height: 3rem;
@@ -194,6 +195,7 @@ a.nav-link-person:hover {
   text-align: center;
   line-height: 3rem;
 }
+
 
 .container {
   border: 3px #2d3e4d;
@@ -215,8 +217,8 @@ a.nav-link-person:hover {
   width: 8rem;
   color: #fff;
   background-color: #2d3e4d;
-  margin-right: -1rem;
-
+  margin-top: 1rem;
+  margin-left: -1rem;
 }
 .btn{
   

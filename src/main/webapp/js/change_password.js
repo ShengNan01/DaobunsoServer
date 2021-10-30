@@ -55,7 +55,7 @@ $('#change_btn').click(function (e) {
        	 myModal.show();
          return;
 	}else if($('#pswdnew').val().match(regex) === null){
-		 updateModal("輸入的密碼格式不符!", "至少一個小寫字母、一個大寫字母、一個數字、且密碼長度須符合8-16個字元");
+		 updateModal("輸入的密碼格式不符!", "至少一個小寫字母、一個大寫字母、一個數字，且密碼長度須符合8-16個字元");
        	 myModal.show();
          return;
     } else {
