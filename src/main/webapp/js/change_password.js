@@ -38,7 +38,7 @@ $(function () {
     }
 })
 let urlReg = 'http://localhost:8080/Daobunso_Project/Change_pswd';
-
+const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
     e.preventDefault();
     if ($('#pswdnew').val() !== $('#confpswd').val()) {
@@ -52,6 +52,10 @@ $('#change_btn').click(function (e) {
         return;
 	} else if($('#pswdnew').val() === $('#ogpswd').val()){
 		 updateModal("新密碼與原密碼重複!", "新密碼不可與原密碼重複，請重新填寫一個新密碼！！");
+       	 myModal.show();
+         return;
+	}else if($('#pswdnew').val().match(regex) === null){
+		 updateModal("輸入的密碼格式不符!", "至少一個小寫字母、一個大寫字母、一個數字、且密碼長度須符合8-16個字元");
        	 myModal.show();
          return;
     } else {
