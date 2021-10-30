@@ -57,6 +57,9 @@ $(".register").on('click',function(){
 //   }
 // });
 let urlReg = 'http://localhost:8080/Daobunso_Project/register.do';
+const regex_password = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
+const regex_account = new RegExp(/^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$/);
+const regex_email = new RegExp(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/);
 
 $('#signup_btn').click(function(e){
     e.preventDefault();
@@ -71,6 +74,18 @@ $('#signup_btn').click(function(e){
         updateModal("Oops!", "有欄位未填寫，請檢查！！");
         myModal.show();
         return;
+	}else if($('#accountNew').val().match(regex_account) === null){
+		 updateModal("輸入的帳號格式不符!", "帳號請包含英文及數字");
+       	 myModal.show();
+         return;	
+	} else if($('#email').val().match(regex_email) === null){
+		 updateModal("輸入的信箱格式不符!", "請重新填寫一個信箱");
+       	 myModal.show();
+         return;
+	}else if($('#pswdNew').val().match(regex_password) === null){
+		 updateModal("輸入的密碼格式不符!", "至少一個小寫字母、一個大寫字母、一個數字，且密碼長度須符合8-16個字元");
+       	 myModal.show();
+         return;
     } else {
         member = {
             "Member_name":$('#username').val(),
