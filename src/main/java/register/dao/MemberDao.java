@@ -19,4 +19,6 @@ public interface MemberDao {
  void update(MemberBean memberBean);
  
  boolean existsByMemberEmail(String email);
+ 
+ void updateMemberPassword(String password , Integer id);
 }

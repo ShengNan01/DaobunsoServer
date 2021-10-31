@@ -142,7 +142,7 @@
     <!-- container -->
     
       <div class ="container  text-white text-shadow   ">
-        <div class="col  p-3 mb-5 bg-white rounded shadow border ">
+        <div class="col  p-3 mb-5 bg-white rounded shadow border "  style="border-radius: 1rem;">
             <form class=" col-5  mx-auto  ">
                 <fieldset class="fieldset mb-2 mt-5">
                     

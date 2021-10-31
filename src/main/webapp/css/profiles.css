@@ -6,7 +6,6 @@
   height: 30rem;
   background: #fff;
   display: flex;
-  
 }
 
 .row{
@@ -83,6 +82,7 @@
 
 .border{
   padding: 15%;
+  border-radius: 18px;
 }
 
 
@@ -186,6 +186,7 @@ a.nav-link-person:hover {
 
 #nav_title {
   margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
   background-color: #2d3e4d;
   width: 100vw;
   height: 3rem;
@@ -194,6 +195,7 @@ a.nav-link-person:hover {
   text-align: center;
   line-height: 3rem;
 }
+
 
 .container {
   border: 3px #2d3e4d;
@@ -215,8 +217,8 @@ a.nav-link-person:hover {
   width: 8rem;
   color: #fff;
   background-color: #2d3e4d;
-  margin-right: -1rem;
-
+  margin-top: 1rem;
+  margin-left: -1rem;
 }
 .btn{
   
@@ -285,3 +287,55 @@ footer p {
 
 
 /*# sourceMappingURL=login.css.map */
+
+
+form .text{
+  font-size: 20px;
+  font-weight: bold;
+  display: none;
+}
+form .text.weak{
+  color: #ff4757;
+}
+form .text.medium{
+  color: orange;
+}
+form .text.strong{
+  color: #23ad5c;
+}
+.indicator span.weak:before{
+  background-color: #ff4757;
+}
+.indicator span.medium:before{
+  background-color: orange;
+}
+.indicator span.strong:before{
+  background-color: #23ad5c;
+}
+form .indicator span.active:before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+form .indicator span:nth-child(2){
+  margin: 0 3px;
+}
+form .indicator{
+  height: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: none;
+}
+form .indicator span{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: lightgrey;
+  border-radius: 5px;
+}
