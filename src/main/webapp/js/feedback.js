@@ -1,15 +1,16 @@
-//定義頁面
-const starimg = "./image/service_intro/holo/noel.png";
-
-let uimgsrc = "./image/service_intro/holo/pekora.png";
-let uname = "pekora";
-
 //Feedback定義變數
 let oid ="";
 let uaccount ="bcioooher1";
 let getstar;
 let ucomment = "";
 let wdate = Date();
+
+//定義頁面
+const starimg = "./image/service_intro/holo/noel.png";
+
+let uimgsrc = "./image/service_intro/holo/pekora.png";
+let uname = uaccount;
+let sstarimg = "./image/service_intro/holo/Saintquartz.png";
 
 //頁面初始化
 $('.feedback').hide();
@@ -24,22 +25,60 @@ fetch(`https://localhost:8443/gradings`,{
     response.json()
     .then(res =>{
         console.log(res);
-        $('#surf-0').html(JSON.stringify(res[0]));
-        $('#surf-1').html(JSON.stringify(res[1]));
-        $('#surf-2').html(JSON.stringify(res[2]));
+        $('#sushi-0').ready(()=>{
+            $('#sushi-0 .sushi-uimg').attr('src',uimgsrc);
+            $('#sushi-0 .sushi-star').attr('src',sstarimg);
+            $('#sushi-0 .card-title').html(res[0].account);
+            $('#sushi-0 .card-text').html(res[0].comment);
+        });
+        $('#sushi-1').ready(()=>{
+            $('#sushi-1 .sushi-uimg').attr('src',uimgsrc);
+            $('#sushi-1 .sushi-star').attr('src',sstarimg);
+            $('#sushi-1 .card-title').html(res[1].account);
+            $('#sushi-1 .card-text').html(res[1].comment);
+        });
+        $('#sushi-2').ready(()=>{
+            $('#sushi-2 .sushi-uimg').attr('src',uimgsrc);
+            $('#sushi-2 .sushi-star').attr('src',sstarimg);
+            $('#sushi-2 .card-title').html(res[2].account);
+            $('#sushi-2 .card-text').html(res[2].comment);
+        });
+        $('#sushi-3').ready(()=>{
+            $('#sushi-3 .sushi-uimg').attr('src',uimgsrc);
+            $('#sushi-3 .sushi-star').attr('src',sstarimg);
+            $('#sushi-3 .card-title').html(res[3].account);
+            $('#sushi-3 .card-text').html(res[3].comment);
+        });
+        
     });
 });
-$(".marquee").marquee({ 
-    yScroll: "bottom", 
-    showSpeed: 850,  // 初始下拉速度   , 
-    scrollSpeed: 12,  // 滾動速度   , 
-    pauseSpeed: 500,  // 滾動完到下一條的間隔時間   , 
-    pauseOnHover: true, // 滑鼠滑向文字時是否停止滾動   , 
-    loop: -1 ,    // 設定迴圈滾動次數 （-1為無限迴圈）   , 
-    fxEasingShow: "swing" , // 緩衝效果   , 
-    fxEasingScroll: "linear", // 緩衝效果   , 
-    cssShowing: "marquee-showing" //定義class 
-    });
+$('#marquee').marquee({
+        yScroll: "top"              // the position of the marquee initially scroll (can
+                                    // be either "top" or "bottom")
+      , showSpeed: 10000              // the speed of to animate the initial dropdown of
+                                    // the messages
+      , scrollSpeed: 5             // the speed of the scrolling (keep number low)
+      , pauseSpeed: 10000            // the time to wait before showing the next message
+                                    // or scrolling current message
+      , pauseOnHover: true          // determine if we should pause on mouse hover
+      , loop: -1                    // determine how many times to loop through the
+                                    // marquees (#'s < 0 = infinite)
+      , fxEasingShow: "swing"       // the animition easing to use when showing a new
+                                    // marquee
+      , fxEasingScroll: "linear"    // the animition easing to use when showing a new
+                                    // marquee
+  
+      // define the class statements
+      , cssShowing: "marquee-showing"
+  
+      // event handlers
+      , init: null                // callback that occurs when a marquee is initialized
+      , beforeshow: null          // callback that occurs before message starts
+                                  // scrolling on screen
+      , show: null                // callback that occurs when a new marquee message is
+                                  // displayed
+      , aftershow: null           // callback that occurs after the message has scrolled
+});
 //~觀看意見領域
 //~頁面初始化
 
@@ -49,7 +88,7 @@ $('#btn-ex').click(function(){
     $(this).toggleClass('tog');
     if($('#btn-ex').hasClass('tog')){
         $('.feedback').show();
-        $('#btn-ex').text("收起");
+        // $('#btn-ex').text("收起");・
     }else{
         $('.feedback').hide()
         $('#btn-ex').text("填寫意見");
@@ -90,6 +129,7 @@ $('#btn-feedback').click(()=>{
             console.log(res)
         });
     });
+    alert("成功送出!!");
 });
 //~意見送出按鈕
 //star
@@ -189,3 +229,6 @@ $('#btn-feedback').click(()=>{
     });
 }
 //~star
+let vue = new Vue({
+    
+});

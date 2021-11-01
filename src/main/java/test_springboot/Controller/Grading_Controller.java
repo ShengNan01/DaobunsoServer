@@ -30,7 +30,7 @@ public class Grading_Controller {
 	public List<Optional<Grading>> getGradings() {
 		List<Optional<Grading>> gradings = new ArrayList<Optional<Grading>>();
 		
-		for(;gradings.size()<3;){
+		for(;gradings.size()<4;){
 			Integer randomidInteger = (Integer) (int) (1 + gradingRepo.findLastid() * Math.random());		
 			if(gradingRepo.existsById(randomidInteger)) {
 				gradings.add(gradingRepo.findById(randomidInteger));
@@ -78,9 +78,6 @@ public class Grading_Controller {
 //		System.out.println(uid);
 //		System.out.println(email);
 //	}
-	
-
-	
 
 //	@PutMapping("/feedback")
 //	public String putF(@RequestBody Feedback fe) {

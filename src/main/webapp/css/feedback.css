@@ -98,14 +98,6 @@ a.nav-link:hover {
     text-align: center;
     line-height: 3rem;
 }
-.marquee {
-    animation : slide 7s linear infinite ;
-    color:white;
-    overflow: hidden;
-    width: 100%;
-}
-
-
 .star-act{
     background-color: yellow;
 }
@@ -157,3 +149,5 @@ footer p {
     top: 6rem;
     font-size: 1.25rem;
 }
+
+
