@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import orderHistory.dao.OrderItemDao;
-import orderHistory.model.OrderItemBean;
+import orderHistory.model.OrderBean;
 
 @Repository
 public class OrderItemDaoImpl implements OrderItemDao {
@@ -21,13 +21,13 @@ public class OrderItemDaoImpl implements OrderItemDao {
 	}
 
 	@Override
-	public List<OrderItemBean> findByOrderId(int orderId) {
-		List<OrderItemBean> list = null;
+	public List<OrderBean> findByOrderId(int orderId){
+		List<OrderBean> list = null;
 		Session session = factory.getCurrentSession();
-		String hql = "FROM OrderItemBean oib WHERE oib.orderBean.Order_Id = :orderId";
-		list = session.createQuery(hql, OrderItemBean.class)
-					  .setParameter("oid", orderId)
-					  .getResultList();
+		String hql = "FROM OrderBean ob WHERE ob.Order_Id = :orderId";
+		list = session.createQuery(hql, OrderBean.class)
+				  .setParameter("orderId", orderId)
+				  .getResultList();
 		return list;
 	}
 

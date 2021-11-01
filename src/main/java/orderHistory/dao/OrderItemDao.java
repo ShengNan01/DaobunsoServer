@@ -2,9 +2,9 @@ package orderHistory.dao;
 
 import java.util.List;
 
-import orderHistory.model.OrderItemBean;
+import orderHistory.model.OrderBean;
 
 public interface OrderItemDao {
 	
-	List<OrderItemBean> findByOrderId(int orderId);
+	List<OrderBean> findByOrderId(int orderId);
 }

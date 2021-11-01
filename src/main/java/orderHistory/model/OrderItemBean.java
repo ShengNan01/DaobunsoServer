@@ -25,6 +25,9 @@ public class OrderItemBean {
 	@ManyToOne
 	@JoinColumn(name = "FK_OrderBean_orderNo")
 	OrderBean orderBean;
+	
+	public OrderItemBean() {
+	}
 
 	public OrderItemBean(Integer order_detail_no, Integer quantity, String item_Type, Date garbage_Start_Date,
 			Date garbage_End_Date, OrderBean orderBean) {

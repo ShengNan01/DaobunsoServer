@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import orderHistory.dao.OrderItemDao;
-import orderHistory.model.OrderItemBean;
+import orderHistory.model.OrderBean;
 import orderHistory.service.OrderItemService;
 
 @Service
@@ -16,8 +16,8 @@ public class OrderItemServiceImpl implements OrderItemService {
 	private OrderItemDao orderItemDao;
 	
 	@Override
-	public List<OrderItemBean> findByOrderId(int orderId) {
-		List<OrderItemBean> list = null;
+	public List<OrderBean> findByOrderId(int orderId){
+		List<OrderBean> list = null;
 		list = orderItemDao.findByOrderId(orderId);
 		return list;
 	}
