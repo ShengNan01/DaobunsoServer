@@ -23,8 +23,8 @@ import register.model.MemberBean;
 import register.service.MemberService;
 import util.MailUtils;
 
-@WebServlet("/Forget_pswd")
-public class Forget_pswd extends HttpServlet {
+@WebServlet("/Forget_pswd_Email")
+public class Forget_pswd_Email extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String decryptPassword;
 	String EncryptPassword;
