@@ -15,7 +15,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.google.gson.Gson;
 
-import orderHistory.model.OrderItemBean;
+import orderHistory.model.OrderBean;
 import orderHistory.service.OrderItemService;
 
 @WebServlet("/orderDetail.do")
@@ -33,12 +33,12 @@ public class OrderDetailServlet extends HttpServlet {
 									 .getWebApplicationContext(sc); //Spring
 		OrderItemService ois = ctx.getBean(OrderItemService.class);
 		
-		List<OrderItemBean> lo = ois.findByOrderId(orderId);
+		List<OrderBean> lo = ois.findByOrderId(orderId);
 		System.out.println(lo);
 
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(gson.toJson(lo));
+//		response.setContentType("application/json");
+//		response.setCharacterEncoding("UTF-8");
+//		response.getWriter().write(gson.toJson(lo));
 		
 		}
 	}

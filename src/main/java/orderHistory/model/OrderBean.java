@@ -1,11 +1,16 @@
 package orderHistory.model;
 
 import java.sql.Timestamp;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 // 本類別存放訂單資料
 @Entity
@@ -26,9 +31,15 @@ public class OrderBean {
 	String Company_title;	
 	String Schedule_Garbage;
 	
-	public OrderBean(Integer order_Id, Timestamp order_Date, Integer member_Id, String address, String phone, String contact,
-			String time_For_Garbage, Integer sum, String pay_Type, String tax_ID_number, String company_title,
-			String schedule_Garbage) {
+	@OneToMany(mappedBy="orderBean", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	Set<OrderItemBean> items = new LinkedHashSet<>();
+
+	public OrderBean() {
+	}
+
+	public OrderBean(Integer order_Id, Timestamp order_Date, Integer member_Id, String address, String phone,
+			String contact, String time_For_Garbage, Integer sum, String pay_Type, String tax_ID_number,
+			String company_title, String schedule_Garbage, Set<OrderItemBean> items) {
 		super();
 		Order_Id = order_Id;
 		Order_Date = order_Date;
@@ -42,6 +53,7 @@ public class OrderBean {
 		Tax_ID_number = tax_ID_number;
 		Company_title = company_title;
 		Schedule_Garbage = schedule_Garbage;
+		this.items = items;
 	}
 
 	public Integer getOrder_Id() {
@@ -139,6 +151,15 @@ public class OrderBean {
 	public void setSchedule_Garbage(String schedule_Garbage) {
 		Schedule_Garbage = schedule_Garbage;
 	}
+
+	public Set<OrderItemBean> getItems() {
+		return items;
+	}
+
+	public void setItems(Set<OrderItemBean> items) {
+		this.items = items;
+	}
+	
 	
 
 	
