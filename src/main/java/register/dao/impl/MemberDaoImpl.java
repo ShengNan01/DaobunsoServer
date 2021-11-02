@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import register.dao.MemberDao;
 import register.model.MemberBean;
@@ -88,6 +89,20 @@ public class MemberDaoImpl implements MemberDao {
 			result = false;
 		}
 		return result;
+	}
+	@Override
+	public void updateMemberPassword(String password , Integer id) {
+		Session session = factory.getCurrentSession();
+		String hql = "UPDATE MemberBean set Password = :password " + 
+                "WHERE Member_Id = :member_id";
+				session.createQuery(hql).setParameter("password", password)
+										.setParameter("member_id",id)
+										.executeUpdate();
+								
+			
+		
+		
+		
 	}
 
 }

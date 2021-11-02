@@ -101,10 +101,13 @@ $(function(){
        $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
        $('.dropdown-item:eq(3)').text('Log out');
        $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+
+        $('.dropdown-item:eq(3)').click(function () {
+            localStorage.clear();
+        });
+
        }
-       $('.dropdown-item:eq(3)').click(function () {
-           localStorage.removeItem('member');
-       });
+       
        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e) {
            if(memberData.Login !== 'OK'){
                e.preventDefault();

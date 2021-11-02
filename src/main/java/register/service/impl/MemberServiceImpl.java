@@ -70,5 +70,12 @@ public class MemberServiceImpl implements MemberService {
 		exists = memberDao.existsByMemberEmail(email);
 		return exists;
 	}
+	@Transactional
+	@Override
+	public void updateMemberPassword(String password, Integer id) {
+			memberDao.updateMemberPassword(password, id);
+		
+	}
 
+	
 }

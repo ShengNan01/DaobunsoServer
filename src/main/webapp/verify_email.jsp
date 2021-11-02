@@ -70,60 +70,32 @@
           </nav>
     </header>
 
-    <nav>
-        <div id="nav_title"> 更改密碼 </div>
-    </nav>
 
-
-    <div>
-      <ul class="nav navbar  nav-fill  nav-tabs justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link" href="#!">我的方案</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!">購買紀錄</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!">我的帳戶</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!">登出</a>
-        </li>
-      </ul>
-    </div>
+  
     
-    <section>
-          <div class ="container ">
-            <div class="col">
-           
-                <div class=" col-6  mx-auto">
-                    <label class="form-label" for="email">請輸入信箱 </label>
-                    <input class="form-control  p-2 w-80 h-20" id="email" type="email" name="email" placeholder="請輸入信箱">
+    <nav>
+    <div id="nav_title"> 更改密碼 </div>
+    <center><h2>請填寫註冊信箱</h2></center>
+    <center><h2>我們將寄送驗證信件給您</h2></center>
+    <hr>
+  </nav>
 
-                    <div class=" text-center mx_auto my-3 " id="verify_email_btn">
+  <section>
+    <div class="container">
+      <div class="row  p-5 mb-5  bg-white  shadow border" style="border-radius: 1rem;">
 
-                         <button type="submit" class=" btn btn-primary btn-lg " id="">信箱驗證</button>
-                        
-                    </div>
+        <div class=" col-8 mt-5 mx-auto  ">
+          <label class="form-label" for="email">請輸入註冊信箱</label>
+          <input class="form-control p-2 w-80 h-20" id="email" type="email" name="email" placeholder="請輸入信箱">
 
-                    <div class="alertmsg alert-success a" role="alert" >
-                      <h5 class="alert-heading">信箱驗證成功</h5>
-                      信箱驗證成功，請更改密碼!
-                    </div>
-                    <div class="alertmsg alert alert-warning" role="alert">
-                      <strong>信箱驗證失敗</strong> 信箱驗證失敗，請輸入註冊信箱!
-                    </div>
-                    
-                </div>
-                <form class=" col-6  mx-auto my-4 ">
-                      
-                     
+          <div class=" text-center mx_auto my-3  mb-10">
 
-
-                </form>    
-            </div>
-            
+            <button type="submit" class=" btn btn-primary btn-lg " id="verify_email_btn">信箱驗證</button>
           </div>
+        </div>
+      </div>
+
+    </div>
              
 
                     
