@@ -75,69 +75,29 @@
     </div>
 
     <div class="nav_title">網站回饋 User Feedback</div>
-    <div class="container my-3" style ="height: 16rem">
-        <div id="marquee">
+    <!-- <div class="container my-3" style ="height: 16rem"> -->
+        <div id="marquee"class="container my-3" style ="height: 16rem" >
             <div class="row h-100">
-                <div id="sushi-0" class="sushi card mb-3  col" style="max-width: 540px;height: 14rem;">
+                <div id="sushi" v-for="rl in res" class="sushi card mb-3 col" style="max-width: 540px;height: 14rem;">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img class="sushi-uimg img-fluid rounded-start">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <img class="sushi-star rounded-start" style="height: 2rem;width: 2rem;">
-                                <h5 class="card-title"></h5>
-                                <p type="textarea" class="card-text"></p>
+                                <div class="d-flex" v-for="n in rl.star">
+                                    <img src="./image/service_intro/holo/Saintquartz.png"style="height: 1.5rem;width: 1.5rem;"> 
+                                </div>
+                                <h5 class="card-title">{{rl.account}}</h5>
+                                <p type="textarea" class="card-text">{{rl.comment}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="sushi-1" class="sushi card mb-3 col" style="max-width: 540px;height: 14rem;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img class="sushi-uimg img-fluid rounded-start">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <img class="sushi-star img-fluid rounded-start" style="height: 2rem;width: 2rem;">
-                                <h5 class="card-title"></h5>
-                                <p type="textarea" class="card-text"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="sushi-2" class="sushi card mb-3 col" style="max-width: 540px;height: 14rem;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img class="sushi-uimg img-fluid rounded-start">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <img class="sushi-star img-fluid rounded-start" style="height: 2rem;width: 2rem;">
-                                <h5 class="card-title"></h5>
-                                <p type="textarea" class="card-text"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="sushi-3" class="sushi card mb-3 col" style="max-width: 540px;height: 14rem;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img class="sushi-uimg img-fluid rounded-start">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <img class="sushi-star img-fluid rounded-start" style="height: 2rem;width: 2rem;">
-                                <h5 class="card-title"></h5>
-                                <p type="textarea" class="card-text"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div> 
-    </div>
-    
+    <!-- </div> -->
     
     <div class="row my-3">
         <!-- 意見領域展開!!! -->
@@ -248,6 +208,7 @@
         僅為北科大 Java 017 班專題展示使用 <br>
         如有任何問題請聯絡：XXXXX@gmail.com</p>
     </footer>
+    
     <script src="js\jquery-3.6.0.js"></script>
     <script src="js/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.Marquee/1.6.0/jquery.marquee.js" integrity="sha512-fkD+ERYA/LvkGF5GiipDr7myGZH3m8OPbYw62KE6qalbgykahcpfNjWe/RZmsY12qraS+wYUo2e51Zl2hShgVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

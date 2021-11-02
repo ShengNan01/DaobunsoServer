@@ -19,76 +19,34 @@ $('.star img').attr('src',starimg);
 $('.user-name h2').text(uname);
 
 //觀看意見領域
+
+
 fetch(`https://localhost:8443/gradings`,{
     method: 'GET',
 }).then((response) =>{
     response.json()
     .then(res =>{
         console.log(res);
-        $('#sushi-0').ready(()=>{
-            $('#sushi-0 .sushi-uimg').attr('src',uimgsrc);
-            $('#sushi-0 .sushi-star').attr('src',sstarimg);
-            $('#sushi-0 .card-title').html(res[0].account);
-            $('#sushi-0 .card-text').html(res[0].comment);
+
+        let marqueev = new Vue({
+            el:'#marquee',
+            data:{
+                res,
+            },
         });
-        $('#sushi-1').ready(()=>{
-            $('#sushi-1 .sushi-uimg').attr('src',uimgsrc);
-            $('#sushi-1 .sushi-star').attr('src',sstarimg);
-            $('#sushi-1 .card-title').html(res[1].account);
-            $('#sushi-1 .card-text').html(res[1].comment);
-        });
-        $('#sushi-2').ready(()=>{
-            $('#sushi-2 .sushi-uimg').attr('src',uimgsrc);
-            $('#sushi-2 .sushi-star').attr('src',sstarimg);
-            $('#sushi-2 .card-title').html(res[2].account);
-            $('#sushi-2 .card-text').html(res[2].comment);
-        });
-        $('#sushi-3').ready(()=>{
-            $('#sushi-3 .sushi-uimg').attr('src',uimgsrc);
-            $('#sushi-3 .sushi-star').attr('src',sstarimg);
-            $('#sushi-3 .card-title').html(res[3].account);
-            $('#sushi-3 .card-text').html(res[3].comment);
-        });
-        
+
     });
 });
-$('#marquee').marquee({
-        yScroll: "top"              // the position of the marquee initially scroll (can
-                                    // be either "top" or "bottom")
-      , showSpeed: 10000              // the speed of to animate the initial dropdown of
-                                    // the messages
-      , scrollSpeed: 5             // the speed of the scrolling (keep number low)
-      , pauseSpeed: 10000            // the time to wait before showing the next message
-                                    // or scrolling current message
-      , pauseOnHover: true          // determine if we should pause on mouse hover
-      , loop: -1                    // determine how many times to loop through the
-                                    // marquees (#'s < 0 = infinite)
-      , fxEasingShow: "swing"       // the animition easing to use when showing a new
-                                    // marquee
-      , fxEasingScroll: "linear"    // the animition easing to use when showing a new
-                                    // marquee
-  
-      // define the class statements
-      , cssShowing: "marquee-showing"
-  
-      // event handlers
-      , init: null                // callback that occurs when a marquee is initialized
-      , beforeshow: null          // callback that occurs before message starts
-                                  // scrolling on screen
-      , show: null                // callback that occurs when a new marquee message is
-                                  // displayed
-      , aftershow: null           // callback that occurs after the message has scrolled
-});
+
 //~觀看意見領域
 //~頁面初始化
 
 //展開按鈕
 $('#btn-ex').click(function(){
-
     $(this).toggleClass('tog');
     if($('#btn-ex').hasClass('tog')){
         $('.feedback').show();
-        // $('#btn-ex').text("收起");・
+        $('#btn-ex').text("收起");
     }else{
         $('.feedback').hide()
         $('#btn-ex').text("填寫意見");
@@ -229,6 +187,3 @@ $('#btn-feedback').click(()=>{
     });
 }
 //~star
-let vue = new Vue({
-    
-});

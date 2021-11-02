@@ -4,8 +4,12 @@ import org.springframework.web.bind.annotation.RestController;
 import test_springboot.Grading;
 import test_springboot.GradingRepo;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+
+import javax.print.DocFlavor.STRING;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +33,6 @@ public class Grading_Controller {
 	@GetMapping("/gradings")
 	public List<Optional<Grading>> getGradings() {
 		List<Optional<Grading>> gradings = new ArrayList<Optional<Grading>>();
-		
 		for(;gradings.size()<4;){
 			Integer randomidInteger = (Integer) (int) (1 + gradingRepo.findLastid() * Math.random());		
 			if(gradingRepo.existsById(randomidInteger)) {
@@ -93,7 +96,7 @@ public class Grading_Controller {
 //	RequestMapping("/feedback/submit{x}")
 //	public Holo getFeedback(@PathVariable("x") String x) {
 //		System.out.println(x);
-//		Holo neolHolo = new Holo("Neol",22,165.0,53.0,"....!","www");
+
 //		return neolHolo;
 //	}
 }

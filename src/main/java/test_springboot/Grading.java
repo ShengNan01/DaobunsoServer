@@ -24,14 +24,12 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 //@Component
-//@ConfigurationProperties(prefix = "feedback")
 @ToString
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="grading")
-//@SecondaryTable(name = "member")
 public class Grading implements Serializable{
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +41,6 @@ public class Grading implements Serializable{
 	
 	@Column(name = "Stars")
 	private Integer star;
-	
 	
 	@Column(name = "Comment_Date")
 	private String date;
