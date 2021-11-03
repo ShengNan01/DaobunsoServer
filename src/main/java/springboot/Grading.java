@@ -1,29 +1,15 @@
 package springboot;
-import java.io.Serializable;
-import java.util.Date;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.SecondaryTable;
-import javax.persistence.SecondaryTables;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
-import org.hibernate.annotations.ForeignKey;
-import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.stereotype.Component;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Date;
 
 @Component
 @ToString
@@ -45,10 +31,12 @@ public class Grading implements Serializable{
 	private Integer star;
 	
 	@Column(name = "Comment_Date")
-	private Date date;
+	private String date;
 	
 	@Column(name = "Comment")
 	private	String comment;
+
+
 
 	public Integer getObjectid() {
 		return objectid;
@@ -74,11 +62,11 @@ public class Grading implements Serializable{
 		this.star = star;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

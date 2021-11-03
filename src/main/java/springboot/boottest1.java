@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Import;
 //@EnableAutoConfiguration 默認包含在SpringBootApplication下
 //@EnableAspectJAutoProxy
 
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 @SpringBootApplication
 public class boottest1 {
 	public static void main(String[] args) //1.IOC練習 throws IOException

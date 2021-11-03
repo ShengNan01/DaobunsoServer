@@ -4,18 +4,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import springboot.Grading;
 import springboot.GradingRepo;
-
 import java.io.Console;
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
-import javax.print.DocFlavor.STRING;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,21 +45,20 @@ public class Grading_Controller {
 //				System.err.println("Error!! gradingRepo.existsById(selectidInteger) = "+ randomidInteger);
 			}
 		}
-//		System.out.println(gradings);
-//		System.out.println(gradingRepo.findLastid());
+		System.out.println(gradings);
 		return gradings;
 	}
 	@PostMapping("/grading")
 	public Grading postG(@RequestBody Grading g) {
 //		fMultiValueMap.add(g.getUser_account(), g);
-		g.setDate(new Timestamp(System.currentTimeMillis()));
+		g.setDate(new Timestamp(System.currentTimeMillis()).toString());
 		gradingRepo.save(g);
 		return g;
 	}
 	@GetMapping("/grading")
 	public List<Grading> getG(
 			@RequestParam("uaccount") String uaccount) {
-		System.out.println(gradingRepo.findByAccount (uaccount));
+//		System.out.println(gradingRepo.findByAccount (uaccount));
 		return gradingRepo.findByAccount(uaccount);
 	}
 	
@@ -81,8 +78,7 @@ public class Grading_Controller {
 //	@GetMapping(value = "/verify")
 //	public void getverify( 
 //			@RequestParam("uid") String uid,
-//			@RequestParam("email") String email
-//			) {
+//			@RequestParam("email") String email) {
 //		System.out.println(uid);
 //		System.out.println(email);
 //	}
@@ -94,14 +90,12 @@ public class Grading_Controller {
 //	}
 //	@DeleteMapping("/feedback")
 //	public String deleteF() {
-//
 //		return "delete";
 //	}
 //	
 //	RequestMapping("/feedback/submit{x}")
 //	public Holo getFeedback(@PathVariable("x") String x) {
 //		System.out.println(x);
-
 //		return neolHolo;
 //	}
 }

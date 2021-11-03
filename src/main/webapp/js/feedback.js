@@ -1,6 +1,6 @@
 //Feedback定義變數
 let oid ="";
-let uaccount ="bcioooher1";
+let uaccount ="jason";
 let getstar;
 let ucomment = "";
 // let wdate = Date();
@@ -77,7 +77,7 @@ $('#btn-feedback').click(()=>{
             objectid    :   oid,
             account     :   uaccount,
             star        :   getstar,
-            // date        :   wdate,
+            date        :   null,
             comment     :   ucomment,
             }),
         headers: { 'Content-Type': 'application/json'},

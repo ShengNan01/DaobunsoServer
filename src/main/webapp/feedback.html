@@ -85,9 +85,11 @@
                         </div>
                         <div class="col-md-9">
                             <div class="card-body">
+                                <h6 type="date">{{rl.date}}</h6>
                                 <img src="./image/service_intro/holo/Saintquartz.png"v-for="n in rl.star"style="height: 1.5rem;width: 1.5rem;"> 
                                 <h5 class="card-title">{{rl.account}}</h5>
-                                <p type="textarea" class="card-text">{{rl.comment}}</p>
+                                <p type="textarea" class="card-text"style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">{{rl.comment}}</p>
+
                             </div>
                         </div>
                     </div>
