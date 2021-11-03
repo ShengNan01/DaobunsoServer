@@ -1,5 +1,6 @@
 package springboot;
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,13 +18,14 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.ForeignKey;
+import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-//@Component
+@Component
 @ToString
 @Data
 @AllArgsConstructor
@@ -43,7 +45,7 @@ public class Grading implements Serializable{
 	private Integer star;
 	
 	@Column(name = "Comment_Date")
-	private String date;
+	private Date date;
 	
 	@Column(name = "Comment")
 	private	String comment;
@@ -72,11 +74,11 @@ public class Grading implements Serializable{
 		this.star = star;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

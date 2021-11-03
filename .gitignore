@@ -3,3 +3,5 @@
 /target/m2e-wtp/
 /target/
 .classpath
+.settings/org.eclipse.core.resources.prefs
+target/m2e-wtp/web-resources/META-INF/maven/edu.ntut.Daobunso/Daobunso_Project/pom.properties

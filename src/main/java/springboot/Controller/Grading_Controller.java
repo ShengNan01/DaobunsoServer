@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.RestController;
 import springboot.Grading;
 import springboot.GradingRepo;
 
+import java.io.Console;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,15 +54,15 @@ public class Grading_Controller {
 	@PostMapping("/grading")
 	public Grading postG(@RequestBody Grading g) {
 //		fMultiValueMap.add(g.getUser_account(), g);
-//		System.out.println(fMultiValueMap);
+		g.setDate(new Timestamp(System.currentTimeMillis()));
 		gradingRepo.save(g);
 		return g;
 	}
 	@GetMapping("/grading")
 	public List<Grading> getG(
 			@RequestParam("uaccount") String uaccount) {
-//		System.out.println(gradingRepo.findByAccount (uaccount));
-		return gradingRepo.findByAccount (uaccount);
+		System.out.println(gradingRepo.findByAccount (uaccount));
+		return gradingRepo.findByAccount(uaccount);
 	}
 	
 //	@PutMapping("/feedback")

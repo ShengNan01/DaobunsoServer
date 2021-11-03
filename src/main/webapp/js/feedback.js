@@ -3,7 +3,7 @@ let oid ="";
 let uaccount ="bcioooher1";
 let getstar;
 let ucomment = "";
-let wdate = Date();
+// let wdate = Date();
 
 //定義頁面
 const starimg = "./image/service_intro/holo/noel.png";
@@ -77,7 +77,7 @@ $('#btn-feedback').click(()=>{
             objectid    :   oid,
             account     :   uaccount,
             star        :   getstar,
-            date        :   wdate,
+            // date        :   wdate,
             comment     :   ucomment,
             }),
         headers: { 'Content-Type': 'application/json'},
