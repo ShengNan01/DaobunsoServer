@@ -46,7 +46,7 @@ $(function () {
         })
     }
 })
-let urlReg = 'http://localhost:8080/Daobunso_Project/Change_pswd';
+let urlReg = 'http://localhost:8080/Daobunso_Project/Forget_pswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
     e.preventDefault();
@@ -65,13 +65,14 @@ $('#change_btn').click(function (e) {
          return;
     } else {
 
-        const memberId = JSON.parse(localStorage.member).member_id;
+        const member_account = JSON.parse(localStorage.res_ok).member_account;
+		const member_email = JSON.parse(localStorage.res_ok).member_email;
         forget_change_pswd = {
-            // "Member_Id": memberId,
-            // "Password": $('#ogpswd').val(),
+            "Account":member_account,
+			"Email":member_email,	
             "NewPassword": $('#pswdnew').val(),
         };
-        fetch('Change_pswd', {
+        fetch('Forget_pswd', {
             //    fetch(urlReg,{
             method: 'POST',
             body: JSON.stringify(forget_change_pswd),
@@ -80,7 +81,7 @@ $('#change_btn').click(function (e) {
             response.text()
             .then(text=>{
                 if (text === "Success") {
-                    updateModal("成功!","密碼修改完成!")
+                    updateModal("成功!","密碼修改完成，請重新登入!")
                     myModal.show();
                     $('.modal-footer>button').click(function () {
                         location.href = './frontpage.html';

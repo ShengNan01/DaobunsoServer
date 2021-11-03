@@ -29,6 +29,7 @@ $("#submit").click(function (e) {
         myModal.show();
         return;
     } else {
+		console.log("123");
 		let account = $('#forgetPasswordAccount').val();
         let email = $('#forgetPasswordEmail').val();
         const forget_pswd = {
@@ -41,23 +42,34 @@ $("#submit").click(function (e) {
             method: 'POST',
             body: JSON.stringify(forget_pswd),
             headers: { 'Content-Type': 'application/json' },
-        }).then(response => {
-            response.text()
-                .then(text => {
-                    if (text === "Success") {
-                        updateModal("發送郵件成功!", "請至信箱收取信件修改密碼。");
-                        myModal.show();
-                        $('.modal-footer>button').click(function(){
-                            location.href='./frontpage.html';
-                        })
-                    } else if (text === "Fail") {
-                        updateModal("Oops!", "必須輸入此帳號註冊時的電子信箱");
-                        myModal.show();
-                    }
-             });
+		  }).then(response =>{response.json()
+					
+				.then(res=>{ console.log(res)
+					if (res.checkmemberinfo === "notok"){
+						 updateModal("Oops!", "輸入的帳號或信箱不存在，請重新輸入！！");
+				         myModal.show();
+//				         localStorage.setItem('res_notok',JSON.stringify(res));
+					}else {
+//						 updateModal("great!", "輸入的帳號及信箱正確！！");
+//				         myModal.show();這邊會被下面的updateModal蓋掉
+						 localStorage.setItem('res_ok',JSON.stringify(res));
+						  	if(res.sending === "success"){
+								updateModal("發送郵件成功!", "請至信箱收取信件修改密碼。");
+			                    myModal.show();
+			                    $('.modal-footer>button').click(function(){
+			                        location.href='./frontpage.html';
+			                    })
+						//好像不會執行到下面
+							}else if (res.sending === "Fail") {
+		                        updateModal("Oops!", "必須輸入此帳號註冊時的電子信箱");
+		                        myModal.show();
+							 }
+						 }
+							 
+					})
+				})	
+			}
         });
-    };
-});
 
 
 $(function(){
