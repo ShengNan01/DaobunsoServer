@@ -1,4 +1,4 @@
-package test_springboot;
+package springboot;
 
 import java.io.Console;
 import java.util.Iterator;

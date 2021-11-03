@@ -1,13 +1,15 @@
-package test_springboot.Controller;
+package springboot.Controller;
 
 //import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import test_springboot.Games;
-import test_springboot.Games_interface;
-import test_springboot.Holo;
-import test_springboot.Holo_interface;
+
+import springboot.Games;
+import springboot.Games_interface;
+import springboot.Holo;
+import springboot.Holo_interface;
+
 import java.net.http.HttpRequest;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;

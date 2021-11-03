@@ -1,8 +1,10 @@
-package test_springboot.Controller;
+package springboot.Controller;
 
 import org.springframework.web.bind.annotation.RestController;
-import test_springboot.Grading;
-import test_springboot.GradingRepo;
+
+import springboot.Grading;
+import springboot.GradingRepo;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

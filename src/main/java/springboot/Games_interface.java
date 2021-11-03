@@ -1,4 +1,4 @@
-package test_springboot;
+package springboot;
 
 public interface Games_interface {
 

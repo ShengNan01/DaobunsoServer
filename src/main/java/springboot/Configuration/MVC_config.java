@@ -1,15 +1,16 @@
-package test_springboot.Configuration;
+package springboot.Configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import test_springboot.Games;
-import test_springboot.Games_interface;
-import test_springboot.Holo;
-import test_springboot.Holo_interface;
-import test_springboot.Mixer;
-import test_springboot.Mixer_interface;
+
+import springboot.Games;
+import springboot.Games_interface;
+import springboot.Holo;
+import springboot.Holo_interface;
+import springboot.Mixer;
+import springboot.Mixer_interface;
 
 /*
 Configuration配置文件
