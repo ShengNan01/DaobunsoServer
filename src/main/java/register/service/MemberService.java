@@ -22,4 +22,6 @@ public interface MemberService {
 	boolean existsByMemberEmail(String email);
 	
 	void updateMemberPassword(String password , Integer id);
+	
+	void updateMemberForgetPassword(String password , String account);
 }
