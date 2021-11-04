@@ -1,4 +1,4 @@
-package springboot.Configuration;
+package springboot;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -7,12 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springboot.Filter.MVC_interceptor;
-import springboot.Games;
-import springboot.Games_interface;
-import springboot.Holo;
-import springboot.Holo_interface;
-import springboot.Mixer;
-import springboot.Mixer_interface;
+
 
 /*
 Configuration配置文件
@@ -44,16 +39,7 @@ public class MVC_config implements WebMvcConfigurer {
 //	public void addInterceptors(InterceptorRegistry registry) {
 //		registry.addInterceptor(new MVC_interceptor()).addPathPatterns("/**").excludePathPatterns("/feedback.html");
 //	}
-	@Bean("Mixer")
-	public Mixer_interface mix1() {
-		Games_interface game_m = new Games("Mincraft", "Creative", true, 10);
-		Games_interface game_p = new Games("PUBG","Survive", true, 5);
-		Games_interface game_a = new Games("APEX","Shooting", true, 2);
-		Holo_interface pekoraHolo = new Holo("Usada pekora",18,160.0,48.0,"pekopeko!","HAHAHA!~",game_m);
-		Holo_interface marineHolo = new Holo("Marine",20,162.0,50.0,"eroeor!","gagigagi!~",game_p);
-		Holo_interface neolHolo = new Holo("Neol",22,165.0,53.0,"....!","www",game_a);
-		return new Mixer(pekoraHolo,marineHolo);
-	}
+
 //	@Bean("Trans")
 //	public DataSource dataSource() {
 //		DataSource ds =new datasource

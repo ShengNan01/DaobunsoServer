@@ -19,22 +19,19 @@ import org.springframework.context.annotation.Import;
 
 //@EnableAutoConfiguration
 @SpringBootApplication
-public class boottest1 {
+public class bootMainApp {
 	public static void main(String[] args) //1.IOC練習 throws IOException
 	{
 		//IOC容器 (Inversion of Control 控制反轉)
-		ConfigurableApplicationContext run =  SpringApplication.run(boottest1.class, args);
+		ConfigurableApplicationContext run =  SpringApplication.run(bootMainApp.class, args);
 		
-		String[] names = run.getBeanDefinitionNames();
-		for(String name:names) {
-			System.out.println(name);
-		}
-		System.out.println("----------------------------------------");
-		
-		Mixer_interface Anniver2 = run.getBean("Mixer",Mixer_interface.class);
-		System.out.println("本次為2周年活動!\n"+Anniver2.mix2());
+//		顯示所有被boot管控的bean
+//		String[] names = run.getBeanDefinitionNames();
+//		for(String name:names) {
+//			System.out.println(name);
+//		}
+		System.out.println("--------------------------------------------------->伺服器啟動!");
 
-		
 //練習
 //		Holo_interface hi1 = run.getBean("Pekora",Holo_interface.class);
 //		System.out.println("自我介紹為:\n"+hi1.getFeedback());
