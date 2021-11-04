@@ -75,8 +75,8 @@
     </div>
 
     <div class="nav_title">網站回饋 User Feedback</div>
-    <!-- <div class="container my-3" style ="height: 16rem"> -->
-        <div id="marquee"class="container my-3" style ="height: 16rem" >
+    <!-- 隨機意見跑馬燈 -->
+        <div id="marquee"class="container my-3" style ="height: 16rem;display: none;" >
             <div class="row h-100">
                 <div id="sushi" v-for="rl in res" class="sushi card mb-3 col" style="max-width: 540px;height: 14rem;">
                     <div class="row g-0">
@@ -97,7 +97,7 @@
                 
             </div>
         </div> 
-    <!-- </div> -->
+    <!-- ~隨機意見跑馬燈 -->
     
     <div class="row my-3">
         <!-- 意見領域展開!!! -->
@@ -181,16 +181,13 @@
     <!-- ~意見領域 -->
 
     <!-- 編輯領域 -->
-    <div class="feedback-edit">
+    <div id="feedback-edit">
         <div class="container">
+            
             <div class="row">
-                <div class="col">
-                    <div class="feedback-editlist col-4">
-                        
-                    </div>
-                    <div class="feedback-editlist col-4"></div>
-                    <div class="feedback-editlist col-4"></div>
-                </div>
+                <ul>
+                    <li v-for="rli in res" class="editli"style="list-style-type:none; display: none;">{{rli}}</li>
+                </ul>
             </div>
         </div>
     </div>

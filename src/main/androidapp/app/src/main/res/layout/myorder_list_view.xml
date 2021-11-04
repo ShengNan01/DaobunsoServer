@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+設定foreground="?selectableItemBackground"當選項被點擊時會改變背景色。
+可能有多個theme都有selectableItemBackground屬性，
+「?」代表使用當下theme對應的selectableItemBackground
+-->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="#F0FFFF"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        // 訂單資料
+        <TextView
+            android:id="@+id/tvOrderListView"
+            android:layout_width="191dp"
+            android:layout_height="144dp"
+            android:padding="10dp" />
+
+        // comment 評論按鈕
+        <TextView
+            android:id="@+id/commentBtn"
+            android:layout_width="43dp"
+            android:layout_height="27dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/comment1"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvOrderListView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvOrderListView"
+            app:layout_constraintVertical_bias="0.504" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

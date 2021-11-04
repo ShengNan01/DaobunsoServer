@@ -11,7 +11,7 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
 
-@Component
+//@Component
 @ToString
 @Data
 @AllArgsConstructor

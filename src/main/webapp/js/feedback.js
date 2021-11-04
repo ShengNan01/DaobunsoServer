@@ -1,6 +1,6 @@
 //Feedback定義變數
 let oid ="";
-let uaccount ="jason";
+let uaccount ="toyz1234";
 let getstar;
 let ucomment = "";
 // let wdate = Date();
@@ -34,6 +34,7 @@ fetch(`https://localhost:8443/gradings`,{
                 res,
             },
         });
+        $('#marquee').show();
 
     });
 });
@@ -44,11 +45,12 @@ fetch(`https://localhost:8443/gradings`,{
 //展開按鈕
 $('#btn-ex').click(function(){
     $(this).toggleClass('tog');
+    $('.editli').hide();
     if($('#btn-ex').hasClass('tog')){
         $('.feedback').show();
         $('#btn-ex').text("收起");
     }else{
-        $('.feedback').hide()
+        $('.feedback').hide();
         $('#btn-ex').text("填寫意見");
     }
 });
@@ -63,8 +65,22 @@ $('#btn-edit').click(()=>{
         response.json()
         .then(res =>{
             console.log(res);
+
+            let editv = new Vue({
+                el:'#feedback-edit',
+                data:{
+                    res,
+                },
+            });
+            $('.editli').show();
+
         });
     });
+// ~GET
+    $('#btn-ex').removeClass('tog');
+    $('.feedback').hide();
+    $('#btn-ex').text("填寫意見");
+
 })
 //~編輯意見按鈕
 

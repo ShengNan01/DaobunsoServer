@@ -36,7 +36,7 @@ public class Grading_Controller {
 	@GetMapping("/gradings")
 	public List<Optional<Grading>> getGradings() {
 		List<Optional<Grading>> gradings = new ArrayList<Optional<Grading>>();
-		for(;gradings.size()<4;){
+		while(gradings.size()<4){
 			Integer randomidInteger = (Integer) (int) (1 + gradingRepo.findLastid() * Math.random());		
 			if(gradingRepo.existsById(randomidInteger)) {
 				gradings.add(gradingRepo.findById(randomidInteger));
@@ -45,7 +45,7 @@ public class Grading_Controller {
 //				System.err.println("Error!! gradingRepo.existsById(selectidInteger) = "+ randomidInteger);
 			}
 		}
-		System.out.println(gradings);
+//		System.out.println(gradings);
 		return gradings;
 	}
 	@PostMapping("/grading")

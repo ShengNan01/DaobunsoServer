@@ -4,7 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import springboot.Filter.MVC_interceptor;
 import springboot.Games;
 import springboot.Games_interface;
 import springboot.Holo;
@@ -37,23 +39,19 @@ request 不同請求獲取不同物件，同一個請求獲取同一物件
 @ComponentScan
 //@EnableWebMvc
 @Configuration
-public class MVC_config {
-	
-//共同使用變數 不建議
-	Games_interface game_m = new Games("Mincraft", "Creative", true, 10);
-	Games_interface game_p = new Games("PUBG","Survive", true, 5);
-	Games_interface game_a = new Games("APEX","Shooting", true, 2);
-	Holo_interface pekoraHolo = new Holo("Usada pekora",18,160.0,48.0,"pekopeko!","HAHAHA!~",game_m);
-	Holo_interface marineHolo = new Holo("Marine",20,162.0,50.0,"eroeor!","gagigagi!~",game_p);
-	Holo_interface neolHolo = new Holo("Neol",22,165.0,53.0,"....!","www",game_a);
-
-//	@Bean("feedback1")
-//	public Feedback f1() {
-//		return new Feedback();
+public class MVC_config implements WebMvcConfigurer {
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//		registry.addInterceptor(new MVC_interceptor()).addPathPatterns("/**").excludePathPatterns("/feedback.html");
 //	}
-	
 	@Bean("Mixer")
 	public Mixer_interface mix1() {
+		Games_interface game_m = new Games("Mincraft", "Creative", true, 10);
+		Games_interface game_p = new Games("PUBG","Survive", true, 5);
+		Games_interface game_a = new Games("APEX","Shooting", true, 2);
+		Holo_interface pekoraHolo = new Holo("Usada pekora",18,160.0,48.0,"pekopeko!","HAHAHA!~",game_m);
+		Holo_interface marineHolo = new Holo("Marine",20,162.0,50.0,"eroeor!","gagigagi!~",game_p);
+		Holo_interface neolHolo = new Holo("Neol",22,165.0,53.0,"....!","www",game_a);
 		return new Mixer(pekoraHolo,marineHolo);
 	}
 //	@Bean("Trans")

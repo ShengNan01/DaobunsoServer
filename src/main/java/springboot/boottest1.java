@@ -32,7 +32,8 @@ public class boottest1 {
 		System.out.println("----------------------------------------");
 		
 		Mixer_interface Anniver2 = run.getBean("Mixer",Mixer_interface.class);
-		System.out.println("本次為2周年活動!\n"+Anniver2.mix2());	
+		System.out.println("本次為2周年活動!\n"+Anniver2.mix2());
+
 		
 //練習
 //		Holo_interface hi1 = run.getBean("Pekora",Holo_interface.class);

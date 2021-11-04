@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">daobunso</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textIndex">DAOBUNSO</string>
+    <string name="comment">服務評分</string>
+    <string name="textMessage">將前往首頁</string>
+    <string name="textTitle">註冊成功</string>
+    <string name="textYes">確定</string>
+    <string name="textNoNetwork">沒有網路連線</string>
+    <string name="textInsertFail">帳號新增失敗</string>
+    <string name="textInsertSuccess">帳號新增成功</string>
+
+    <string-array name="spServiceType">
+        <item>請選擇服務類型</item>
+        <item>一次型</item>
+        <item>月租型</item>
+        <item>社區型</item>
+    </string-array>
+
+    <string-array name="spServiceTime">
+        <item>請選擇服務時段</item>
+        <item>上午(8:00-12:00)</item>
+        <item>下午(13:00-17:00)</item>
+        <item>晚上(19:00-22:00)</item>
+    </string-array>
+
+    <string-array name="spPaymentMethod">
+        <item>請選擇付款方式</item>
+        <item>面交付款</item>
+        <item>網路付款</item>
+        <item>轉帳付款</item>
+    </string-array>
+
+
+
+</resources>
