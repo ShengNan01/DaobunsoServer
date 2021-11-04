@@ -76,6 +76,15 @@ public class MemberServiceImpl implements MemberService {
 			memberDao.updateMemberPassword(password, id);
 		
 	}
+	@Transactional
+	@Override
+	public void updateMemberForgetPassword(String password, String account) {
+		memberDao.updateMemberForgetPassword(password, account);
+		
+	}
+	
+	
+	
 
 	
 }
