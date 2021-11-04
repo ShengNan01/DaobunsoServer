@@ -1,8 +1,9 @@
 let myModal = new bootstrap.Modal(document.getElementById('myModal'))
+let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'))
 
 function updateModal(title, massage) {
-$('#modal-title').text(title);
-$('#massage-content').text(massage);
+$('.modal-title').text(title);
+$('.modal-body').text(massage);
 }
 
 $(function(){
@@ -32,9 +33,11 @@ $(function(){
         });
         $('#payment_btn').click(function () {
             if(memberData.Login === 'OK') {
-                if(confirm("確定要結帳了嗎？")){
-                    location.href='./payment.html';
-                } 
+                updateModal("Final Check!", "確定要結帳了嗎？");
+                paymentModal.show();
+                $("#paymentOK").click(function () { 
+                    location.href='./payment.html'; 
+                });
             } else {
                 // alert("請先登入會員")
                 updateModal("Oops!", "請先登入會員！");
