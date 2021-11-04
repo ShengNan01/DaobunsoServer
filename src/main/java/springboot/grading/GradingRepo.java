@@ -13,7 +13,6 @@ public interface GradingRepo extends JpaRepository<Grading,Integer> {
 	@Query(nativeQuery = true,value=" SELECT MAX(Grading_id) FROM daobunso.grading;")
 	Integer findLastid();
 
-
 	List<Grading> findByAccount(String uaccount);
 	
 	List<Grading> findByStar(Integer star);
