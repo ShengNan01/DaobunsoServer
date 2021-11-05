@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +21,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.daobunso.R;
+import com.example.daobunso.member.MemberBean;
 import com.example.daobunso.network.RemoteAccess;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class signinFragment extends Fragment {
@@ -94,7 +99,18 @@ public class signinFragment extends Fragment {
             }
 
             //都有值的話，執行login方法
-            login(view);
+//            login(view);
+
+//          鳳喜加油你可以的!
+
+//            LoginBean lb = new LoginBean(account,password,true);
+            JsonObject jsonObject = new JsonObject();
+//            jsonObject.getAsJsonObject(new Gson().toJson(lb));
+            jsonObject.addProperty("account", account);
+            jsonObject.addProperty("password", password);
+            jsonObject.addProperty("rememberMe", true);
+            String result = RemoteAccess.getRemoteData("http://10.0.2.2:8080/loginsss",jsonObject.toString());
+            Log.v("ResponsefromServer:",result);
 
         });
 
