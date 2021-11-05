@@ -13,8 +13,8 @@ import springboot.Filter.MVC_interceptor;
 Configuration配置文件
 
 proxyBeanMethods代理方法(boot預設為true)
-Full(proxyBeanMethods=true)singleton
-Lite(proxyBeanMethods=false)prototype
+Full(proxyBeanMethods=true)singleton?
+Lite(proxyBeanMethods=false)prototype?
 request 不同請求獲取不同物件，同一個請求獲取同一物件
 
 如果proxyBeanMethods代理方法 = true，那外部不管對配置中的物件調用多少次皆為相同內容，

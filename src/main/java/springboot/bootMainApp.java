@@ -11,12 +11,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
-/*@SpringBootApplication將默認對其同package以及其結構下的package進行掃描*/
+//@SpringBootApplication將默認對其同package以及其結構下的package進行掃描
 //@SpringBootApplication(scanBasePackages="可指定主執行程序所在package外的package")
 //@ComponentScan("test_springboot") 被默認包含在SpringBootApplication下
 //@EnableAutoConfiguration 默認包含在SpringBootApplication下
 //@EnableAspectJAutoProxy
-
 //@EnableAutoConfiguration
 @SpringBootApplication
 public class bootMainApp {
