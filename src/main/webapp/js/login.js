@@ -68,7 +68,7 @@ $(".register").on('click',function(){
 //     return true;
 //   }
 // });
-let urlReg = 'http://localhost:8080/Daobunso_Project/register.do';
+let urlReg = 'https://localhost:8443/reg';
 const regex_password = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 const regex_account = new RegExp(/^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$/);
 const regex_email = new RegExp(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/);
@@ -139,7 +139,7 @@ $('#signup_btn').click(function(e){
 
 
 
-let urlLogin = 'http://localhost:8080/Daobunso_Project/login.do';
+let urlLogin = 'https://localhost:8443/Daobunso_Project/login.do';
 
 $(document).ready(function(){
     if (getCookieByName('account') != "" && getCookieByName('daobunsopppp') != "") {

@@ -46,7 +46,7 @@ $(function () {
         })
     }
 })
-let urlReg = 'http://localhost:8080/Daobunso_Project/Forget_pswd';
+let urlReg = 'https://localhost:8443/Daobunso_Project/Forget_pswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
     e.preventDefault();

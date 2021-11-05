@@ -89,5 +89,5 @@ $(function(){
 
 //跳頁
 function nextPage(){
-    location.href = "http://localhost:8080/Daobunso_Project/"
+    location.href = "https://localhost:8443/Daobunso_Project/"
 }
