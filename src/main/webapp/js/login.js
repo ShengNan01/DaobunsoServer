@@ -100,10 +100,10 @@ $('#signup_btn').click(function(e){
          return;
     } else {
         member = {
-            "Member_name":$('#username').val(),
-            "Email":$('#email').val(),
-            "Account":$('#accountNew').val(),
-            "Password":$('#pswdNew').val()
+            "member_name":$('#username').val(),
+            "email":$('#email').val(),
+            "account":$('#accountNew').val(),
+            "password":$('#pswdNew').val()
         };
         $(this).width('5.5rem');
         $(this).text("傳送中");
@@ -115,7 +115,8 @@ $('#signup_btn').click(function(e){
         headers: { 'Content-Type': 'application/json' },
     })
     .then(response => { response.text()
-    .then(text => {
+    .then(text => { 
+        // console.log(text)
       if( text === "註冊成功，請重新登入"){
         // alert(text);
         updateModal("Congratulations!", text);
