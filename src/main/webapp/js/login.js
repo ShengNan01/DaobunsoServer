@@ -149,7 +149,7 @@ $(document).ready(function(){
 var checkis;
 var remember;
     var isClick = false;
-    //先判斷有沒有被點擊過，有被點過 => isClick = true;，再判斷是否是勾起的狀態
+    // 先判斷有沒有被點擊過，有被點過 => isClick = true;，再判斷是否是勾起的狀態
     $("#rememberMe").click(function(){
         isClick = true;
         checkis = $(this).is(":checked");
@@ -160,7 +160,7 @@ var remember;
         }
     
     });
-    //如果rememberMe連點都沒被點過 => isClick就會是false
+    // 如果rememberMe連點都沒被點過 => isClick就會是false
     if(!isClick){
         remember = "rememberNo";
     }
@@ -169,7 +169,7 @@ $('#login_btn').click(function(e){
     e.preventDefault();
     
     if($('#account').val() === "" || $('#pswd').val() === "" ){
-        //  alert('有欄位未填寫，請檢查！');
+        // alert('有欄位未填寫，請檢查！');
         updateModal("Oops!", "有欄位未填寫，請檢查！！");
         myModal.show();
         return;
@@ -180,37 +180,40 @@ $('#login_btn').click(function(e){
 
         console.log(JSON.stringify(login));
            
-    fetch(`http://localhost:8080/loginsss`, {
+    fetch(`http://localhost:8080/logincheck`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        // 將JavaScript物件轉為JSON物件
         body: JSON.stringify({
             "account"    :   account,
             "password"   :   password,
             "rememberMe" :   remember,
-            }),  //將JavaScript物件轉為JSON物件
+            }),  
     })
-        .then(response => { response.json()
-        .then(res => { console.log(res)
-            if( res.Login === "NO"){
-            // alert('帳號或密碼不正確');
+    .then(response => { 
+        console.log(response);
+
+        if( res === "NO"){
+        //  alert('帳號或密碼不正確');
             updateModal("Oops!", "帳號或密碼不正確！！");
             myModal.show();
             localStorage.setItem('member',JSON.stringify(res));
-            // location.reload();
-            } else {
-                //    alert("登入成功");
-                   updateModal("Welcome!", "登入成功");
-                   myModal.show();
-                   $('.modal-footer>button').click(function(){
-                    $('.dropdown-toggle').text(res.member_name);
-                   $('.dropdown-item:eq(3)').text('Log out');
-                   $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
-                   localStorage.setItem('member',JSON.stringify(res));
-                   history.go(-1);
-                    })
-                //    location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
-            }
-        })
+            location.reload();
+        } else {
+        //  alert("登入成功");
+        updateModal("Welcome!", "登入成功");
+        myModal.show();
+
+        $('.modal-footer>button').click(function(){
+            $('.dropdown-toggle').text(res.member_name);
+            $('.dropdown-item:eq(3)').text('Log out');
+            $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+            localStorage.setItem('member',JSON.stringify(res));
+            history.go(-1);
+        });
+        //  location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
+        }
+        
     })
     };      
 });

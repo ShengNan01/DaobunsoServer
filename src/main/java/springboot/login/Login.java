@@ -6,6 +6,8 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 //@Component
+//@Getter
+//@Setter
 @ToString
 @Data
 @AllArgsConstructor
@@ -13,35 +15,24 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name="member")
 public class Login {
-	@Getter
-	@Setter
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Member_Id")
 	private Integer id;
 
-	@Getter
-	@Setter
 	@Column(name="Member_name")
 	private String name;
 
-	@Getter
-	@Setter
 	@Column(name="Email")
 	private String email;
 
-	@Getter
-	@Setter
 	@Column(name="Account")
 	private String account;
 
-	@Getter
-	@Setter
 	@Column(name="Password")
 	private String password;
 
-	@Getter
-	@Setter
 	private Boolean rememberMe;
 
 }
