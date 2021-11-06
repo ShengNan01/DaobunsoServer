@@ -44,8 +44,4 @@ public class Login {
 	@Setter
 	private Boolean rememberMe;
 
-	
-	
-
-	
 }

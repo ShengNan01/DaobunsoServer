@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDFFDD"
+    tools:context=".login.signinFragment">
+
+
+    // 帳號
+    <EditText
+        android:id="@+id/etAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="169dp"
+        android:ems="10"
+        android:hint="ACCOUNT"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    // 密碼
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="PASSWORD"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/etAccount"
+        app:layout_constraintTop_toBottomOf="@+id/etAccount" />
+
+
+    // login button
+
+
+    //註冊 (建立新帳號)
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/login1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+    <TextView
+        android:id="@+id/tvCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="CREATE AN ACCOUNT 點我建立新帳號"
+        android:textSize="15sp"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="@+id/tvLogin"
+        app:layout_constraintStart_toStartOf="@+id/tvLogin"
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
+
+
+    <CheckBox
+        android:id="@+id/checkBoxRememberme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="REMEMBER ME 記住我"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

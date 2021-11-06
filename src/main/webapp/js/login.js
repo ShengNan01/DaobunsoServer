@@ -138,9 +138,7 @@ $('#signup_btn').click(function(e){
 
 
 
-
-let urlLogin = 'http://localhost:8080/Daobunso_Project/login.do';
-
+// Login
 $(document).ready(function(){
     if (getCookieByName('account') != "" && getCookieByName('daobunsopppp') != "") {
             $("#account").val(getCookieByName('account'));
@@ -177,19 +175,20 @@ $('#login_btn').click(function(e){
         return;
     } 
     else {
-            login = {
-                "account":$('#account').val(),
-                "password":$('#pswd').val(),
-                "rememberMe":remember,               
-            };
+        let account = $('#account').val();
+        let password = $('#pswd').val();
 
-            console.log(JSON.stringify(login));
+        console.log(JSON.stringify(login));
            
-    fetch(urlLogin, {
-                method: 'POST',
-                body: JSON.stringify(login),  //將JavaScript物件轉為JSON物件
-                headers: { 'Content-Type': 'application/json' },
-        })
+    fetch(`http://localhost:8080/loginsss`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            "account"    :   account,
+            "password"   :   password,
+            "rememberMe" :   remember,
+            }),  //將JavaScript物件轉為JSON物件
+    })
         .then(response => { response.json()
         .then(res => { console.log(res)
             if( res.Login === "NO"){
@@ -209,11 +208,10 @@ $('#login_btn').click(function(e){
                    localStorage.setItem('member',JSON.stringify(res));
                    history.go(-1);
                     })
-
                 //    location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
             }
         })
-        })
+    })
     };      
 });
 

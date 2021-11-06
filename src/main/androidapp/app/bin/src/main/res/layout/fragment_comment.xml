@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDFFDD"
+    tools:context=".comment.commentFragment">
+
+    <TextView
+        android:id="@+id/tvCommenttitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="服務評分"
+        android:textColor="#21425F"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCommentcontent1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="您寶貴的意見是我們進步的原動力"
+        android:textColor="#21425F"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommenttitle" />
+
+    <TextView
+        android:id="@+id/tvCommentcontent2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="歡迎填寫回饋，非常感謝"
+        android:textColor="#21425F"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommentcontent1" />
+
+    <RatingBar
+        android:id="@+id/rbStars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommentcontent2"
+        android:numStars="5"
+        android:stepSize="1"/>
+
+    <TextView
+        android:id="@+id/tvCommentsubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="50dp"
+        android:text="意見填寫"
+        android:textColor="#21425F"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rbStars" />
+
+    <EditText
+        android:id="@+id/etComment"
+        android:layout_width="307dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/frame"
+        android:ems="10"
+        android:gravity="start|top|left"
+        android:hint="請由此開始填寫"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommentsubtitle" />
+
+    <TextView
+        android:id="@+id/btnCommentsubmit"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/submit1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etComment" />
+
+    <ImageView
+        android:id="@+id/ivSad"
+        android:layout_width="48dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/sad"
+        app:layout_constraintEnd_toStartOf="@+id/rbStars"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivSmile"
+        android:layout_width="53dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="216dp"
+        android:src="@drawable/smile"
+        app:layout_constraintStart_toEndOf="@+id/rbStars"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/ivHome"
+        android:layout_width="36dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivShippingcart"
+        android:layout_width="43dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/shoppingcart"
+        app:layout_constraintEnd_toStartOf="@+id/ivHome"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

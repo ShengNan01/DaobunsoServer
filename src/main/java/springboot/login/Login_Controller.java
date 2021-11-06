@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class Login_Controller {
-	
+	@Autowired
+	LoginRepo loginRepo;
 	@PostMapping("/loginsss")
 	public Login clientLogin(@RequestBody Login jsonstr) {
 		

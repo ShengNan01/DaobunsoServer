@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDFFDD"
+    tools:context=".index.indexFragment">
+
+
+    <!--跑馬燈(顯示最新資訊)-->
+    <!--使用自定義的RunningTextView類別-->
+    <com.example.daobunso.index.RunningTextView
+        android:id="@+id/tvRunning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#21425F"
+        android:text="垃圾袋買一送一優惠！新加入會員都享折扣！垃圾袋買一送一優惠！新加入會員都享折扣！"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/imgLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+    <!--logo-->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="274dp"
+        android:layout_height="274dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/tvService"
+        app:layout_constraintEnd_toEndOf="@+id/tvRunning"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="@+id/tvRunning"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <!--訂單管理MyOrder-->
+
+
+    <!--服務Service-->
+
+    <TextView
+        android:id="@+id/tvMyOrder"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/myorder1"
+        app:layout_constraintBottom_toTopOf="@+id/tvMember"
+        app:layout_constraintEnd_toStartOf="@+id/tvService"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+
+    <TextView
+        android:id="@+id/tvService"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/service1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvMyOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvMyOrder" />
+
+
+    <!--會員管理Member-->
+    <TextView
+        android:id="@+id/tvMember"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/memebr1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvComment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMyOrder" />
+
+
+    <!--意見回饋Comment-->
+    <TextView
+        android:id="@+id/tvComment"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/comment1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvMember"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvMember" />
+
+
+    // 登出按鈕
+    <TextView
+        android:id="@+id/tvLogout"
+        android:layout_width="75dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/logout1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
