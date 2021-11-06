@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\IntelliJ_workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\a568d93fe76c0283f1f166b9838afcd8\\transformed\\appcompat-1.3.1\\res\\values-night-v8\\values-night-v8.xml",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "D:\\IntelliJ_workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

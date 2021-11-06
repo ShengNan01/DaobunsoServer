@@ -99,18 +99,18 @@ public class signinFragment extends Fragment {
             }
 
             //都有值的話，執行login方法
-//            login(view);
+            login(view);
 
 //          鳳喜加油你可以的!
 
-//            LoginBean lb = new LoginBean(account,password,true);
-            JsonObject jsonObject = new JsonObject();
-//            jsonObject.getAsJsonObject(new Gson().toJson(lb));
-            jsonObject.addProperty("account", account);
-            jsonObject.addProperty("password", password);
-            jsonObject.addProperty("rememberMe", true);
-            String result = RemoteAccess.getRemoteData("http://10.0.2.2:8080/loginsss",jsonObject.toString());
-            Log.v("ResponsefromServer:",result);
+////            LoginBean lb = new LoginBean(account,password,true);
+//            JsonObject jsonObject = new JsonObject();
+////            jsonObject.getAsJsonObject(new Gson().toJson(lb));
+//            jsonObject.addProperty("account", account);
+//            jsonObject.addProperty("password", password);
+//            jsonObject.addProperty("rememberMe", true);
+//            String result = RemoteAccess.getRemoteData("http://10.0.2.2:8080/loginsss",jsonObject.toString());
+//            Log.v("ResponsefromServer:",result);
 
         });
 
@@ -122,40 +122,40 @@ public class signinFragment extends Fragment {
     }
 
     private void login(View view) {
-        String url = "http://10.0.2.2:8080/Daobunso_Project/LoginServletApp";
+        String url = "http://10.0.2.2:8080/Daobunso_Project/LoginApp";
 
         if (RemoteAccess.networkConnected(activity)) {
 
             loginbean = new LoginBean(account,password);
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("action", "findmember");
             jsonObject.addProperty("loginbean", new Gson().toJson(loginbean));
 
             String result = RemoteAccess.getRemoteData(url, jsonObject.toString()); //與後端連線
+            Log.v("ResponsefromServer:",result);
 
-            Gson gson = new Gson();
-            infoBeanApp = gson.fromJson(result,InfoBeanApp.class);
+//            Gson gson = new Gson();
+//            infoBeanApp = gson.fromJson(result,InfoBeanApp.class);
 
-            if(infoBeanApp.getLogin().equals("OK")){
-                savePreferenceOnlyAccount(); //只要有登入成功，就先把acount記錄在prefernce檔裡，方便之後的頁面撈取。
-                if(checkBoxRememberme.isChecked()){ // 如果使用者有勾選記住我，就把值記錄在preferences檔裡。
-                    if(!RememberAccount.equals(DEFAULT_ACCOUNT)||!RememberPassword.equals(DEFAULT_PASSWORD)){
-                        etAccount.setText(DEFAULT_ACCOUNT);
-                        etPassword.setText(DEFAULT_PASSWORD);  //如果preferences檔裡有值，就先把值清掉，等等才能紀錄新值
-                    }
-                    preferences = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE);
-                    savePreferences();
-                }
-                bundle = new Bundle(); // Bundle用來把本頁資料傳到下一頁去
-                // 確認登入帳密正確，正確的話把帳密加入bundle
-                bundle.putString("account", account);
-                bundle.putString("password", password);
-                Navigation.findNavController(view).navigate(R.id.action_signinFragment_to_indexFragment, bundle);
-            }
-            else{
-                etAccount.setError("帳號或密碼輸入錯誤");
-                etPassword.setError("帳號或密碼輸入錯誤");
-            }
+//            if(infoBeanApp.getLogin().equals("OK")){
+//                savePreferenceOnlyAccount(); //只要有登入成功，就先把acount記錄在prefernce檔裡，方便之後的頁面撈取。
+//                if(checkBoxRememberme.isChecked()){ // 如果使用者有勾選記住我，就把值記錄在preferences檔裡。
+//                    if(!RememberAccount.equals(DEFAULT_ACCOUNT)||!RememberPassword.equals(DEFAULT_PASSWORD)){
+//                        etAccount.setText(DEFAULT_ACCOUNT);
+//                        etPassword.setText(DEFAULT_PASSWORD);  //如果preferences檔裡有值，就先把值清掉，等等才能紀錄新值
+//                    }
+//                    preferences = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE);
+//                    savePreferences();
+//                }
+//                bundle = new Bundle(); // Bundle用來把本頁資料傳到下一頁去
+////                // 確認登入帳密正確，正確的話把帳密加入bundle
+////                bundle.putString("account", account);
+////                bundle.putString("password", password);
+//                Navigation.findNavController(view).navigate(R.id.action_signinFragment_to_indexFragment, bundle);
+//            }
+//            else{
+//                etAccount.setError("帳號或密碼輸入錯誤");
+//                etPassword.setError("帳號或密碼輸入錯誤");
+//            }
         }
         else {
             Toast.makeText(activity, R.string.textNoNetwork, Toast.LENGTH_SHORT).show();
