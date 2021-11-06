@@ -23,10 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b24bcf34-e532-4c29-8f78-552ee5bfdf87" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/springboot/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springboot/login/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,9 +76,6 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/androidapp" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -101,7 +95,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.bootMainApp">
+  <component name="RunManager" selected="Spring Boot.bootMainApp">
     <configuration name="bootMainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="springboot.bootMainApp" />
       <module name="Daobunso_Project" />
@@ -134,7 +128,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -152,7 +146,6 @@
       <workItem from="1636026552999" duration="460000" />
       <workItem from="1636030311486" duration="604000" />
       <workItem from="1636084454966" duration="2541000" />
-      <workItem from="1636164389097" duration="1428000" />
     </task>
     <servers />
   </component>
@@ -173,23 +166,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1322" height="257" key="GridCell.Tab.0.bottom" timestamp="1636107376131">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1322" height="257" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1636107376131" />
-    <state width="1322" height="257" key="GridCell.Tab.0.center" timestamp="1636107376130">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1322" height="257" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1636107376130" />
-    <state width="1322" height="257" key="GridCell.Tab.0.left" timestamp="1636107376130">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1322" height="257" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1636107376130" />
-    <state width="1322" height="257" key="GridCell.Tab.0.right" timestamp="1636107376130">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1322" height="257" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1636107376130" />
   </component>
 </project>
