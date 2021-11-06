@@ -1,9 +1,6 @@
 package springboot.grading;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,20 +16,29 @@ import java.util.Date;
 @Entity
 @Table(name="grading")
 public class Grading implements Serializable{
+	@Getter
+	@Setter
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Grading_id")
 	private Integer objectid;
-	
+
+	@Getter
 	@JoinColumn(name = "Account",table = "member",referencedColumnName = "Account")
 	private String account;
-	
+
+	@Getter
+	@Setter
 	@Column(name = "Stars")
 	private Integer star;
-	
+
+	@Getter
+	@Setter
 	@Column(name = "Comment_Date")
 	private String date;
-	
+
+	@Getter
+	@Setter
 	@Column(name = "Comment")
 	private	String comment;
 
