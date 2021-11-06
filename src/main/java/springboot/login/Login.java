@@ -2,12 +2,8 @@ package springboot.login;
 
 import javax.persistence.Entity;
 
+import lombok.*;
 import org.springframework.stereotype.Component;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Component
 @ToString
@@ -16,9 +12,17 @@ import lombok.ToString;
 @NoArgsConstructor
 //@Entity
 public class Login {
+	@Getter
+	@Setter
 	private String account;
+	@Getter
+	@Setter
 	private String password;
+	@Getter
+	@Setter
 	private Boolean rememberMe;
+	
+	
 
 	
 }
