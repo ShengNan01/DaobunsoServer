@@ -15,10 +15,6 @@ public class Login_Controller {
 	
 	@PostMapping("/loginsss")
 	public Login clientLogin(@RequestBody Login jsonstr) {
-
-		System.out.println(jsonstr.getAccount());
-		System.out.println(jsonstr.getPassword());
-		System.out.println(jsonstr.getRememberMe());
 		
 		return jsonstr;
 	}
