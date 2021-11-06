@@ -18,7 +18,7 @@ public class Login_Controller {
 	@Autowired
 	LoginRepo loginRepo;
 	
-	@PostMapping("/LoginApp")
+	@PostMapping("/logincheck")
 	public String clientLogin(@RequestBody Login loginBean) {
 		
 		if(loginBean!=null) {

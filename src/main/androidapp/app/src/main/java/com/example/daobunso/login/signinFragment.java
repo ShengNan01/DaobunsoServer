@@ -122,7 +122,7 @@ public class signinFragment extends Fragment {
     }
 
     private void login(View view) {
-        String url = "http://10.0.2.2:8080/Daobunso_Project/LoginApp";
+        String url = "http://10.0.2.2:8080/Daobunso_Project/logincheck";
 
         if (RemoteAccess.networkConnected(activity)) {
 
