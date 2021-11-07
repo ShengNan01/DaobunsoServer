@@ -136,7 +136,43 @@ $('#signup_btn').click(function(e){
         })
     };
 });
-
+//密碼強度
+function trigger() {
+    if (input.value != "") {
+        indicator.style.display = "block";
+        indicator.style.display = "flex";
+        if (input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong))) no = 1;
+        if (input.value.length >= 6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong)))) no = 2;
+        if (input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong)) no = 3;
+        if (no == 1) {
+            weak.classList.add("active");
+            text.style.display = "block";
+            text.textContent = "密碼強度：弱";
+            text.classList.add("weak");
+        }
+        if (no == 2) {
+            medium.classList.add("active");
+            text.textContent = "密碼強度：中等";
+            text.classList.add("medium");
+        } else {
+            medium.classList.remove("active");
+            text.classList.remove("medium");
+        }
+        if (no == 3) {
+            weak.classList.add("active");
+            medium.classList.add("active");
+            strong.classList.add("active");
+            text.textContent = "密碼強度：強";
+            text.classList.add("strong");
+        } else {
+            strong.classList.remove("active");
+            text.classList.remove("strong");
+        }
+    } else {
+        indicator.style.display = "none";
+        text.style.display = "none";
+    }
+}
 
 
 // Login
@@ -184,82 +220,42 @@ $('#login_btn').click(function(e){
 
         console.log(JSON.stringify(login));
            
-    fetch(`http://localhost:8080/logincheck`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        // 將JavaScript物件轉為JSON物件
-        body: JSON.stringify({
-            "account"    :   account,
-            "password"   :   password,
-            "rememberMe" :   remember,
-            }),  
-    })
-    .then(response => { 
-        console.log(response);
+        fetch(`http://localhost:8080/logincheck`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            // 將JavaScript物件轉為JSON物件
+            body: JSON.stringify({
+                "account"    :   account,
+                "password"   :   password,
+                "rememberMe" :   remember,
+                }),  
+        })
+        .then(response => { 
+            console.log(response);
 
-        if( res === "NO"){
-        //  alert('帳號或密碼不正確');
-            updateModal("Oops!", "帳號或密碼不正確！！");
+            if( res === "NO"){
+            //  alert('帳號或密碼不正確');
+                updateModal("Oops!", "帳號或密碼不正確！！");
+                myModal.show();
+                localStorage.setItem('member',JSON.stringify(res));
+                location.reload();
+            } else {
+            //  alert("登入成功");
+            updateModal("Welcome!", "登入成功");
             myModal.show();
-            localStorage.setItem('member',JSON.stringify(res));
-            location.reload();
-        } else {
-        //  alert("登入成功");
-        updateModal("Welcome!", "登入成功");
-        myModal.show();
 
-        $('.modal-footer>button').click(function(){
-            $('.dropdown-toggle').text(res.member_name);
-            $('.dropdown-item:eq(3)').text('Log out');
-            $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
-            localStorage.setItem('member',JSON.stringify(res));
-            history.go(-1);
-        });
-        //  location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
-        }
-        
-    })
+            $('.modal-footer>button').click(function(){
+                $('.dropdown-toggle').text(res.member_name);
+                $('.dropdown-item:eq(3)').text('Log out');
+                $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+                localStorage.setItem('member',JSON.stringify(res));
+                history.go(-1);
+            });
+            //  location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
+            } 
+        })
     };      
 });
-
-//密碼強度
-function trigger() {
-    if (input.value != "") {
-        indicator.style.display = "block";
-        indicator.style.display = "flex";
-        if (input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong))) no = 1;
-        if (input.value.length >= 6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong)))) no = 2;
-        if (input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong)) no = 3;
-        if (no == 1) {
-            weak.classList.add("active");
-            text.style.display = "block";
-            text.textContent = "密碼強度：弱";
-            text.classList.add("weak");
-        }
-        if (no == 2) {
-            medium.classList.add("active");
-            text.textContent = "密碼強度：中等";
-            text.classList.add("medium");
-        } else {
-            medium.classList.remove("active");
-            text.classList.remove("medium");
-        }
-        if (no == 3) {
-            weak.classList.add("active");
-            medium.classList.add("active");
-            strong.classList.add("active");
-            text.textContent = "密碼強度：強";
-            text.classList.add("strong");
-        } else {
-            strong.classList.remove("active");
-            text.classList.remove("strong");
-        }
-    } else {
-        indicator.style.display = "none";
-        text.style.display = "none";
-    }
-}
-
 
 function parseCookie() {
     var cookieObj = {};

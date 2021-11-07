@@ -6,8 +6,8 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 //@Component
-//@Getter
-//@Setter
+@Getter
+@Setter
 @ToString
 @Data
 @AllArgsConstructor
