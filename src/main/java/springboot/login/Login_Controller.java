@@ -38,7 +38,6 @@ public class Login_Controller {
 						Cookie cookie = new Cookie("clogin","這樣才~cooooooookie!");
 						cookie.setDomain("localhost");
 						response.addCookie(cookie);
-
 					}
 					return "OK";				
 				}
