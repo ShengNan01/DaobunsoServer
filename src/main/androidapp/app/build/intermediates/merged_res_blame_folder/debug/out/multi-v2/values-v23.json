@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\IntelliJ_workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-3\\8b532ec339b2e56917562d015bc00c2d\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
