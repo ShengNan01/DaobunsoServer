@@ -16,48 +16,44 @@ public class Login_Controller {
 	LoginRepo loginRepo;
 
 	@GetMapping("/testt")
-	public void testt(){
+	public void testt() {
 		System.out.println(GlobalService.decryptString(GlobalService.KEY
-				,loginRepo.findPasswordByMemberAccount("hsi")));
+				, loginRepo.findPasswordByMemberAccount("hsi")));
 	}
 
-	@PostMapping("/logincheck")
-	public String clientLogin(@RequestParam("rememberMe") Boolean rememberMe, @RequestBody Login loginBean, HttpServletResponse response) {
-		if(loginBean!=null) {
-			String account = loginBean.getAccount();
-			String password = loginBean.getPassword();
-		
-			if(loginRepo.existsByAccount(loginBean.getAccount())) { //核對確認有這個帳號
+	@PostMapping("/web/logincheck")
+	public String webLogin(@RequestParam("rememberMe") Boolean rememberMe, @RequestBody Login login, HttpServletResponse response) {
+		if (login != null) {
+			String account = login.getAccount();
+			String password = login.getPassword();
+			if (loginRepo.existsByAccount(login.getAccount())) { //核對確認有這個帳號
 				String decryptPassword = GlobalService.decryptString(GlobalService.KEY
-						,loginRepo.findPasswordByMemberAccount(loginBean.getAccount()));
-				System.out.println("Account:"+account +"\tPassword:"+ decryptPassword+"\tRememberMe:"+rememberMe);
-				System.out.println(loginRepo.findLoginByAccount(account));
-			// 解密後密碼與使用者輸入的密碼比對。如果密碼一樣，就成功豋入
-				if (password.equals(decryptPassword)) {
-					if (rememberMe){
-						Cookie cookie = new Cookie("clogin","這樣才~cooooooookie!");
-						cookie.setDomain("localhost");
-						response.addCookie(cookie);
+						, loginRepo.findPasswordByMemberAccount(login.getAccount()));
+				System.out.println("Account:" + account + "\tPassword:" + decryptPassword + "\tRememberMe:" + rememberMe);
+//				System.out.println(loginRepo.findLoginByAccount(account));
+
+				// 前端密碼與加密前後的資料庫密碼比對。如果密碼一樣，就成功豋入
+				if (password.equals(decryptPassword)
+						|| password.equals(loginRepo.findPasswordByMemberAccount(login.getAccount()))) {
+					if (rememberMe) {
+						Login loginc = loginRepo.findLoginByAccount(account);
+						Cookie cookieName = new Cookie("name", loginc.getName());
+						Cookie cookieAccount = new Cookie("account", loginc.getAccount());
+						Cookie cookiePassword = new Cookie("password", loginc.getPassword());
+						Cookie cookieEmail = new Cookie("email", loginc.getEmail());
+						cookieName.setMaxAge(7 * 24 * 60 * 60);
+						cookieAccount.setMaxAge(7 * 24 * 60 * 60);
+						cookiePassword.setMaxAge(7 * 24 * 60 * 60);
+						cookieEmail.setMaxAge(7 * 24 * 60 * 60);
+						response.addCookie(cookieName);
+						response.addCookie(cookieAccount);
+						response.addCookie(cookiePassword);
+						response.addCookie(cookieEmail);
 					}
-					return "OK";				
+					return "這樣才COOL~!";
 				}
-				// 如果密碼不正確
-				else {
-					return "NG";
-				}
-		 }
-			//如果沒有這個帳號
-		else {
-
-			return "NG";
+			}
 		}
-
+		return "這樣不夠COOL..";
 	}
-		//如果前端傳來的loginBean是null
-		else {
-			return "NG";
-		}
-
-	}
-	
 }

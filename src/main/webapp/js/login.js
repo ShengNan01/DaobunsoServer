@@ -178,9 +178,9 @@ function trigger() {
 // Login
 
 $(document).ready(function(){
-    if (getCookieByName('account') != "" && getCookieByName('daobunsopppp') != "") {
+    if (getCookieByName('account') != "" && getCookieByName('name') != ""&& getCookieByName('email') != "") {
             $("#account").val(getCookieByName('account'));
-            $("#pswd").val(getCookieByName('daobunsopppp')); 
+            $("#pswd").val(getCookieByName('password')); 
     }
 })
 
@@ -191,9 +191,9 @@ let rememberMe = false;
 $("#rememberMe").click(function(){
     $(this).toggleClass('tog');
     if($('#rememberMe').hasClass('tog')){
-        rememberMe = false;
-    }else{
         rememberMe = true;
+    }else{
+        rememberMe = false;
     }
 });
 $('#login_btn').click(function(e){
@@ -209,7 +209,7 @@ $('#login_btn').click(function(e){
         let account = $('#account').val();
         let password = $('#pswd').val();
            
-        fetch(`https://localhost:8443/logincheck?rememberMe=${rememberMe}`, {
+        fetch(`https://localhost:8443/web/logincheck?rememberMe=${rememberMe}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // 將JavaScript物件轉為JSON物件
@@ -219,7 +219,10 @@ $('#login_btn').click(function(e){
                 }),  
         })
         .then(response => { 
-            console.log(response);
+            response.text()
+            .then(res=>{
+                alert(res.toString()); 
+            });
 
             // if( res === "NO"){
             // //  alert('帳號或密碼不正確');
@@ -241,7 +244,7 @@ $('#login_btn').click(function(e){
             // });
             // //  location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
             // } 
-        })
+        });
     };      
 });
 
