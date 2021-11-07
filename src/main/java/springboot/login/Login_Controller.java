@@ -25,7 +25,7 @@ public class Login_Controller {
 			String account = loginBean.getAccount();
 			String password = loginBean.getPassword();
 		
-			if(loginRepo.existsByMemberAccount(account)) { //核對確認有這個帳號
+			if(loginRepo.existsByAccount(account)) { //核對確認有這個帳號
 				EncryptPassword = loginRepo.findPasswordByMemberAccount(account);
 				decryptPassword = GlobalService.decryptString(GlobalService.KEY, EncryptPassword);
 
@@ -33,24 +33,24 @@ public class Login_Controller {
 
 			// 解密後密碼與使用者輸入的密碼比對。如果密碼一樣，就成功豋入
 				if (password.equals(decryptPassword)) {
-					loginBean = loginRepo.findInfoByMemberAccount(account);
+					loginBean = loginRepo.findLoginByAccount(account);
 					return "OK";				
 				}
 				// 如果密碼不正確
 				else {					
-					return "NG";
+					return "PW_NG";
 				}			
 		 }
 			//如果沒有這個帳號
 		else {
 			
-			return "NG";
+			return "AC_NG";
 		}
 			
 	}
 		//如果前端傳來的loginBean是null
 		else {
-			return "NG";
+			return "NULL_NG";
 		}
 		
 	}

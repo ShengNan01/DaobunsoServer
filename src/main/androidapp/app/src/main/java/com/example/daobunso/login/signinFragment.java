@@ -99,7 +99,7 @@ public class signinFragment extends Fragment {
             }
 
             //都有值的話，執行login方法
-            login(view);
+            login();
 
 //          鳳喜加油你可以的!
 
@@ -120,15 +120,15 @@ public class signinFragment extends Fragment {
             Navigation.findNavController(view).navigate(R.id.action_signinFragment_to_createAccountFragment, bundle);
         });
     }
-
-    private void login(View view) {
-        String url = "http://10.0.2.2:8080/Daobunso_Project/logincheck";
+//    View view
+    private void login() {
+        String url = "http://10.0.2.2:8080/logincheck";
 
         if (RemoteAccess.networkConnected(activity)) {
 
             loginbean = new LoginBean(account,password);
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("loginbean", new Gson().toJson(loginbean));
+            jsonObject.addProperty("loginBean", new Gson().toJson(loginbean));
 
             String result = RemoteAccess.getRemoteData(url, jsonObject.toString()); //與後端連線
             Log.v("ResponsefromServer:",result);
