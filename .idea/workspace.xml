@@ -23,11 +23,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b24bcf34-e532-4c29-8f78-552ee5bfdf87" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/logincheck.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/springboot/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springboot/login/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commentAPP/controller/CommentServletAPP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commentAPP/dao/CommentDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commentAPP/dao/impl/CommentDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commentAPP/model/CommentBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commentAPP/service/CommentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commentAPP/service/impl/CommentServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/login/controller/LoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/login/controller/LoginServletApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/login/dao/LoginDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/login/dao/impl/LoginDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/login/model/InfoBeanApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/login/model/LoginBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/login/service/LoginService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/login/service/impl/LoginServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springboot/bootMainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springboot/bootMainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springboot/login/InfoBeanApp.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/springboot/login/Login_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springboot/login/Login_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/User terms.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/User terms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/about_us.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/about_us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/change_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/change_password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/change_password.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/change_password.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/feedback.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/feedback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/forget&amp;change_pswd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/forget&amp;change_pswd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/forget_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/forget_password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/forget_password.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/forget_password.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/springboot/login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springboot/login/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/order_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/order_main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/order_main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/order_main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/problem.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/problem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/profiles.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profiles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/profiles.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profiles.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/service-project1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/service-project1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/service-project2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/service-project2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/service.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/service.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/service_intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/service_intro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/shopping.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/shopping.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/shopping_cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/shopping_cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/verify_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/verify_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/springboot/bootMainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springboot/bootMainApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/springboot/login/Login_Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springboot/login/Login_Controller.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,6 +197,7 @@
       <workItem from="1636212893344" duration="710000" />
       <workItem from="1636255285309" duration="635000" />
       <workItem from="1636270195137" duration="17090000" />
+      <workItem from="1636303795687" duration="10849000" />
     </task>
     <servers />
   </component>

@@ -14,44 +14,6 @@ function updateModal(title, massage) {
 $('#modal-title').text(title);
 $('#massage-content').text(massage);
 }
-
-$(function(){
-    if(localStorage.getItem('member') != null){
-        memberData = JSON.parse(localStorage.getItem('member'));
-        if(memberData.Login === 'OK'){
-        $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
-        $('.dropdown-item:eq(3)').text('Log out');
-        $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
-
-        $('.dropdown-item:eq(3)').click(function () {
-            localStorage.clear();
-        });
-
-        }
-        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e) {
-            if(memberData.Login !== 'OK'){
-                e.preventDefault();
-                // alert("請先登入會員")
-                updateModal("Oops!", "請先登入會員！");
-                myModal.show();
-                $('.modal-footer>button').click(function(){
-                    location.href='./login.html';
-                })
-            }
-        });
-    } else {
-        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e){
-            e.preventDefault();
-            // alert("請先登入會員")
-            updateModal("Oops!", "請先登入會員！");
-            myModal.show();
-            $('.modal-footer>button').click(function(){
-                location.href='./login.html';
-            })
-        })
-    }   
-})
-
 $(".register").on('click',function(){
     $("#form_in").hide();
     $("#form_reg").show();
@@ -178,15 +140,12 @@ function trigger() {
 // Login
 
 $(document).ready(function(){
-    if (getCookieByName('account') != "" && getCookieByName('name') != ""&& getCookieByName('email') != "") {
-            $("#account").val(getCookieByName('account'));
-            $("#pswd").val(getCookieByName('password')); 
+    if (getCookieValueByName('account') != "" && getCookieValueByName('name') != ""&& getCookieValueByName('email') != ""&& getCookieValueByName('password') != "") {
+            $("#account").val(getCookieValueByName('account'));
+            $("#pswd").val(getCookieValueByName('password')); 
     }
 })
-
-var checkis;
-var remember;
-
+// 判斷#rememberMe有沒有勾
 let rememberMe = false;
 $("#rememberMe").click(function(){
     $(this).toggleClass('tog');
@@ -196,11 +155,11 @@ $("#rememberMe").click(function(){
         rememberMe = false;
     }
 });
+// 登入按鈕
 $('#login_btn').click(function(e){
     e.preventDefault();
     
     if($('#account').val() === "" || $('#pswd').val() === "" ){
-        // alert('有欄位未填寫，請檢查！');
         updateModal("Oops!", "有欄位未填寫，請檢查！！");
         myModal.show();
         return;
@@ -209,7 +168,7 @@ $('#login_btn').click(function(e){
         let account = $('#account').val();
         let password = $('#pswd').val();
            
-        fetch(`https://localhost:8443/web/logincheck?rememberMe=${rememberMe}`, {
+        fetch(`https://localhost:8443/web.logincheck?rememberMe=${rememberMe}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // 將JavaScript物件轉為JSON物件
@@ -223,7 +182,6 @@ $('#login_btn').click(function(e){
             .then(res=>{
                 alert(res.toString()); 
             });
-
             // if( res === "NO"){
             // //  alert('帳號或密碼不正確');
             //     updateModal("Oops!", "帳號或密碼不正確！！");
@@ -242,39 +200,12 @@ $('#login_btn').click(function(e){
             //     localStorage.setItem('member',JSON.stringify(res));
             //     history.go(-1);
             // });
-            // //  location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
+            //  location.assign('./');
             // } 
+            location.assign('./frontpage.html');
         });
     };      
 });
-
-function parseCookie() {
-    var cookieObj = {};
-    var cookieAry = document.cookie.split(';');
-    var cookie;
-    
-    for (var i=0, l=cookieAry.length; i<l; ++i) {
-        cookie = jQuery.trim(cookieAry[i]);
-        cookie = cookie.split('=');
-        cookieObj[cookie[0]] = cookie[1];
-    }
-    
-    return cookieObj;
-}
-
-
-function getCookieByName(name) {
-    var value = parseCookie()[name];
-    if (value) {
-        value = decodeURIComponent(value);
-    }
-    return value;
-}
-
-$('.dropdown-item:eq(3)').click(function () { 
-    localStorage.removeItem('member');
-});
-
 // reset modal when modal was hidden
 let myModalEl = document.getElementById('myModal')
 myModalEl.addEventListener('hidden.bs.modal', function (event) {
