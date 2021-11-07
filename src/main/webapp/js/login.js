@@ -177,8 +177,6 @@ function trigger() {
 
 // Login
 
-let urlLogin = 'https://localhost:8443/Daobunso_Project/login.do';
-
 $(document).ready(function(){
     if (getCookieByName('account') != "" && getCookieByName('daobunsopppp') != "") {
             $("#account").val(getCookieByName('account'));
@@ -188,23 +186,16 @@ $(document).ready(function(){
 
 var checkis;
 var remember;
-    var isClick = false;
-    // 先判斷有沒有被點擊過，有被點過 => isClick = true;，再判斷是否是勾起的狀態
-    $("#rememberMe").click(function(){
-        isClick = true;
-        checkis = $(this).is(":checked");
-        if (checkis) {
-            remember = "rememberOk";
-        } else {
-            remember = "rememberNo";
-        }
-    
-    });
-    // 如果rememberMe連點都沒被點過 => isClick就會是false
-    if(!isClick){
-        remember = "rememberNo";
-    }
 
+let rememberMe = false;
+$("#rememberMe").click(function(){
+    $(this).toggleClass('tog');
+    if($('#rememberMe').hasClass('tog')){
+        rememberMe = false;
+    }else{
+        rememberMe = true;
+    }
+});
 $('#login_btn').click(function(e){
     e.preventDefault();
     
@@ -217,42 +208,39 @@ $('#login_btn').click(function(e){
     else {
         let account = $('#account').val();
         let password = $('#pswd').val();
-
-        console.log(JSON.stringify(login));
            
-        fetch(`http://localhost:8080/logincheck`, {
+        fetch(`https://localhost:8443/logincheck?${rememberMe}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // 將JavaScript物件轉為JSON物件
             body: JSON.stringify({
                 "account"    :   account,
                 "password"   :   password,
-                "rememberMe" :   remember,
                 }),  
         })
         .then(response => { 
             console.log(response);
 
-            if( res === "NO"){
-            //  alert('帳號或密碼不正確');
-                updateModal("Oops!", "帳號或密碼不正確！！");
-                myModal.show();
-                localStorage.setItem('member',JSON.stringify(res));
-                location.reload();
-            } else {
-            //  alert("登入成功");
-            updateModal("Welcome!", "登入成功");
-            myModal.show();
+            // if( res === "NO"){
+            // //  alert('帳號或密碼不正確');
+            //     updateModal("Oops!", "帳號或密碼不正確！！");
+            //     myModal.show();
+            //     localStorage.setItem('member',JSON.stringify(res));
+            //     location.reload();
+            // } else {
+            // //  alert("登入成功");
+            // updateModal("Welcome!", "登入成功");
+            // myModal.show();
 
-            $('.modal-footer>button').click(function(){
-                $('.dropdown-toggle').text(res.member_name);
-                $('.dropdown-item:eq(3)').text('Log out');
-                $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
-                localStorage.setItem('member',JSON.stringify(res));
-                history.go(-1);
-            });
-            //  location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
-            } 
+            // $('.modal-footer>button').click(function(){
+            //     $('.dropdown-toggle').text(res.member_name);
+            //     $('.dropdown-item:eq(3)').text('Log out');
+            //     $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+            //     localStorage.setItem('member',JSON.stringify(res));
+            //     history.go(-1);
+            // });
+            // //  location.assign('http://localhost:8080/Daobunso_Project/frontpage.html');
+            // } 
         })
     };      
 });

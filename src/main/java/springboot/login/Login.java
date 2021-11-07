@@ -33,6 +33,7 @@ public class Login {
 	@Column(name="Password")
 	private String password;
 
+	@Transient
 	private Boolean rememberMe;
 
 }
