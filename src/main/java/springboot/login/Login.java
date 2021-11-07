@@ -1,31 +1,21 @@
 package springboot.login;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import org.springframework.data.annotation.Transient;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.springframework.stereotype.Component;
 
 //@Component
-@ToString
-@Data
 @Getter
 @Setter
+@ToString
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="member")
 public class Login {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Member_Id")
@@ -42,8 +32,8 @@ public class Login {
 
 	@Column(name="Password")
 	private String password;
+
 	@Transient
 	private Boolean rememberMe;
 
-	
 }

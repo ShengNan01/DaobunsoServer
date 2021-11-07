@@ -37,7 +37,7 @@ $("#submit").click(function (e) {
 			Account:account,
 
         }
-        let url = 'http://localhost:8080/Daobunso_Project/Forget_pswd_Email';
+        let url = 'https://localhost:8443/Daobunso_Project/Forget_pswd_Email';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(forget_pswd),
@@ -110,7 +110,7 @@ $(function(){
 })
 //跳頁
 function nextPage(){
-    location.href = "http://localhost:8080/Daobunso_Project/"
+    location.href = "https://localhost:8443/Daobunso_Project/"
 }
 
 

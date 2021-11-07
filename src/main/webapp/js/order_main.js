@@ -7,7 +7,7 @@ $(function () {
       $(".dropdown-item:eq(3)").text("Log out");
       $(".dropdown-item:eq(3)").attr("href", "./frontpage.html");
 
-      let urlOrderList = "http://localhost:8080/Daobunso_Project/orderList.do";
+      let urlOrderList = "https://localhost:8443/Daobunso_Project/orderList.do";
       $(function () { 
         maintbody = $('#order_main');
         fetch(urlOrderList, {
@@ -47,7 +47,7 @@ $(function () {
         })
       })
     
-      let urlOrderDetail = "http://localhost:8080/Daobunso_Project/orderDetail.do";
+      let urlOrderDetail = "https://localhost:8443/Daobunso_Project/orderDetail.do";
       $('#order_main').on('click','.details',function() { 
         detailtbody = $('#item_details');
         // console.log("HAHAHA");

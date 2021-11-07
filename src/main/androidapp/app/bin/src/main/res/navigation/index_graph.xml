@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/index_graph"
+    app:startDestination="@id/signinFragment">
+
+    <fragment
+        android:id="@+id/indexFragment"
+        android:name="com.example.daobunso.index.indexFragment"
+        android:label="fragment_index"
+        tools:layout="@layout/fragment_index" >
+        <action
+            android:id="@+id/action_indexFragment_to_memberFragment"
+            app:destination="@id/memberFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_myorderFragment"
+            app:destination="@id/myorderFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_serviceFragment"
+            app:destination="@id/serviceFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_commentFragment"
+            app:destination="@id/commentFragment" />
+        <action
+            android:id="@+id/action_indexFragment_to_signinFragment"
+            app:destination="@id/signinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memberFragment"
+        android:name="com.example.daobunso.member.memberFragment"
+        android:label="fragment_member"
+        tools:layout="@layout/fragment_member" >
+        <action
+            android:id="@+id/action_memberFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment2" />
+        <action
+            android:id="@+id/action_memberFragment_to_serviceFragment"
+            app:destination="@id/serviceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myorderFragment"
+        android:name="com.example.daobunso.myOrder.myorderFragment"
+        android:label="fragment_myorder"
+        tools:layout="@layout/fragment_myorder" >
+        <action
+            android:id="@+id/action_myorderFragment_to_commentFragment"
+            app:destination="@id/commentFragment" />
+        <action
+            android:id="@+id/action_myorderFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+        <action
+            android:id="@+id/action_myorderFragment_to_serviceFragment"
+            app:destination="@id/serviceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceFragment"
+        android:name="com.example.daobunso.service.serviceFragment"
+        android:label="fragment_service"
+        tools:layout="@layout/fragment_service" >
+        <action
+            android:id="@+id/action_serviceFragment_to_newOrderFragment"
+            app:destination="@id/newOrderFragment" />
+        <action
+            android:id="@+id/action_serviceFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+        <action
+            android:id="@+id/action_serviceFragment_to_indexFragment2"
+            app:destination="@id/indexFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="com.example.daobunso.comment.commentFragment"
+        android:label="fragment_comment"
+        tools:layout="@layout/fragment_comment" >
+        <action
+            android:id="@+id/action_commentFragment_to_thanksFragment"
+            app:destination="@id/thanksFragment" />
+        <action
+            android:id="@+id/action_commentFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+        <action
+            android:id="@+id/action_commentFragment_to_serviceFragment"
+            app:destination="@id/serviceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signinFragment"
+        android:name="com.example.daobunso.login.signinFragment"
+        android:label="fragment_signin"
+        tools:layout="@layout/fragment_signin" >
+        <action
+            android:id="@+id/action_signinFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+        <action
+            android:id="@+id/action_signinFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.example.daobunso.createAccountFragment"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account" >
+        <action
+            android:id="@+id/action_createAccountFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thanksFragment"
+        android:name="com.example.daobunso.comment.thanksFragment"
+        android:label="fragment_thanks"
+        tools:layout="@layout/fragment_thanks" >
+        <action
+            android:id="@+id/action_thanksFragment_to_indexFragment2"
+            app:destination="@id/indexFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newOrderFragment"
+        android:name="com.example.daobunso.service.newOrderFragment"
+        android:label="fragment_new_order"
+        tools:layout="@layout/fragment_new_order" >
+        <action
+            android:id="@+id/action_newOrderFragment_to_confirmOrderFragment"
+            app:destination="@id/confirmOrderFragment" />
+        <action
+            android:id="@+id/action_newOrderFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmOrderFragment"
+        android:name="com.example.daobunso.service.confirmOrderFragment"
+        android:label="fragment_confirm_order"
+        tools:layout="@layout/fragment_confirm_order" >
+        <action
+            android:id="@+id/action_confirmOrderFragment_to_paymentInfoFragment"
+            app:destination="@id/paymentInfoFragment" />
+        <action
+            android:id="@+id/action_confirmOrderFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentInfoFragment"
+        android:name="com.example.daobunso.service.paymentInfoFragment"
+        android:label="fragment_payment_info"
+        tools:layout="@layout/fragment_payment_info" >
+        <action
+            android:id="@+id/action_paymentInfoFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment2"
+        android:name="com.example.daobunso.member.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+</navigation>
