@@ -13,39 +13,6 @@ function updateModal(title, massage) {
     $('#modal-title').text(title);
     $('#massage-content').text(massage);
 }
-
-$(function () {
-    if (localStorage.getItem('member') != null) {
-        memberData = JSON.parse(localStorage.getItem('member'));
-        if (memberData.Login === 'OK') {
-            $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
-            $('.dropdown-item:eq(3)').text('Log out');
-            $('.dropdown-item:eq(3)').attr('href', './frontpage');
-        }
-        $('.dropdown-item:eq(3)').click(function () {
-            localStorage.removeItem('member');
-        });
-        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e) {
-            if (memberData.Login !== 'OK') {
-                e.preventDefault();
-                updateModal("Oops!", "請先登入會員！");
-                myModal.show();
-                $('.modal-footer>button').click(function () {
-                    location.href = './login';
-                })
-            }
-        });
-    } else {
-        $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e) {
-            e.preventDefault();
-            updateModal("Oops!", "請先登入會員！");
-            myModal.show();
-            $('.modal-footer>button').click(function () {
-                location.href = './login';
-            })
-        })
-    }
-})
 let urlReg = 'https://localhost:8443/Daobunso_Project/Forget_pswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
@@ -65,8 +32,8 @@ $('#change_btn').click(function (e) {
          return;
     } else {
 
-        const member_account = JSON.parse(localStorage.res_ok).member_account;
-		const member_email = JSON.parse(localStorage.res_ok).member_email;
+        const member_account = getCookieValueByName('account');
+		const member_email = getCookieValueByName('email');
         forget_change_pswd = {
             "Account":member_account,
 			"Email":member_email,	

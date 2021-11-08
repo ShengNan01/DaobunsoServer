@@ -1,4 +1,4 @@
-const memberId = JSON.parse(localStorage.member).member_id;
+const memberId = getCookieValueByName('id');
 mId = {
     "Member_Id": memberId,
 };
