@@ -48,9 +48,11 @@ $('header').html(`<div id="header_media">
 </nav>`);
 // ~header產生
 // header.javascript
-$(() => {
-	if (getCookieByName("id") != null && getCookieByName("id") != null && getCookieByName("id") != null && getCookieByName("id") != null) {
+
+$(function(){
+	if (getCookieByName("id") != null && getCookieByName("name") != null && getCookieByName("email") != null && getCookieByName("account") != null) {
 		$('#logintoggle').text('Log Out');
+
 		$('.dropdown-item:eq(3)').attr('href', './frontpage');
 		$('.dropdown-toggle:not(.btn)').text(getCookieValueByName('name'));
 		$('.dropdown-item:eq(3)').click(() => {

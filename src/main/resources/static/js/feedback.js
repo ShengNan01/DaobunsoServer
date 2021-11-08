@@ -1,6 +1,6 @@
 //Feedback定義變數
-let oid ;
-let uaccount = getCookieValueByName('account');;
+let oid;
+let uaccount = getCookieValueByName("account");
 let getstar;
 let ucomment = "";
 // let wdate = Date();
@@ -9,7 +9,7 @@ let ucomment = "";
 const starimg = "./image/service_intro/holo/noel.png";
 
 let uimgsrc = "./image/service_intro/holo/pekora.png";
-let uname = uaccount;
+let uname = getCookieValueByName("name");
 let sstarimg = "./image/service_intro/holo/Saintquartz.png";
 
 //頁面初始化
