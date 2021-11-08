@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 
 import orderHistory.service.OrderItemService;
 
-@WebServlet("/orderDetail.do")
+//@WebServlet("/orderDetail.do")
 public class OrderDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
