@@ -34,9 +34,6 @@ $('header').html(`<div id="header_media">
           <li><a class="dropdown-item" href="./profiles">個人資訊</a></li>
           <li><a class="dropdown-item" href="./order_main">訂單管理</a></li>
           <li><a class="dropdown-item" href="./shopping_cart">購物車</a></li>
-          <li><a class="dropdown-item" href="./profiles.html">個人資訊</a></li>
-          <li><a class="dropdown-item" href="./shopping_cart.html">購物車</a></li>
-          <li><a class="dropdown-item" href="./order_main.html">訂單管理</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a id ="logintoggle"class="dropdown-item togin" href="./login">Log In</a></li>
         </ul>
