@@ -1,9 +1,9 @@
-const memberId = JSON.parse(localStorage.member).member_id;
+const memberId = getCookieValueByName('id');
 mId = {
-    "Member_Id": memberId,
+        "member_Id": memberId
 };
 
-let url = 'http://localhost:8080/Daobunso_Project/Personal_Info';
+let url = 'https://localhost:8443/profiles';
 fetch(url, {
     method: 'POST',
     body: JSON.stringify(mId),
@@ -12,25 +12,20 @@ fetch(url, {
     response.json()
         .then(res => {
             console.log(res);
-            $('#inlineFormInputName').val(res.Member_name);
-            $('#email').val(res.Email);
-            $('#account').val(res.Account);
+            $('#inlineFormInputName').val(res.member_name);
+            $('#email').val(res.email);
+            $('#account').val(res.account);
         });
 });
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
+// let myModal = new bootstrap.Modal(document.getElementById('myModal'))
 
-function updateModal(title, massage) {
-$('#modal-title').text(title);
-$('#massage-content').text(massage);
-}
-    
-
-
-
-
-    // reset modal when modal was hidden
-    let myModalEl = document.getElementById('myModal')
-    myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("","");
-    })
+// function updateModal(title, massage) {
+// $('#modal-title').text(title);
+// $('#massage-content').text(massage);
+// }
+//     // reset modal when modal was hidden
+//     let myModalEl = document.getElementById('myModal')
+//     myModalEl.addEventListener('hidden.bs.modal', function (event) {
+//     updateModal("","");
+//     })
 // window.onload;
