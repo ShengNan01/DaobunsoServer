@@ -53,6 +53,7 @@ $(function(){
     let DBSaccount = getCookieValueByName('account');
     let DBSname = getCookieValueByName('name');
     let DBSemail = getCookieValueByName('email');
+    // let DBSuserid = getCookieValueByName('email');
 
     $('.dropdown-toggle:not(.btn)').text(getCookieValueByName('name'));
     $('.dropdown-item:eq(3)').text('Log out');
