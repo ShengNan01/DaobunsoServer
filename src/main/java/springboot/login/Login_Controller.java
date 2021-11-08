@@ -35,18 +35,22 @@ public class Login_Controller {
 				// 前端密碼與加密前後的資料庫密碼比對。如果密碼一樣，就成功豋入
 				if (password.equals(decryptPassword)
 						|| password.equals(loginRepo.findPasswordByMemberAccount(login.getAccount()))) {
-
+					
 					Login loginc = loginRepo.findLoginByAccount(account);
-
+					
+					Cookie cookieId = new Cookie("id", loginc.getId().toString());
 					Cookie cookieName = new Cookie("name", loginc.getName());
 					Cookie cookieAccount = new Cookie("account", loginc.getAccount());
 					Cookie cookieEmail = new Cookie("email", loginc.getEmail());
+					cookieId.setMaxAge(7 * 24 * 60 * 60);
 					cookieName.setMaxAge(7 * 24 * 60 * 60);
 					cookieAccount.setMaxAge(7 * 24 * 60 * 60);
 					cookieEmail.setMaxAge(7 * 24 * 60 * 60);
+					cookieId.setPath("/");
 					cookieName.setPath("/");
 					cookieAccount.setPath("/");
 					cookieEmail.setPath("/");
+					response.addCookie(cookieId);
 					response.addCookie(cookieName);
 					response.addCookie(cookieAccount);
 					response.addCookie(cookieEmail);

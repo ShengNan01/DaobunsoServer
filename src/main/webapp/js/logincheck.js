@@ -49,16 +49,18 @@ $('header').html(`<div id="header_media">
 // ~header產生
 // header.javascript
 $(function(){
-  if (getCookieValueByName('account') != "" && getCookieValueByName('name') != ""&& getCookieValueByName('email') != ""){
+  if (getCookieValueByName('id') !="" && getCookieValueByName('account') != "" && getCookieValueByName('name') != ""&& getCookieValueByName('email') != ""){
+    let DBSuserid = getCookieValueByName('id'); 
     let DBSaccount = getCookieValueByName('account');
     let DBSname = getCookieValueByName('name');
     let DBSemail = getCookieValueByName('email');
-    // let DBSuserid = getCookieValueByName('email');
+    
 
     $('.dropdown-toggle:not(.btn)').text(getCookieValueByName('name'));
     $('.dropdown-item:eq(3)').text('Log out');
     $('.dropdown-item:eq(3)').attr('href','./');
     $('.dropdown-item:eq(3)').click(()=>{
+      deleteCookie('id');
       deleteCookie('account');
       deleteCookie('name');
       deleteCookie('email');
