@@ -20,7 +20,7 @@ $(function () {
         if (memberData.Login === 'OK') {
             $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
             $('.dropdown-item:eq(3)').text('Log out');
-            $('.dropdown-item:eq(3)').attr('href', './frontpage.html');
+            $('.dropdown-item:eq(3)').attr('href', './frontpage');
         }
         $('.dropdown-item:eq(3)').click(function () {
             localStorage.removeItem('member');
@@ -31,7 +31,7 @@ $(function () {
                 updateModal("Oops!", "請先登入會員！");
                 myModal.show();
                 $('.modal-footer>button').click(function () {
-                    location.href = './login.html';
+                    location.href = './login';
                 })
             }
         });
@@ -41,7 +41,7 @@ $(function () {
             updateModal("Oops!", "請先登入會員！");
             myModal.show();
             $('.modal-footer>button').click(function () {
-                location.href = './login.html';
+                location.href = './login';
             })
         })
     }
@@ -84,7 +84,7 @@ $('#change_btn').click(function (e) {
                     updateModal("成功!","密碼修改完成，請重新登入!")
                     myModal.show();
                     $('.modal-footer>button').click(function () {
-                        location.href = './frontpage.html';
+                        location.href = './frontpage';
                     })
     
                 } else if(text === "Fail") {

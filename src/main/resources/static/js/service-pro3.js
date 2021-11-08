@@ -100,7 +100,7 @@ $(function(){
        if(memberData.Login === 'OK'){
        $('.dropdown-toggle:not(.btn)').text(memberData.member_name);
        $('.dropdown-item:eq(3)').text('Log out');
-       $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
+       $('.dropdown-item:eq(3)').attr('href','./frontpage');
 
         $('.dropdown-item:eq(3)').click(function () {
             localStorage.clear();
@@ -115,7 +115,7 @@ $(function(){
                updateModal("Oops!", "請先登入會員！");
                myModal.show();
                $('.modal-footer>button').click(function(){
-                   location.href='./login.html';
+                   location.href='./login';
                })
            }
        });
@@ -126,7 +126,7 @@ $(function(){
            updateModal("Oops!", "請先登入會員！");
            myModal.show();
            $('.modal-footer>button').click(function(){
-               location.href='./login.html';
+               location.href='./login';
            })
        })
    }   

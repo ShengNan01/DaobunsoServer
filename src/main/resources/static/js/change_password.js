@@ -91,7 +91,7 @@ $('#change_btn').click(function (e) {
                     updateModal("成功!","密碼修改完成!")
                     myModal.show();
                     $('.modal-footer>button').click(function () {
-                        location.href = './frontpage.html';
+                        location.href = './frontpage';
                     })
     
                 } else if(text === "Fail") {

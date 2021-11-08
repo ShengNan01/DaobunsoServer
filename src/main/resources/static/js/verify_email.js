@@ -27,7 +27,7 @@ $("#verify_email_btn").click(function () {
                         updateModal("發送郵件成功!", "請至信箱收取信件修改密碼。");
                         myModal.show();
                         $('.modal-footer>button').click(function(){
-                            location.href='./frontpage.html';
+                            location.href='./frontpage';
                         })
                     } else if (text === "Fail") {
                         updateModal("Oops!", "必須輸入此帳號註冊時的電子信箱");

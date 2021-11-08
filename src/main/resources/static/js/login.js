@@ -182,7 +182,7 @@ $('#login_btn').click(function(e){
             .then(res=>{
                 alert(res.toString()); 
             });
-            location.assign('./frontpage.html');
+            location.assign('./frontpage');
         });
     };      
 });
