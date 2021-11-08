@@ -73,7 +73,7 @@ $('#change_btn').click(function (e) {
          return;
     } else {
 
-        const memberId = JSON.parse(localStorage.member).member_id;
+        const memberId = getCookieValueByName('id');
         changepswd = {
             "Member_Id": memberId,
             "Password": $('#ogpswd').val(),

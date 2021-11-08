@@ -49,7 +49,7 @@ $('header').html(`<div id="header_media">
 // ~header產生
 // header.javascript
 
-$(function(){
+$(function () {
 	if (getCookieByName("id") != null && getCookieByName("name") != null && getCookieByName("email") != null && getCookieByName("account") != null) {
 		$('#logintoggle').text('Log Out');
 
@@ -69,11 +69,11 @@ $(function(){
 	} else {
 		$('#logintoggle').text('Log In');
 
-		$('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function(e) {
+		$('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e) {
 			e.preventDefault();
 			updateModal("Oops!", "請先登入會員！");
 			myModal.show();
-			$('.dropdown-item:eq(3)').click(function() {
+			$('.dropdown-item:eq(3)').click(function () {
 				location.assign('./login.html');
 			});
 		});

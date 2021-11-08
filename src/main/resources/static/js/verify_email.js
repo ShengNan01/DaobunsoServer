@@ -1,5 +1,5 @@
 let myModal = new bootstrap.Modal(document.getElementById('myModal'));
-const memberId = JSON.parse(localStorage.member).member_id;
+const memberId = getCookieValueByName('id');
 const regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 $("#verify_email_btn").click(function () {
     if ($("#email").val() === "") {
