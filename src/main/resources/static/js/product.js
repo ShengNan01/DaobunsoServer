@@ -64,7 +64,7 @@ cart_add.click( () => {
     updateModal("Thanks!", "已加入購物車囉！");
     myModal.show();
     $('.modal-footer>button').click(function(){
-        location.href='./shopping_cart.html';
+        location.href='./shopping_cart';
     })
    
     cart.push({

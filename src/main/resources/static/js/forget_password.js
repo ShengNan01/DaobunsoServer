@@ -57,7 +57,7 @@ $("#submit").click(function (e) {
 								updateModal("發送郵件成功!", "請至信箱收取信件修改密碼。");
 			                    myModal.show();
 			                    $('.modal-footer>button').click(function(){
-			                        location.href='./frontpage.html';
+			                        location.href='./frontpage';
 			                    })
 						//好像不會執行到下面
 							}else if (res.sending === "Fail") {

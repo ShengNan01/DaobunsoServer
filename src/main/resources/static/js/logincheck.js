@@ -7,35 +7,38 @@ $('header').html(`<div id="header_media">
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <div class="container-fluid">
-  <a class="navbar-brand" href="./frontpage.html"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
+  <a class="navbar-brand" href="./frontpage"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="./frontpage.html">Home</a>
+        <a class="nav-link" href="./frontpage">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./about_us.html">About</a>
+        <a class="nav-link" href="./about_us">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./shopping.html">Shopping</a>
+        <a class="nav-link" href="./shopping">Shopping</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./service.html">Service</a>
+        <a class="nav-link" href="./service">Service</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./shopping_cart.html">Shopping Cart</a>
+        <a class="nav-link" href="./shopping_cart">Shopping Cart</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Log In</a>
         <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="./profiles">個人資訊</a></li>
+          <li><a class="dropdown-item" href="./order_main">訂單管理</a></li>
+          <li><a class="dropdown-item" href="./shopping_cart">購物車</a></li>
           <li><a class="dropdown-item" href="./profiles.html">個人資訊</a></li>
-          <li><a class="dropdown-item" href="./order_main.html">訂單管理</a></li>
           <li><a class="dropdown-item" href="./shopping_cart.html">購物車</a></li>
+          <li><a class="dropdown-item" href="./order_main.html">訂單管理</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a id ="logintoggle"class="dropdown-item togin" href="./login.html">Log In</a></li>
+          <li><a id ="logintoggle"class="dropdown-item togin" href="./login">Log In</a></li>
         </ul>
       </li>
     </ul>
@@ -51,9 +54,8 @@ $('header').html(`<div id="header_media">
 $(()=>{
   if (getCookieByName("id")!= null && getCookieByName("id")!= null && getCookieByName("id")!= null && getCookieByName("id")!= null){
     $('#logintoggle').text('Log Out');
-
+    $('.dropdown-item:eq(3)').attr('href','./frontpage');
     $('.dropdown-toggle:not(.btn)').text(getCookieValueByName('name'));
-    $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
     $('.dropdown-item:eq(3)').click(()=>{
 
       deleteCookie('id');
@@ -73,7 +75,6 @@ $(()=>{
         myModal.show();
         $('.dropdown-item:eq(3)').click(function(){
           location.assign('./login.html');
-          console.log("5");
         });
       });
     }   
