@@ -14,3 +14,10 @@ server:
     key-store: "classpath:server.pfx"
     key-store-password: "daobunso"
     key-password: "daobunso"
+thymeleaf:
+    cache: false
+    prefix: classpath:/templates/    # 設定去templates資料夾找html檔案
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    
