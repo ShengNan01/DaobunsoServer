@@ -1,6 +1,6 @@
 //Feedback定義變數
-let oid ="";
-let uaccount ="toyz1234";
+let oid ;
+let uaccount = getCookieValueByName('account');;
 let getstar;
 let ucomment = "";
 // let wdate = Date();

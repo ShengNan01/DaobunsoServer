@@ -48,32 +48,30 @@ $('header').html(`<div id="header_media">
 </nav>`);
 // ~header產生
 // header.javascript
-$(function(){
-  $('#logintoggle').text('Log In');
-  if (getCookieValueByName('id') !="" && getCookieValueByName('account') != "" && getCookieValueByName('name') != ""&& getCookieValueByName('email') != ""){
-    let DBSuserid = getCookieValueByName('id'); 
-    let DBSaccount = getCookieValueByName('account');
-    let DBSname = getCookieValueByName('name');
-    let DBSemail = getCookieValueByName('email');
-    
-    $('.dropdown-toggle:not(.btn)').text(getCookieValueByName('name'));
+$(()=>{
+  if (getCookieByName("id")!= null && getCookieByName("id")!= null && getCookieByName("id")!= null && getCookieByName("id")!= null){
     $('#logintoggle').text('Log Out');
     $('.dropdown-item:eq(3)').attr('href','./frontpage');
+    $('.dropdown-toggle:not(.btn)').text(getCookieValueByName('name'));
     $('.dropdown-item:eq(3)').click(()=>{
+
       deleteCookie('id');
       deleteCookie('account');
       deleteCookie('name');
       deleteCookie('email');
       deleteCookie('password');
-      $('#logintoggle').text('Log In');
-      });
+      $('.dropdown-item:eq(3)').text('Log In');
+
+    });
     } else {
+      $('#logintoggle').text('Log In');
+
       $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e){
         e.preventDefault();
         updateModal("Oops!", "請先登入會員！");
         myModal.show();
         $('.dropdown-item:eq(3)').click(function(){
-          location.href='./login';
+          location.assign('./login.html');
         });
       });
     }   
