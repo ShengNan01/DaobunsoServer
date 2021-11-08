@@ -27,7 +27,6 @@ fetch(`https://localhost:8443/gradings`,{
     response.json()
     .then(res =>{
         console.log(res);
-
         let marqueev = new Vue({
             el:'#marquee',
             data:{
@@ -100,7 +99,7 @@ $('#btn-feedback').click(()=>{
     }).then((response) =>{
         response.json()
         .then(res =>{
-            console.log(res)
+            console.log(res);
         });
     });
     alert("成功送出!!");
