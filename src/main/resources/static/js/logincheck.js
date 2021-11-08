@@ -73,9 +73,12 @@ $(function () {
 			e.preventDefault();
 			updateModal("Oops!", "請先登入會員！");
 			myModal.show();
-			$('.dropdown-item:eq(3)').click(function () {
-				location.assign('./login.html');
-			});
+			$(".modal-footer>button").click(function () {
+				location.href = "./login";
+			  });
+		});
+		$('.dropdown-item:eq(3)').click(function () {
+			location.assign('./login.html');
 		});
 	}
 });

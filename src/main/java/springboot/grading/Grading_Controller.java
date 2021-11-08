@@ -35,14 +35,14 @@ public class Grading_Controller {
 	public SimpleMailMessage template;
 //	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
 
-	@GetMapping("/ttts")
-	public String tString() {
-		String tttString = new Timestamp(System.currentTimeMillis()).toString();
-		tttString.toCharArray();
-		String text = String.format(template.getText(), "HAHAHA");  
-		sendSimpleMessage("jsjg355099@gmail.com","測試",text);
-		return tttString;
-	}
+//	@GetMapping("/ttts")
+//	public String tString() {
+//		String tttString = new Timestamp(System.currentTimeMillis()).toString();
+//		tttString.toCharArray();
+//		String text = String.format(template.getText(), "HAHAHA");  
+//		sendSimpleMessage("jsjg355099@gmail.com","測試",text);
+//		return tttString;
+//	}
 	
 	@GetMapping("/gradings")
 	public List<Optional<Grading>> getGradings() {

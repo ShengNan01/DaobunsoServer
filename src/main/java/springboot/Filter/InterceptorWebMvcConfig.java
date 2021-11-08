@@ -14,11 +14,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class InterceptorWebMvcConfig implements WebMvcConfigurer {
 	
 	List<String> url = Arrays.asList(
-			"profiles/**", 
-			"/about_us/**", 
-			"/feedback/**", 
-			"/service/**",
-			"/shopping/**"
+			"/profiles/**",
+			"/orders/**",
+			"/feedback/**"
 		);
 	
 	@Autowired
