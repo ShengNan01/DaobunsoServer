@@ -23,17 +23,15 @@ public class MVC_interceptor implements HandlerInterceptor {
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null && cookies.length > 0) {
 			for (Cookie cookie : cookies) {
-				log.info("把cookie的東西抓出來==" + cookie.getName());
+				log.info("把cookie的東西抓出來=" + cookie.getName());
 				if (StringUtils.equalsIgnoreCase(cookie.getName(), "LoginOK")) {
-					
-				}else {
-					log.info("cookie沒有東西,導回login頁面");
-					response.sendRedirect("/login");
-					return false;
+					return true;
 				}
 			}
+			log.info("cookie沒有東西,導回login頁面");
+			response.sendRedirect("/login");
 		}
-		return true;
+		return false;
 	}
 
 	@Override
