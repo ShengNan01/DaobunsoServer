@@ -37,19 +37,22 @@ public class Login_Controller {
 						|| password.equals(loginRepo.findPasswordByMemberAccount(login.getAccount()))) {
 					
 					Login loginc = loginRepo.findLoginByAccount(account);
-					
+					Cookie cookieLogin = new Cookie("LoginOK","這樣才酷!");
 					Cookie cookieId = new Cookie("id", loginc.getId().toString());
 					Cookie cookieName = new Cookie("name", loginc.getName());
 					Cookie cookieAccount = new Cookie("account", loginc.getAccount());
 					Cookie cookieEmail = new Cookie("email", loginc.getEmail());
+					cookieLogin.setMaxAge(7 * 24 * 60 * 60);
 					cookieId.setMaxAge(7 * 24 * 60 * 60);
 					cookieName.setMaxAge(7 * 24 * 60 * 60);
 					cookieAccount.setMaxAge(7 * 24 * 60 * 60);
 					cookieEmail.setMaxAge(7 * 24 * 60 * 60);
+					cookieLogin.setPath("/");
 					cookieId.setPath("/");
 					cookieName.setPath("/");
 					cookieAccount.setPath("/");
 					cookieEmail.setPath("/");
+					response.addCookie(cookieLogin);
 					response.addCookie(cookieId);
 					response.addCookie(cookieName);
 					response.addCookie(cookieAccount);
