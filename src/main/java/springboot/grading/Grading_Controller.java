@@ -27,8 +27,7 @@ public class Grading_Controller {
 	@Autowired
 	GradingRepo gradingRepo;
 //	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
-	
-	
+
 	@GetMapping("/gradings")
 	public List<Optional<Grading>> getGradings() {
 		List<Optional<Grading>> gradings = new ArrayList<Optional<Grading>>();

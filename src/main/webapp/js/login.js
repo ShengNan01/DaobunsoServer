@@ -182,30 +182,11 @@ $('#login_btn').click(function(e){
             .then(res=>{
                 alert(res.toString()); 
             });
-            // if( res === "NO"){
-            // //  alert('帳號或密碼不正確');
-            //     updateModal("Oops!", "帳號或密碼不正確！！");
-            //     myModal.show();
-            //     localStorage.setItem('member',JSON.stringify(res));
-            //     location.reload();
-            // } else {
-            // //  alert("登入成功");
-            // updateModal("Welcome!", "登入成功");
-            // myModal.show();
-
-            // $('.modal-footer>button').click(function(){
-            //     $('.dropdown-toggle').text(res.member_name);
-            //     $('.dropdown-item:eq(3)').text('Log out');
-            //     $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
-            //     localStorage.setItem('member',JSON.stringify(res));
-            //     history.go(-1);
-            // });
-            //  location.assign('./');
-            // } 
             location.assign('./frontpage.html');
         });
     };      
 });
+
 // reset modal when modal was hidden
 let myModalEl = document.getElementById('myModal')
 myModalEl.addEventListener('hidden.bs.modal', function (event) {

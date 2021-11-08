@@ -35,7 +35,7 @@ $('header').html(`<div id="header_media">
           <li><a class="dropdown-item" href="./order_main.html">訂單管理</a></li>
           <li><a class="dropdown-item" href="./shopping_cart.html">購物車</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="./login.html">Log In</a></li>
+          <li><a id ="logintoggle"class="dropdown-item togin" href="./login.html">Log In</a></li>
         </ul>
       </li>
     </ul>
@@ -49,31 +49,32 @@ $('header').html(`<div id="header_media">
 // ~header產生
 // header.javascript
 $(function(){
+  $('#logintoggle').text('Log In');
   if (getCookieValueByName('id') !="" && getCookieValueByName('account') != "" && getCookieValueByName('name') != ""&& getCookieValueByName('email') != ""){
     let DBSuserid = getCookieValueByName('id'); 
     let DBSaccount = getCookieValueByName('account');
     let DBSname = getCookieValueByName('name');
     let DBSemail = getCookieValueByName('email');
     
-
     $('.dropdown-toggle:not(.btn)').text(getCookieValueByName('name'));
-    $('.dropdown-item:eq(3)').text('Log out');
-    $('.dropdown-item:eq(3)').attr('href','./');
+    $('#logintoggle').text('Log Out');
+    $('.dropdown-item:eq(3)').attr('href','./frontpage.html');
     $('.dropdown-item:eq(3)').click(()=>{
       deleteCookie('id');
       deleteCookie('account');
       deleteCookie('name');
       deleteCookie('email');
       deleteCookie('password');
+      $('#logintoggle').text('Log In');
       });
     } else {
       $('.dropdown-item:eq(0),.dropdown-item:eq(1)').click(function (e){
         e.preventDefault();
         updateModal("Oops!", "請先登入會員！");
         myModal.show();
-        $('.modal-footer>button').click(function(){
+        $('.dropdown-item:eq(3)').click(function(){
           location.href='./login.html';
-          });
+        });
       });
     }   
 });

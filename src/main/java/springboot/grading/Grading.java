@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 //@Component
 @ToString
@@ -36,5 +37,4 @@ public class Grading implements Serializable{
 	@Column(name = "Comment")
 	private	String comment;
 
-	
 }
