@@ -10,12 +10,9 @@ import java.util.Date;
 import java.util.List;
 
 //@Component
-@ToString
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name="grading")
 public class Grading implements Serializable{

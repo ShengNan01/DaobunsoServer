@@ -16,7 +16,8 @@ public class InterceptorWebMvcConfig implements WebMvcConfigurer {
 	List<String> url = Arrays.asList(
 			"/profiles/**",
 			"/orders/**",
-			"/feedback/**"
+			"/feedback/**",
+			"/payment/**"
 		);
 	
 	@Autowired
