@@ -134,7 +134,7 @@ public class createAccountFragment extends Fragment {
     }
 
     private void createAccount(View view) {
-        String url = "http://10.0.2.2:8080/regApp";
+        String url = "http://10.0.2.2:8080/reg";
 
         if (RemoteAccess.networkConnected(activity)) {
 
@@ -196,6 +196,7 @@ public class createAccountFragment extends Fragment {
 
         preferences.edit()
                 .putString("accountInfo", newAccount)
+                .putString("passwordInfo", newPassword)
                 .apply();
     }
 }

@@ -1,37 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="#DDFFDD"
-tools:context=".member.memberFragment">
-
-    <EditText
-        android:id="@+id/textMemberName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="XXXXXX"
-        app:layout_constraintBottom_toTopOf="@+id/textMemberEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.676"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/textMemberEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="XXXXX@gmail.com"
-        app:layout_constraintBottom_toTopOf="@+id/textMemberAccount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.676"
-        app:layout_constraintStart_toStartOf="parent" />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDFFDD"
+    tools:context=".member.memberFragment">
 
     <EditText
         android:id="@+id/textMemberAccount"
@@ -40,57 +14,33 @@ tools:context=".member.memberFragment">
         android:layout_marginBottom="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="XXXXXXXXXX"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.676"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-    android:id="@+id/tvModifyPassword"
-    android:layout_width="100dp"
-    android:layout_height="60dp"
-    android:layout_marginTop="52dp"
-    android:background="@drawable/changepsw1"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        android:id="@+id/tvModifyPassword"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/changepsw1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
-<TextView
-    android:id="@+id/tvNameTitle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="20dp"
-    android:text="姓名:"
-    android:textSize="20sp"
-    android:textStyle="bold"
-    app:layout_constraintBottom_toBottomOf="@+id/textMemberName"
-    app:layout_constraintEnd_toStartOf="@+id/textMemberName"
-    app:layout_constraintTop_toTopOf="@+id/textMemberName" />
-
-<TextView
-    android:id="@+id/tvEmailTitle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="20dp"
-    android:text="Email:"
-    android:textSize="20sp"
-    android:textStyle="bold"
-    app:layout_constraintBottom_toBottomOf="@+id/textMemberEmail"
-    app:layout_constraintEnd_toStartOf="@+id/textMemberEmail"
-    app:layout_constraintTop_toTopOf="@+id/textMemberEmail" />
-
-<TextView
-    android:id="@+id/tvAccountTitle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="16dp"
-    android:text="帳號:"
-    android:textSize="20sp"
-    android:textStyle="bold"
-    app:layout_constraintBottom_toBottomOf="@+id/textMemberAccount"
-    app:layout_constraintEnd_toStartOf="@+id/textMemberAccount"
-    app:layout_constraintTop_toTopOf="@+id/textMemberAccount" />
+    <TextView
+        android:id="@+id/tvAccountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="帳號:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textMemberAccount"
+        app:layout_constraintEnd_toStartOf="@+id/textMemberAccount"
+        app:layout_constraintTop_toTopOf="@+id/textMemberAccount" />
 
     <TextView
         android:id="@+id/tvPasswordTitle"
@@ -107,14 +57,13 @@ tools:context=".member.memberFragment">
         android:id="@+id/editTextTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="328dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="12345678"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textMemberAccount"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imgshoppingcart_changePwd"
@@ -127,23 +76,37 @@ tools:context=".member.memberFragment">
         app:srcCompat="@drawable/baseline_shopping_cart_black_48" />
 
     <ImageView
-    android:id="@+id/imgHome_changePwd"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginTop="16dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/baseline_home_black_48" />
+        android:id="@+id/imgHome_changePwd"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_home_black_48" />
 
-<CheckBox
-    android:id="@+id/cbShowPassword"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="4dp"
-    android:text="Show Password"
-    app:layout_constraintStart_toEndOf="@+id/tvModifyPassword"
-    app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+    <CheckBox
+        android:id="@+id/cbShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:text="Show Password"
+        app:layout_constraintStart_toEndOf="@+id/tvModifyPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="92dp"
+        android:text="會員資訊管理"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textMemberAccount"
+        app:layout_constraintEnd_toEndOf="@+id/textMemberAccount"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toStartOf="@+id/tvAccountTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

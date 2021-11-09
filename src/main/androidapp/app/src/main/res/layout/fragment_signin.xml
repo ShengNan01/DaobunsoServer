@@ -51,11 +51,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
+
     <TextView
         android:id="@+id/tvCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="100dp"
         android:text="CREATE AN ACCOUNT 點我建立新帳號"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -63,7 +64,6 @@
         app:layout_constraintEnd_toEndOf="@+id/tvLogin"
         app:layout_constraintStart_toStartOf="@+id/tvLogin"
         app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
-
 
     <CheckBox
         android:id="@+id/checkBoxRememberme"
@@ -77,5 +77,18 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+    <TextView
+        android:id="@+id/tvForgetPW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Oops! 忘記密碼"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvCreateAccount"
+        app:layout_constraintEnd_toEndOf="@+id/tvLogin"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tvLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

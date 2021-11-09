@@ -101,23 +101,18 @@ public class signinFragment extends Fragment {
             //都有值的話，執行login方法
             login(view);
 
-//          鳳喜加油你可以的!
-
-////            LoginBean lb = new LoginBean(account,password,true);
-//            JsonObject jsonObject = new JsonObject();
-////            jsonObject.getAsJsonObject(new Gson().toJson(lb));
-//            jsonObject.addProperty("account", account);
-//            jsonObject.addProperty("password", password);
-//            jsonObject.addProperty("rememberMe", true);
-//            String result = RemoteAccess.getRemoteData("http://10.0.2.2:8080/loginsss",jsonObject.toString());
-//            Log.v("ResponsefromServer:",result);
-
         });
 
         // 點選 建立帳號 連結
         view.findViewById(R.id.tvCreateAccount).setOnClickListener(v -> {
             bundle = new Bundle(); // Bundle用來把本頁資料傳到下一頁去
             Navigation.findNavController(view).navigate(R.id.action_signinFragment_to_createAccountFragment, bundle);
+        });
+
+        //點選 忘記密碼 連結
+        view.findViewById(R.id.tvForgetPW).setOnClickListener(v -> {
+            bundle = new Bundle(); // Bundle用來把本頁資料傳到下一頁去
+            Navigation.findNavController(view).navigate(R.id.action_signinFragment_to_forgetPwFragment, bundle);
         });
     }
 
@@ -137,7 +132,7 @@ public class signinFragment extends Fragment {
 
 
             if(result.equals("OK")){
-                savePreferenceOnlyAccount(); //只要有登入成功，就先把acount記錄在prefernce檔裡，方便之後的頁面撈取。
+                savePreferenceOnlyAccountPw(); //只要有登入成功，就先把acount記錄在prefernce檔裡，方便之後的頁面撈取。
                 if(checkBoxRememberme.isChecked()){ // 如果使用者有勾選記住我，就把值記錄在preferences檔裡。
                     if(!RememberAccount.equals(DEFAULT_ACCOUNT)||!RememberPassword.equals(DEFAULT_PASSWORD)){
                         etAccount.setText(DEFAULT_ACCOUNT);
@@ -170,10 +165,11 @@ public class signinFragment extends Fragment {
                 .apply();
     }
 
-    private void savePreferenceOnlyAccount() {
+    private void savePreferenceOnlyAccountPw() {
 
         preferences.edit()
                 .putString("accountInfo", account)
+                .putString("passwordInfo", password)
                 .apply();
     }
 
