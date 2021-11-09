@@ -30,5 +30,8 @@ thymeleaf:
     prefix: classpath:/templates/    # 設定去templates資料夾找html檔案
     suffix: .html
     encoding: UTF-8
-    mode: HTML5
+    mode: HTML5=
+redis:
+    host: 127.0.0.1
+    port: 6379
     

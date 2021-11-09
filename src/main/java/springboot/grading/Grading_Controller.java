@@ -31,8 +31,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class Grading_Controller {
 	@Autowired
 	GradingRepo gradingRepo;
-	@Autowired
-	public SimpleMailMessage template;
 //	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
 
 //	@GetMapping("/ttts")

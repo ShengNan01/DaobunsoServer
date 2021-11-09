@@ -3,6 +3,10 @@ package springboot;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -29,11 +33,13 @@ request 不同請求獲取不同物件，同一個請求獲取同一物件
 //@EnableWebMvc
 @Configuration
 public class MVC_config implements WebMvcConfigurer {
-	@Bean("Email")
-	public SimpleMailMessage templateSimpleMessage() {
-	    SimpleMailMessage message = new SimpleMailMessage();
-	    message.setText(
-	      "jsjh355099@gmail.com");
-	    return message;
-	}
+	//Redis NoSQL 信箱驗證資料庫API
+	@Bean
+    public RedisTemplate<String, Object> empRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
+        template.setConnectionFactory(redisConnectionFactory);
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setDefaultSerializer(new GenericJackson2JsonRedisSerializer());
+        return template;
+    }
 }
