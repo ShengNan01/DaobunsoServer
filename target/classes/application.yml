@@ -1,0 +1,34 @@
+spring: 
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://118.150.59.156:3306/daobunso?serverTimezone=Asia/Taipei&characterEncoding=utf-8
+    username: manager
+    password: $2a$08$bZJeeZKCnq5fU.aiPPsgtuIn.Xs99Eu0.oaBiWjohOzZPNEoPa7R6
+  jpa: 
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: grfmbiu324568@gmail.com
+    password: wyhjhfzkwdyplata
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls :
+            enable: true  
+server:
+  port: 8443
+  ssl:
+    key-store: "classpath:server.pfx"
+    key-store-password: "daobunso"
+    key-password: "daobunso"
+thymeleaf:
+    cache: false
+    prefix: classpath:/templates/    # 設定去templates資料夾找html檔案
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    

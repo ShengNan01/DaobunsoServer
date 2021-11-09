@@ -11,8 +11,6 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: <login user to smtp server>
-    password: <login password to smtp server>
     username: grfmbiu324568@gmail.com
     password: wyhjhfzkwdyplata
     properties:
@@ -21,12 +19,12 @@ spring:
           auth: true
           starttls :
             enable: true  
-#server:
-#  port: 8443
-#  ssl:
-#    key-store: "classpath:server.pfx"
-#    key-store-password: "daobunso"
-#    key-password: "daobunso"
+server:
+  port: 8443
+  ssl:
+    key-store: "classpath:server.pfx"
+    key-store-password: "daobunso"
+    key-password: "daobunso"
 thymeleaf:
     cache: false
     prefix: classpath:/templates/    # 設定去templates資料夾找html檔案
