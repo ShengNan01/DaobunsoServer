@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個人資訊</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="./css/profiles.css">
+
+</head>
+
+<body>
+  <header>
+  </header>
+
+  <nav>
+    <div id="nav_title"> 我的帳戶 </div>
+  </nav>
+
+
+
+  <div class="container text-white text-shadow   ">
+    <div class="col  p-3 mb-5 bg-white  shadow border " style="border-radius: 1rem;">
+      <form class=" col-5  mx-auto  ">
+        <fieldset class="fieldset mb-2 mt-5">
+
+          <label class="form-label" for="account">帳號*</label>
+          <div class="mb-3 mx-auto shadow-sm">
+            <input class="form-control w-80 p-2" id="account" type="text" name="account" disabled="disabled">
+          </div>
+          <label class="form-label " for="last name">名稱*</label>
+          <div class="mb-3 mx-auto shadow-sm ">
+            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName" name="inlineFormInputName"
+              disabled="disabled">
+          </div>
+          <label class="form-label" for="email"> 電子信箱*</label>
+          <div class="mb-3 mx-auto shadow-sm">
+            <input class="form-control w-80 p-2 " id="email" type="email" name="email" disabled="disabled">
+          </div>
+        </fieldset>
+        <fieldset>
+
+          <div text-center class="container-fluid text-center mx_auto mb-5  ">
+            <!-- <button type="submit" class="btn btn-primary btn-lg  " id="login_btn">修改密碼</button> -->
+            <a href="./verify_email" class="btn btn-primary btn-lg active text-center mt-2 me-5" role="button"
+              aria-pressed="true">修改密碼</a>
+
+            <!-- <button type="button" class="btn btn-primary btn-lg  ">顯示密碼</button>
+                          </div>
+                          
+                          <div  class=" text-center mx_auto mb-5"> -->
+            <!-- <button type="submit" class="btn btn-primary btn-lg "data-toggle="modal"  data-target="#exampleModalScrollable" id="btn">儲存設定</button> -->
+          </div>
+
+
+        </fieldset>
+
+
+      </form>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+
+  <center>
+    <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;"> <br>
+    <hr style="width:90%;">
+  </center>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" href="./about_us">關於我們</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./service_intro">服務介紹</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./Userterms">使用須知</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./problem">常見問題</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./feedback">使用回饋</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./service">購買服務</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./shopping">購物商城</a>
+    </li>
+  </ul>
+  </section>
+  <footer>
+  </footer>
+
+  <script src="./js/jquery-3.6.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+  crossorigin="anonymous"></script>
+  <script src="js/logincheck.js"></script>
+  <script src="./js/profiles.js"></script>
+</body>
+
+</html>

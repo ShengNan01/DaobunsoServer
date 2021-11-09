@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 
 import register.model.MemberBean;
 import register.service.MemberService;
-import util.GlobalService;
+import springboot.util.GlobalService;
 
 @WebServlet("/Change_pswd")
 public class Change_pswd extends HttpServlet {

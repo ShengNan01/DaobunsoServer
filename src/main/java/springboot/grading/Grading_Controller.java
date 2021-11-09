@@ -10,9 +10,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import javax.validation.constraints.Email;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +31,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class Grading_Controller {
 	@Autowired
 	GradingRepo gradingRepo;
+	@Autowired
+	public SimpleMailMessage template;
 //	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
-	
+
+//	@GetMapping("/ttts")
+//	public String tString() {
+//		String tttString = new Timestamp(System.currentTimeMillis()).toString();
+//		tttString.toCharArray();
+//		String text = String.format(template.getText(), "HAHAHA");  
+//		sendSimpleMessage("jsjg355099@gmail.com","測試",text);
+//		return tttString;
+//	}
 	
 	@GetMapping("/gradings")
 	public List<Optional<Grading>> getGradings() {
@@ -48,13 +63,13 @@ public class Grading_Controller {
 	public Grading postG(@RequestBody Grading g) {
 //		fMultiValueMap.add(g.getUser_account(), g);
 		g.setDate(new Timestamp(System.currentTimeMillis()).toString());
+		
 		gradingRepo.save(g);
 		return g;
 	}
 	@GetMapping("/grading")
 	public List<Grading> getG(
 			@RequestParam("uaccount") String uaccount) {
-//		System.out.println(gradingRepo.findByAccount (uaccount));
 		return gradingRepo.findByAccount(uaccount);
 	}
 	

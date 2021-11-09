@@ -22,7 +22,7 @@ import com.google.gson.JsonObject;
 
 import register.model.MemberBean;
 import register.service.MemberService;
-import util.GlobalService;
+import springboot.util.GlobalService;
 
 @WebServlet("/RegisterServletApp")
 public class RegisterServletApp extends HttpServlet {

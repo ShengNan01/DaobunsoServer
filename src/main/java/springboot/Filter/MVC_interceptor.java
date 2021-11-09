@@ -1,36 +1,49 @@
 package springboot.Filter;
 
-import lombok.extern.java.Log;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.util.StringUtils;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 //攔截請求
+@Component
 public class MVC_interceptor implements HandlerInterceptor {
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //登入檢查
-        HttpSession httpSession = request.getSession();
-        Object loginUser = httpSession.getAttribute("loginUser");
-        if(loginUser!=null){
-            return true;
-        }
-        httpSession.setAttribute("ServerMsg","去登入啦!");
-        response.sendRedirect("/");
-        return false;
-    }
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		// 登入檢查
+		log.info("測試");
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null && cookies.length > 0) {
+			for (Cookie cookie : cookies) {
+				log.info("把cookie的東西抓出來=" + cookie.getName());
+				if (StringUtils.equalsIgnoreCase(cookie.getName(), "LoginOK")) {
+					return true;
+				}
+			}
+			log.info("cookie沒有東西,導回login頁面");
+			response.sendRedirect("/login");
+		}
+		return false;
+	}
 
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
-    }
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+	}
 
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
-    }
+	@Override
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
+		HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
+	}
+
 }

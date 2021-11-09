@@ -7,14 +7,12 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 //@Component
-@ToString
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name="grading")
 public class Grading implements Serializable{
@@ -36,5 +34,4 @@ public class Grading implements Serializable{
 	@Column(name = "Comment")
 	private	String comment;
 
-	
 }
