@@ -4,11 +4,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+
 public interface MemberRepository extends JpaRepository<MemberBean, Integer> {
 
-//    MemberBean findByAccount(String account);
+	
+    MemberBean findByAccount(String account);
 //    
-    MemberBean findInfoById(Integer member_Id);
+//    MemberBean findInfoById(Integer member_Id);
 //    
 //    
 //    boolean existsByMemberEmail(String email);
