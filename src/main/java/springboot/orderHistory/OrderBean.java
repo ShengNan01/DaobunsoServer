@@ -1,6 +1,7 @@
 package springboot.orderHistory;
 
 import java.sql.Timestamp;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,12 +17,9 @@ import javax.validation.constraints.NotBlank;
 // 本類別存放訂單資料
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -31,13 +29,13 @@ public class OrderBean {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "Order_Id")
-	Integer order_Id;
+	Integer orderId;
 
 	@Column(name = "Order_Date")
-	Timestamp order_Date;
+	String orderDate;
 
 	@Column(name = "Member_Id")
-	Integer member_Id;
+	Integer memberId;
 
 	@NotBlank
 	@Column(name = "Address")
@@ -52,22 +50,22 @@ public class OrderBean {
 	String contact;
 
 	@Column(name = "Time_For_Garbage")
-	String time_For_Garbage;
+	String timeForGarbage;
 
 	@Column(name = "Sum")
 	Integer sum;
 
 	@Column(name = "Pay_Type")
-	String pay_Type;
+	String payType;
 
 	@Column(name = "Tax_ID_number")
-	String tax_ID_number;
+	String taxIDnumber;
 
 	@Column(name = "Company_title")
-	String company_title;
+	String companyTitle;
 
 	@Column(name = "Schedule_Garbage")
-	String schedule_Garbage;
+	String scheduleGarbage;
 
 	@Transient
 	@OneToMany(mappedBy="orderBean")

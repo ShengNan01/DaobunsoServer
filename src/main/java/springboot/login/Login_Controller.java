@@ -2,9 +2,7 @@ package springboot.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import util.GlobalService;
-
+import springboot.util.GlobalService;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
