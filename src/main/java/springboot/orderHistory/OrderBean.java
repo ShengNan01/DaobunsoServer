@@ -1,7 +1,6 @@
 package springboot.orderHistory;
 
-import java.sql.Timestamp;
-
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,7 +31,7 @@ public class OrderBean {
 	Integer orderId;
 
 	@Column(name = "Order_Date")
-	String orderDate;
+	Date orderDate;
 
 	@Column(name = "Member_Id")
 	Integer memberId;
