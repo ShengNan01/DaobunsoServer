@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import util.GlobalService;
+import springboot.util.GlobalService;
 
 @RestController
 public class RegisterController {
@@ -31,4 +31,5 @@ public class RegisterController {
             return "註冊成功，請重新登入";
         }
     }
+    
 }

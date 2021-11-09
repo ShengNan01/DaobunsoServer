@@ -17,14 +17,13 @@ public class OrdersController {
 	OrderDetailsRepository orderDetailsRepository;
 	
 	@GetMapping("/orders/{memberId}")
-	public List<Object[]> read(@PathVariable Integer memberId) {
-		List<Object[]> list = ordersResopository.findInfoByMemberId(memberId);
+	public List<String[]> read(@PathVariable Integer memberId) {
+		List<String[]> list = ordersResopository.findInfoByMemberId(memberId);
 		return list;
 	}
-	
 	@GetMapping("/orders/{memberId}/{orderId}")
-	public List<Object[]> read(@PathVariable (required = false) Integer memberId, @PathVariable Integer orderId) {
-		List<Object[]> list = orderDetailsRepository.findByOrderId(orderId);
+	public List<String[]> read(@PathVariable (required = false) Integer memberId, @PathVariable Integer orderId) {
+		List<String[]> list = orderDetailsRepository.findByOrderId(orderId);
 		return list;
 	}
 

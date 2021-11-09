@@ -94,6 +94,9 @@
         <action
             android:id="@+id/action_signinFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_signinFragment_to_forgetPwFragment"
+            app:destination="@id/forgetPwFragment" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -151,4 +154,9 @@
         android:name="com.example.daobunso.member.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/forgetPwFragment"
+        android:name="com.example.daobunso.forgetPwFragment"
+        android:label="fragment_forget_pw"
+        tools:layout="@layout/fragment_forget_pw" />
 </navigation>

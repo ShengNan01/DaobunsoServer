@@ -1804,6 +1804,7 @@ int drawable abc_textfield_search_material 0x7f080054
 int drawable abc_vector_test 0x7f080055
 int drawable avd_hide_password 0x7f080056
 int drawable avd_show_password 0x7f080057
+int drawable background 0x7f0800bc
 int drawable backhomebtn 0x7f080058
 int drawable baseline_help_black_48 0x7f080059
 int drawable baseline_home_black_48 0x7f08005a
@@ -1995,6 +1996,7 @@ int id action_serviceFragment_to_indexFragment 0x7f090057
 int id action_serviceFragment_to_indexFragment2 0x7f090058
 int id action_serviceFragment_to_newOrderFragment 0x7f090059
 int id action_signinFragment_to_createAccountFragment 0x7f09005a
+int id action_signinFragment_to_forgetPwFragment 0x7f09026a
 int id action_signinFragment_to_indexFragment 0x7f09005b
 int id action_text 0x7f09005c
 int id action_thanksFragment_to_indexFragment2 0x7f09005d
@@ -2122,11 +2124,13 @@ int id east 0x7f0900d6
 int id editTextTextPassword 0x7f0900d7
 int id edit_query 0x7f0900d8
 int id elastic 0x7f0900d9
+int id emailbutton 0x7f090272
 int id end 0x7f0900da
 int id endToStart 0x7f0900db
 int id end_padder 0x7f0900dc
 int id enterAlways 0x7f0900dd
 int id enterAlwaysCollapsed 0x7f0900de
+int id etAC 0x7f090273
 int id etAccount 0x7f0900df
 int id etAddress 0x7f0900e0
 int id etComment 0x7f0900e1
@@ -2140,6 +2144,7 @@ int id etNewPassword 0x7f0900e8
 int id etPassword 0x7f0900e9
 int id etPasswordAgain 0x7f0900ea
 int id etTaxNumber 0x7f0900eb
+int id etmail 0x7f090274
 int id exitUntilCollapsed 0x7f0900ec
 int id expand_activities_button 0x7f0900ed
 int id expanded_menu 0x7f0900ee
@@ -2153,6 +2158,7 @@ int id fixed 0x7f0900f5
 int id flip 0x7f0900f6
 int id floating 0x7f0900f7
 int id forever 0x7f0900f8
+int id forgetPwFragment 0x7f09026c
 int id fragmentContainerView 0x7f0900f9
 int id fragment_change_password 0x7f0900fa
 int id fragment_container_view_tag 0x7f0900fb
@@ -2416,12 +2422,13 @@ int id text 0x7f0901fc
 int id text2 0x7f0901fd
 int id textEnd 0x7f0901fe
 int id textMemberAccount 0x7f0901ff
-int id textMemberEmail 0x7f090200
-int id textMemberName 0x7f090201
 int id textSpacerNoButtons 0x7f090202
 int id textSpacerNoTitle 0x7f090203
 int id textStart 0x7f090204
 int id textTop 0x7f090205
+int id textView 0x7f090275
+int id textView2 0x7f09026e
+int id textView3 0x7f090276
 int id text_input_end_icon 0x7f090206
 int id text_input_error_icon 0x7f090207
 int id text_input_start_icon 0x7f090208
@@ -2462,8 +2469,8 @@ int id tvCustomerInfo 0x7f09022a
 int id tvCustomerTextInfo 0x7f09022b
 int id tvDatePickTitle2 0x7f09022c
 int id tvDatePickTitle3 0x7f09022d
-int id tvEmailTitle 0x7f09022e
 int id tvEndDate 0x7f09022f
+int id tvForgetPW 0x7f090270
 int id tvLogin 0x7f090230
 int id tvLogout 0x7f090231
 int id tvMember 0x7f090232
@@ -2612,6 +2619,7 @@ int layout fragment_change_password 0x7f0c002e
 int layout fragment_comment 0x7f0c002f
 int layout fragment_confirm_order 0x7f0c0030
 int layout fragment_create_account 0x7f0c0031
+int layout fragment_forget_pw 0x7f0c0088
 int layout fragment_index 0x7f0c0032
 int layout fragment_member 0x7f0c0033
 int layout fragment_myorder 0x7f0c0034

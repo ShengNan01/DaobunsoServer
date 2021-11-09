@@ -46,7 +46,6 @@ public class JsonCallable implements Callable<String> {
             ) {
                 bw.write(outStr); //把資訊送到server端
                 Log.d(TAG, "output: " + outStr);
-                Log.d(TAG, "output: " + bw.getClass());
             }
 
             int responseCode = connection.getResponseCode();

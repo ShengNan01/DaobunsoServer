@@ -73,6 +73,14 @@ public class Grading_Controller {
 		return gradingRepo.findByAccount(uaccount);
 	}
 	
+	
+	@PostMapping("/app/grading")
+	public String appPostG(@RequestBody Grading g) {
+		g.setDate(new Timestamp(System.currentTimeMillis()).toString());
+		gradingRepo.save(g);
+		return "新增評論成功";
+	}
+	
 //	@PutMapping("/feedback")
 //	public String putF(
 //			@RequestParam("oid") String oid,

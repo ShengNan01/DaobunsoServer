@@ -78,7 +78,7 @@ $(function () {
 			  });
 		});
 		$('.dropdown-item:eq(3)').click(function () {
-			location.assign('./login.html');
+			location.assign('./login');
 		});
 	}
 });

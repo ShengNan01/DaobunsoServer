@@ -124,6 +124,10 @@
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable-v24\\calendar.png"
     },
     {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_forget_pw.xml.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\layout\\fragment_forget_pw.xml"
+    },
+    {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_change_password.xml.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\layout\\fragment_change_password.xml"
     },
@@ -270,6 +274,10 @@
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_changepwdbtn.png.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable-v24\\changepwdbtn.png"
+    },
+    {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_background.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\background.png"
     },
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_comment1.png.flat",

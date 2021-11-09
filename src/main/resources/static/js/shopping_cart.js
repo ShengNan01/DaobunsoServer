@@ -5,6 +5,22 @@ function updateModal(title, massage) {
 $('.modal-title').text(title);
 $('.modal-body').text(massage);
 }
+$('#payment_btn').click(function () {
+    if(getCookieByName("LoginOK")!=null) {
+        updateModal("Final Check!", "確定要結帳了嗎？");
+        paymentModal.show();
+        $("#paymentOK").click(function () { 
+            location.href='./payment'; 
+        });
+    } else {
+        // alert("請先登入會員")
+        updateModal("Oops!", "請先登入會員！");
+        myModal.show();
+        $('.modal-footer>button').click(function(){
+            location.href='./login';
+        }) 
+    }
+});
 // reset modal when modal was hidden
 let myModalEl = document.getElementById('myModal')
 myModalEl.addEventListener('hidden.bs.modal', function (event) {

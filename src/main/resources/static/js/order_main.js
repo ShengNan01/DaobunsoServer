@@ -10,7 +10,7 @@ $(function () {
           method: "GET",
         }).then(response => {
           response.json().then(text => {
-            // console.log(text);
+            console.log(text);
             
             for(let i = 0; i < text.length; i++){
                 let itemTr = document.createElement('tr');

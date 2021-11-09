@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 
 import register.model.MemberBean;
 import register.service.MemberService;
-import util.GlobalService;
+import springboot.util.GlobalService;
 
 //@WebServlet("/register.do")
 public class RegisterServlet extends HttpServlet {
