@@ -134,50 +134,59 @@ public class createAccountFragment extends Fragment {
     }
 
     private void createAccount(View view) {
-        String url = "http://10.0.2.2:8080/Daobunso_Project/RegisterServletApp";
+        String url = "http://10.0.2.2:8080/reg";
 
         if (RemoteAccess.networkConnected(activity)) {
 
-            memberbean = new MemberBean(null, newAccount, newEmail, newPassword, UserName, null);
+//            memberbean = new MemberBean(null, newAccount, newEmail, newPassword, UserName, null);
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("action", "memberInsert");
-            jsonObject.addProperty("memberBean", new Gson().toJson(memberbean));
+
+            jsonObject.addProperty("account", newAccount);
+            jsonObject.addProperty("email", newEmail);
+            jsonObject.addProperty("password", newPassword);
+            jsonObject.addProperty("member_name", UserName);
+
 
 //            int count;
-              RemoteAccess.getRemoteData(url, jsonObject.toString());
-//            count = Integer.parseInt(result);
-//            if (count == 0) {
-//                Toast.makeText(activity, R.string.textInsertFail, Toast.LENGTH_SHORT).show(); //帳號新增失敗
-//            } else {
-//                Toast.makeText(activity, R.string.textInsertSuccess, Toast.LENGTH_SHORT).show(); // 帳號新增成功
-//            }
+              String result = RemoteAccess.getRemoteData(url, jsonObject.toString());
+              if(result.equals("註冊成功，請重新登入")){
+                  //註冊成功，順便把account資訊記載到preference檔案裡，以便之後頁面撈取
+                  preferences = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE);
+                  savePreferenceOnlyAccount();
+
+
+                  new AlertDialog.Builder(activity) //內部類別，new後得到Builder物件
+                          // 設定標題
+                          .setTitle(R.string.textTitle)
+                          // 設定圖示
+                          .setIcon(R.drawable.logo)
+                          // 設定訊息文字
+                          .setMessage(R.string.textMessage)
+                          // 設定positive與negative按鈕上面的文字與點擊事件監聽器
+                          .setPositiveButton(R.string.textYes, (dialog, which) -> Navigation.findNavController(view).navigate(R.id.action_createAccountFragment_to_indexFragment, bundle)) // 結束此Activity頁面
+                          .setCancelable(false) // 必須點擊按鈕方能關閉，預設為true
+                          .show();
+              }
+              else if(result.equals("已有重複帳號，請更改")){
+                  Toast.makeText(activity, "已有重複帳號，請更改", Toast.LENGTH_SHORT).show();
+              }
+              else{
+                  Toast.makeText(activity, "註冊失敗，請重新再試", Toast.LENGTH_SHORT).show();
+              }
+
+
         }
         else {
             Toast.makeText(activity, R.string.textNoNetwork, Toast.LENGTH_SHORT).show();
         }
 
         // 先跳出通知方框，再跳轉到主頁面
-        bundle.putString("newPassword", newPassword);
-        bundle.putString("newAccount", newAccount);
-        bundle.putString("newEmail", newEmail);
-        bundle.putString("UserName", UserName);
-
-        //註冊成功，順便把account資訊記載到preference檔案裡，以便之後頁面撈取
-        preferences = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE);
-        savePreferenceOnlyAccount();
+//        bundle.putString("newPassword", newPassword);
+//        bundle.putString("newAccount", newAccount);
+//        bundle.putString("newEmail", newEmail);
+//        bundle.putString("UserName", UserName);
 
 
-        new AlertDialog.Builder(activity) //內部類別，new後得到Builder物件
-                // 設定標題
-                .setTitle(R.string.textTitle)
-                // 設定圖示
-                .setIcon(R.drawable.logo)
-                // 設定訊息文字
-                .setMessage(R.string.textMessage)
-                // 設定positive與negative按鈕上面的文字與點擊事件監聽器
-                .setPositiveButton(R.string.textYes, (dialog, which) -> Navigation.findNavController(view).navigate(R.id.action_createAccountFragment_to_indexFragment, bundle)) // 結束此Activity頁面
-                .setCancelable(false) // 必須點擊按鈕方能關閉，預設為true
-                .show();
 
 
     }
@@ -187,6 +196,7 @@ public class createAccountFragment extends Fragment {
 
         preferences.edit()
                 .putString("accountInfo", newAccount)
+                .putString("passwordInfo", newPassword)
                 .apply();
     }
 }

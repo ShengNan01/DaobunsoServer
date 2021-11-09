@@ -63,7 +63,8 @@ public class commentFragment extends Fragment {
 
         ratingBar.setOnRatingBarChangeListener((ratBar, rating, fromUser) -> {
 //            star = String.valueOf(rating);
-              star = (int)rating;
+              star = new Integer((int)rating);
+
         });
 
 
@@ -77,8 +78,8 @@ public class commentFragment extends Fragment {
         //點擊按鈕之後才取值
         view.findViewById(R.id.btnCommentsubmit).setOnClickListener(v -> {
             comment = etComment.getText().toString().trim();
-            commentBean = new CommentBean(null,account,star,null,comment);
-            comment(commentBean);
+//            commentBean = new CommentBean(null,account,star,null,comment);
+            comment();
             Navigation.findNavController(v).navigate(R.id.action_commentFragment_to_thanksFragment);
         });
 
@@ -92,14 +93,17 @@ public class commentFragment extends Fragment {
 
     }
 
-    private void comment(CommentBean commentBean) {
-        String url = "http://10.0.2.2:8080/Daobunso_Project/CommentServletAPP";
+    private void comment() {
+        String url = "http://10.0.2.2:8080//app/grading";
 
         if (RemoteAccess.networkConnected(activity)) {
 
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("action", "commentInsert");
-            jsonObject.addProperty("commentBean", new Gson().toJson(commentBean));
+            jsonObject.addProperty("account", account);
+            jsonObject.addProperty("star", star);
+            jsonObject.addProperty("comment", comment);
+
+
 
             String result = RemoteAccess.getRemoteData(url, jsonObject.toString()); //與後端連線
 

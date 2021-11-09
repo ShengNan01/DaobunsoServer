@@ -1805,6 +1805,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable background
 drawable backhomebtn
 drawable baseline_help_black_48
 drawable baseline_home_black_48
@@ -1996,6 +1997,7 @@ id action_serviceFragment_to_indexFragment
 id action_serviceFragment_to_indexFragment2
 id action_serviceFragment_to_newOrderFragment
 id action_signinFragment_to_createAccountFragment
+id action_signinFragment_to_forgetPwFragment
 id action_signinFragment_to_indexFragment
 id action_text
 id action_thanksFragment_to_indexFragment2
@@ -2123,11 +2125,13 @@ id east
 id editTextTextPassword
 id edit_query
 id elastic
+id emailbutton
 id end
 id endToStart
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id etAC
 id etAccount
 id etAddress
 id etComment
@@ -2141,6 +2145,7 @@ id etNewPassword
 id etPassword
 id etPasswordAgain
 id etTaxNumber
+id etmail
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -2154,6 +2159,7 @@ id fixed
 id flip
 id floating
 id forever
+id forgetPwFragment
 id fragmentContainerView
 id fragment_change_password
 id fragment_container_view_tag
@@ -2417,12 +2423,13 @@ id text
 id text2
 id textEnd
 id textMemberAccount
-id textMemberEmail
-id textMemberName
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
+id textView2
+id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2463,8 +2470,8 @@ id tvCustomerInfo
 id tvCustomerTextInfo
 id tvDatePickTitle2
 id tvDatePickTitle3
-id tvEmailTitle
 id tvEndDate
+id tvForgetPW
 id tvLogin
 id tvLogout
 id tvMember
@@ -2613,6 +2620,7 @@ layout fragment_change_password
 layout fragment_comment
 layout fragment_confirm_order
 layout fragment_create_account
+layout fragment_forget_pw
 layout fragment_index
 layout fragment_member
 layout fragment_myorder
