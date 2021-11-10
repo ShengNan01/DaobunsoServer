@@ -168,7 +168,7 @@ $('#login_btn').click(function(e){
         let account = $('#account').val();
         let password = $('#pswd').val();
            
-        fetch(`https://localhost:8443/web.logincheck?rememberMe=${rememberMe}`, {
+        fetch(`https://localhost:8443/web/logincheck?rememberMe=${rememberMe}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // 將JavaScript物件轉為JSON物件

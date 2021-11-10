@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import springboot.util.GlobalService;
 import springboot.register.MemberBean;
 import springboot.register.MemberRepository;
-import util.MailUtils;
 
 @RestController
 public class ProfilesController {
