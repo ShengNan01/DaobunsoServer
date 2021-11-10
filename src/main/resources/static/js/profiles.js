@@ -3,7 +3,7 @@ mId = {
         "member_Id": memberId
 };
 
-let url = 'https://localhost:8443/profiles';
+let url = 'https://localhost/profiles';
 fetch(url, {
     method: 'POST',
     body: JSON.stringify(mId),
