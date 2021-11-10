@@ -5,18 +5,22 @@ import java.sql.Timestamp;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.log4j.Log4j2;
 import springboot.util.GlobalService;
 import springboot.util.MailUtils;
+
 @Log4j2
 @RestController
 public class RegisterController {
+
+	@Autowired
+	RedisTemplate<Object, Object> redisTemplate;
+	
 	@Autowired
 	public MailUtils mailutils;
 	@Autowired
@@ -37,15 +41,5 @@ public class RegisterController {
 			mailutils.sendEmail(member, member.getEmail());
 			return "註冊成功，請重新登入";
 		}
-	}
-
-	@GetMapping("/activateMail")
-	public String activateMail(@RequestParam String emailToken) throws Exception {
-		if (mailutils.balanceToken(emailToken)) {
-			System.out.println("成功!!!");
-			return "success";
-		}
-		System.out.println("失敗!!!");
-		return "fail";
 	}
 }
