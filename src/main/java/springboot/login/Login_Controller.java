@@ -149,6 +149,9 @@ import springboot.util.GlobalService;
 					Cookie cookieName = new Cookie("name", loginc.getName());
 					Cookie cookieAccount = new Cookie("account", loginc.getAccount());
 					Cookie cookieEmail = new Cookie("email", loginc.getEmail());
+					Cookie cookieVerification = new Cookie("verification", loginc.getVerification().toString().trim());
+					cookieVerification.setMaxAge(7 * 24 * 60 * 60);
+					cookieVerification.setPath("/");
 					cookieLogin.setMaxAge(7 * 24 * 60 * 60);
 					cookieId.setMaxAge(7 * 24 * 60 * 60);
 					cookieName.setMaxAge(7 * 24 * 60 * 60);
@@ -164,6 +167,7 @@ import springboot.util.GlobalService;
 					response.addCookie(cookieName);
 					response.addCookie(cookieAccount);
 					response.addCookie(cookieEmail);
+					response.addCookie(cookieVerification);
 
 					if (rememberMe) {
 						Cookie cookiePassword = new Cookie("password", loginc.getPassword());
