@@ -23,14 +23,7 @@ import springboot.util.GlobalService;
 	
 	@Autowired
     private MemberRepository memberRepository;
-	
 
-
-	@GetMapping("/testt")
-	public void testt(){
-		System.out.println(GlobalService.decryptString(GlobalService.KEY
-				,loginRepo.findPasswordByMemberAccount("hsi")));
-	}
 
 	@SuppressWarnings("unused")
 	@PostMapping("/app/logincheck")
@@ -136,7 +129,7 @@ import springboot.util.GlobalService;
 			return "memberNull";
 		}
 	}
-	@PostMapping("/web/logincheck")
+	@PostMapping("/logincheck")
 	public Boolean webLogin(@RequestParam("rememberMe") Boolean rememberMe, @RequestBody Login login, HttpServletResponse response) {
 		if (login != null) {
 			String account = login.getAccount();
