@@ -21,7 +21,7 @@ $('.user-name h2').text(uname);
 //觀看意見領域
 
 
-fetch(`https://localhost:8443/gradings`,{
+fetch(`https://localhost/gradings`,{
     method: 'GET',
 }).then((response) =>{
     response.json()
@@ -58,7 +58,7 @@ $('#btn-ex').click(function(){
 //編輯意見按鈕
 $('#btn-edit').click(()=>{
 // GET
-    fetch(`https://localhost:8443/grading?uaccount=${uaccount}`,{
+    fetch(`https://localhost/grading?uaccount=${uaccount}`,{
         method: 'GET',
     }).then((response) =>{
         response.json()
@@ -86,7 +86,7 @@ $('#btn-edit').click(()=>{
 //意見送出按鈕
 $('#btn-feedback').click(()=>{
     ucomment = $('#feedback-comment').val();
-    fetch(`https://localhost:8443/grading`,{
+    fetch(`https://localhost/grading`,{
         method: 'POST',
         body: JSON.stringify({
             objectid    :   oid,
