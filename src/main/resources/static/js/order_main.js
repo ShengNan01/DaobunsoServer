@@ -3,7 +3,7 @@ $(function () {
 
       let DBSuserid = getCookieValueByName('id'); 
       console.log(DBSuserid)
-      let urlOrderList = `https://localhost:8443/orders/${DBSuserid}`;
+      let urlOrderList = `https://localhost/orders/${DBSuserid}`;
       $(function () { 
         maintbody = $('#order_main');
         fetch(urlOrderList, {
@@ -47,7 +47,7 @@ $(function () {
         $('#order_detail').show();
         let oid = $(this).text();
         // console.log(oid);
- 	    let urlOrderDetail = `https://localhost:8443/orders/${DBSuserid}/${oid}`;
+ 	    let urlOrderDetail = `https://localhost/orders/${DBSuserid}/${oid}`;
         detailtbody.empty();
         fetch(urlOrderDetail, {
           method: "GET",
