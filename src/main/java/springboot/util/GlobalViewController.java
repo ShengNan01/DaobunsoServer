@@ -23,7 +23,7 @@ public class GlobalViewController {
 	public String inde() {
 		return "frontpage";
 	}
-
+	
 	@GetMapping("/about_us")
 	public String about_usPage() {
 		return "about_us";
@@ -57,6 +57,11 @@ public class GlobalViewController {
 	@GetMapping("/login")
 	public String loginPage() {
 		return "login";
+	}
+	
+	@GetMapping("/maptest")
+	public String maptest() {
+		return "maptest";
 	}
 
 	@GetMapping("/order_main")
