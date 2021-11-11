@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_whitesmile.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\whitesmile.png"
+    },
+    {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_home.png.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\home.png"
     },
@@ -12,12 +16,12 @@
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\shoppingcart.png"
     },
     {
-        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_smile.png.flat",
-        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\smile.png"
-    },
-    {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_comment.png.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\comment.png"
+    },
+    {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_smile.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\smile.png"
     },
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_payment_info.xml.flat",
@@ -66,6 +70,10 @@
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_myorder1.png.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\myorder1.png"
+    },
+    {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_whiteshoppingcart.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\whiteshoppingcart.png"
     },
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -118,6 +126,10 @@
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_logo1.png.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\logo1.png"
+    },
+    {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_whitehome.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\whitehome.png"
     },
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_calendar.png.flat",
@@ -220,6 +232,10 @@
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable-v24\\ic_baseline_email_24.xml"
     },
     {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_whitethankyou.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\whitethankyou.png"
+    },
+    {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_baseline_people_alt_24.xml.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_baseline_people_alt_24.xml"
     },
@@ -276,8 +292,16 @@
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable-v24\\changepwdbtn.png"
     },
     {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_whitesad.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\whitesad.png"
+    },
+    {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_background.png.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\background.png"
+    },
+    {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_bg.jpg.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\bg.jpg"
     },
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_comment1.png.flat",

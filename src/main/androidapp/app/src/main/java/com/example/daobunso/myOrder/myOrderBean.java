@@ -1,51 +1,75 @@
 package com.example.daobunso.myOrder;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class myOrderBean {
 
-    int orederId;
-    String type;
-    String contact;
+
+    Integer orderId;
+
+    Date orderDate;
+
+    Integer memberId;
+
+    String address;
+
     String phone;
+
+    String contact;
+
+    String timeForGarbage;
+
+    Integer sum;
+
+    String payType;
+
+    String taxIDnumber;
+
+    String companyTitle;
+
+    String scheduleGarbage;
+
+    SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public myOrderBean(Integer orderId, Date orderDate , Integer sum) {
+        this.orderId = orderId;
+
+        Date d= null;
+        try {
+            d = format.parse(format.format(orderDate));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.orderDate =d;
+
+        this.sum = sum;
+    }
 
     public myOrderBean() {
     }
 
-    public myOrderBean(int orederId, String type, String contact, String phone) {
-        this.orederId = orederId;
-        this.type = type;
-        this.contact = contact;
-        this.phone = phone;
+    public Integer getOrderId() {
+        return orderId;
     }
 
-    public int getOrederId() {
-        return orederId;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
-    public void setOrederId(int orederId) {
-        this.orederId = orederId;
+    public Date getOrderDate() {
+        return orderDate;
     }
 
-    public String getType() {
-        return type;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public Integer getSum() {
+        return sum;
     }
 
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setSum(Integer sum) {
+        this.sum = sum;
     }
 }

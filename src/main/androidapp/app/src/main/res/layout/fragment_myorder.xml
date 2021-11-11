@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="6dp"
-    android:background="#DDFFDD"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
 
 
@@ -15,17 +15,17 @@
         android:layout_height="53dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/home"
+        android:src="@drawable/whitehome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivShippingcart"
-        android:layout_width="37dp"
-        android:layout_height="29dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
-        android:src="@drawable/shoppingcart"
+        android:src="@drawable/whiteshoppingcart"
         app:layout_constraintEnd_toStartOf="@+id/ivHome"
         app:layout_constraintTop_toTopOf="parent" />
 

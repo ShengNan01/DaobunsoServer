@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDFFDD"
+    android:background="@drawable/bg"
     tools:context="service.confirmOrderFragment">
 
 
@@ -15,13 +15,14 @@
         android:layout_height="160dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/textview"
         android:hint="       選擇發票類型"
         android:textSize="16dp"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btnToPayment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -30,12 +31,12 @@
         android:layout_width="338dp"
         android:layout_height="150dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/textview"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCustomerInfo" />
 
@@ -50,6 +51,7 @@
         android:text="付款方式："
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/tvCustomerTextInfo"
         app:layout_constraintEnd_toStartOf="@+id/spPaymentMethod"
         app:layout_constraintStart_toStartOf="parent" />
@@ -63,6 +65,7 @@
         android:text="付款資訊"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/tvCustomerTextInfo"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -70,9 +73,10 @@
         android:id="@+id/tvReceipt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="32dp"
         android:text="發票類型"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvReceiptType"
@@ -96,6 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="二聯式電子發票"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/rbInvoice"
         app:layout_constraintStart_toStartOf="@+id/etTaxNumber"
@@ -109,6 +114,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:text="三聯式電子發票"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/etTaxNumber"
         app:layout_constraintEnd_toEndOf="@+id/etTaxNumber"
@@ -125,6 +131,7 @@
         android:hint="請填寫統一編號"
         android:inputType="textMultiLine"
         android:textSize="16sp"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/tvReceiptType"
         app:layout_constraintEnd_toEndOf="@+id/tvReceiptType"
         app:layout_constraintHorizontal_bias="0.512"
@@ -149,6 +156,6 @@
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home" />
+        app:srcCompat="@drawable/whitehome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
