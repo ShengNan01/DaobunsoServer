@@ -147,9 +147,9 @@
         <div id="feedback-edit">
             <div class="container">
                 <!-- <li v-for="rli in res" class="editli" style="list-style-type:none; display: none;">{{rel}}</li> -->
-                <table id="table_edit" class="w-100 ">
+                <table id="table_edit">
                     <thead class="row">
-                        <tr class="col">
+                        <tr>
                             <th >意見編號</th>
                             <th >評論時間</th>
                             <th >星星評價</th>
@@ -158,10 +158,10 @@
                     </thead>
                     <tbody class="row">
                         <tr v-if="" v-for="rel in res" class="editli " style="display: none;">
-                            <th >{{rel.objectid}}</th>
-                            <th >{{rel.date}}</th>
-                            <th >{{rel.star}}</th>
-                            <th >{{rel.comment}}</th>
+                            <td >{{rel.objectid}}</td>
+                            <td >{{rel.date}}</td>
+                            <td >{{rel.star}}</td>
+                            <td >{{rel.comment}}</td>
                         </tr>
                     </tbody>
                 </table>

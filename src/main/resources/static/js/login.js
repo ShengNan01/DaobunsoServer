@@ -11,10 +11,10 @@ let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 
 
 function updateModal(title, massage) {
-$('#modal-title').text(title);
-$('#massage-content').text(massage);
+    $('#modal-title').text(title);
+    $('#massage-content').text(massage);
 }
-$(".register").on('click',function(){
+$(".register").on('click', function () {
     $("#form_in").hide();
     $("#form_reg").show();
 })
@@ -35,66 +35,65 @@ const regex_password = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,
 const regex_account = new RegExp(/^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$/);
 const regex_email = new RegExp(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/);
 
-$('#signup_btn').click(function(e){
+$('#signup_btn').click(function (e) {
     e.preventDefault();
-    if($('#pswdNew').val() !== $('#repswd').val()){
+    if ($('#pswdNew').val() !== $('#repswd').val()) {
         // alert('兩次輸入的密碼不相符，請重新輸入！');
         updateModal("Oops!", "兩次輸入的密碼不相符，請重新輸入！");
         myModal.show();
         return;
-    } else if($('#username').val() === "" || $('#email').val() === "" 
-    || $('#accountNew').val() === "" || $('#pswdNew').val() ===""){
-    // alert('有欄位未填寫，請檢查！');
+    } else if ($('#username').val() === "" || $('#email').val() === ""
+        || $('#accountNew').val() === "" || $('#pswdNew').val() === "") {
+        // alert('有欄位未填寫，請檢查！');
         updateModal("Oops!", "有欄位未填寫，請檢查！！");
         myModal.show();
         return;
-	}else if($('#accountNew').val().match(regex_account) === null){
-		 updateModal("輸入的帳號格式不符!", "帳號請包含英文及數字");
-       	 myModal.show();
-         return;	
-	} else if($('#email').val().match(regex_email) === null){
-		 updateModal("輸入的信箱格式不符!", "請重新填寫一個信箱");
-       	 myModal.show();
-         return;
-	}else if($('#pswdNew').val().match(regex_password) === null){
-		 updateModal("輸入的密碼格式不符!", "至少一個小寫字母、一個大寫字母、一個數字，且密碼長度須符合8-16個字元");
-       	 myModal.show();
-         return;
+    } else if ($('#accountNew').val().match(regex_account) === null) {
+        updateModal("輸入的帳號格式不符!", "帳號請包含英文及數字");
+        myModal.show();
+        return;
+    } else if ($('#email').val().match(regex_email) === null) {
+        updateModal("輸入的信箱格式不符!", "請重新填寫一個信箱");
+        myModal.show();
+        return;
+    } else if ($('#pswdNew').val().match(regex_password) === null) {
+        updateModal("輸入的密碼格式不符!", "至少一個小寫字母、一個大寫字母、一個數字，且密碼長度須符合8-16個字元");
+        myModal.show();
+        return;
     } else {
         member = {
-            "member_name":$('#username').val(),
-            "email":$('#email').val(),
-            "account":$('#accountNew').val(),
-            "password":$('#pswdNew').val()
+            "member_name": $('#username').val(),
+            "email": $('#email').val(),
+            "account": $('#accountNew').val(),
+            "password": $('#pswdNew').val()
         };
         $(this).width('5.5rem');
         $(this).text("傳送中");
 
-//   console.log(JSON.stringify(member));
-    fetch(urlReg, {
-        method: 'POST',
-        body: JSON.stringify(member),
-        headers: { 'Content-Type': 'application/json' },
-    })
-    .then(response => { response.text()
-    .then(text => { 
-        // console.log(text)
-      if( text === "註冊成功，請重新登入"){
-        // alert(text);
-        updateModal("Congratulations!", text);
-        myModal.show();
-        $('.modal-footer>button').click(function(){
-            location.reload();
-        })
-      } else {
-        $(this).width('5rem');
-        $(this).text("註冊");
-        // alert(text)
-        updateModal("Oops!", text);
-        myModal.show();
-        return;
-        }
-        })
+        //   console.log(JSON.stringify(member));
+        fetch(urlReg, {
+            method: 'POST',
+            body: JSON.stringify(member),
+            headers: { 'Content-Type': 'application/json' },
+        }).then(response => {
+            response.text().then(text => {
+                // console.log(text)
+                if (text === "註冊成功，請重新登入") {
+                    // alert(text);
+                    updateModal("Congratulations!", text);
+                    myModal.show();
+                    $('.modal-footer>button').click(function () {
+                        location.reload();
+                    })
+                } else {
+                    $(this).width('5rem');
+                    $(this).text("註冊");
+                    // alert(text)
+                    updateModal("Oops!", text);
+                    myModal.show();
+                    return;
+                }
+            })
         })
     };
 });
@@ -139,56 +138,61 @@ function trigger() {
 
 // Login
 
-$(document).ready(function(){
-    if (getCookieValueByName('account') != "" && getCookieValueByName('name') != ""&& getCookieValueByName('email') != ""&& getCookieValueByName('password') != "") {
-            $("#account").val(getCookieValueByName('account'));
-            $("#pswd").val(getCookieValueByName('password')); 
+$(document).ready(function () {
+    if (getCookieValueByName('account') != "" && getCookieValueByName('name') != "" && getCookieValueByName('email') != "" && getCookieValueByName('password') != "") {
+        $("#account").val(getCookieValueByName('account'));
+        $("#pswd").val(getCookieValueByName('password'));
     }
 })
 // 判斷#rememberMe有沒有勾
 let rememberMe = false;
-$("#rememberMe").click(function(){
+$("#rememberMe").click(function () {
     $(this).toggleClass('tog');
-    if($('#rememberMe').hasClass('tog')){
+    if ($('#rememberMe').hasClass('tog')) {
         rememberMe = true;
-    }else{
+    } else {
         rememberMe = false;
     }
 });
 // 登入按鈕
-$('#login_btn').click(function(e){
+$('#login_btn').click(function (e) {
     e.preventDefault();
-    
-    if($('#account').val() === "" || $('#pswd').val() === "" ){
+
+    if ($('#account').val() === "" || $('#pswd').val() === "") {
         updateModal("Oops!", "有欄位未填寫，請檢查！！");
         myModal.show();
         return;
-    } 
+    }
     else {
         let account = $('#account').val();
         let password = $('#pswd').val();
-           
+
         fetch(`https://localhost/logincheck?rememberMe=${rememberMe}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // 將JavaScript物件轉為JSON物件
             body: JSON.stringify({
-                "account"    :   account,
-                "password"   :   password,
-                }),  
-        })
-        .then(response => { 
-            response.text()
-            .then(res=>{
-                alert(res.toString()); 
+                "account": account,
+                "password": password,
+            }),
+        }).then(response => {
+            // 將Server回覆的boolean值轉為文字存入res
+            response.text().then(res => {
+                if (res == "true") {
+                    alert("登入成功! res狀態:" + res);
+                    location.assign('./frontpage'); 
+                } else {
+                    alert("登入失敗! res狀態:" + res+"\n請重新登入");
+                    $("#account").val(null);
+                    $("#pswd").val(null);
+                }
             });
-            location.assign('./frontpage');
         });
-    };      
+    };
 });
 
 // reset modal when modal was hidden
 let myModalEl = document.getElementById('myModal')
 myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("","");
+    updateModal("", "");
 })
