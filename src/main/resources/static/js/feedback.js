@@ -39,11 +39,13 @@ fetch(`https://localhost/gradings`, {
 //~觀看意見領域
 //~頁面初始化
 
-//展開按鈕
+//意見填寫展開按鈕tog
 $('#btn-ex').click(function () {
     $(this).toggleClass('tog');
-    $('.editli').hide();
-    if ($('#btn-ex').hasClass('tog')) {
+    $('#feedback-edit').hide();
+    $('#btn-edit').text("修改/刪除意見");
+    $('#btn-edit').removeClass('tog');
+    if ($(this).hasClass('tog')) {
         $('.feedback').show();
         $('#btn-ex').text("收起");
     } else {
@@ -51,33 +53,50 @@ $('#btn-ex').click(function () {
         $('#btn-ex').text("填寫意見");
     }
 });
-//~展開按鈕
+//~意見填寫展開按鈕tog
 
 //編輯意見按鈕
-$('#btn-edit').click(() => {
-    // GET
-    fetch(`https://localhost/grading?uaccount=${uaccount}`, {
-        method: 'GET',
-    }).then((response) => {
-        response.json().then(res => {
-            console.log(res);
+$('#btn-edit').click(function () {
 
-            let editv = new Vue({
-                el: '#feedback-edit',
-                data: {
-                    res,
-                },
-            });
-            $('.editli').show();
-
-        });
-    });
-    // ~GET
-    $('#btn-ex').removeClass('tog');
+    $(this).toggleClass('tog');
     $('.feedback').hide();
     $('#btn-ex').text("填寫意見");
+    $('#btn-ex').removeClass('tog');
+    if ($(this).hasClass('tog')) {
+        $('#feedback-edit').show();
+        $('#btn-edit').text("收起意見列表");
+    } else {
+        $('#feedback-edit').hide();
+        $('#btn-edit').text("修改/刪除意見");
+    }
 
-})
+    $('.feedback').hide();
+    if ($('#btn-edit').hasClass('tog')) {
+        $('#feedback-edit').show();
+        $('#btn-edit').text("收起意見列表");
+
+        // GET
+        fetch(`https://localhost/grading?uaccount=${uaccount}`, {
+            method: 'GET',
+        }).then((response) => {
+            response.json().then(res => {
+                console.log(res);
+                let editv = new Vue({
+                    el: '#feedback-edit',
+                    data: {
+                        res,
+                    },
+                });
+                $('#feedback-edit').show();
+            });
+        });
+        // ~GET
+    } else {
+        $('#feedback-edit').hide();
+        $('#btn-edit').text("查詢意見列表");
+        $('#btn-edit').removeClass('tog');
+    }
+});
 //~編輯意見按鈕
 
 //意見送出按鈕
