@@ -4,6 +4,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,8 +23,47 @@ import springboot.util.GlobalService;
 	
 	@Autowired
     private MemberRepository memberRepository;
-	
 
+
+	@SuppressWarnings("unused")
+	@PostMapping("/app/logincheck")
+	public String clientLogin(@RequestBody Login loginBean) {
+//		System.out.println(loginBean.toString());
+		String account = loginBean.getAccount();
+		String password = loginBean.getPassword();
+//		System.out.println("Account:"+account +"\tPassword:"+ decryptPassword);
+//		System.out.println("Account:"+loginBean.getAccount() +"\tPassword:"+ loginBean.getPassword());
+		if(loginBean!=null) {
+			
+			if(loginRepo.existsByAccount(loginBean.getAccount())) { //核對確認有這個帳號
+				String decryptPassword = GlobalService.decryptString(GlobalService.KEY
+						,loginRepo.findPasswordByMemberAccount(loginBean.getAccount()));
+				
+//				System.out.println(loginRepo.findLoginByAccount(account));
+			// 解密後密碼與使用者輸入的密碼比對。如果密碼一樣，就成功豋入
+				if (password.equals(decryptPassword)) {
+					
+					return "OK";				
+				}
+				// 如果密碼不正確
+				else {
+					return "NG";
+				}
+		 }
+			//如果沒有這個帳號
+		else {
+
+			return "NG";
+		}
+
+	}
+		//如果前端傳來的loginBean是null
+		else {
+			return "NG";
+		}
+
+	}
+	
 //	@RequestBody MemberBean member
 	@SuppressWarnings("unused")
 	@PostMapping("/app/forgetPw")
@@ -90,7 +130,7 @@ import springboot.util.GlobalService;
 			return "memberNull";
 		}
 	}
-	@PostMapping("/web/logincheck")
+	@PostMapping("/logincheck")
 	public Boolean webLogin(@RequestParam("rememberMe") Boolean rememberMe, @RequestBody Login login, HttpServletResponse response) {
 		if (login != null) {
 			String account = login.getAccount();
@@ -110,6 +150,9 @@ import springboot.util.GlobalService;
 					Cookie cookieName = new Cookie("name", loginc.getName());
 					Cookie cookieAccount = new Cookie("account", loginc.getAccount());
 					Cookie cookieEmail = new Cookie("email", loginc.getEmail());
+					Cookie cookieVerification = new Cookie("verification", loginc.getVerification().toString().trim());
+					cookieVerification.setMaxAge(7 * 24 * 60 * 60);
+					cookieVerification.setPath("/");
 					cookieLogin.setMaxAge(7 * 24 * 60 * 60);
 					cookieId.setMaxAge(7 * 24 * 60 * 60);
 					cookieName.setMaxAge(7 * 24 * 60 * 60);
@@ -125,6 +168,7 @@ import springboot.util.GlobalService;
 					response.addCookie(cookieName);
 					response.addCookie(cookieAccount);
 					response.addCookie(cookieEmail);
+					response.addCookie(cookieVerification);
 
 					if (rememberMe) {
 						Cookie cookiePassword = new Cookie("password", loginc.getPassword());

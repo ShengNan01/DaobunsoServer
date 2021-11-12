@@ -20,11 +20,11 @@ spring:
           starttls :
             enable: true  
 server:
-  port: 8443
+  port: 443
   ssl:
     key-store: "classpath:server.pfx"
     key-store-password: "daobunso"
-    key-password: "daobunso"
+    key-store-type: PKCS12
 thymeleaf:
     cache: false
     prefix: classpath:/templates/    # 設定去templates資料夾找html檔案

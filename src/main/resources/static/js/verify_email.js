@@ -49,5 +49,5 @@ myModalEl.addEventListener('hidden.bs.modal', function() {
 })
 //跳頁
 function nextPage(){
-    location.href = "https://localhost:8443/Daobunso_Project/"
+    location.href = "https://localhost/Daobunso_Project/"
 }

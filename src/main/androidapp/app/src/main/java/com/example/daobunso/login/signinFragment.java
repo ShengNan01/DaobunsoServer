@@ -117,7 +117,7 @@ public class signinFragment extends Fragment {
     }
 
     private void login(View view) {
-        String url = "http://10.0.2.2:8080/logincheck";
+        String url = "http://10.0.2.2:8080/app/logincheck";
 
         if (RemoteAccess.networkConnected(activity)) {
 
