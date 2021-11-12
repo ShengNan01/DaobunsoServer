@@ -29,6 +29,7 @@ import springboot.util.GlobalService;
 	@PostMapping("/app/forgetPw")
 	public String forgetPw() {
 
+
 //		String account = member.getAccount();
 //		String email = member.getEmail();
 ////	

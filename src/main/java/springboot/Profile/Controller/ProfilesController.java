@@ -1,90 +1,78 @@
 package springboot.Profile.Controller;
 
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
 import java.util.Optional;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import springboot.util.GlobalService;
+
+import lombok.extern.log4j.Log4j2;
 import springboot.register.MemberBean;
 import springboot.register.MemberRepository;
+import springboot.util.GlobalService;
+import springboot.util.changePasswordMailUtils;
 
+@Log4j2
 @RestController
 public class ProfilesController {
+
+	@Autowired
+	public changePasswordMailUtils changePasswordMailUtils;
+
 	@Autowired
 	private MemberRepository memberRepository;
 
 	@PostMapping("/profiles")
 	public Optional<MemberBean> getMemberProfile(@RequestBody MemberBean member) {
-		Optional<MemberBean> bean = Optional.of(memberRepository.findById(member.getMember_Id()).orElse(null));
+		Optional<MemberBean> bean = Optional.of(memberRepository.findById(member.getMemberId()).orElse(null));
 		return bean;
 	}
-//
-//	@PostMapping("/change_password/{memberId}")
-//	public String changePswd(@RequestBody @Valid MemberBean member) {
-//		String oldPassword = member.getPassword();
-//		String Password = member.getNewPassword();
-//		Integer member_Id = member.getMember_Id();
-//		// 解密
-//		String EncryptPassword = memberRepository.findById(member_Id).getPassword();
-//		String decryptPassword = GlobalService.decryptString(GlobalService.KEY, EncryptPassword);
-//		// 比對密碼
-//		System.out.println("輸入的新密碼 = " + member.getNewPassword() + "/n" + "輸入的舊密碼 = " + member.getPassword() + "/n"
-//				+ "比對的原密碼 = " + decryptPassword);
-//		if (oldPassword.equals(decryptPassword)) {
-//			System.out.println("密碼比對正確");
-//			// 更新密碼
-//			String enPswd = GlobalService.encryptString(Password);
-//			memberRepository.updateMemberPassword(enPswd, member_Id);
-//			System.out.println("會員ID= " + member_Id + "   " + "會員密碼= " + Password);
-//			return "Success";
-//		} else {
-//			return "fail";
-//		}
-//	}
-//
-//	@PostMapping("/verify_email/{memberId}/{email}")
-//	public String verifyEmail(@RequestBody @Valid MemberBean member) {
-////		 public boolean verifyEmail (@RequestBody @Valid String email) {
-//		String changePasswordEmail = member.getEmail();
-//		Integer member_Id = member.getMember_Id();
-//		System.out.println("會員輸入的信箱為:" + changePasswordEmail);
-//		if (memberRepository.existsByMemberEmail(changePasswordEmail)
-//				&& memberRepository.findInfoById(member_Id).getEmail().equals(member.getEmail())) {
-//			String emailMsg = "請點擊<a href='http://localhost:8080/Daobunso_Project/change_password.html"
-//					+ "'>點擊修改密碼</a>";
-//			System.out.println("正在發送郵件...");
-//			new Thread() {
-//				@Override
-//				public void run() {
-//					try {
-//						// 發送郵件
-//						try {
-//							MailUtils.sendMail(member.getEmail(), emailMsg);
-//						} catch (UnsupportedEncodingException e) {
-//							e.printStackTrace();
-//						}
-//					} catch (AddressException e) {
-//						e.printStackTrace();
-//					} catch (MessagingException e) {
-//						e.printStackTrace();
-//					} catch (GeneralSecurityException e) {
-//						e.printStackTrace();
-//					}
-//					System.out.println("發送郵件成功!");
-//				}
-//			}.start();
-//			return "Success";
-//		} else {
-//			return "Fail";
-//		}
-//
-//	}
+
+	@PostMapping("/Change_pswd")
+	public String changePswd(@RequestBody  MemberBean member) {
+		String  password = member.getPassword();
+		String  newPassword = member.getNewPassword();
+		Integer memberId = member.getMemberId();
+		// 解密
+		String EncryptPassword = memberRepository.findPasswordById(memberId);
+		String decryptPassword = GlobalService.decryptString(GlobalService.KEY, EncryptPassword);
+		// 比對密碼
+		System.out.println("輸入的新密碼 = " + newPassword + "    " + 
+						   "輸入的舊密碼 = " + password + "    " + 
+						   "比對的原密碼 = " + decryptPassword);
+		if (password.equals(decryptPassword)) {
+			System.out.println("密碼比對正確");
+			// 更新密碼
+			String enPswd = GlobalService.encryptString(newPassword);
+			memberRepository.updateMemberPassword(enPswd, memberId);
+			System.out.println("會員ID= " + memberId + "   " + "會員密碼= " + newPassword);
+			return "Success";
+		} else {
+			return "Fail";
+		}
+	}
+
+	@PostMapping("/verifyEmail")
+	public String verifyEmail(@RequestBody MemberBean member) {
+		Integer memberId = member.getMemberId();
+		String  email = member.getEmail();
+		System.out.println("會員id:" + memberId + "   " + "會員email: " + email );
+//		MemberBean mbEmail = memberRepository.findEmailById(memberId)
+		String memberEmail = memberRepository.findEmailById(member.getMemberId());
+		System.out.println(memberEmail);
+		Boolean existEmail = memberRepository.existsByEmail(memberEmail);
+		System.out.println(existEmail);
+
+		if (existEmail && memberEmail.equals(member.getEmail())) {
+			log.info("寄送驗證信");
+			changePasswordMailUtils.sendEmail(member, member.getEmail());
+			return "Success";
+		} else {
+			return "Fail";
+		}
+
+	}
 }

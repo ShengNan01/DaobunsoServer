@@ -11,11 +11,10 @@ $("#verify_email_btn").click(function () {
     } else {
         let email = $('#email').val();
         const Email = {
-            Email: email,
-            "Member_Id": memberId,
+            "email": email,
+            "memberId": memberId,
         }
-
-        let url = 'http://localhost:8080/Daobunso_Project/Verifyemail';
+        let url = 'https://localhost/verifyEmail';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(Email),

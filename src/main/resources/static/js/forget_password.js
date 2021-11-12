@@ -37,7 +37,7 @@ $("#submit").click(function (e) {
 			Account:account,
 
         }
-        let url = 'https://localhost:8443/Daobunso_Project/Forget_pswd_Email';
+        let url = 'https://localhost/Forget_pswd_Email';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(forget_pswd),

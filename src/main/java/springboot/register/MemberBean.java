@@ -29,7 +29,7 @@ public class MemberBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name = "Member_Id")
-	Integer member_Id;
+	Integer memberId;
 
 	@NotBlank
 	@Column (name = "Email")
@@ -51,7 +51,8 @@ public class MemberBean {
 	Timestamp join_Date;
 
 	@Transient
-	String NewPassword;
+	@Column (name = "NewPassword")
+	String newPassword;
 //	public String getNewPassword() {
 //		return NewPassword;
 //	}

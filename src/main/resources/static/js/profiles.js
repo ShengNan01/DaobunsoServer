@@ -1,9 +1,9 @@
 const memberId = getCookieValueByName('id');
 mId = {
-        "member_Id": memberId
+        "memberId": memberId
 };
 
-let url = 'https://localhost:8443/profiles';
+let url = 'https://localhost/profiles';
 fetch(url, {
     method: 'POST',
     body: JSON.stringify(mId),

@@ -1,13 +1,24 @@
 package springboot.util;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GlobalViewController {
 	
+	@Autowired
+	public changePasswordMailUtils	changePasswordMailUtils;
+//	@Autowired
+//	private MemberRepository memberRepository;
+//	
+//	@Autowired
+//	private ProfilesController profilesController;
+	
 	@GetMapping("/")
-	public String inde() {
+	public String index() {
 		return "frontpage";
 	}
 	
@@ -16,8 +27,15 @@ public class GlobalViewController {
 		return "about_us";
 	}
 	@GetMapping("/change_password")
-	public String change_passwordPage() {
-		return "change_password";
+	public String activateMail(@RequestParam String emailToken ,Model model) throws Exception {
+		if (changePasswordMailUtils.balanceToken(emailToken)) {
+			System.out.println("成功!!!");
+			return "change_password";
+		}
+		System.out.println("失敗!!!");
+		model.addAttribute("fail" , "fail");
+		return "verify_email";
+//		return "frontpage";
 	}
 	@GetMapping("/feedback")
 	public String feedbackPage() {
@@ -91,8 +109,8 @@ public class GlobalViewController {
 	public String UsertermsPage() {
 		return "Userterms";
 	}
-	@GetMapping("verify_email")
-	public String verify_emailPage() {
-		return "verify_email";
+	@GetMapping("/verify_email")
+	public String verify_emailPage() {;
+		return "verify_email"; 	
 	}
 }

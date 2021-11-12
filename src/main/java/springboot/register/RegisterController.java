@@ -48,4 +48,6 @@ public class RegisterController {
 		System.out.println("失敗!!!");
 		return "fail";
 	}
+	
+	
 }
