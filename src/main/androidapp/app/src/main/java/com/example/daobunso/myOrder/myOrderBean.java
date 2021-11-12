@@ -46,6 +46,12 @@ public class myOrderBean {
         this.sum = sum;
     }
 
+    public myOrderBean(Integer orderId, String contact, Integer sum) {
+        this.orderId = orderId;
+        this.contact = contact;
+        this.sum = sum;
+    }
+
     public myOrderBean() {
     }
 

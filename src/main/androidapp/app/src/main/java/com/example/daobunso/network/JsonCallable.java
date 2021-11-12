@@ -71,4 +71,5 @@ public class JsonCallable implements Callable<String> {
         Log.d(TAG, "input: " + inStr);
         return inStr.toString();  // inStr 是一個 StringBuilder 型態
     }
+
 }

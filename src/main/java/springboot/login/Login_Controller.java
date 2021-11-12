@@ -1,11 +1,15 @@
 package springboot.login;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import springboot.orderHistory.OrderBean;
 import springboot.register.MemberBean;
 import springboot.register.MemberRepository;
 import springboot.util.GlobalService;
@@ -138,5 +142,7 @@ public class Login_Controller {
 			return "memberNull";
 		}
 	}
+	
+	
 	
 }

@@ -30,27 +30,35 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
 public class myorderFragment extends Fragment {
 
+    Context context;
     private Activity activity;
-    private SharedPreferences preferences;
     private String account;
-    private final static String PREFERENCES_NAME = "preferences";
+
+
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            account = bundle.getString("account");
+            Log.d("myorderFragment_account", account);
+        }
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_myorder, container, false);
@@ -63,13 +71,14 @@ public class myorderFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext())); //
-        List<myOrderBean> OB = getOrderBean();
+        List<String[]> OB = getOrderBean();
         if (recyclerView.getAdapter() == null) {
             recyclerView.setAdapter(new MyOrderAdapter(getContext(), OB));
-        }
-        else{
+        } else {
             recyclerView.getAdapter().notifyDataSetChanged();
         }
+
+        getOrderBean();
 
         view.findViewById(R.id.ivHome).setOnClickListener(v ->
                 Navigation.findNavController(v).navigate(R.id.action_myorderFragment_to_indexFragment));
@@ -80,13 +89,12 @@ public class myorderFragment extends Fragment {
     }
 
 
-
-
-    // 內部類別MyOrderAdapter
+//    // 內部類別MyOrderAdapter
     private static class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.MyViewHolder> {
         Context context;
-        List<myOrderBean> OB;
-        public MyOrderAdapter(Context context, List<myOrderBean> OB) {
+        List<String[]> OB;
+
+        public MyOrderAdapter(Context context, List<String[]> OB) {
             this.context = context;
             this.OB = OB;
         }
@@ -124,7 +132,7 @@ public class myorderFragment extends Fragment {
             Bundle bundle = new Bundle();
             itemView.findViewById(R.id.commentBtn).setOnClickListener(v -> {
 
-                Navigation.findNavController(v).navigate(R.id.action_myorderFragment_to_commentFragment,bundle);
+                Navigation.findNavController(v).navigate(R.id.action_myorderFragment_to_commentFragment, bundle);
             });
 
 
@@ -135,77 +143,46 @@ public class myorderFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int index) {
-            final myOrderBean orderBean = OB.get(index);
+            final String[] orderBean = OB.get(index);
 
             viewHolder.tvOderId
-                    .setText(" 訂單編號: "+orderBean.getOrderId());
+                    .setText(" 訂單編號: " + orderBean[0]);
             viewHolder.tvOrderDate
-                    .setText(" 訂購日期: "+orderBean.getOrderDate());
+                    .setText(" 訂購日期: " + orderBean[1]);
 
             viewHolder.tvSum
-                    .setText(" 總金額: "+ orderBean.getSum());
+                    .setText(" 總金額: " + orderBean[2]);
 
 
         }
     }
 
-//    private void OrderBean(){
-//        String url = "http://10.0.2.2:8080/app/getOrderBeans";
-//        if (RemoteAccess.networkConnected(activity)) {
-//
-//            JsonObject jsonObject = new JsonObject();
-//            jsonObject.addProperty("account", account);
-//
-//            String result = RemoteAccess.getRemoteData(url, jsonObject.toString()); //與後端連線
-//            Log.v("getOrderBean:",result);
-//        }
-//        else {
-//            Toast.makeText(activity, R.string.textNoNetwork, Toast.LENGTH_SHORT).show();
-//        }
-//
-//    }
+    private List<String[]>  getOrderBean() {
+
+        List<String[]> OB = new ArrayList<>();
 
 
-        private List<myOrderBean> getOrderBean() {
+        String url = "http://10.0.2.2:8080/app/getOrderBeans";
 
-//            List<myOrderBean> ob = new ArrayList<>();
-            List<myOrderBean> OB = new ArrayList<>();
-//            OB.add(new myOrderBean( 1,"2021-10-16 09:15:24",200));
-//            OB.add(new myOrderBean( 2,"2021-10-16 09:15:24",200));
-//            OB.add(new myOrderBean( 3, "2021-10-16 09:15:24",200));
-//            OB.add(new myOrderBean( 4, "2021-10-16 09:15:24",200));
-//            OB.add(new myOrderBean( 5, "2021-10-16 09:15:24",200));
-            return OB;
-
-//            //從preference檔，取出account
-//            preferences = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE);
-//            account = preferences.getString("accountInfo","訪客");
-//
-//            String url = "http://10.0.2.2:8080/app/getOrderBeans";
-//
 //            if (RemoteAccess.networkConnected(activity)) {
-//
-//                JsonObject jsonObject = new JsonObject();
-//                jsonObject.addProperty("account", account);
-//
-//                String result = RemoteAccess.getRemoteData(url, jsonObject.toString()); //與後端連線
-//
-//                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-//
-//
-//                Type type = new TypeToken<List<myOrderBean>>() {}.getType();
-//                ob =gson.fromJson(result, type);
-//
-//                if(ob.size()>0){
-//                    return ob;
-//                }
-//                else{
-//                    Toast.makeText(activity, "查無訂單", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//            else {
-//                Toast.makeText(activity, R.string.textNoNetwork, Toast.LENGTH_SHORT).show();
-//            }
-//            return ob;
-        }
+
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("account",account);
+
+            String result = RemoteAccess.getRemoteData(url, jsonObject.toString()); //與後端連線
+            Log.d("hsi", result);
+
+            Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+
+
+            Type type = new TypeToken<List<String[]>>() {}.getType();
+            OB = gson.fromJson(result, type);
+
+                if (OB.size() > 0) {
+                    return OB;
+                } else {
+                    Toast.makeText(activity, "查無訂單", Toast.LENGTH_SHORT).show();
+                }
+                return null;
+ }
 }

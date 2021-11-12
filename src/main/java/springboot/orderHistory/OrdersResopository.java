@@ -14,9 +14,5 @@ public interface OrdersResopository extends JpaRepository<OrderBean,Integer> {
 			+ "FROM order_master om WHERE om.Member_Id = ?1",nativeQuery = true)
 	List<String[]> findInfoByMemberId(Integer memberId);
 	
-	
-	@Query(value = "SELECT FROM order_master om WHERE om.Account = :account",nativeQuery = true)
-	List<OrderBean> findInfoByAccount(String account);
-
 
 }
