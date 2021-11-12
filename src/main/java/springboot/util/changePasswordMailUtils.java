@@ -44,7 +44,7 @@ public class changePasswordMailUtils {
 		String value = member.toString();
 		System.out.println(value);
 		redisTemplate.opsForValue().set(token, value);
-		redisTemplate.expire(token, 15, TimeUnit.SECONDS);
+		redisTemplate.expire(token, 60, TimeUnit.SECONDS);
 		return token;
 	}
 	//確認redis內有沒有資料

@@ -44,16 +44,5 @@ public class RegisterController {
 			return "註冊成功，請重新登入";
 		}
 	}
-
-	@GetMapping("/activateMail")
-	public String activateMail(@RequestParam String emailToken) throws Exception {
-		if (mailutils.balanceToken(emailToken)) {
-			System.out.println("成功!!!");
-			return "success";
-		}
-		System.out.println("失敗!!!");
-		return "fail";
-	}
-	
 	
 }

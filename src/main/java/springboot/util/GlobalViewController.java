@@ -17,9 +17,9 @@ public class GlobalViewController {
 	RedisTemplate<Object, Object> redisTemplate;
 	@Autowired
 	public MailUtils mailutils;
+	
 	@Autowired
 	LoginRepo loginRepo;
-
 	@Autowired
 	public changePasswordMailUtils	changePasswordMailUtils;
 	@GetMapping("/")
@@ -41,7 +41,7 @@ public class GlobalViewController {
 		System.out.println("失敗!!!");
 		model.addAttribute("fail" , "fail");
 		return "verify_email";
-//		return "frontpage";
+
 	}
 
 	@GetMapping("/feedback")
