@@ -29,7 +29,7 @@ public class MailUtils {
 					helper.setTo(email);
 					helper.setSubject("Daobunso信箱驗證信");
 					String emailToken = getEmailToken(member);
-					helper.setText("<a href='https://localhost:8443/activateMail?emailToken="+emailToken+"'>點我驗證啟用帳號"+"</a></br><h3>如果以上超連線無法訪問，請將以下網址複製到瀏覽器位址列中</h3><h3>https://localhost:8443/activateMail?emailToken="+emailToken+"</h3>",true);
+					helper.setText("<a href='https://localhost/activateMail?emailToken="+emailToken+"'>點我驗證啟用帳號"+"</a></br><h3>如果以上超連線無法訪問，請將以下網址複製到瀏覽器位址列中</h3><h3>https://localhost/activateMail?emailToken="+emailToken+"</h3>",true);
 					new Thread() {
 						@Override
 			            public void run(){
