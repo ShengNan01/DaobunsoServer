@@ -15,7 +15,6 @@ public interface GradingRepo extends JpaRepository<Grading,Integer> {
 
 	List<Grading> findByAccount(String uaccount);
 	
-	List<Grading> findByStar(Integer star);
-	
+	void 
 
 }

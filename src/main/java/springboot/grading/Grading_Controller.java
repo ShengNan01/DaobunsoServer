@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -32,15 +33,6 @@ public class Grading_Controller {
 	@Autowired
 	GradingRepo gradingRepo;
 //	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
-
-//	@GetMapping("/ttts")
-//	public String tString() {
-//		String tttString = new Timestamp(System.currentTimeMillis()).toString();
-//		tttString.toCharArray();
-//		String text = String.format(template.getText(), "HAHAHA");  
-//		sendSimpleMessage("jsjg355099@gmail.com","測試",text);
-//		return tttString;
-//	}
 	
 	@GetMapping("/gradings")
 	public List<Optional<Grading>> getGradings() {
@@ -66,11 +58,20 @@ public class Grading_Controller {
 		return g;
 	}
 	@GetMapping("/grading")
-	public List<Grading> getG(
-			@RequestParam("uaccount") String uaccount) {
+	public List<Grading> getG(@RequestParam("uaccount") String uaccount) {
 		return gradingRepo.findByAccount(uaccount);
 	}
-	
+	@DeleteMapping("/grading")
+	public String deleteG(@RequestParam("objectid") Integer objectid) {
+		gradingRepo.deleteById(objectid);
+		return "刪除評論成功!";
+	}
+	@PutMapping("/grading")
+	public String putG(@RequestBody Grading g,@RequestParam("objectid") Integer objectid) {
+		g.setDate(new Timestamp(System.currentTimeMillis()).toString());
+//		gradingRepo.
+		return "編輯成功!\t"+"編輯時間為:";
+	}
 	
 	@PostMapping("/app/grading")
 	public String appPostG(@RequestBody Grading g) {
@@ -98,16 +99,6 @@ public class Grading_Controller {
 //			@RequestParam("email") String email) {
 //		System.out.println(uid);
 //		System.out.println(email);
-//	}
-
-//	@PutMapping("/feedback")
-//	public String putF(@RequestBody Feedback fe) {
-//		fe.save();
-//		return "add";
-//	}
-//	@DeleteMapping("/feedback")
-//	public String deleteF() {
-//		return "delete";
 //	}
 //	
 //	RequestMapping("/feedback/submit{x}")

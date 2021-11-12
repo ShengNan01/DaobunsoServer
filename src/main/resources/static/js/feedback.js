@@ -20,18 +20,19 @@ $('.user-name h2').text(uname);
 
 //觀看意見領域
 
-
 fetch(`https://localhost/gradings`, {
     method: 'GET',
 }).then((response) => {
     response.json().then(res => {
         console.log(res);
+
         let marqueev = new Vue({
             el: '#marquee',
             data: {
                 res,
             },
         });
+
         $('#marquee').show();
     });
 });
@@ -83,9 +84,57 @@ $('#btn-edit').click(function () {
                 console.log(res);
                 let editv = new Vue({
                     el: '#feedback-edit',
+
                     data: {
                         res,
                     },
+
+                    methods: {
+                        edit: function (key) {
+                            console.log(res[key].objectid);
+                            // 按鈕響應
+                            $('#btn-ex').addClass('tog');
+                            $('#feedback-edit').hide();
+                            $('.feedback').show();
+                            $('#btn-ex').text("收起");
+                            $('#btn-edit').text("修改/刪除意見");
+                            $('#btn-edit').removeClass('tog');
+                            // ~按鈕響應
+
+                            $('#feedback-comment').val(res[key].comment);
+                            $('#feedback-id').val(res[key].objectid);
+                            $('#feedback-id').show();
+                            // 編輯意見按鈕
+                            $('#btn-feedback').click(() => {
+                                ucomment = $('#feedback-comment').val();
+                                fetch(`https://localhost/grading?objectid=${res[key].objectid}`, {
+                                    method: 'PUT',
+                                    body: JSON.stringify({
+                                        objectid: res[key].objectid,
+                                        account: uaccount,
+                                        star: getstar,
+                                        date: null,
+                                        comment: ucomment,
+                                    }),
+                                    headers: { 'Content-Type': 'application/json' },
+                                }).then(() => {
+                                    location.reload();
+                                });
+                            });
+                            // ~編輯意見按鈕
+
+                        },
+
+                        del: (key) => {
+                            // console.log(key);
+                            console.log(res[key].objectid);
+                            fetch(`https://localhost/grading?objectid=${res[key].objectid}`, {
+                                method: 'DELETE',
+                            }).then(response => {
+                                console.log(response.text());
+                            });
+                        },
+                    }
                 });
                 $('#feedback-edit').show();
             });
@@ -93,7 +142,7 @@ $('#btn-edit').click(function () {
         // ~GET
     } else {
         $('#feedback-edit').hide();
-        $('#btn-edit').text("查詢意見列表");
+        $('#btn-edit').text("修改/刪除意見");
         $('#btn-edit').removeClass('tog');
     }
 });
