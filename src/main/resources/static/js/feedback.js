@@ -1,12 +1,12 @@
 //Feedback定義變數
-let oid;
+let oid = 0;
 let uaccount = getCookieValueByName("account");
-let getstar;
+let getstar = 0;
 let ucomment = "";
 // let wdate = Date();
 
 //定義頁面
-const starimg = "./image/service_intro/holo/noel.png";
+const starimg = "./image/service_intro/holo/Saintquartz.png";
 
 let uimgsrc = "./image/service_intro/holo/pekora.png";
 let uname = getCookieValueByName("name");
@@ -26,22 +26,44 @@ fetch(`https://localhost/gradings`, {
     response.json().then(res => {
         console.log(res);
 
+        const width = $(window).width();
+        console.log(width);
+        let result = null;
+
+        // display dispatcher
+        if (width >= 1183) {
+            result = res.slice(0, 3)
+        }
+
+        else if (width > 768 && width < 1183) {
+            result = res.slice(0, 2)
+        }
+        else {
+            result = [res[0]];
+        }
+        // ~display dispatcher
+
         let marqueev = new Vue({
             el: '#marquee',
             data: {
-                res,
+                res: result,
             },
         });
 
         $('#marquee').show();
     });
 });
-
 //~觀看意見領域
 //~頁面初始化
 
 //意見填寫展開按鈕tog
 $('#btn-ex').click(function () {
+    oid = 0;
+    getstar = 0;
+    ucomment = "";
+    $('#feedback-comment').val("");
+    $('#feedback-id').hide();
+
     $(this).toggleClass('tog');
     $('#feedback-edit').hide();
     $('#btn-edit').text("修改/刪除意見");
@@ -58,7 +80,6 @@ $('#btn-ex').click(function () {
 
 //編輯意見按鈕
 $('#btn-edit').click(function () {
-
     $(this).toggleClass('tog');
     $('.feedback').hide();
     $('#btn-ex').text("填寫意見");
@@ -66,22 +87,13 @@ $('#btn-edit').click(function () {
     if ($(this).hasClass('tog')) {
         $('#feedback-edit').show();
         $('#btn-edit').text("收起意見列表");
-    } else {
-        $('#feedback-edit').hide();
-        $('#btn-edit').text("修改/刪除意見");
-    }
-
-    $('.feedback').hide();
-    if ($('#btn-edit').hasClass('tog')) {
-        $('#feedback-edit').show();
-        $('#btn-edit').text("收起意見列表");
-
         // GET
         fetch(`https://localhost/grading?uaccount=${uaccount}`, {
             method: 'GET',
         }).then((response) => {
             response.json().then(res => {
                 console.log(res);
+
                 let editv = new Vue({
                     el: '#feedback-edit',
 
@@ -91,7 +103,11 @@ $('#btn-edit').click(function () {
 
                     methods: {
                         edit: function (key) {
-                            console.log(res[key].objectid);
+                            oid = res[key].objectid;
+                            ucomment = res[key].comment;
+                            getstar = res[key].star
+                            console.log(oid);
+
                             // 按鈕響應
                             $('#btn-ex').addClass('tog');
                             $('#feedback-edit').hide();
@@ -101,49 +117,37 @@ $('#btn-edit').click(function () {
                             $('#btn-edit').removeClass('tog');
                             // ~按鈕響應
 
-                            $('#feedback-comment').val(res[key].comment);
-                            $('#feedback-id').val(res[key].objectid);
+                            $('#feedback-comment').val(ucomment);
+                            $('#feedback-id h2').text(oid);
                             $('#feedback-id').show();
-                            // 編輯意見按鈕
-                            $('#btn-feedback').click(() => {
-                                ucomment = $('#feedback-comment').val();
-                                fetch(`https://localhost/grading?objectid=${res[key].objectid}`, {
-                                    method: 'PUT',
-                                    body: JSON.stringify({
-                                        objectid: res[key].objectid,
-                                        account: uaccount,
-                                        star: getstar,
-                                        date: null,
-                                        comment: ucomment,
-                                    }),
-                                    headers: { 'Content-Type': 'application/json' },
-                                }).then(() => {
-                                    location.reload();
-                                });
-                            });
-                            // ~編輯意見按鈕
-
                         },
 
                         del: (key) => {
                             // console.log(key);
                             console.log(res[key].objectid);
-                            fetch(`https://localhost/grading?objectid=${res[key].objectid}`, {
+                            fetch(`https://localhost/grading?objectid=${res[key].objectid}&account=${getCookieByName('account')}&email=${getCookieByName('email')}`, {
                                 method: 'DELETE',
                             }).then(response => {
-                                console.log(response.text());
+                                alert(response.text());
+                                location.reload();
                             });
-                        },
-                    }
+                        }
+                    },
                 });
-                $('#feedback-edit').show();
+
             });
+            $('#feedback-edit').show();
         });
         // ~GET
+
     } else {
+        oid = 0;
+        getstar = 0;
+        ucomment = "";
+        $('#feedback-comment').val("");
+        $('#feedback-id').hide();
         $('#feedback-edit').hide();
         $('#btn-edit').text("修改/刪除意見");
-        $('#btn-edit').removeClass('tog');
     }
 });
 //~編輯意見按鈕
@@ -151,22 +155,45 @@ $('#btn-edit').click(function () {
 //意見送出按鈕
 $('#btn-feedback').click(() => {
     ucomment = $('#feedback-comment').val();
-    fetch(`https://localhost/grading`, {
-        method: 'POST',
-        body: JSON.stringify({
-            objectid: oid,
-            account: uaccount,
-            star: getstar,
-            date: null,
-            comment: ucomment,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-    }).then((response) => {
-        response.json().then(res => {
-            console.log(res);
-        });
-    });
-    alert("成功送出!!");
+    if (oid == 0) {
+
+        if (getstar != 0 && ucomment != '') {
+            fetch(`https://localhost/grading?email=${getCookieByName('email')}`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    account: uaccount,
+                    star: getstar,
+                    comment: ucomment,
+                }),
+                headers: { 'Content-Type': 'application/json' },
+            }).then((response) => {
+                response.json().then(res => {
+                    console.log(res);
+                });
+            });
+            alert("成功送出!!");
+        } else {
+            console.log("項目不完整!");
+        }
+    } else {
+        ucomment = $('#feedback-comment').val();
+        if (getstar != 0 && ucomment != '') {
+            fetch(`https://localhost/grading?email=${getCookieByName('email')}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    objectid: oid,
+                    account: uaccount,
+                    star: getstar,
+                    comment: ucomment,
+                }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+            alert("成功送出!!");
+        } else {
+            console.log("項目不完整!!");
+        }
+
+    }
 });
 //~意見送出按鈕
 //star

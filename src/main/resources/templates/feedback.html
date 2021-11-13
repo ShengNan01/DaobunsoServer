@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="./css/feedback.css">
     <title>Daobunso</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
     <script src="js\jquery-3.6.0.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.Marquee/1.6.0/jquery.marquee.js"
     integrity="sha512-fkD+ERYA/LvkGF5GiipDr7myGZH3m8OPbYw62KE6qalbgykahcpfNjWe/RZmsY12qraS+wYUo2e51Zl2hShgVQ=="
@@ -36,30 +36,31 @@
     </div>
 
     <div class="nav_title">網站回饋 User Feedback</div>
-    <!-- 隨機意見跑馬燈 -->
-    <div id="marquee" class="container my-3 " style="display: none;">
-        <div class="row h-100">
-            <div id="sushi" v-for="rl in res" class="sushi card mb-3 mx-3 col col-lg-6 col-12 "style="height:16rem;width: 18rem;">
-                <div class="row g-0 ">
-                    <div class="col-3">
-                        <img src="./image/service_intro/holo/pekora.png" class="img-fluid rounded-start"
-                            style="height:4rem;">
-                    </div>
-                    <div class="col-9">
-                        <div class="card-body">
-                            <h6 type="date">{{rl.date}}</h6>
-                            <img src="./image/service_intro/holo/Saintquartz.png" v-for="n in rl.star"
-                                style="height: 1.5rem;width: 1.5rem;">
-                            <h5 class="card-title">{{rl.account}}</h5>
-                            <p type="textarea" class="card-text"
-                                style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">{{rl.comment}}
-                            </p>
 
+    <div id="marquee" class="container my-3" style="display: none;">
+        <div class="row" v-if="res">
+            <div v-for="rl in res" class="col-12 col-md-6 col-xl-4">
+                <div class="sushi card mb-3 " style="height:16rem;width:22rem;">
+                    <div class="row g-0 ">
+                        <div class="col-3">
+                            <img src="./image/service_intro/holo/pekora.png" class="img-fluid rounded-start"
+                                style="height:4rem;">
+                        </div>
+                        <div class="col-9">
+                            <div class="card-body">
+                                <h6 type="date">{{rl.date}}</h6>
+                                <img src="./image/service_intro/holo/Saintquartz.png" v-for="n in rl.star"
+                                    style="height: 1.5rem;width: 1.5rem;">
+                                <h5 class="card-title">{{rl.account}}</h5>
+                                <p type="textarea" class="card-text"
+                                    style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+                                    {{rl.comment}}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- ~隨機意見跑馬燈 -->
@@ -99,15 +100,7 @@
 
                     <!-- 意見回饋 -->
                     <div class="row">
-                        <div id="feedback-id" class="col-2">
-                            <label for="exampleFormControlTextarea1" class="form-label">編號:</label>
-                            <h2  style="color: cornflowerblue;display: none;"></h2>
-                        </div>
-                        <div class="col-2">
-                            <label for="exampleFormControlTextarea1" class="form-label">內容:</label>
-                        </div>
-
-                        <div class="col">
+                        <div class="col-6">
 
                             <!-- 星星 -->
                             <div class="btn-group mx-auto col-4" role="group">
@@ -130,8 +123,14 @@
                             <!-- /星星 -->
 
                         </div>
-                        <textarea class="form-control" id="feedback-comment" rows="10"></textarea>
+                        <div id="feedback-id" class="row col-6" style="display: none;">
+                            <div class="col-3"><h3 style="color:rgb(24, 51, 59)">編號:</h3></div> 
+                            <div class="col-9"><h2 style="color: rgb(47, 194, 162)"></h2></div>
+                            
+                        </div>
+
                     </div>
+                    <textarea class="form-control" id="feedback-comment" rows="10"></textarea>
                     <!-- /意見回饋 -->
 
                     <div class="row mt-5">
@@ -166,10 +165,10 @@
                     <div class="col-1">{{rel.objectid}}</div>
                     <div class="col-2">{{rel.date}}</div>
                     <div class="col-2">{{rel.star}}</div>
-                    <div class="col-6">{{rel.comment}}</div>
-                    <div class="col-1">
-                        <div @click="edit(key)" class="btn btn-outline-primary my-1" type="button">編輯</div>
-                        <div @click="del(key)" class="btn btn-outline-primary my-1" type="button">刪除</div>
+                    <div class="col-5">{{rel.comment}}</div>
+                    <div class="col-2 row">
+                        <div @click="edit(key)" class="btn btn-outline-primary my-1 mx-1 col" type="button">編輯</div>
+                        <div @click="del(key)" class="btn btn-outline-primary my-1 mx-1 col" type="button">刪除</div>
                     </div>
                 </div>
             </div>

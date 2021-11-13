@@ -155,7 +155,7 @@ import springboot.util.GlobalService;
 					cookieName.setMaxAge(7 * 24 * 60 * 60);
 					cookieAccount.setMaxAge(7 * 24 * 60 * 60);
 					cookieEmail.setMaxAge(7 * 24 * 60 * 60);
-					cookieVerification.setMaxAge(60);
+					cookieVerification.setMaxAge(7 * 24 * 60 * 60);
 					cookieLogin.setPath("/");
 					cookieId.setPath("/");
 					cookieName.setPath("/");

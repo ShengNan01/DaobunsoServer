@@ -1,6 +1,9 @@
 package springboot.grading;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import springboot.login.LoginRepo;
+
 import java.io.Console;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -32,12 +35,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class Grading_Controller {
 	@Autowired
 	GradingRepo gradingRepo;
+	@Autowired
+	LoginRepo loginRepo;
 //	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
 	
 	@GetMapping("/gradings")
 	public List<Optional<Grading>> getGradings() {
 		List<Optional<Grading>> gradings = new ArrayList<Optional<Grading>>();
-		while(gradings.size()<4){
+		while(gradings.size()<3){
 			Integer randomidInteger = (Integer) (int) (1 + gradingRepo.findLastid() * Math.random());		
 			if(gradingRepo.existsById(randomidInteger)) {
 				gradings.add(gradingRepo.findById(randomidInteger));
@@ -50,12 +55,14 @@ public class Grading_Controller {
 		return gradings;
 	}
 	@PostMapping("/grading")
-	public Grading postG(@RequestBody Grading g) {
-//		fMultiValueMap.add(g.getUser_account(), g);
-		g.setDate(new Timestamp(System.currentTimeMillis()).toString());
-		
-		gradingRepo.save(g);
-		return g;
+	public Boolean postG(@RequestBody Grading g,@RequestParam String email) {
+		if(email.equals(loginRepo.findEmailByAccount(g.getAccount()))) {
+			g.setDate(new Timestamp(System.currentTimeMillis()).toString());
+			gradingRepo.save(g);
+			return true;
+		}else {
+			return false;
+		}
 	}
 	@GetMapping("/grading")
 	public List<Grading> getG(@RequestParam("uaccount") String uaccount) {
@@ -67,10 +74,15 @@ public class Grading_Controller {
 		return "刪除評論成功!";
 	}
 	@PutMapping("/grading")
-	public String putG(@RequestBody Grading g,@RequestParam("objectid") Integer objectid) {
-		g.setDate(new Timestamp(System.currentTimeMillis()).toString());
-//		gradingRepo.
-		return "編輯成功!\t"+"編輯時間為:";
+	public String putG(@RequestBody Grading g,@RequestParam String email) {
+		if(email.equals(loginRepo.findEmailByAccount(g.getAccount()))) {
+			g.setDate(new Timestamp(System.currentTimeMillis()).toString());
+		gradingRepo.updateGradingById(g.getObjectid());
+		System.err.println(g.getObjectid());
+		return "編輯成功!\t"+"編輯時間為:"+g.getDate();
+		}else {
+			return "False~";
+		}
 	}
 	
 	@PostMapping("/app/grading")

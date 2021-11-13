@@ -139,11 +139,16 @@ function trigger() {
 // Login
 
 $(document).ready(function () {
-    if (getCookieValueByName('account') != "" && getCookieValueByName('name') != "" && getCookieValueByName('email') != "" && getCookieValueByName('password') != "") {
+    if (getCookieValueByName('account') != undefined && getCookieValueByName('name') != undefined && getCookieValueByName('email') != undefined && getCookieValueByName('password') != undefined) {
         $("#account").val(getCookieValueByName('account'));
-        $("#pswd").val(getCookieValueByName('password'));
+        $("#pswd").val(getCookieValueByName('password') + "==");
+    } else {
+        $("#account").val(null);
+        $("#pswd").val(null);
     }
-})
+});
+// ~Login
+
 // 判斷#rememberMe有沒有勾
 let rememberMe = false;
 $("#rememberMe").click(function () {
@@ -154,6 +159,8 @@ $("#rememberMe").click(function () {
         rememberMe = false;
     }
 });
+// ~判斷#rememberMe有沒有勾
+
 // 登入按鈕
 $('#login_btn').click(function (e) {
     e.preventDefault();
@@ -167,7 +174,7 @@ $('#login_btn').click(function (e) {
         let account = $('#account').val();
         let password = $('#pswd').val();
 
-        fetch(`https://localhost/logincheck?rememberMe=${rememberMe}`, {
+        fetch(`https://localhost/logincheck?remeberMe`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // 將JavaScript物件轉為JSON物件
@@ -180,9 +187,9 @@ $('#login_btn').click(function (e) {
             response.text().then(res => {
                 if (res == "true") {
                     alert("登入成功! res狀態:" + res);
-                    location.assign('./frontpage'); 
+                    location.assign('./frontpage');
                 } else {
-                    alert("登入失敗! res狀態:" + res+"\n請重新登入");
+                    alert("登入失敗! res狀態:" + res + "\n請重新登入");
                     $("#account").val(null);
                     $("#pswd").val(null);
                 }

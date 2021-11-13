@@ -15,7 +15,8 @@ public interface LoginRepo extends JpaRepository<Login,Integer> {
 	@Query(nativeQuery = true, value="SELECT Password FROM daobunso.member WHERE Account= :account")
 	String findPasswordByMemberAccount(String account);
 	
-
+	@Query(nativeQuery = true, value="SELECT Email FROM daobunso.member WHERE Account= :account")
+	String findEmailByAccount(String account);
 	// 確認有無此帳號
 	Boolean existsByAccount(String account);
 
