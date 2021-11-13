@@ -13,7 +13,7 @@ function updateModal(title, massage) {
     $('#modal-title').text(title);
     $('#massage-content').text(massage);
 }
-let urlReg = 'https://localhost/Forget_pswd';
+let urlReg = 'https://localhost/forgetPswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
     e.preventDefault();
@@ -32,18 +32,19 @@ $('#change_btn').click(function (e) {
          return;
     } else {
 
-        const member_account = getCookieValueByName('account');
-		const member_email = getCookieValueByName('email');
+        const memberAccount = JSON.parse(localStorage.res_ok).memberAccount;
+		const memberEmail = JSON.parse(localStorage.res_ok).memberEmail;
         forget_change_pswd = {
-            "Account":member_account,
-			"Email":member_email,	
-            "NewPassword": $('#pswdnew').val(),
+            "account":memberAccount,
+			"email":memberEmail,	
+            "newPassword": $('#pswdnew').val(),
         };
-        fetch('Forget_pswd', {
+        fetch('forgetPswd', {
             //    fetch(urlReg,{
             method: 'POST',
             body: JSON.stringify(forget_change_pswd),
-            headers: { 'Content-Type': 'application/type' },
+//            headers: { 'Content-Type': 'application/type' },
+            headers: { 'Content-Type': 'application/json' },
         }).then(response => {
             response.text()
             .then(text=>{
@@ -60,6 +61,7 @@ $('#change_btn').click(function (e) {
                     return;
                 }
             });
+            localStorage.clear()
         }
         )
     }

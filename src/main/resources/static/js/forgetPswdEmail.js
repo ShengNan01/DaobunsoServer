@@ -33,11 +33,10 @@ $("#submit").click(function (e) {
 		let account = $('#forgetPasswordAccount').val();
         let email = $('#forgetPasswordEmail').val();
         const forget_pswd = {
-            Email: email,
-			Account:account,
-
+            email: email,
+			account:account,
         }
-        let url = 'https://localhost/Forget_pswd_Email';
+        let url = 'https://localhost/forgetPswdEmail';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(forget_pswd),
@@ -53,7 +52,8 @@ $("#submit").click(function (e) {
 //						 updateModal("great!", "輸入的帳號及信箱正確！！");
 //				         myModal.show();這邊會被下面的updateModal蓋掉
 						 localStorage.setItem('res_ok',JSON.stringify(res));
-						  	if(res.sending === "success"){
+//						 sessionStorage.setItem('res_ok',JSON.stringify(res));不能用因為信箱頁面導入回去就不見了
+						  	if(res.sending === "Success"){
 								updateModal("發送郵件成功!", "請至信箱收取信件修改密碼。");
 			                    myModal.show();
 			                    $('.modal-footer>button').click(function(){
@@ -72,7 +72,7 @@ $("#submit").click(function (e) {
         });
 //跳頁
 function nextPage(){
-    location.href = "https://localhost:8443/Daobunso_Project/"
+    location.href = "https://localhost/"
 }
 
 

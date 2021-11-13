@@ -15,7 +15,7 @@ import springboot.register.MemberBean;
 
 @Component
 
-public class changePasswordMailUtils {
+public class forgetPasswordMailUtils {
 	@Autowired
 	RedisTemplate<Object, Object> redisTemplate;
 
@@ -28,10 +28,10 @@ public class changePasswordMailUtils {
 			MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
 			helper.setFrom("grfmbiu324568@gmail.com");
 			helper.setTo(email);
-			helper.setSubject("Daobunso修改密碼驗證信");
+			helper.setSubject("Daobunso忘記密碼驗證信");
 			String emailToken = getEmailToken(member);
-			helper.setText("<a href='https://localhost/change_password?emailToken=" + emailToken + "'>請點擊進入修改密碼頁面"
-					+ "</a></br><h3>如果以上超連線無法訪問，請將以下網址複製到瀏覽器位址列中</h3><h3>https://localhost/change_password?emailToken="
+			helper.setText("<h3><a href='https://localhost/forgetPswd?emailToken=" + emailToken + "'>請點擊進入忘記密碼頁面</h3>"
+					+ "</a></br><h3>如果以上超連結無法訪問，請將以下網址複製到瀏覽器位址列中</h3><h3>https://localhost/forgetPswd?emailToken="
 					+ emailToken + "</h3>",true);
 			new Thread() {
 				@Override
@@ -51,7 +51,7 @@ public class changePasswordMailUtils {
 		String value = member.toString();
 		System.out.println(value);
 		redisTemplate.opsForValue().set(token, value);
-		redisTemplate.expire(token, 60 , TimeUnit.SECONDS);
+		redisTemplate.expire(token, 60, TimeUnit.SECONDS);
 		return token;
 	}
 

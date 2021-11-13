@@ -20,8 +20,13 @@ public class GlobalViewController {
 	
 	@Autowired
 	LoginRepo loginRepo;
+	
 	@Autowired
 	public changePasswordMailUtils	changePasswordMailUtils;
+	
+	@Autowired
+	public forgetPasswordMailUtils  forgetPasswordMailUtils;
+	
 	@GetMapping("/")
 	public String index() {
 		return "frontpage";
@@ -44,19 +49,26 @@ public class GlobalViewController {
 
 	}
 
+	@GetMapping("/forgetPswd")
+	public String forgetPswdActiveMail(@RequestParam String emailToken , Model model) throws Exception {
+		if ( forgetPasswordMailUtils.balanceToken(emailToken)) {
+			System.out.println("成功!!!");
+			return "forgetPswd";
+		}
+		System.out.println("失敗!!!");
+		model.addAttribute("fail","fail");
+		return "forgetPswdEmail";
+	}
+	
 	@GetMapping("/feedback")
 	public String feedbackPage() {
 		return "feedback";
 	}
 
-	@GetMapping("/forget&change_pswd")
-	public String forgetchange_pswdPage() {
-		return "forget&change_pswd";
-	}
 
-	@GetMapping("/forget_password")
-	public String forget_passwordPage() {
-		return "forget_password";
+	@GetMapping("/forgetPswdEmail")
+	public String forgetPswdEmailPage() {
+		return "forgetPswdEmail";
 	}
 
 	@GetMapping("/frontpage")
