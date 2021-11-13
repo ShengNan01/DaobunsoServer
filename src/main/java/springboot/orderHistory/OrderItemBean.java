@@ -13,13 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 //本類別封裝單筆訂單資料 (訂購紀錄點編號(order_master)(對應老師範例orders) > 訂單明細（order_details）(對應老師範例orderItem) >)
-@Getter
-@Setter
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
