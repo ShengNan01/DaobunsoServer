@@ -1995,9 +1995,12 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_myorderFragment_to_commentFragment
 id action_myorderFragment_to_indexFragment
+id action_myorderFragment_to_orderDetailFragment
 id action_myorderFragment_to_serviceFragment
 id action_newOrderFragment_to_confirmOrderFragment
 id action_newOrderFragment_to_indexFragment
+id action_orderDetailFragment_to_indexFragment
+id action_orderDetailFragment_to_serviceFragment
 id action_paymentInfoFragment_to_indexFragment
 id action_serviceFragment_to_indexFragment
 id action_serviceFragment_to_indexFragment2
@@ -2049,6 +2052,7 @@ id buttonPanel
 id cache_measures
 id cancel_action
 id cancel_button
+id cardview
 id carryVelocity
 id cbShowPassword
 id cbShowPassword_ChangePwdPage
@@ -2306,6 +2310,12 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id orderDetailFragment
+id orderdetail_ed
+id orderdetail_id
+id orderdetail_quantity
+id orderdetail_sd
+id orderdetail_type
 id outline
 id outward
 id overshoot
@@ -2436,6 +2446,11 @@ id textTop
 id textView
 id textView2
 id textView3
+id textView4
+id textView5
+id textView6
+id textView7
+id textView8
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2633,6 +2648,7 @@ layout fragment_index
 layout fragment_member
 layout fragment_myorder
 layout fragment_new_order
+layout fragment_order_detail
 layout fragment_payment_info
 layout fragment_service
 layout fragment_signin
@@ -2696,6 +2712,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout orderdetail_item_view
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

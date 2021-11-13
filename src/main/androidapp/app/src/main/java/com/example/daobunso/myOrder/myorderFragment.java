@@ -41,6 +41,7 @@ public class myorderFragment extends Fragment {
     Context context;
     private Activity activity;
     private String account;
+    private String OderId;
 
 
 
@@ -93,6 +94,8 @@ public class myorderFragment extends Fragment {
     private static class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.MyViewHolder> {
         Context context;
         List<String[]> OB;
+       View itemView;
+
 
         public MyOrderAdapter(Context context, List<String[]> OB) {
             this.context = context;
@@ -124,15 +127,24 @@ public class myorderFragment extends Fragment {
         @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            View itemView = LayoutInflater.from(context).inflate(R.layout.myorder_list_view, viewGroup, false);
+            itemView = LayoutInflater.from(context).inflate(R.layout.myorder_list_view, viewGroup, false);
+
 
             // 這邊才開始載入myorder_list_view(RecyclerView的每一個小view)
             // 評論按鈕是依附在myorder_list_view裡的元件，所以要在這裡才能findViewById
             // 點選了comment按鈕，會跳轉到commentFragment那一頁
             Bundle bundle = new Bundle();
+
+
             itemView.findViewById(R.id.commentBtn).setOnClickListener(v -> {
 
                 Navigation.findNavController(v).navigate(R.id.action_myorderFragment_to_commentFragment, bundle);
+            });
+
+//            //點選每一筆資料會跳轉到orderDetail頁面
+            itemView.setOnClickListener(v -> {
+
+                Navigation.findNavController(v).navigate(R.id.action_myorderFragment_to_orderDetailFragment, bundle);
             });
 
 
@@ -153,11 +165,18 @@ public class myorderFragment extends Fragment {
             viewHolder.tvSum
                     .setText(" 總金額: " + orderBean[2]);
 
+            Bundle bundle = new Bundle();
+            bundle.putString("orderId",orderBean[0]);
+
+            //點選每一筆資料會跳轉到orderDetail頁面
+            itemView.setOnClickListener(v -> {
+                Navigation.findNavController(v).navigate(R.id.action_myorderFragment_to_orderDetailFragment, bundle);
+            });
 
         }
     }
 
-    private List<String[]>  getOrderBean() {
+    private List<String[]>  getOrderBean(){
 
         List<String[]> OB = new ArrayList<>();
 
@@ -183,6 +202,6 @@ public class myorderFragment extends Fragment {
                 } else {
                     Toast.makeText(activity, "查無訂單", Toast.LENGTH_SHORT).show();
                 }
-                return null;
+                return OB;
  }
 }

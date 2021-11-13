@@ -16,12 +16,12 @@
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\shoppingcart.png"
     },
     {
-        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_comment.png.flat",
-        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\comment.png"
-    },
-    {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_smile.png.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\smile.png"
+    },
+    {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_comment.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\comment.png"
     },
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_payment_info.xml.flat",
@@ -92,6 +92,10 @@
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_orderdetail_item_view.xml.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\layout\\orderdetail_item_view.xml"
+    },
+    {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_new_order.xml.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\layout\\fragment_new_order.xml"
     },
@@ -134,6 +138,10 @@
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_calendar.png.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable-v24\\calendar.png"
+    },
+    {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_order_detail.xml.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\layout\\fragment_order_detail.xml"
     },
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_forget_pw.xml.flat",

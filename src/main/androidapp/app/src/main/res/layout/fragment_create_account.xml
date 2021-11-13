@@ -17,6 +17,7 @@
         android:ems="10"
         android:hint="EMAIL 信箱"
         android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/etInsertPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,6 +34,7 @@
         android:ems="10"
         android:hint="ACCOUNT 帳號"
         android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/etEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,11 +42,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    // 密碼確認
-
-
-    // createAccount按鈕
 
     <EditText
         android:id="@+id/etInsertPassword"
@@ -54,6 +51,7 @@
         android:ems="10"
         android:hint="PASSWORD 密碼"
         android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/etPasswordAgain"
         app:layout_constraintStart_toStartOf="@+id/etPasswordAgain"
@@ -67,6 +65,7 @@
         android:ems="10"
         android:hint="密碼確認"
         android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/createAccountBtn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,6 +93,7 @@
         android:ems="10"
         android:hint="NAME 使用者名稱"
         android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/etInsertAccount"
         app:layout_constraintEnd_toEndOf="parent"
