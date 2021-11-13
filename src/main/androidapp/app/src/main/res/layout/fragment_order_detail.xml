@@ -19,6 +19,16 @@
         「layout_width」要設定為「match_parent」；
         如果垂直捲動則「layout_height」要設定為「match_parent」-->
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="訂單明細"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

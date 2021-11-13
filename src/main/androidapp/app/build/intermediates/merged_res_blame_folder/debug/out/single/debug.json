@@ -346,5 +346,9 @@
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_myorder_list_view.xml.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\layout\\myorder_list_view.xml"
+    },
+    {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_no_order.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\no_order.png"
     }
 ]

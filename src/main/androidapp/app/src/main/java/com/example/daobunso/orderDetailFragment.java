@@ -36,11 +36,7 @@ public class orderDetailFragment extends Fragment {
 
     private Activity activity;
     private String orderId;
-    private TextView orderdetail_id;
-    private TextView orderdetail_quantity;
-    private TextView orderdetail_type;
-    private TextView orderdetail_sd;
-    private TextView orderdetail_ed;
+
     private RecyclerView recyclerView;
     List<String[]> odb;
 
@@ -115,11 +111,12 @@ public class orderDetailFragment extends Fragment {
 
         static class MyViewHolder extends RecyclerView.ViewHolder {
 
-            TextView orderdetail_id, orderdetail_quantity,orderdetail_type,orderdetail_sd,orderdetail_ed;
+            TextView id,orderdetail_id, orderdetail_quantity,orderdetail_type,orderdetail_sd,orderdetail_ed;
 
             MyViewHolder(View itemView) {
                 super(itemView);
 
+                id = itemView.findViewById(R.id.tvCommenttitletks);
                 orderdetail_id = itemView.findViewById(R.id.orderdetail_id);
                 orderdetail_quantity = itemView.findViewById(R.id.orderdetail_quantity);
                 orderdetail_type = itemView.findViewById(R.id.orderdetail_type);
@@ -146,6 +143,7 @@ public class orderDetailFragment extends Fragment {
         public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int position) {
             final String[] ODB = odb.get(position);
 
+            viewHolder.id.setText((position+1)+" / "+odb.size());
             viewHolder.orderdetail_id.setText(ODB[0]);
             viewHolder.orderdetail_quantity.setText(ODB[1]);
             viewHolder.orderdetail_type.setText(ODB[2]);

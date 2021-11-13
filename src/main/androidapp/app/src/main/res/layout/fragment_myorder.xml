@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="6dp"
     android:background="@drawable/bg"
+    android:padding="6dp"
     tools:context=".MainActivity">
 
 
@@ -13,8 +13,8 @@
         android:id="@+id/ivHome"
         android:layout_width="36dp"
         android:layout_height="53dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:src="@drawable/whitehome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,15 +32,27 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="360dp"
-        android:layout_height="576dp"
+        android:layout_width="302dp"
+        android:layout_height="523dp"
         android:layout_marginEnd="12dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.641"
+        app:layout_constraintHorizontal_bias="0.649"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivShippingcart"
+        app:layout_constraintTop_toBottomOf="@+id/empty_view"
         app:layout_constraintVertical_bias="0.695" />
+
+    <ImageView
+        android:id="@+id/empty_view"
+        android:layout_width="152dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/no_order"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

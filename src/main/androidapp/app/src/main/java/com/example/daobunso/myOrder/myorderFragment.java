@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,9 @@ public class myorderFragment extends Fragment {
     private Activity activity;
     private String account;
     private String OderId;
+//    private TextView emptyView;
+    private ImageView emptyView;
+
 
 
 
@@ -71,15 +75,26 @@ public class myorderFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        emptyView = view.findViewById(R.id.empty_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext())); //
         List<String[]> OB = getOrderBean();
-        if (recyclerView.getAdapter() == null) {
-            recyclerView.setAdapter(new MyOrderAdapter(getContext(), OB));
-        } else {
-            recyclerView.getAdapter().notifyDataSetChanged();
+
+        if(OB.size()>0){
+            recyclerView.setVisibility(View.VISIBLE);
+            emptyView.setVisibility(View.GONE);
+            if (recyclerView.getAdapter() == null) {
+                recyclerView.setAdapter(new MyOrderAdapter(getContext(), OB));
+            } else {
+                recyclerView.getAdapter().notifyDataSetChanged();
+            }
+        }
+        else{
+            recyclerView.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
         }
 
-        getOrderBean();
+
+//        getOrderBean();
 
         view.findViewById(R.id.ivHome).setOnClickListener(v ->
                 Navigation.findNavController(v).navigate(R.id.action_myorderFragment_to_indexFragment));
@@ -94,13 +109,15 @@ public class myorderFragment extends Fragment {
     private static class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.MyViewHolder> {
         Context context;
         List<String[]> OB;
-       View itemView;
+        View itemView;
+
 
 
         public MyOrderAdapter(Context context, List<String[]> OB) {
             this.context = context;
             this.OB = OB;
         }
+
 
         @Override
         public int getItemCount() {
@@ -126,14 +143,14 @@ public class myorderFragment extends Fragment {
 
         @NonNull
         @Override
-        public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
             itemView = LayoutInflater.from(context).inflate(R.layout.myorder_list_view, viewGroup, false);
-
 
             // 這邊才開始載入myorder_list_view(RecyclerView的每一個小view)
             // 評論按鈕是依附在myorder_list_view裡的元件，所以要在這裡才能findViewById
             // 點選了comment按鈕，會跳轉到commentFragment那一頁
             Bundle bundle = new Bundle();
+
 
 
             itemView.findViewById(R.id.commentBtn).setOnClickListener(v -> {
@@ -152,6 +169,8 @@ public class myorderFragment extends Fragment {
 
 
         }
+
+
 
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int index) {
@@ -174,6 +193,8 @@ public class myorderFragment extends Fragment {
             });
 
         }
+
+
     }
 
     private List<String[]>  getOrderBean(){
@@ -197,11 +218,11 @@ public class myorderFragment extends Fragment {
             Type type = new TypeToken<List<String[]>>() {}.getType();
             OB = gson.fromJson(result, type);
 
-                if (OB.size() > 0) {
-                    return OB;
-                } else {
-                    Toast.makeText(activity, "查無訂單", Toast.LENGTH_SHORT).show();
-                }
+//                if (OB.size() > 0) {
+//                    return OB;
+//                } else {
+//                    Toast.makeText(activity, "查無訂單", Toast.LENGTH_SHORT).show();
+//                }
                 return OB;
  }
 }
