@@ -24,7 +24,7 @@ public class Grading implements Serializable{
 
 	@JoinColumn(name = "Account",table = "member",referencedColumnName = "Account")
 	private String account;
-
+	
 	@Column(name = "Stars")
 	private Integer star;
 

@@ -100,13 +100,22 @@
     position: relative;
     overflow: hidden;
 }
-#main_pic{
-    width: 100vw;
-    height: 60vh;
-    transition: all 1s ease;
+.main{
+  width: 90%;
+  height: 40vh;
+  margin: auto;
 }
-#main_pic:hover{
-    transform: scale(1.1);
+.main .container{
+  background-image: url(../image/service_intro/log-cabin-1886620_1920.jpg);
+  background-size:cover;
+}
+.main .text{
+  text-align:center;
+  color: aliceblue;
+  background-color: cadetblue;
+  background: hsla(178,70%,60%,0.4);
+  margin-top: -13%;
+  margin-left: -10vh;
 }
 #sec_area_1 .p1{
     position: absolute;

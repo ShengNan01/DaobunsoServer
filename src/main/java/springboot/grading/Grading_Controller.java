@@ -38,60 +38,64 @@ public class Grading_Controller {
 	@Autowired
 	LoginRepo loginRepo;
 //	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
-	
+
 	@GetMapping("/gradings")
 	public List<Optional<Grading>> getGradings() {
 		List<Optional<Grading>> gradings = new ArrayList<Optional<Grading>>();
-		while(gradings.size()<3){
-			Integer randomidInteger = (Integer) (int) (1 + gradingRepo.findLastid() * Math.random());		
-			if(gradingRepo.existsById(randomidInteger)) {
+		while (gradings.size() < 3) {
+			Integer randomidInteger = (Integer) (int) (1 + gradingRepo.findLastid() * Math.random());
+			if (gradingRepo.existsById(randomidInteger)) {
 				gradings.add(gradingRepo.findById(randomidInteger));
 //				System.out.println("gradingRepo.existsById(selectidInteger) = "+ randomidInteger);
-			}else {
+			} else {
 //				System.err.println("Error!! gradingRepo.existsById(selectidInteger) = "+ randomidInteger);
 			}
 		}
 //		System.out.println(gradings);
 		return gradings;
 	}
+
 	@PostMapping("/grading")
-	public Boolean postG(@RequestBody Grading g,@RequestParam String email) {
-		if(email.equals(loginRepo.findEmailByAccount(g.getAccount()))) {
+	public Boolean postG(@RequestBody Grading g, @RequestParam String email) {
+		if (email.equals(loginRepo.findEmailByAccount(g.getAccount()))) {
 			g.setDate(new Timestamp(System.currentTimeMillis()).toString());
 			gradingRepo.save(g);
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
+
 	@GetMapping("/grading")
 	public List<Grading> getG(@RequestParam("uaccount") String uaccount) {
 		return gradingRepo.findByAccount(uaccount);
 	}
+
 	@DeleteMapping("/grading")
 	public String deleteG(@RequestParam("objectid") Integer objectid) {
 		gradingRepo.deleteById(objectid);
 		return "刪除評論成功!";
 	}
+
 	@PutMapping("/grading")
-	public String putG(@RequestBody Grading g,@RequestParam String email) {
-		if(email.equals(loginRepo.findEmailByAccount(g.getAccount()))) {
+	public String putG(@RequestBody Grading g, @RequestParam String email) {
+		if (email.equals(loginRepo.findEmailByAccount(g.getAccount()))) {
 			g.setDate(new Timestamp(System.currentTimeMillis()).toString());
-		gradingRepo.updateGradingById(g.getObjectid());
-		System.err.println(g.getObjectid());
-		return "編輯成功!\t"+"編輯時間為:"+g.getDate();
-		}else {
+			gradingRepo.updateGradingById(g.getStar(), g.getDate(), g.getComment(), g.getObjectid());
+			System.err.println(g.getObjectid());
+			return "編輯成功!\t" + "編輯時間為:" + g.getDate();
+		} else {
 			return "False~";
 		}
 	}
-	
+
 	@PostMapping("/app/grading")
 	public String appPostG(@RequestBody Grading g) {
 		g.setDate(new Timestamp(System.currentTimeMillis()).toString());
 		gradingRepo.save(g);
 		return "新增評論成功";
 	}
-	
+
 //	@PutMapping("/feedback")
 //	public String putF(
 //			@RequestParam("oid") String oid,

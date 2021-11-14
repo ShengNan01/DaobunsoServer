@@ -6,11 +6,11 @@ let ucomment = "";
 // let wdate = Date();
 
 //定義頁面
-const starimg = "./image/service_intro/holo/Saintquartz.png";
+const starimg = "./image/service_intro/starEmpty.png";
 
 let uimgsrc = "./image/service_intro/holo/pekora.png";
 let uname = getCookieValueByName("name");
-let sstarimg = "./image/service_intro/holo/Saintquartz.png";
+let sstarimg = "./image/service_intro/starClicked.png";
 
 //頁面初始化
 $('.feedback').hide();
@@ -49,7 +49,6 @@ fetch(`https://localhost/gradings`, {
                 res: result,
             },
         });
-
         $('#marquee').show();
     });
 });
@@ -58,16 +57,14 @@ fetch(`https://localhost/gradings`, {
 
 //意見填寫展開按鈕tog
 $('#btn-ex').click(function () {
+    // 數值init
     oid = 0;
     getstar = 0;
     ucomment = "";
     $('#feedback-comment').val("");
     $('#feedback-id').hide();
-
+    // ~數值init
     $(this).toggleClass('tog');
-    $('#feedback-edit').hide();
-    $('#btn-edit').text("修改/刪除意見");
-    $('#btn-edit').removeClass('tog');
     if ($(this).hasClass('tog')) {
         $('.feedback').show();
         $('#btn-ex').text("收起");
@@ -79,75 +76,73 @@ $('#btn-ex').click(function () {
 //~意見填寫展開按鈕tog
 
 //編輯意見按鈕
-$('#btn-edit').click(function () {
-    $(this).toggleClass('tog');
+$('#btn-list').click(function () {
+    // 數值init
+    oid = 0;
+    getstar = 0;
+    ucomment = "";
+    $('#feedback-comment').val("");
+    $('#feedback-id').hide();
+    // ~數值init
     $('.feedback').hide();
+    $('#btn-ex').removeClass("tog");
     $('#btn-ex').text("填寫意見");
-    $('#btn-ex').removeClass('tog');
-    if ($(this).hasClass('tog')) {
-        $('#feedback-edit').show();
-        $('#btn-edit').text("收起意見列表");
+    $(this).toggleClass('tog');
+    if ($('#btn-list').hasClass('tog')) {
+        $('#feedback-list').show();
+        $('#btn-list').text("收起意見列表");
         // GET
         fetch(`https://localhost/grading?uaccount=${uaccount}`, {
             method: 'GET',
         }).then((response) => {
             response.json().then(res => {
+                $('#btn-ex').hide();
+                $('#feedback-list').show();
                 console.log(res);
 
                 let editv = new Vue({
-                    el: '#feedback-edit',
-
+                    el: '#feedback-list',
                     data: {
                         res,
                     },
-
                     methods: {
-                        edit: function (key) {
+                        edit: (key) => {
                             oid = res[key].objectid;
                             ucomment = res[key].comment;
-                            getstar = res[key].star
-                            console.log(oid);
+                            getstar = res[key].star;
 
-                            // 按鈕響應
-                            $('#btn-ex').addClass('tog');
-                            $('#feedback-edit').hide();
                             $('.feedback').show();
-                            $('#btn-ex').text("收起");
-                            $('#btn-edit').text("修改/刪除意見");
-                            $('#btn-edit').removeClass('tog');
-                            // ~按鈕響應
-
                             $('#feedback-comment').val(ucomment);
                             $('#feedback-id h2').text(oid);
                             $('#feedback-id').show();
-                        },
+                            // 按鈕響應
+                            $('.btn-edit').toggleClass('tog');
+                            if ($('.btn-edit').hasClass('tog')) {
+                              
+                            } else {
+                               
+                            }
+                            // ~按鈕響應
 
+
+                        },
                         del: (key) => {
                             // console.log(key);
                             console.log(res[key].objectid);
                             fetch(`https://localhost/grading?objectid=${res[key].objectid}&account=${getCookieByName('account')}&email=${getCookieByName('email')}`, {
                                 method: 'DELETE',
                             }).then(response => {
-                                alert(response.text());
+                                alert("刪除意見成功");
                                 location.reload();
                             });
                         }
                     },
                 });
-
             });
-            $('#feedback-edit').show();
         });
         // ~GET
-
     } else {
-        oid = 0;
-        getstar = 0;
-        ucomment = "";
-        $('#feedback-comment').val("");
-        $('#feedback-id').hide();
-        $('#feedback-edit').hide();
-        $('#btn-edit').text("修改/刪除意見");
+        location.reload();
     }
 });
 //~編輯意見按鈕
@@ -167,11 +162,10 @@ $('#btn-feedback').click(() => {
                 }),
                 headers: { 'Content-Type': 'application/json' },
             }).then((response) => {
-                response.json().then(res => {
-                    console.log(res);
-                });
+                alert("成功送出意見!!");
+                location.reload();
             });
-            alert("成功送出!!");
+
         } else {
             console.log("項目不完整!");
         }
@@ -187,8 +181,12 @@ $('#btn-feedback').click(() => {
                     comment: ucomment,
                 }),
                 headers: { 'Content-Type': 'application/json' },
+            }).then(response => {
+                alert("重新編輯完成!!");
+                location.reload();
+
             });
-            alert("成功送出!!");
+
         } else {
             console.log("項目不完整!!");
         }

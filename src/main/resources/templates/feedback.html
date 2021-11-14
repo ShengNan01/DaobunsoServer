@@ -36,45 +36,47 @@
     </div>
 
     <div class="nav_title">網站回饋 User Feedback</div>
-
-    <div id="marquee" class="container my-3" style="display: none;">
-        <div class="row" v-if="res">
-            <div v-for="rl in res" class="col-12 col-md-6 col-xl-4">
-                <div class="sushi card mb-3 " style="height:16rem;width:22rem;">
-                    <div class="row g-0 ">
-                        <div class="col-3">
-                            <img src="./image/service_intro/holo/pekora.png" class="img-fluid rounded-start"
-                                style="height:4rem;">
-                        </div>
-                        <div class="col-9">
-                            <div class="card-body">
-                                <h6 type="date">{{rl.date}}</h6>
-                                <img src="./image/service_intro/holo/Saintquartz.png" v-for="n in rl.star"
-                                    style="height: 1.5rem;width: 1.5rem;">
-                                <h5 class="card-title">{{rl.account}}</h5>
-                                <p type="textarea" class="card-text"
-                                    style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
-                                    {{rl.comment}}
-                                </p>
+    <div style="height: 21rem;">
+        <!-- 隨機意見跑馬燈 -->
+        <div id="marquee" class="container " style="display: none;">
+            <div class="row py-3" v-if="res">
+                <div v-for="rl in res" class="col-12 col-md-6 col-xl-4">
+                    <div class="sushi card mb-3 " style="height:16rem;width:22rem;">
+                        <div class="row g-0 ">
+                            <div class="col-3">
+                                <img src="./image/service_intro/holo/pekora.png" class="img-fluid rounded-start"
+                                    style="height:4rem;">
+                            </div>
+                            <div class="col-9">
+                                <div class="card-body">
+                                    <h6 type="date">{{rl.date}}</h6>
+                                    <img src="./image/service_intro/starClicked.png" v-for="n in rl.star"style="width: 2rem;">
+                                    <h5 class="card-title">{{rl.account}}</h5>
+                                    <p type="textarea" class="card-text"
+                                        style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+                                        {{rl.comment}}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- ~隨機意見跑馬燈 -->
     </div>
-    <!-- ~隨機意見跑馬燈 -->
+
 
     <div class="row my-3">
         <!-- 意見領域展開!!! -->
         <div class="col-2 mx-auto">
-            <button id="btn-ex" class="btn btn-outline-primary mx-auto">填寫意見</button>
+            <button id="btn-ex" class="btn btn-primary mx-auto" style="width: 9rem;">填寫意見</button>
         </div>
         <!-- ~意見領域展開!!! -->
 
         <!-- 修改刪除按鈕 -->
         <div class="col-2 mx-auto">
-            <button id="btn-edit" class="btn btn-primary mx-auto" style="width: 9rem;">修改/刪除意見</button>
+            <button id="btn-list" class="btn btn-primary mx-auto" style="width: 9rem;">修改/刪除意見</button>
         </div>
         <!-- ~修改刪除按鈕 -->
     </div>
@@ -105,28 +107,32 @@
                             <!-- 星星 -->
                             <div class="btn-group mx-auto col-4" role="group">
                                 <div class="star star1" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img src="" class="img-fluid">
+                                    <img class="img-fluid">
                                 </div>
                                 <div class="star star2" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img src="" class="img-fluid">
+                                    <img class="img-fluid">
                                 </div>
                                 <div class="star star3" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img src="" class="img-fluid">
+                                    <img class="img-fluid">
                                 </div>
                                 <div class="star star4" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img src="" class="img-fluid">
+                                    <img class="img-fluid">
                                 </div>
                                 <div class="star star5" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img src="" class="img-fluid">
+                                    <img class="img-fluid">
                                 </div>
                             </div>
                             <!-- /星星 -->
 
                         </div>
                         <div id="feedback-id" class="row col-6" style="display: none;">
-                            <div class="col-3"><h3 style="color:rgb(24, 51, 59)">編號:</h3></div> 
-                            <div class="col-9"><h2 style="color: rgb(47, 194, 162)"></h2></div>
-                            
+                            <div class="col-3">
+                                <h3 style="color:rgb(24, 51, 59)">編號:</h3>
+                            </div>
+                            <div class="col-9">
+                                <h2 style="color: rgb(47, 194, 162)"></h2>
+                            </div>
+
                         </div>
 
                     </div>
@@ -150,7 +156,7 @@
     <!-- ~意見領域 -->
 
     <!-- 意見列表領域 -->
-    <div id="feedback-edit" style="display: none;">
+    <div id="feedback-list" style="display: none;">
         <div class="container">
             <!-- <li v-for="rli in res" class="editli" style="list-style-type:none; display: none;">{{rel}}</li> -->
             <div id="table_edit">
@@ -167,7 +173,8 @@
                     <div class="col-2">{{rel.star}}</div>
                     <div class="col-5">{{rel.comment}}</div>
                     <div class="col-2 row">
-                        <div @click="edit(key)" class="btn btn-outline-primary my-1 mx-1 col" type="button">編輯</div>
+                        <div @click="edit(key)" class="btn-edit btn btn-outline-primary my-1 mx-1 col" type="button">編輯
+                        </div>
                         <div @click="del(key)" class="btn btn-outline-primary my-1 mx-1 col" type="button">刪除</div>
                     </div>
                 </div>
@@ -176,7 +183,41 @@
     </div>
     <!-- ~意見列表領域 -->
 
+    <center>
+        <div>
+            <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;margin-top: 3rem;">
+            <br>
+            <hr style="width:90%;"> <br>
+            <div id="sec_area_8">
+                <a href="./about_us">關於我們</a>
+                <a href="./service_intro">服務介紹</a>
+                <a href="./Userterms">使用須知</a>
+                <a href="./problem">常見問題</a>
+                <a href="./feedback">使用回饋</a>
+                <a href="./service">購買服務</a>
+                <a href="./shopping">購物商城</a>
+            </div>
+        </div>
 
+    </center>
+    <footer>
+    </footer>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="massage-content">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- footer -->
     <footer></footer>
     <script src="js/logincheck.js"></script>
