@@ -116,6 +116,8 @@
             android:hint="totalprice"
             android:textSize="16sp"
             android:visibility="visible"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -126,6 +128,9 @@
             android:layout_marginBottom="36dp"
             android:hint="service"
             android:visibility="visible"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvServicePrice"
             app:layout_constraintEnd_toEndOf="@+id/tvServicePrice"
             app:layout_constraintHorizontal_bias="0.571"
@@ -138,6 +143,9 @@
             android:layout_marginBottom="32dp"
             android:hint="price"
             android:visibility="visible"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvStartDate"
             app:layout_constraintEnd_toEndOf="@+id/tvStartDate"
             app:layout_constraintHorizontal_bias="0.269"
@@ -150,6 +158,9 @@
             android:layout_marginBottom="32dp"
             android:hint="startdate"
             android:visibility="visible"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvEndDate"
             app:layout_constraintEnd_toEndOf="@+id/tvEndDate"
             app:layout_constraintHorizontal_bias="0.833"
@@ -162,6 +173,9 @@
             android:layout_marginBottom="36dp"
             android:hint="enddate"
             android:visibility="visible"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvServiceEndTime"
             app:layout_constraintEnd_toEndOf="@+id/tvServiceEndTime"
             app:layout_constraintStart_toStartOf="@+id/tvServiceEndTime" />
@@ -175,6 +189,9 @@
             android:gravity="center"
             android:hint="servicetime"
             android:visibility="visible"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/dividerService"
             app:layout_constraintEnd_toEndOf="@+id/tvTotalPrice" />
 

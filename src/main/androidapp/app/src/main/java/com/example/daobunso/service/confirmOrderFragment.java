@@ -1,6 +1,7 @@
 package com.example.daobunso.service;
 
 import android.app.AlertDialog;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,8 +12,13 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.daobunso.MainActivity;
 import com.example.daobunso.R;
@@ -20,6 +26,10 @@ import com.example.daobunso.R;
 
 public class confirmOrderFragment extends Fragment {
     private MainActivity activity;
+    private Spinner spinner;
+    private String paymentType;
+    private String TaxNumber;
+    private String companyTitle;
 
 
     @Override
@@ -38,10 +48,36 @@ public class confirmOrderFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle saveInstanceState) {
         super.onViewCreated(view, saveInstanceState);
-        Bundle bundle = new Bundle();// Bundle用來把本頁資料傳到下一頁去
+
+        EditText etTaxNumber = view.findViewById(R.id.etTaxNumber);//獲取到spacer1
+        EditText etCompanyTitle = view.findViewById(R.id.etCompanyTitle);//獲取到spacer1
+        TaxNumber = etTaxNumber.getText().toString().trim();
+        companyTitle = etCompanyTitle.getText().toString().trim();
 
 
+        Resources res =getResources();
+        String[] spPaymentMethod =res.getStringArray(R.array.spPaymentMethod);
+        spinner = (Spinner) view.findViewById(R.id.spPaymentMethod);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,spPaymentMethod);//建立Arrayadapter介面卡
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {//點選spinner物件
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                paymentType= spinner.getItemAtPosition(i).toString();
+//                Toast.makeText(activity,text,Toast.LENGTH_SHORT).show();
 
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+
+         Bundle bundle = new Bundle();// Bundle用來把本頁資料傳到下一頁去
+         bundle.putString("spPaymentMethod",paymentType);
+         bundle.putString("TaxNumber",TaxNumber);
+         bundle.putString("companyTitle",companyTitle);
             //AlertDialog
             // 點選送出進入訂單明細頁面
             TextView btnToPayment = view.findViewById((R.id.btnToPayment));

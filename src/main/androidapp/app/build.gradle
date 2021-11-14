@@ -15,6 +15,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // ECPay Payment
+//    android {
+//        dataBinding {
+//            enabled = true
+//        }
+//    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -27,8 +34,23 @@ android {
     }
 }
 
+// ECPay Payment
+//buildscript {
+//    repositories {
+//        mavenCentral()
+//        jcenter {
+//            content {
+//                //  org.jetbrains.trove4j is only available in JCenter
+//                includeGroup("org.jetbrains.trove4j")
+//            }
+//        }
+//    }
+//}
+
 dependencies {
 
+    // ECPay Payment SDK
+//    implementation 'tw.com.ecpay:ECPayPaymentGatewayKit:1.0.4'
     implementation 'com.google.code.gson:gson:2.8.7'
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'

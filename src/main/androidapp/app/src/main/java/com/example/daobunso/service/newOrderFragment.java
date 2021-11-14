@@ -24,6 +24,9 @@ public class newOrderFragment extends Fragment implements
         AdapterView.OnItemSelectedListener {
     private MainActivity activity;
     private TextView tvMessage;
+    private String serviceType;
+    private String serviceTime;
+    private String startDate;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,10 +45,25 @@ public class newOrderFragment extends Fragment implements
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle saveInstanceState) {
         super.onViewCreated(view, saveInstanceState);
-        Bundle bundle = new Bundle();// Bundle用來把本頁資料傳到下一頁去
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            serviceType = bundle.getString("serviceType");
+            serviceTime = bundle.getString("serviceTime");
+            startDate = bundle.getString("startDate");
+            Log.d("newOrderFragment", serviceType+serviceTime+startDate);
+        }
+
+        TextView tvServiceType = view.findViewById(R.id.tvServiceType);
+        TextView tvStartDate = view.findViewById(R.id.tvStartDate);
+        TextView tvServiceEndTime = view.findViewById(R.id.tvServiceEndTime);
 
 
-            //AlertDialog
+        tvServiceType.setText(serviceType);
+        tvStartDate.setText(startDate);
+        tvServiceEndTime.setText(serviceTime);
+
+
+        //AlertDialog
             // 點選送出進入服務結帳頁面
             TextView btnToConfirmOrder = view.findViewById((R.id.btnToConfirmOrder));
             btnToConfirmOrder.setOnClickListener(v -> {
