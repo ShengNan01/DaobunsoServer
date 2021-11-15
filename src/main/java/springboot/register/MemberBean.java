@@ -53,6 +53,9 @@ public class MemberBean {
 	@Transient
 	@Column (name = "NewPassword")
 	String newPassword;
+	
+	@Column(name="verification")
+	private Integer verification;
 //	public String getNewPassword() {
 //		return NewPassword;
 //	}

@@ -1,31 +1,29 @@
+let myModal = new bootstrap.Modal(document.getElementById('myModal'))
 const memberId = getCookieValueByName('id');
+const Name = getCookieValueByName('name');
+const email = getCookieValueByName('email');
+const account = getCookieValueByName('account');
+const verification = getCookieValueByName('verification');
+$('#inlineFormInputName').val(Name);
+$('#email').val(email);
+$('#account').val(account);
 mId = {
         "memberId": memberId
 };
-
-let url = 'https://localhost/profiles';
-fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(mId),
-    headers: { 'Content-Type': 'application/json' },
-}).then(response => {
-    response.json()
-        .then(res => {
-            console.log(res);
-            $('#inlineFormInputName').val(res.member_name);
-            $('#email').val(res.email);
-            $('#account').val(res.account);
-        });
-});
-// let myModal = new bootstrap.Modal(document.getElementById('myModal'))
-
-// function updateModal(title, massage) {
-// $('#modal-title').text(title);
-// $('#massage-content').text(massage);
-// }
-//     // reset modal when modal was hidden
-//     let myModalEl = document.getElementById('myModal')
-//     myModalEl.addEventListener('hidden.bs.modal', function (event) {
-//     updateModal("","");
-//     })
+if(verification == 0){
+    updateModal("提醒","若要使用網站功能請進行信箱驗證")
+    myModal.show();
+    $("#buttonVerification").show();
+}else if(verification == 1){
+    $("#buttonVerification").hide();
+}
+function updateModal(title, massage) {
+$('#modal-title').text(title);
+$('#massage-content').text(massage);
+}
+    // reset modal when modal was hidden
+    let myModalEl = document.getElementById('myModal')
+    myModalEl.addEventListener('hidden.bs.modal', function (event) {
+    updateModal("","");
+    })
 // window.onload;
