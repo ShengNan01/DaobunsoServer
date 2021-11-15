@@ -111,6 +111,15 @@ $(function () {
   //   });
 });
 
+$('#btn-tw').click(()=>{
+  $('html').attr('lang',"zh_TW");
+  alert("ttt");
+});
+$('#btn-en').click(()=>{
+  $('html').attr('lang',"en_US");
+  alert("eee");
+});
+
 // reset modal when modal was hidden
 // let myModalEl = document.getElementById("myModal");
 // myModalEl.addEventListener("hidden.bs.modal", function (event) {

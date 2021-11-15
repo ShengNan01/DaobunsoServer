@@ -12,8 +12,9 @@
     <script src="./js/jquery-3.6.0.js"></script>
 </head>
 <body>
-    <header>
-    </header>
+  <header>
+    <div th:replace="header :: header"></div>
+  </header>
 <nav>
   <div class="title">常見問題 Common Problems</div>
 </nav>
@@ -116,6 +117,7 @@
 </main>
 
 <footer>
+  <div th:replace="footer :: footer">Footer</div>
 </footer>
 
 <!-- Modal -->

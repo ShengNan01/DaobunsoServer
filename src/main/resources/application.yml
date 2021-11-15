@@ -19,6 +19,10 @@ spring:
           auth: true
           starttls :
             enable: true  
+  messages:
+    encoding: UTF-8
+    basename: i18n/order, i18n/login, i18n/frontpage
+    cache-duration: 3600
 server:
   port: 443
   ssl:

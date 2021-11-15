@@ -17,7 +17,9 @@
 </head>
 
 <body>
-    <header\>
+    <header>
+        <div th:replace="header :: header"></div>
+      </header>
 
         <!-- ~header -->
 
@@ -170,7 +172,9 @@
         <!-- ~編輯領域 -->
 
         <!-- footer -->
-        <footer\>
+        <footer>
+            <div th:replace="footer :: footer">Footer</div>
+          </footer>
             <script src="js/jquery-3.6.0.js"></script>
             <script src="js/vue.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.Marquee/1.6.0/jquery.marquee.js"

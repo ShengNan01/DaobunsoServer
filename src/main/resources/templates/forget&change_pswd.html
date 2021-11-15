@@ -9,8 +9,9 @@
    
 </head>
 <body>
-    <header>
-    </header>
+  <header>
+    <div th:replace="header :: header"></div>
+  </header>
         <div id="nav_title"> 更改密碼 </div>
         <center><h2>請填寫密碼資訊</h2></center>
         <hr>
@@ -83,6 +84,7 @@
         </ul>
     </section>
     <footer>
+      <div th:replace="footer :: footer">Footer</div>
     </footer>
       <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

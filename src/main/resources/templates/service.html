@@ -12,6 +12,7 @@
 
 <body>
   <header>
+    <div th:replace="header :: header"></div>
   </header>
   <nav>
     <div id="nav_title">服務方案 Service</div>
@@ -75,8 +76,8 @@
   </section>
 
   <footer>
+    <div th:replace="footer :: footer">Footer</div>
   </footer>
-
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

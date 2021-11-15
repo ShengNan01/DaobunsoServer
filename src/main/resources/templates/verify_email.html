@@ -15,6 +15,7 @@
 
 <body>
   <header>
+    <div th:replace="header :: header"></div>
   </header>
 
   <nav>
@@ -74,8 +75,8 @@
     </ul>
   </section>
   <footer>
+    <div th:replace="footer :: footer">Footer</div>
   </footer>
-
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
