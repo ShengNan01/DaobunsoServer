@@ -60,7 +60,7 @@ public class ExampleAllInOne {
 	}
 //	private static void initial(){
 	public static void initial() {
-//		all = new AllInOne("");
+		all = new AllInOne("");
 	}
 	
 	public static boolean cmprChkMacValue(){
