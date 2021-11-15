@@ -36,6 +36,7 @@ public class newOrderFragment extends Fragment implements
     private String address;
     private Bundle bundle;
     private String sum;
+    private String memberId;
 
 
 
@@ -64,6 +65,7 @@ public class newOrderFragment extends Fragment implements
             contact = bundle.getString("contact");
             phone = bundle.getString("phone");
             address = bundle.getString("address");
+            memberId = bundle.getString("memberId");
 
             Log.d("newOrderFragment", serviceType+serviceTime+startDate);
         }
@@ -119,7 +121,7 @@ public class newOrderFragment extends Fragment implements
         bundle.putString("phone",phone );
         bundle.putString("address",address);
         bundle.putString("sum",sum);
-
+        bundle.putString("memberId",memberId);
 
         //AlertDialog
             // 點選送出進入服務結帳頁面

@@ -197,8 +197,8 @@
 
     <TextView
             android:id="@+id/btnToConfirmOrder"
-            android:layout_width="271dp"
-            android:layout_height="50dp"
+            android:layout_width="230dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="29dp"
             android:background="@drawable/paymentbtn"
             app:layout_constraintBottom_toBottomOf="parent"

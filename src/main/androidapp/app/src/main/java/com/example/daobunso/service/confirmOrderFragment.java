@@ -1,5 +1,7 @@
 package com.example.daobunso.service;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.AlertDialog;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -23,6 +25,8 @@ import android.widget.Toast;
 
 import com.example.daobunso.MainActivity;
 import com.example.daobunso.R;
+import com.example.daobunso.network.RemoteAccess;
+import com.google.gson.JsonObject;
 
 
 public class confirmOrderFragment extends Fragment {
@@ -39,6 +43,8 @@ public class confirmOrderFragment extends Fragment {
     private String phone;
     private String address;
     private String sum;
+    private Bundle bundle1;
+    private String memberId;
 
 
     @Override
@@ -60,6 +66,7 @@ public class confirmOrderFragment extends Fragment {
 
         Bundle bundle = getArguments();
         if (bundle != null) {
+            memberId = bundle.getString("memberId");
             serviceType = bundle.getString("serviceType");
             serviceTime = bundle.getString("serviceTime");
             startDate = bundle.getString("startDate");
@@ -97,7 +104,7 @@ public class confirmOrderFragment extends Fragment {
         });
 
 
-        Bundle bundle1 = new Bundle();// Bundle用來把本頁資料傳到下一頁去
+        bundle1 = new Bundle();// Bundle用來把本頁資料傳到下一頁去
         bundle1.putString("spPaymentMethod",paymentType);
         bundle1.putString("TaxNumber",TaxNumber);
         bundle1.putString("companyTitle",companyTitle);
@@ -123,17 +130,82 @@ public class confirmOrderFragment extends Fragment {
                         //設定訊息文字
                         .setMessage("是否確定送出訂單")
                         //設定positive與negative按鈕上面的文字與點擊事件監聽器
-                        .setPositiveButton("Yes", (dialog, which) -> Navigation.findNavController(v)
-                                .navigate(R.id.action_confirmOrderFragment_to_paymentInfoFragment, bundle1))//導向付款頁面
+                        .setPositiveButton("Yes", (dialog, which) -> insertOrder(view))//導向付款頁面
                         .setNegativeButton("No", (dialog, which) -> dialog.cancel())//關閉對話視窗
                         .setCancelable(false)//必須點擊按鈕方能關閉，預設為true
                         .show();
             });
+
+
 
             //右上角，回首頁
             view.findViewById(R.id.homepage_btn_confirm_order).setOnClickListener(v->{
                 Navigation.findNavController(v).navigate(R.id.action_confirmOrderFragment_to_indexFragment);
             });
         }
+
+    private void insertOrder(View view) {
+
+        String url = "http://10.0.2.2:8080/app/insertOrderMaster";
+
+        if (RemoteAccess.networkConnected(activity)) {
+            JsonObject jsonObject = new JsonObject();
+
+            jsonObject.addProperty("memberId", memberId);
+            jsonObject.addProperty("address", address);
+            jsonObject.addProperty("phone", phone);
+            jsonObject.addProperty("contact", contact);
+            jsonObject.addProperty("timeForGarbage", serviceTime);
+            jsonObject.addProperty("sum", sum);
+            jsonObject.addProperty("payType", paymentType);
+            jsonObject.addProperty("taxIDnumber", TaxNumber);
+            jsonObject.addProperty("companyTitle", companyTitle);
+            jsonObject.addProperty("scheduleGarbage", "未完成");
+
+            JsonObject jsonObject_detail = new JsonObject();
+            jsonObject_detail.addProperty("quantity", "1");
+            jsonObject_detail.addProperty("item_Type", serviceType);
+            jsonObject_detail.addProperty("garbage_Start_Date", startDate);
+            jsonObject_detail.addProperty("garbage_End_Date", endDate);
+
+//            int count;
+            String result_master = RemoteAccess.getRemoteData(url, jsonObject.toString());
+            if(result_master.contains("已新增至訂單主檔")){
+               String[] result_master_array = result_master.split("-");
+               String OrderId = result_master_array[1];
+                jsonObject_detail.addProperty("fk_order_bean_orderno", OrderId);
+
+                String url_detail = "http://10.0.2.2:8080/app/insertOrderDetail";
+                String result_detail = RemoteAccess.getRemoteData(url_detail, jsonObject_detail.toString());
+                if(result_detail.equals("已新增至訂單detail檔")){
+                    //跳轉到下一個頁面
+                    Navigation.findNavController(view)
+                            .navigate(R.id.action_confirmOrderFragment_to_paymentInfoFragment, bundle1);
+                }
+                else{
+                    Toast.makeText(activity,"訂單detail檔建立失敗", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else{
+                Toast.makeText(activity,"訂單主檔建立失敗", Toast.LENGTH_SHORT).show();
+            }
+
+
+
+
+
+        }
+        else {
+            Toast.makeText(activity, R.string.textNoNetwork, Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+
+
+
+
     }
+}
 

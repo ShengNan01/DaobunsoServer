@@ -47,12 +47,13 @@ public class Login_Controller {
 			if(loginRepo.existsByAccount(loginBean.getAccount())) { //核對確認有這個帳號
 				String decryptPassword = GlobalService.decryptString(GlobalService.KEY
 						,loginRepo.findPasswordByMemberAccount(loginBean.getAccount()));
+				String memberId = loginRepo.findMemberIdByAccount(loginBean.getAccount()).toString();
 				
 //				System.out.println(loginRepo.findLoginByAccount(account));
 			// 解密後密碼與使用者輸入的密碼比對。如果密碼一樣，就成功豋入
 				if (password.equals(decryptPassword)) {
 					
-					return "OK";				
+					return "OK"+"-"+memberId;				
 				}
 				// 如果密碼不正確
 				else {

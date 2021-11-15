@@ -21,13 +21,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.daobunso.R;
-import com.example.daobunso.member.MemberBean;
 import com.example.daobunso.network.RemoteAccess;
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class signinFragment extends Fragment {
@@ -47,6 +42,7 @@ public class signinFragment extends Fragment {
     private SharedPreferences preferences;
     private String RememberAccount;
     private String RememberPassword;
+    private String memberId;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -131,8 +127,10 @@ public class signinFragment extends Fragment {
             Log.v("ResponsefromServer:",result);
 
 
-            if(result.equals("OK")){
-                savePreferenceOnlyAccountPw(); //只要有登入成功，就先把acount記錄在prefernce檔裡，方便之後的頁面撈取。
+            if(result.contains("OK")){
+                String[] stringArray = result.split("-");
+                memberId = stringArray[1];
+                savePreferenceInfo(); //只要有登入成功，就先把acount記錄在prefernce檔裡，方便之後的頁面撈取。
                 if(checkBoxRememberme.isChecked()){ // 如果使用者有勾選記住我，就把值記錄在preferences檔裡。
                     if(!RememberAccount.equals(DEFAULT_ACCOUNT)||!RememberPassword.equals(DEFAULT_PASSWORD)){
                         etAccount.setText(DEFAULT_ACCOUNT);
@@ -157,19 +155,23 @@ public class signinFragment extends Fragment {
         }
     }
 
+    //有勾rememberme的話用這個方法
     private void savePreferences() {
 
         preferences.edit()
                 .putString("account", account)
                 .putString("password", password)
+                .putString("memberId", memberId)
                 .apply();
     }
 
-    private void savePreferenceOnlyAccountPw() {
+    //沒勾rememberme的話用這個方法
+    private void savePreferenceInfo() {
 
         preferences.edit()
                 .putString("accountInfo", account)
                 .putString("passwordInfo", password)
+                .putString("memberIdInfo", memberId)
                 .apply();
     }
 

@@ -37,6 +37,7 @@ public class createAccountFragment extends Fragment {
     String passwordAgain;
     String UserName;
     Bundle bundle;
+    private String memberId;
     MemberBean memberbean;
     private SharedPreferences preferences;
     private final static String PREFERENCES_NAME = "preferences";
@@ -136,7 +137,7 @@ public class createAccountFragment extends Fragment {
     }
 
     private void createAccount(View view) {
-        String url = "http://10.0.2.2:8080/reg";
+        String url = "http://10.0.2.2:8080/app/reg";
 
         if (RemoteAccess.networkConnected(activity)) {
 
@@ -151,10 +152,13 @@ public class createAccountFragment extends Fragment {
 
 //            int count;
               String result = RemoteAccess.getRemoteData(url, jsonObject.toString());
-              if(result.equals("註冊成功，請重新登入")){
+              if(result.contains("註冊成功，請重新登入")){
+
+                  String[] stringArray = result.split("-");
+                  memberId = stringArray[1];
                   //註冊成功，順便把account資訊記載到preference檔案裡，以便之後頁面撈取
                   preferences = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE);
-                  savePreferenceOnlyAccount();
+                  savePreferenceInfo();
 
 
                   new AlertDialog.Builder(activity) //內部類別，new後得到Builder物件
@@ -194,11 +198,12 @@ public class createAccountFragment extends Fragment {
     }
 
 
-    private void savePreferenceOnlyAccount() {
+    private void savePreferenceInfo() {
 
         preferences.edit()
                 .putString("accountInfo", newAccount)
                 .putString("passwordInfo", newPassword)
+                .putString("memberIdInfo", memberId)
                 .apply();
     }
 }

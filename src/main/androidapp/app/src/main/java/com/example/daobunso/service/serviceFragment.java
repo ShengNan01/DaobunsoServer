@@ -1,5 +1,7 @@
 package com.example.daobunso.service;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -64,6 +66,7 @@ public  class serviceFragment extends Fragment implements
     private SharedPreferences preferences;
     private String serviceType;
     private String serviceTime;
+    private String memberId;
 
 
 
@@ -193,12 +196,17 @@ public  class serviceFragment extends Fragment implements
 
             }
             bundle = new Bundle();
+            //從preference檔，取出memberId
+            preferences = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE);
+            memberId = preferences.getString("memberIdInfo","0");
+            bundle.putString("memberId",memberId);
             bundle.putString("startDate",date);
             bundle.putString("address",address);
             bundle.putString("contact",contact);
             bundle.putString("phone",phone);
             bundle.putString("serviceTime",serviceTime);
             bundle.putString("serviceType",serviceType);
+
 
             new AlertDialog.Builder(activity)
                         //設定標題
@@ -257,21 +265,6 @@ public  class serviceFragment extends Fragment implements
     }
 
 
-
-//    //><
-//    @Override
-//    public void onItemSelected(
-//            AdapterView<?> parent, View view, int position, long id) {
-//        tvMessage.setText(parent.getItemAtPosition(position).toString());
-//        Log.d("selected", "已選擇服務");
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> parent) {
-//
-//        tvMessage.setText("請選擇服務!");
-//        Log.d("noSelected", "請選擇服務");
-//    }
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
