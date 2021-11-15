@@ -42,7 +42,7 @@ public class OrderItemBean {
 	Date garbage_End_Date;
 	
 	@ManyToOne (cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "fk_OrderBean_orderno")
+	@JoinColumn(name = "fk_orderbean_orderno")
 	OrderBean orderBean;
 	
 
