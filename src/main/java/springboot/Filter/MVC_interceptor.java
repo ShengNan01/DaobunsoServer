@@ -31,8 +31,7 @@ public class MVC_interceptor implements HandlerInterceptor {
 								return true;
 							}else if(verification.getValue().equals("0")) {
 								log.info("沒有驗證!");
-//								model.addAttribute("verificationFail", "verificationFail");
-//								response.sendRedirect("/verify_email");
+								response.sendRedirect("/verification_email");
 								return false;
 							}
 						}
