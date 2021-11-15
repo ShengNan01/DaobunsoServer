@@ -2481,6 +2481,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvAccountTitle
+id tvAddress
 id tvAddressTitle
 id tvComment
 id tvCommentcontent1
@@ -2516,15 +2517,13 @@ id tvReceiptType
 id tvRunning
 id tvService
 id tvServiceEndTime
-id tvServiceEndTime2
-id tvServiceEndTime3
-id tvServiceEndTime4
 id tvServiceEndTitle
-id tvServicePrice
+id tvServicePerson
 id tvServiceStartTitle
 id tvServiceStartTitle2
 id tvServiceStartTitle3
 id tvServiceStartTitle5
+id tvServiceTime
 id tvServiceTimeTitle
 id tvServiceType
 id tvServiceTypeTitle
@@ -2533,6 +2532,7 @@ id tvSum
 id tvTotalPrice
 id tvTotalPriceTitle
 id tvUserName
+id tv_OrderDate
 id tvtkscontent
 id unchecked
 id uniform

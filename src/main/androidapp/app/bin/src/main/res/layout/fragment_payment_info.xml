@@ -153,14 +153,14 @@
         android:layout_height="wrap_content"
         android:hint="service"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tvServiceEndTime3"
+        app:layout_constraintBottom_toTopOf="@+id/tvAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvServiceEndTime3"
-        app:layout_constraintTop_toBottomOf="@+id/tvServicePrice" />
+        app:layout_constraintStart_toStartOf="@+id/tvAddress"
+        app:layout_constraintTop_toBottomOf="@+id/tvServicePerson" />
 
     <TextView
-        android:id="@+id/tvServicePrice"
+        android:id="@+id/tvServicePerson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="person"
@@ -181,7 +181,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEndDate"
-        app:layout_constraintTop_toBottomOf="@+id/tvServiceEndTime4" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_OrderDate" />
 
     <TextView
         android:id="@+id/tvEndDate"
@@ -196,20 +196,20 @@
         app:layout_constraintTop_toBottomOf="@+id/tvStartDate" />
 
     <TextView
-        android:id="@+id/tvServiceEndTime2"
+        android:id="@+id/tvServiceTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="servicetime"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tvServiceEndTime4"
+        app:layout_constraintBottom_toTopOf="@+id/tv_OrderDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvServiceEndTime4"
-        app:layout_constraintTop_toBottomOf="@+id/tvServiceEndTime3" />
+        app:layout_constraintStart_toStartOf="@+id/tv_OrderDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
 
     <TextView
-        android:id="@+id/tvServiceEndTime4"
+        android:id="@+id/tv_OrderDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -219,19 +219,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvStartDate"
-        app:layout_constraintTop_toBottomOf="@+id/tvServiceEndTime2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvServiceTime" />
 
     <TextView
-        android:id="@+id/tvServiceEndTime3"
+        android:id="@+id/tvAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="servicetime"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tvServiceEndTime2"
+        app:layout_constraintBottom_toTopOf="@+id/tvServiceTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvServiceEndTime2"
+        app:layout_constraintStart_toStartOf="@+id/tvServiceTime"
         app:layout_constraintTop_toBottomOf="@+id/tvServiceType" />
 
     <TextView

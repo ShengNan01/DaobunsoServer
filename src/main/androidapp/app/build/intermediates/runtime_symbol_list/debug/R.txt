@@ -2480,6 +2480,7 @@ int id transition_scene_layoutid_cache 0x7f090223
 int id transition_transform 0x7f090224
 int id triangle 0x7f090225
 int id tvAccountTitle 0x7f090226
+int id tvAddress 0x7f09028b
 int id tvAddressTitle 0x7f090227
 int id tvComment 0x7f090228
 int id tvCommentcontent1 0x7f090229
@@ -2515,15 +2516,13 @@ int id tvReceiptType 0x7f090246
 int id tvRunning 0x7f090247
 int id tvService 0x7f090248
 int id tvServiceEndTime 0x7f090249
-int id tvServiceEndTime2 0x7f09024a
-int id tvServiceEndTime3 0x7f09024b
-int id tvServiceEndTime4 0x7f09024c
 int id tvServiceEndTitle 0x7f09024d
-int id tvServicePrice 0x7f09024e
+int id tvServicePerson 0x7f09028c
 int id tvServiceStartTitle 0x7f09024f
 int id tvServiceStartTitle2 0x7f090250
 int id tvServiceStartTitle3 0x7f090251
 int id tvServiceStartTitle5 0x7f090252
+int id tvServiceTime 0x7f09028d
 int id tvServiceTimeTitle 0x7f090253
 int id tvServiceType 0x7f090254
 int id tvServiceTypeTitle 0x7f090255
@@ -2532,6 +2531,7 @@ int id tvSum 0x7f090257
 int id tvTotalPrice 0x7f090258
 int id tvTotalPriceTitle 0x7f090259
 int id tvUserName 0x7f09025a
+int id tv_OrderDate 0x7f09028e
 int id tvtkscontent 0x7f09025b
 int id unchecked 0x7f09025c
 int id uniform 0x7f09025d

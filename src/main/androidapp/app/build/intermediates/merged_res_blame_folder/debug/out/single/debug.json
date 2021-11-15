@@ -16,12 +16,12 @@
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\shoppingcart.png"
     },
     {
-        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_comment.png.flat",
-        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\comment.png"
-    },
-    {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_smile.png.flat",
         "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\smile.png"
+    },
+    {
+        "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\drawable_comment.png.flat",
+        "source": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\src\\main\\res\\drawable\\comment.png"
     },
     {
         "merged": "D:\\_devSpring\\workspace\\Daobunso_Project\\src\\main\\androidapp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_payment_info.xml.flat",

@@ -82,21 +82,21 @@
             app:layout_constraintBottom_toTopOf="@+id/tvServiceTimeTitle"
             app:layout_constraintStart_toStartOf="@+id/tvServiceTimeTitle" />
 
-        <TextView
-            android:id="@+id/tvTotalPriceTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="68dp"
-            android:gravity="center"
-            android:text="總金額："
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dividerService" />
+    <TextView
+        android:id="@+id/tvTotalPriceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:text="總金額："
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerService" />
 
-        <View
+    <View
             android:id="@+id/dividerService"
             android:layout_width="345dp"
             android:layout_height="3dp"
@@ -106,67 +106,67 @@
             app:layout_constraintEnd_toEndOf="@+id/tvTotalPrice"
             app:layout_constraintStart_toStartOf="@+id/tvTotalPriceTitle" />
 
-        <TextView
-            android:id="@+id/tvTotalPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
-            android:layout_marginBottom="210dp"
-            android:gravity="center"
-            android:hint="totalprice"
-            android:textSize="16sp"
-            android:visibility="visible"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+    <TextView
+        android:id="@+id/tvTotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="212dp"
+        android:gravity="center"
+        android:hint="totalprice"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/tvServiceType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="36dp"
-            android:hint="service"
-            android:visibility="visible"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvServicePrice"
-            app:layout_constraintEnd_toEndOf="@+id/tvServicePrice"
-            app:layout_constraintHorizontal_bias="0.571"
-            app:layout_constraintStart_toStartOf="@+id/tvServicePrice" />
+    <TextView
+        android:id="@+id/tvServiceType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:hint="service"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tvServicePerson"
+        app:layout_constraintEnd_toEndOf="@+id/tvServicePerson"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvServicePerson" />
 
-        <TextView
-            android:id="@+id/tvServicePrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:hint="price"
-            android:visibility="visible"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvStartDate"
-            app:layout_constraintEnd_toEndOf="@+id/tvStartDate"
-            app:layout_constraintHorizontal_bias="0.269"
-            app:layout_constraintStart_toStartOf="@+id/tvStartDate" />
+    <TextView
+        android:id="@+id/tvServicePerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:hint="price"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tvStartDate"
+        app:layout_constraintEnd_toEndOf="@+id/tvStartDate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvStartDate" />
 
-        <TextView
-            android:id="@+id/tvStartDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:hint="startdate"
-            android:visibility="visible"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvEndDate"
-            app:layout_constraintEnd_toEndOf="@+id/tvEndDate"
-            app:layout_constraintHorizontal_bias="0.833"
-            app:layout_constraintStart_toStartOf="@+id/tvEndDate" />
+    <TextView
+        android:id="@+id/tvStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:hint="startdate"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tvEndDate"
+        app:layout_constraintEnd_toEndOf="@+id/tvEndDate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvEndDate" />
 
-        <TextView
+    <TextView
             android:id="@+id/tvEndDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -180,22 +180,22 @@
             app:layout_constraintEnd_toEndOf="@+id/tvServiceEndTime"
             app:layout_constraintStart_toStartOf="@+id/tvServiceEndTime" />
 
-        <TextView
-            android:id="@+id/tvServiceEndTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="52dp"
-            android:gravity="center"
-            android:hint="servicetime"
-            android:visibility="visible"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/dividerService"
-            app:layout_constraintEnd_toEndOf="@+id/tvTotalPrice" />
+    <TextView
+        android:id="@+id/tvServiceEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="52dp"
+        android:gravity="center"
+        android:hint="servicetime"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/dividerService"
+        app:layout_constraintEnd_toEndOf="@+id/tvTotalPrice" />
 
-        <TextView
+    <TextView
             android:id="@+id/btnToConfirmOrder"
             android:layout_width="271dp"
             android:layout_height="50dp"

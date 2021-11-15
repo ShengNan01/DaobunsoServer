@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,14 @@ public class confirmOrderFragment extends Fragment {
     private String paymentType;
     private String TaxNumber;
     private String companyTitle;
+    private String serviceType;
+    private String serviceTime;
+    private String startDate;
+    private String endDate;
+    private String contact;
+    private String phone;
+    private String address;
+    private String sum;
 
 
     @Override
@@ -48,6 +57,20 @@ public class confirmOrderFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle saveInstanceState) {
         super.onViewCreated(view, saveInstanceState);
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            serviceType = bundle.getString("serviceType");
+            serviceTime = bundle.getString("serviceTime");
+            startDate = bundle.getString("startDate");
+            endDate = bundle.getString("endDate");
+            contact = bundle.getString("contact");
+            phone = bundle.getString("phone");
+            address = bundle.getString("address");
+            sum = bundle.getString("sum");
+
+            Log.d("newOrderFragment", serviceType+serviceTime+startDate);
+        }
 
         EditText etTaxNumber = view.findViewById(R.id.etTaxNumber);//獲取到spacer1
         EditText etCompanyTitle = view.findViewById(R.id.etCompanyTitle);//獲取到spacer1
@@ -74,10 +97,20 @@ public class confirmOrderFragment extends Fragment {
         });
 
 
-         Bundle bundle = new Bundle();// Bundle用來把本頁資料傳到下一頁去
-         bundle.putString("spPaymentMethod",paymentType);
-         bundle.putString("TaxNumber",TaxNumber);
-         bundle.putString("companyTitle",companyTitle);
+        Bundle bundle1 = new Bundle();// Bundle用來把本頁資料傳到下一頁去
+        bundle1.putString("spPaymentMethod",paymentType);
+        bundle1.putString("TaxNumber",TaxNumber);
+        bundle1.putString("companyTitle",companyTitle);
+        bundle1.putString("serviceTime",serviceTime);
+        bundle1.putString("serviceType",serviceType);
+        bundle1.putString("startDate",startDate);
+        bundle1.putString("endDate",endDate);
+        bundle1.putString("contact",contact);
+        bundle1.putString("phone",phone);
+        bundle1.putString("address",address);
+        bundle1.putString("sum",sum);
+//        bundle1.putString("companyTitle",companyTitle);
+
             //AlertDialog
             // 點選送出進入訂單明細頁面
             TextView btnToPayment = view.findViewById((R.id.btnToPayment));
@@ -91,7 +124,7 @@ public class confirmOrderFragment extends Fragment {
                         .setMessage("是否確定送出訂單")
                         //設定positive與negative按鈕上面的文字與點擊事件監聽器
                         .setPositiveButton("Yes", (dialog, which) -> Navigation.findNavController(v)
-                                .navigate(R.id.action_confirmOrderFragment_to_paymentInfoFragment, bundle))//導向付款頁面
+                                .navigate(R.id.action_confirmOrderFragment_to_paymentInfoFragment, bundle1))//導向付款頁面
                         .setNegativeButton("No", (dialog, which) -> dialog.cancel())//關閉對話視窗
                         .setCancelable(false)//必須點擊按鈕方能關閉，預設為true
                         .show();

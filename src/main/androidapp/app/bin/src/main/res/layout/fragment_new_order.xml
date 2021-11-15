@@ -120,13 +120,13 @@
             android:layout_marginBottom="36dp"
             android:hint="service"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/tvServicePrice"
-            app:layout_constraintEnd_toEndOf="@+id/tvServicePrice"
+            app:layout_constraintBottom_toTopOf="@+id/tvServicePerson"
+            app:layout_constraintEnd_toEndOf="@+id/tvServicePerson"
             app:layout_constraintHorizontal_bias="0.571"
-            app:layout_constraintStart_toStartOf="@+id/tvServicePrice" />
+            app:layout_constraintStart_toStartOf="@+id/tvServicePerson" />
 
         <TextView
-            android:id="@+id/tvServicePrice"
+            android:id="@+id/tvServicePerson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"

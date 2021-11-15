@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -41,7 +42,7 @@ import java.util.Calendar;
 
 
 public  class serviceFragment extends Fragment implements
-        AdapterView.OnItemSelectedListener,DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+        /*AdapterView.OnItemSelectedListener,*/ DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     //不能設定成abstract，不然跑不出來==
     private MainActivity activity;//取得本fragment所依從的Activity(非繼承關係)
     //    private Activity activity;//取得本fragment所依從的Activity(非繼承關係)
@@ -50,8 +51,6 @@ public  class serviceFragment extends Fragment implements
     private View actionHome;
     private Spinner spinner_serviceType;
     private Spinner spinner_serviceTime;
-    private String serviceType;
-    private String serviceTime;
     private EditText etDate;
     private EditText etAddress;
     private EditText etContactPerson;
@@ -60,7 +59,11 @@ public  class serviceFragment extends Fragment implements
     private String address;
     private String contact;
     private String phone;
-    private Bundle bundle;
+    Bundle bundle;
+    private final static String PREFERENCES_NAME = "preferences";
+    private SharedPreferences preferences;
+    private String serviceType;
+    private String serviceTime;
 
 
 
@@ -127,10 +130,12 @@ public  class serviceFragment extends Fragment implements
             }
         });
 
+
 // =================================== 選擇日期 ============================================
 
-//        showNow();
-        //設定限制選取的日期區間
+        showNow();
+
+        //選取日期
         ImageButton btnCalendar = view.findViewById(R.id.btnCalendar);
         btnCalendar.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog =
@@ -148,6 +153,7 @@ public  class serviceFragment extends Fragment implements
         });
 
 
+
         //右上角，回首頁
         view.findViewById(R.id.homepage_btn_service).setOnClickListener(v->{
             Navigation.findNavController(v).navigate(R.id.action_serviceFragment_to_indexFragment2);
@@ -159,7 +165,7 @@ public  class serviceFragment extends Fragment implements
         TextView btnToNewOrder = view.findViewById((R.id.btnToNewOrder));
         btnToNewOrder.setOnClickListener(v -> {
 
-            date = etDate.getText().toString().trim();
+
             address = etAddress.getText().toString().trim();
             contact = etContactPerson.getText().toString().trim();
             phone = etContactPhone.getText().toString().trim();
@@ -186,14 +192,15 @@ public  class serviceFragment extends Fragment implements
                 return;
 
             }
-//
+            bundle = new Bundle();
+            bundle.putString("startDate",date);
+            bundle.putString("address",address);
+            bundle.putString("contact",contact);
+            bundle.putString("phone",phone);
+            bundle.putString("serviceTime",serviceTime);
+            bundle.putString("serviceType",serviceType);
 
-            btnToNewOrder.setOnClickListener(v1 -> {
-                // bundle傳值有問題!!!!!!!!!!
-//                bundle.putString("serviceType",serviceType);
-//                bundle.putString("serviceTime",serviceTime);
-//                bundle.putString("startDate",date);
-                new AlertDialog.Builder(activity)
+            new AlertDialog.Builder(activity)
                         //設定標題
                         .setTitle("訂單確認")
                         //設定圖示
@@ -206,7 +213,6 @@ public  class serviceFragment extends Fragment implements
                         .setNegativeButton("No", (dialog, which) -> dialog.cancel())//關閉對話視窗
                         .setCancelable(false)//必須點擊按鈕方能關閉，預設為true
                         .show();
-            });
         });
     }//onViewCreated內
 
@@ -234,8 +240,10 @@ public  class serviceFragment extends Fragment implements
     /* 將指定的日期顯示在etTextView上。
   一月的值是0而非1，所以「month + 1」後才顯示 */
     private void updateDisplay() {
-        etDate.setText(new StringBuilder().append(year).append("-")
-                .append(pad(month + 1)).append("-").append(day));
+        date = new StringBuilder().append(year).append("-")
+                .append(pad(month + 1)).append("-").append(day).toString();
+        etDate.setText(date);
+
     }
 
     /* 若數字有十位數，直接顯示；
@@ -250,23 +258,25 @@ public  class serviceFragment extends Fragment implements
 
 
 
-    //><
-    @Override
-    public void onItemSelected(
-            AdapterView<?> parent, View view, int position, long id) {
-        tvMessage.setText(parent.getItemAtPosition(position).toString());
-        Log.d("selected", "已選擇服務");
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-        tvMessage.setText("請選擇服務!");
-        Log.d("noSelected", "請選擇服務");
-    }
+//    //><
+//    @Override
+//    public void onItemSelected(
+//            AdapterView<?> parent, View view, int position, long id) {
+//        tvMessage.setText(parent.getItemAtPosition(position).toString());
+//        Log.d("selected", "已選擇服務");
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//
+//        tvMessage.setText("請選擇服務!");
+//        Log.d("noSelected", "請選擇服務");
+//    }
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
     }
+
+
 }
