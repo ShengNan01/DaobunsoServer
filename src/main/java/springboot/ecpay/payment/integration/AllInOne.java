@@ -11,11 +11,11 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.extern.log4j.Log4j2;
 import springboot.ecpay.payment.integration.domain.ATMRequestObj;
 import springboot.ecpay.payment.integration.domain.AioCheckOutALL;
 import springboot.ecpay.payment.integration.domain.AioCheckOutATM;
@@ -51,31 +51,34 @@ import springboot.ecpay.payment.integration.verification.VerifyTradeNoAio;
  * @author mark.chiu
  *
  */
-@Log4j2
+
 @RestController
 public class AllInOne extends AllInOneBase{
 	
-//	private final static Logger log = Logger.getLogger(AllInOne.class.getName());
+	
+	public AllInOne() {
+		
+	}
+	
+	private final static Logger log = Logger.getLogger(AllInOne.class.getName());
 	
 	/**
 	 * AllInOne Constructor
 	 * 參數帶入log4j.properties的路徑，若帶入空字串則預設不產生log
 	 * @param log4jPropertiesPath
 	 */
-//	public AllInOne(String log4jPropertiesPath){
-//		super();
-//		if(log4jPropertiesPath != "" && log4jPropertiesPath != null){
-//			if(log4jPropertiesPath.substring(log4jPropertiesPath.length()-1) == "/")
-//				PropertyConfigurator.configure(log4jPropertiesPath + "log4j.properties");
-////				LoggerContext context = (org.apache.logging.log4j.core.LoggerContext) LogManager.getContext(false);
-////			File file = new File("path/to/a/different/log4j2.xml");
-//			
-//			else
-//				PropertyConfigurator.configure(log4jPropertiesPath + "/log4j.properties");
-//		} else{
-//			Logger.getRootLogger().setLevel(Level.OFF);
-//		}
-//	
+	public AllInOne(String log4jPropertiesPath){
+		super();
+		if(log4jPropertiesPath != "" && log4jPropertiesPath != null){
+			if(log4jPropertiesPath.substring(log4jPropertiesPath.length()-1) == "/")
+				PropertyConfigurator.configure(log4jPropertiesPath + "log4j.properties");			
+			else
+				PropertyConfigurator.configure(log4jPropertiesPath + "/log4j.properties");
+		} else{
+			    Logger.getRootLogger().setLevel(Level.OFF);
+			    System.out.println("QAQ");
+		}
+	}
 	
 	/**
 	 * 檢查Hashtable中的檢查碼是否正確(確保資料未被竄改)
