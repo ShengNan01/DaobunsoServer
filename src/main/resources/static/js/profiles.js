@@ -1,6 +1,6 @@
 const memberId = getCookieValueByName('id');
 mId = {
-        "member_Id": memberId
+        "memberId": memberId
 };
 
 let url = 'https://localhost/profiles';

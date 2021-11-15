@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 
 <head>
@@ -9,7 +10,7 @@
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/profiles.css">
   <script src="./js/jquery-3.6.0.js"></script>
-  <!-- <script src="./js/login.js"></script> -->
+
 
 </head>
 
@@ -35,9 +36,11 @@
         <div class=" col-8 mt-5 mx-auto  ">
           <label class="form-label" for="email">請輸入註冊信箱</label>
           <input class="form-control p-2 w-80 h-20" id="email" type="email" name="email" placeholder="請輸入信箱">
-
-          <div class=" text-center mx_auto my-3  mb-10">
-
+<!-- 		  <p th:text="${fail}" class="text-danger mt-2 text-center mx_auto"> -->
+<!-- 		  </p> -->
+			
+          <div class=" text-center mx_auto  mb-15">
+			
             <button type="submit" class=" btn btn-primary btn-lg " id="verify_email_btn">信箱驗證</button>
           </div>
         </div>
@@ -100,6 +103,7 @@
   crossorigin="anonymous"></script>
   <script src="js/logincheck.js"></script>
   <script src="./js/verify_email.js"></script>
+  <script th:if = "${fail} eq fail" th:src="@{./js/emailExpired_thymeleaf.js}"></script>
 </body>
 
 </html>

@@ -3,6 +3,7 @@ package springboot.util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,11 +17,18 @@ public class GlobalViewController {
 	RedisTemplate<Object, Object> redisTemplate;
 	@Autowired
 	public MailUtils mailutils;
+	
 	@Autowired
 	LoginRepo loginRepo;
-
+	
+	@Autowired
+	public changePasswordMailUtils	changePasswordMailUtils;
+	
+	@Autowired
+	public forgetPasswordMailUtils  forgetPasswordMailUtils;
+	
 	@GetMapping("/")
-	public String inde() {
+	public String index() {
 		return "frontpage";
 	}
 	
@@ -30,23 +38,37 @@ public class GlobalViewController {
 	}
 
 	@GetMapping("/change_password")
-	public String change_passwordPage() {
-		return "change_password";
+	public String activateMail(@RequestParam String emailToken ,Model model) throws Exception {
+		if (changePasswordMailUtils.balanceToken(emailToken)) {
+			System.out.println("成功!!!");
+			return "change_password";
+		}
+		System.out.println("失敗!!!");
+		model.addAttribute("fail" , "fail");
+		return "verify_email";
+
 	}
 
+	@GetMapping("/forgetPswd")
+	public String forgetPswdActiveMail(@RequestParam String emailToken , Model model) throws Exception {
+		if ( forgetPasswordMailUtils.balanceToken(emailToken)) {
+			System.out.println("成功!!!");
+			return "forgetPswd";
+		}
+		System.out.println("失敗!!!");
+		model.addAttribute("fail","fail");
+		return "forgetPswdEmail";
+	}
+	
 	@GetMapping("/feedback")
 	public String feedbackPage() {
 		return "feedback";
 	}
 
-	@GetMapping("/forget&change_pswd")
-	public String forgetchange_pswdPage() {
-		return "forget&change_pswd";
-	}
 
-	@GetMapping("/forget_password")
-	public String forget_passwordPage() {
-		return "forget_password";
+	@GetMapping("/forgetPswdEmail")
+	public String forgetPswdEmailPage() {
+		return "forgetPswdEmail";
 	}
 
 	@GetMapping("/frontpage")

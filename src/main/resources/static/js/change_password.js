@@ -50,7 +50,7 @@ function updateModal(title, massage) {
     $('#massage-content').text(massage);
 }
 
-let urlReg = 'https://localhost/Daobunso_Project/Change_pswd';
+let urlReg = 'https://localhost/Change_pswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
     e.preventDefault();
@@ -75,15 +75,15 @@ $('#change_btn').click(function (e) {
 
         const memberId = getCookieValueByName('id');
         changepswd = {
-            "Member_Id": memberId,
-            "Password": $('#ogpswd').val(),
-            "NewPassword": $('#pswdnew').val(),
+            "memberId": memberId,
+            "password": $('#ogpswd').val(),
+            "newPassword": $('#pswdnew').val(),
         };
         fetch('Change_pswd', {
-            //    fetch(urlReg,{
             method: 'POST',
             body: JSON.stringify(changepswd),
-            headers: { 'Content-Type': 'application/type' },
+//            headers: { 'Content-Type': 'application/type' },=>415error
+            headers: { 'Content-Type': 'application/json' },
         }).then(response => {
             response.text()
             .then(text=>{
@@ -95,7 +95,7 @@ $('#change_btn').click(function (e) {
                     })
     
                 } else if(text === "Fail") {
-                    updateModal("失敗!", "請重新輸入");
+                    updateModal("密碼更改失敗!", "請重新輸入原+密碼");
                     myModal.show();
                     return;
                 }
