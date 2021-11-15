@@ -31,7 +31,15 @@ public class GlobalViewController {
 	public String index() {
 		return "frontpage";
 	}
-	
+	@GetMapping("/header")
+	public String header() {
+		return "header";
+	}
+	@GetMapping("/footer")
+	public String footer() {
+		return "footer";
+	}
+
 	@GetMapping("/about_us")
 	public String about_usPage() {
 		return "about_us";

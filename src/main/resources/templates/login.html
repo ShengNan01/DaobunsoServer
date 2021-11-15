@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
-    <header>
-    </header>
+  <header>
+    <div th:replace="header :: header"></div>
+  </header>
     <nav>
-        <div id="nav_title">登入.註冊  Login.Register</div>
+        <div id="nav_title" th:text="#{login.title}">登入.註冊  Login.Register</div>
     </nav>
     <section>
             <div class="container">
@@ -96,6 +97,7 @@
         </ul>
     </section>
     <footer>
+      <div th:replace="footer :: footer">Footer</div>
     </footer>
 
     <!-- Modal -->

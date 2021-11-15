@@ -1,5 +1,9 @@
 package springboot;
 
+import java.util.Locale;
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +12,13 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+
+import springboot.language.MyLocaleResolver;
 
 /*
 Configuration配置文件
@@ -39,4 +49,71 @@ public class MVC_config implements WebMvcConfigurer {
         template.setDefaultSerializer(new GenericJackson2JsonRedisSerializer());
         return template;
     }
+	
+   @Bean
+	public LocaleResolver localeResolver () {
+		return new MyLocaleResolver();
+	}
+
+
+//       @Bean
+//       public LocaleResolver localeResolver() {
+//           // 也可以换成 SessionLocalResolver, 区别在于国际化的应用范围
+//           CookieLocaleResolver localeResolver = new CookieLocaleResolver();
+//           localeResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
+//           return localeResolver;
+//       }
+
+       @Bean
+       public LocaleChangeInterceptor localeChangeInterceptor() {
+           LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+           // Defaults to "locale" if not set
+           localeChangeInterceptor.setParamName("language");
+           return localeChangeInterceptor;
+       }
+
+       @Override
+       public void addInterceptors(InterceptorRegistry interceptorRegistry) {
+           interceptorRegistry.addInterceptor(localeChangeInterceptor());
+       }
+   
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+	
+//	//默認解析器 其中locale表示默認語言,當請求中未包含語種信息，則設置默認語種當前默認為TAIWAN, zh_TW
+//    @Bean
+//    @ConditionalOnMissingBean
+//    @ConditionalOnProperty(prefix = "spring.mvc", name = "locale")
+//    public LocaleResolver localeResolver() {
+//        SessionLocaleResolver slr = new SessionLocaleResolver();
+//        slr.setDefaultLocale(Locale.TAIWAN);
+//        return slr;
+//    }
+//    
+    //默認攔截器 其中lang表示切換語言的參數名
+//     @Bean
+//     public LocaleChangeInterceptor localeChangeInterceptor() {
+//         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
+//         lci.setParamName("lang");
+//         return lci;
+//     }
+     
+//     @Override
+//     public void addInterceptors(InterceptorRegistry registry){
+//         registry.addInterceptor(localeChangeInterceptor());
+//     }
+       
+     
 }

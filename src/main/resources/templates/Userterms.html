@@ -16,7 +16,8 @@
 <body>
     <!--上面設計-->
     <header>
-    </header>
+        <div th:replace="header :: header"></div>
+      </header>
 
     <nav>
         <div class="title">使用者條款 User Terms</div>
@@ -92,9 +93,9 @@
             <a href="./shopping">購物商城</a>
         </div>
     </main>
-
     <footer>
-    </footer>
+        <div th:replace="footer :: footer">Footer</div>
+      </footer>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

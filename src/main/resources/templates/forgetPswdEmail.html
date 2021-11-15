@@ -12,6 +12,7 @@
 </head>
 <body>
   <header>
+    <div th:replace="header :: header"></div>
   </header>
     <div id="nav_title">忘記密碼</div>
     <center><h2>請填寫以下資訊</h2></center>
@@ -56,8 +57,9 @@
       <a href="./shopping">購物商城</a>
   </div>
 
-<footer>
-</footer>
+  <footer>
+    <div th:replace="footer :: footer">Footer</div>
+  </footer>
 
  <!-- Modal -->
  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

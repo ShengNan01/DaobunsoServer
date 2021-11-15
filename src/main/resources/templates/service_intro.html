@@ -11,7 +11,8 @@
 
 <body>
     <header>
-    </header>
+        <div th:replace="header :: header"></div>
+      </header>
     <nav>
         <div id="nav_title">服務介紹 Service Introduction</div>
     </nav>
@@ -121,7 +122,8 @@
         <a href="./shopping">購物商城</a>
     </div>
     <footer>
-    </footer>
+        <div th:replace="footer :: footer">Footer</div>
+      </footer>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
