@@ -8,8 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface MemberRepository extends JpaRepository<MemberBean, Integer> {
 
-	
     MemberBean findByAccount(String account);
+    
+    MemberBean findByEmail(String email);
     
     @Query(value = "SELECT Password FROM member WHERE Member_Id = ?1 ",nativeQuery = true)
     String findPasswordById(Integer memberId );

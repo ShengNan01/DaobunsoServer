@@ -1,5 +1,8 @@
 package springboot.util;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -7,9 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.extern.log4j.Log4j2;
 import springboot.login.Login;
 import springboot.login.LoginRepo;
-
+@Log4j2
 @Controller
 public class GlobalViewController {
 
@@ -152,19 +156,25 @@ public class GlobalViewController {
 	}
 
 	@GetMapping("/activateMail")
-		public String activateMail(@RequestParam String emailToken) throws Exception {
+		public String activateMail(@RequestParam String emailToken, HttpServletResponse response) throws Exception {
 			if (mailutils.balanceToken(emailToken)) {
-				System.out.println("成功!!!");
+				log.info("認證成功!");
 				String member =  (String) redisTemplate.opsForValue().get(emailToken);
 				String[] strs=member.split(",|=");
 				String account = strs[5].toString().trim();
 				 Login bean = loginRepo.findLoginByAccount(account);
 				 bean.setVerification(1);
 				 loginRepo.save(bean);
-				return "verification";
+				 Cookie cookie = new Cookie("verification", "1"); 
+				 cookie.setMaxAge(7 * 24 * 60 * 60);
+				 response.addCookie(cookie);
+					 return "verification";
 			}
-			System.out.println("失敗!!!");
+			log.info("認證失敗!");
 			return "frontpage";
+			}
+	@GetMapping("/verification_email")
+	public String verificationEmail() {
+		return "verification_email";
 	}
-		
 }
