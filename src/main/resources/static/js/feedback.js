@@ -6,16 +6,17 @@ let ucomment = "";
 // let wdate = Date();
 
 //定義頁面
-const starimg = "./image/service_intro/starEmpty.png";
+
 
 let uimgsrc = "./image/service_intro/holo/pekora.png";
 let uname = getCookieValueByName("name");
-let sstarimg = "./image/service_intro/starClicked.png";
+const starimg = "./image/service_intro/starEmpty.png";
+const hoverstar = "./image/service_intro/star.png";
+const sstarimg = "./image/service_intro/starClicked.png";
 
 //頁面初始化
 $('.feedback').hide();
 $('.user-img img').attr('src', uimgsrc);
-$('.star img').attr('src', starimg);
 $('.user-name h2').text(uname);
 
 //觀看意見領域
@@ -79,10 +80,14 @@ $('#btn-ex').click(function () {
 $('#btn-list').click(function () {
     // 數值init
     oid = 0;
-    getstar = 0;
     ucomment = "";
     $('#feedback-comment').val("");
     $('#feedback-id').hide();
+    $('#star1 img').attr('src', starimg);
+    $('#star2 img').attr('src', starimg);
+    $('#star3 img').attr('src', starimg);
+    $('#star4 img').attr('src', starimg);
+    $('#star5 img').attr('src', starimg);
     // ~數值init
     $('.feedback').hide();
     $('#btn-ex').removeClass("tog");
@@ -110,20 +115,12 @@ $('#btn-list').click(function () {
                             oid = res[key].objectid;
                             ucomment = res[key].comment;
                             getstar = res[key].star;
-
                             $('.feedback').show();
                             $('#feedback-comment').val(ucomment);
                             $('#feedback-id h2').text(oid);
                             $('#feedback-id').show();
-                            // 按鈕響應
-                            $('.btn-edit').toggleClass('tog');
-                            if ($('.btn-edit').hasClass('tog')) {
-                              
-                            } else {
-                               
-                            }
-                            // ~按鈕響應
 
+                            $('#star' + getstar).addClass('star-cl');
 
                         },
                         del: (key) => {
@@ -167,7 +164,7 @@ $('#btn-feedback').click(() => {
             });
 
         } else {
-            console.log("項目不完整!");
+            alert("項目不完整!");
         }
     } else {
         ucomment = $('#feedback-comment').val();
@@ -188,106 +185,174 @@ $('#btn-feedback').click(() => {
             });
 
         } else {
-            console.log("項目不完整!!");
+            alert("項目不完整!!");
         }
 
     }
 });
 //~意見送出按鈕
 //star
-{
-    $('.star1').hover(() => {
-        $('.star1').addClass('star-act')
+
+// setTimeout(listenstar(),1000)
+$('#stars').hover(() => {
+    // listenstar(()=>{
+    if ($('#star5').hasClass('star-cl')) {
+        $('#star1 img').attr('src', sstarimg);
+        $('#star2 img').attr('src', sstarimg);
+        $('#star3 img').attr('src', sstarimg);
+        $('#star4 img').attr('src', sstarimg);
+        $('#star5 img').attr('src', sstarimg);
+    } else if ($('#star4').hasClass('star-cl')) {
+        $('#star1 img').attr('src', sstarimg);
+        $('#star2 img').attr('src', sstarimg);
+        $('#star3 img').attr('src', sstarimg);
+        $('#star4 img').attr('src', sstarimg);
+        $('#star5 img').attr('src', starimg);
+    } else if ($('#star3').hasClass('star-cl')) {
+        $('#star1 img').attr('src', sstarimg);
+        $('#star2 img').attr('src', sstarimg);
+        $('#star3 img').attr('src', sstarimg);
+        $('#star4 img').attr('src', starimg);
+        $('#star5 img').attr('src', starimg);
+    } else if ($('#star2').hasClass('star-cl')) {
+        $('#star1 img').attr('src', sstarimg);
+        $('#star2 img').attr('src', sstarimg);
+        $('#star3 img').attr('src', starimg);
+        $('#star4 img').attr('src', starimg);
+        $('#star5 img').attr('src', starimg);
+    } else if ($('#star1').hasClass('star-cl')) {
+        $('#star1 img').attr('src', sstarimg);
+        $('#star2 img').attr('src', starimg);
+        $('#star3 img').attr('src', starimg);
+        $('#star4 img').attr('src', starimg);
+        $('#star5 img').attr('src', starimg);
+    } else {
+        $('#star1 img').attr('src', starimg);
+        $('#star2 img').attr('src', starimg);
+        $('#star3 img').attr('src', starimg);
+        $('#star4 img').attr('src', starimg);
+        $('#star5 img').attr('src', starimg);
+    }
+    $('#star1').hover(() => {
+        $('#star1').addClass('star-act');
+        $('#star1 img').attr('src', sstarimg);
     }, () => {
-        $('.star1').removeClass('star-act')
+        $('#star1').removeClass('star-act');
+        $('#star1 img').attr('src', starimg);
     });
-    $('.star1').click(() => {
-        $('.star1').addClass('star-cl');
-        $('.star2').removeClass('star-cl');
-        $('.star3').removeClass('star-cl');
-        $('.star4').removeClass('star-cl');
-        $('.star5').removeClass('star-cl');
+    $('#star1').click(() => {
+        $('#star1').addClass('star-cl');
+        $('#star2').removeClass('star-cl');
+        $('#star3').removeClass('star-cl');
+        $('#star4').removeClass('star-cl');
+        $('#star5').removeClass('star-cl');
         getstar = 1;
     });
-
-    $('.star2').hover(() => {
-        $('.star1').addClass('star-act');
-        $('.star2').addClass('star-act');
-    },
-        () => {
-            $('.star1').removeClass('star-act');
-            $('.star2').removeClass('star-act');
-        });
-    $('.star2').click(() => {
-        $('.star1').addClass('star-cl');
-        $('.star2').addClass('star-cl');
-        $('.star3').removeClass('star-cl');
-        $('.star4').removeClass('star-cl');
-        $('.star5').removeClass('star-cl');
+    $('#star2').hover(() => {
+        $('#star1').addClass('star-act');
+        $('#star2').addClass('star-act');
+        $('#star1 img').attr('src', sstarimg);
+        $('#star2 img').attr('src', sstarimg);
+    }, () => {
+        $('#star1').removeClass('star-act');
+        $('#star2').removeClass('star-act');
+        $('#star1 img').attr('src', starimg);
+        $('#star2 img').attr('src', starimg);
+    });
+    $('#star2').click(() => {
+        $('#star1').addClass('star-cl');
+        $('#star2').addClass('star-cl');
+        $('#star3').removeClass('star-cl');
+        $('#star4').removeClass('star-cl');
+        $('#star5').removeClass('star-cl');
         getstar = 2;
     });
+    $('#star3').hover(() => {
+        $('#star1').addClass('star-act');
+        $('#star2').addClass('star-act');
+        $('#star3').addClass('star-act');
+        $('#star1 img').attr('src', sstarimg);
+        $('#star2 img').attr('src', sstarimg);
+        $('#star3 img').attr('src', sstarimg);
+    }, () => {
+        $('#star1').removeClass('star-act');
+        $('#star2').removeClass('star-act');
+        $('#star3').removeClass('star-act');
+        $('#star1 img').attr('src', starimg);
+        $('#star2 img').attr('src', starimg);
+        $('#star3 img').attr('src', starimg);
+    });
+    $('#star3').click(() => {
+        $('#star1').addClass('star-cl');
+        $('#star2').addClass('star-cl');
+        $('#star3').addClass('star-cl');
+        $('#star4').removeClass('star-cl');
+        $('#star5').removeClass('star-cl');
 
-    $('.star3').hover(() => {
-        $('.star1').addClass('star-act');
-        $('.star2').addClass('star-act');
-        $('.star3').addClass('star-act');
-    },
-        () => {
-            $('.star1').removeClass('star-act');
-            $('.star2').removeClass('star-act');
-            $('.star3').removeClass('star-act');
-        });
-    $('.star3').click(() => {
-        $('.star1').addClass('star-cl');
-        $('.star2').addClass('star-cl');
-        $('.star3').addClass('star-cl');
-        $('.star4').removeClass('star-cl');
-        $('.star5').removeClass('star-cl');
         getstar = 3;
     });
+    $('#star4').hover(() => {
+        $('#star1').addClass('star-act');
+        $('#star2').addClass('star-act');
+        $('#star3').addClass('star-act');
+        $('#star4').addClass('star-act');
+        $('#star1 img').attr('src', sstarimg);
+        $('#star2 img').attr('src', sstarimg);
+        $('#star3 img').attr('src', sstarimg);
+        $('#star4 img').attr('src', sstarimg);
 
-    $('.star4').hover(() => {
-        $('.star1').addClass('star-act');
-        $('.star2').addClass('star-act');
-        $('.star3').addClass('star-act');
-        $('.star4').addClass('star-act');
-    },
-        () => {
-            $('.star1').removeClass('star-act');
-            $('.star2').removeClass('star-act');
-            $('.star3').removeClass('star-act');
-            $('.star4').removeClass('star-act');
-        });
-    $('.star4').click(() => {
-        $('.star1').addClass('star-cl');
-        $('.star2').addClass('star-cl');
-        $('.star3').addClass('star-cl');
-        $('.star4').addClass('star-cl');
-        $('.star5').removeClass('star-cl');
+    }, () => {
+        $('#star1').removeClass('star-act');
+        $('#star2').removeClass('star-act');
+        $('#star3').removeClass('star-act');
+        $('#star4').removeClass('star-act');
+        $('#star1 img').attr('src', starimg);
+        $('#star2 img').attr('src', starimg);
+        $('#star3 img').attr('src', starimg);
+        $('#star4 img').attr('src', starimg);
+        $('#star5 img').attr('src', starimg);
+    });
+    $('#star4').click(() => {
+        $('#star1').addClass('star-cl');
+        $('#star2').addClass('star-cl');
+        $('#star3').addClass('star-cl');
+        $('#star4').addClass('star-cl');
+        $('#star5').removeClass('star-cl');
         getstar = 4;
     });
+    $('#star5').hover(() => {
+        $('#star1').addClass('star-act');
+        $('#star2').addClass('star-act');
+        $('#star3').addClass('star-act');
+        $('#star4').addClass('star-act');
+        $('#star5').addClass('star-act');
+        $('#star1 img').attr('src', sstarimg);
+        $('#star2 img').attr('src', sstarimg);
+        $('#star3 img').attr('src', sstarimg);
+        $('#star4 img').attr('src', sstarimg);
+        $('#star5 img').attr('src', sstarimg);
 
-    $('.star5').hover(() => {
-        $('.star1').addClass('star-act');
-        $('.star2').addClass('star-act');
-        $('.star3').addClass('star-act');
-        $('.star4').addClass('star-act');
-        $('.star5').addClass('star-act');
-    },
-        () => {
-            $('.star1').removeClass('star-act');
-            $('.star2').removeClass('star-act');
-            $('.star3').removeClass('star-act');
-            $('.star4').removeClass('star-act');
-            $('.star5').removeClass('star-act');
-        });
-    $('.star5').click(() => {
-        $('.star1').addClass('star-cl');
-        $('.star2').addClass('star-cl');
-        $('.star3').addClass('star-cl');
-        $('.star4').addClass('star-cl');
-        $('.star5').addClass('star-cl');
+    }, () => {
+        $('#star1').removeClass('star-act');
+        $('#star2').removeClass('star-act');
+        $('#star3').removeClass('star-act');
+        $('#star4').removeClass('star-act');
+        $('#star5').removeClass('star-act');
+        $('#star1 img').attr('src', starimg);
+        $('#star2 img').attr('src', starimg);
+        $('#star3 img').attr('src', starimg);
+        $('#star4 img').attr('src', starimg);
+        $('#star5 img').attr('src', starimg);
+    });
+    $('#star5').click(() => {
+        $('#star1').addClass('star-cl');
+        $('#star2').addClass('star-cl');
+        $('#star3').addClass('star-cl');
+        $('#star4').addClass('star-cl');
+        $('#star5').addClass('star-cl');
         getstar = 5;
     });
-}
+})
+
+
 //~star

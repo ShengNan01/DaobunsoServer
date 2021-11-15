@@ -103,12 +103,25 @@ a.nav-link:hover {
     line-height: 3rem;
 }
 
-.star-act{
-    background-color: yellow;
-}
-.star-cl{
-    background-color: darkgoldenrod;
-}
+
+#sec_area_8 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  #sec_area_8 a {
+    text-decoration: none;
+    padding: 0 0.75rem;
+    font-size: 1.25rem;
+    color: #000;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  #sec_area_8 a:hover {
+    color: #3EB595;
+    font-weight: 700;
+  }
 
 /* footer */
 footer {
