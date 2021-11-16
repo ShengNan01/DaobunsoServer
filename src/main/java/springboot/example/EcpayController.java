@@ -23,7 +23,7 @@
 //	@Autowired
 //	public ExampleAllInOne exampleAllInOne;
 //	@Autowired
-////	public PaymentRopository paymentRepository; 
+//	public PaymentRopository paymentRepository; 
 //	
 //	@GetMapping("/payment/{id}/{account}")
 //	public String ecpaymentInfo ( Model model , @PathVariable("id") Integer id ,
