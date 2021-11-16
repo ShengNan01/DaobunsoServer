@@ -97,11 +97,6 @@
     <a href="./service" th:text="#{order.service}">購買服務</a>
     <a href="./shopping" th:text="#{order.shoppingMall}">購物商城</a>  
   </div>
-  
-  <div style="text-align: center; margin-bottom: 1.5rem;">    
-        <a id="btn-tw"class="btn btn-cl" th:href="@{/order_main(l='zh_TW')}">中文</a>
-        <a id="btn-en"class=" btn btn-cl" th:href="@{/order_main(l='en_US')}">English</a>
-  </div>
 
 
   <footer>
@@ -110,7 +105,7 @@
 
   <script src="./js/jquery-3.6.0.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script th:src="@{./js/logincheck.js}"></script>
+  <script th:src="@{./js/common.js}"></script>
   <script src="./js/order_main.js"></script>
 </body>
 
