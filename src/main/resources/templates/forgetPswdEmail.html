@@ -1,86 +1,93 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>忘記密碼</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/forget_password.css">
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>忘記密碼</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/forget_password.css">
+
 </head>
+
 <body>
   <header>
     <div th:replace="header :: header"></div>
   </header>
-    <div id="nav_title">忘記密碼</div>
-    <center><h2>請填寫以下資訊</h2></center>
-    <center><h2>我們將寄送更改密碼信件給您</h2></center>
-    <hr>
-    <div class="container">
-        <table class="cart_table table table-hover">
-           
-            <tbody class="cart_table_body" id="order_main">
-              <center>
-              <div>
-              <form>
-                <div class=" col-sm-4 ">
-                  <label for="exampleInputEmail1" class="form-label" style="margin-top: 20px;">ACCOUNT 請輸入您的帳號*</label>
-                  <input type="text" class="form-control" id="forgetPasswordAccount" aria-describedby="emailHelp">
-                  
-                </div>
-                <div class=" col-sm-4 ">
-                  <label for="exampleInputPassword1" class="form-label" style="margin-top: 20px;">Email 請輸入您的信箱*</label>
-                  <input type="email" class="form-control" id="forgetPasswordEmail">
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="margin-top: 20px;" id="submit">Submit</button>
-              </form>
-            </div>
-          </center>
-         
-            </tbody>
-        </table>        
-    </div>
-    <center>
-      <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;"> <br>
-      <hr style="width:90%;"> <br>
+  <div id="nav_title">忘記密碼</div>
+  <center>
+    <h2>請填寫以下資訊</h2>
+  </center>
+  <center>
+    <h2>我們將寄送更改密碼信件給您</h2>
+  </center>
+  <hr>
+  <div class="container">
+    <table class="cart_table table table-hover">
+
+      <tbody class="cart_table_body" id="order_main">
+        <center>
+          <div>
+            <form>
+              <div class=" col-sm-4 ">
+                <label for="exampleInputEmail1" class="form-label" style="margin-top: 20px;">ACCOUNT 請輸入您的帳號*</label>
+                <input type="text" class="form-control" id="forgetPasswordAccount" aria-describedby="emailHelp">
+
+              </div>
+              <div class=" col-sm-4 ">
+                <label for="exampleInputPassword1" class="form-label" style="margin-top: 20px;">Email 請輸入您的信箱*</label>
+                <input type="email" class="form-control" id="forgetPasswordEmail">
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top: 20px;" id="submit">Submit</button>
+            </form>
+          </div>
+        </center>
+
+      </tbody>
+    </table>
+  </div>
+  <center>
+    <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;"> <br>
+    <hr style="width:90%;"> <br>
   </center>
   <div id="sec_area_8">
-      <a href="./about_us">關於我們</a>
-      <a href="./service_intro">服務介紹</a>
-      <a href="./Userterms">使用須知</a>
-      <a href="./problem">常見問題</a>
-      <a href="./feedback">使用回饋</a>
-      <a href="./service">購買服務</a>
-      <a href="./shopping">購物商城</a>
+    <a href="./about_us">關於我們</a>
+    <a href="./service_intro">服務介紹</a>
+    <a href="./Userterms">使用須知</a>
+    <a href="./problem">常見問題</a>
+    <a href="./feedback">使用回饋</a>
+    <a href="./service">購買服務</a>
+    <a href="./shopping">購物商城</a>
   </div>
 
   <footer>
     <div th:replace="footer :: footer">Footer</div>
   </footer>
 
- <!-- Modal -->
- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-title"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="massage-content">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="massage-content">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
-  </div>
 
-<script src="./js/jquery-3.6.0.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/common.js"></script> 
-<script src="./js/forgetPswdEmail.js"></script>
-<script th:if = "${fail} eq fail" th:src="@{./js/emailExpired_thymeleaf.js}"></script>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="./js/forgetPswdEmail.js"></script>
+    <script th:if="${fail} eq fail" th:src="@{./js/emailExpired_thymeleaf.js}"></script>
 </body>
+
 </html>

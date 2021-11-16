@@ -25,8 +25,8 @@ $("#verify_email_btn").click(function () {
                     if (text === "Success") {
                         updateModal("發送郵件成功!", "請至信箱收取驗證信件。");
                         myModal.show();
-                        $('.modal-footer>button').click(function(){
-                            location.href='./frontpage';
+                        $('.modal-footer>button').click(function () {
+                            location.href = './frontpage';
                         })
                     } else if (text === "Fail") {
                         updateModal("Oops!", "必須輸入此帳號註冊時的電子信箱");
@@ -41,13 +41,13 @@ $("#verify_email_btn").click(function () {
 function updateModal(title, massage) {
     $('#modal-title').text(title);
     $('#massage-content').text(massage);
-    }
+}
 // reset modal when modal was hidden
 let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function() {
-    updateModal("","");
+myModalEl.addEventListener('hidden.bs.modal', function () {
+    updateModal("", "");
 })
 //跳頁
-function nextPage(){
+function nextPage() {
     location.href = "https://localhost/"
 }

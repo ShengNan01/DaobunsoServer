@@ -2,49 +2,49 @@ let myModal = new bootstrap.Modal(document.getElementById('myModal'))
 let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'))
 
 function updateModal(title, massage) {
-$('.modal-title').text(title);
-$('.modal-body').text(massage);
+    $('.modal-title').text(title);
+    $('.modal-body').text(massage);
 }
 $('#payment_btn').click(function () {
-    if(getCookieByName("LoginOK")!=null) {
+    if (getCookieByName("LoginOK") != null) {
         updateModal("Final Check!", "確定要結帳了嗎？");
         paymentModal.show();
-        $("#paymentOK").click(function () { 
-            location.href='./payment'; 
+        $("#paymentOK").click(function () {
+            location.href = './payment';
         });
     } else {
         // alert("請先登入會員")
         updateModal("Oops!", "請先登入會員！");
         myModal.show();
-        $('.modal-footer>button').click(function(){
-            location.href='./login';
-        }) 
+        $('.modal-footer>button').click(function () {
+            location.href = './login';
+        })
     }
 });
 // reset modal when modal was hidden
 let myModalEl = document.getElementById('myModal')
 myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("","");
+    updateModal("", "");
 })
 
-$(function(){
+$(function () {
     tbody = $('tbody');
     jsonData = JSON.parse(localStorage.getItem('cart'));
-    
+
     // console.log(jsonData.length);
     total = 0;
-    for(let i = 0; i < jsonData.length; i++){
+    for (let i = 0; i < jsonData.length; i++) {
         createCartList(i);
-        if(jsonData[i].type == "service"){
+        if (jsonData[i].type == "service") {
             itemPrice = parseInt(jsonData[i].price);
         } else {
             itemPrice = parseInt(jsonData[i].price) * parseInt(jsonData[i].amount);
-        } 
+        }
         total += itemPrice;
     }
     $('#total').text(total);
 })
-function createCartList(i){
+function createCartList(i) {
     let itemTr = document.createElement('tr');
     tbody.append(itemTr);
 
@@ -65,30 +65,30 @@ function createCartList(i){
     let dateSpan = document.createElement('span');
     dateSpan.innerText = jsonData[i].date;
     dateTd.appendChild(dateSpan);
-    itemTr.appendChild(dateTd); 
+    itemTr.appendChild(dateTd);
 
     let timeTd = document.createElement('td');
     let timeSpan = document.createElement('span');
     timeSpan.innerText = jsonData[i].timeframe;
     timeTd.appendChild(timeSpan);
-    itemTr.appendChild(timeTd); 
+    itemTr.appendChild(timeTd);
 
     let numTd = document.createElement('td');
-    if(jsonData[i].type == "service"){
+    if (jsonData[i].type == "service") {
         numTd.innerText = 1;
     } else {
         let numInput = document.createElement('input');
         numInput.type = 'number';
         numInput.value = jsonData[i].amount;
         numInput.min = 1;
-        numInput.addEventListener('input',changItemCount);
+        numInput.addEventListener('input', changItemCount);
         numTd.appendChild(numInput);
     }
-    itemTr.appendChild(numTd); 
+    itemTr.appendChild(numTd);
 
     let priceTd = document.createElement('td');
     let priceSpan = document.createElement('span');
-    if(jsonData[i].type == "service"){
+    if (jsonData[i].type == "service") {
         priceSpan.innerText = jsonData[i].price;
     } else {
         priceSpan.innerText = jsonData[i].price * jsonData[i].amount;
@@ -100,7 +100,7 @@ function createCartList(i){
     let delBtn = document.createElement('button');
     delBtn.className = 'btn btn-primary btn-sm text-light btn_delete';
     delBtn.innerText = '刪除';
-    delBtn.addEventListener('click',deleteItem);
+    delBtn.addEventListener('click', deleteItem);
     delTd.appendChild(delBtn);
     itemTr.appendChild(delTd);
 }
@@ -125,10 +125,10 @@ function changItemCount() {
     // console.log(total);
     $('#total').text(total);
 }
-function deleteItem(){
+function deleteItem() {
     let index = this.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.id;
     // console.log(index);
-    let delCount =  $(this).parent().prev().first().text();
+    let delCount = $(this).parent().prev().first().text();
     // console.log(delCount);
     total -= delCount;
     $('#total').text(total);
@@ -136,5 +136,5 @@ function deleteItem(){
     // console.log(jsonData);
     localStorage.setItem('cart', JSON.stringify(jsonData));
     tbody.remove($(this).parent().parent());
-    location.reload(); 
+    location.reload();
 }

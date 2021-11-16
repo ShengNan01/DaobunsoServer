@@ -1,12 +1,12 @@
 let myModal = new bootstrap.Modal(document.getElementById('myModal'))
 
 function updateModal(title, massage) {
-$('#modal-title').text(title);
-$('#massage-content').text(massage);
+    $('#modal-title').text(title);
+    $('#massage-content').text(massage);
 }
 
-$(function() {
-    $( "#mydate" ).datepicker({ minDate: 0, maxDate: "+3M", dateFormat: 'yy-mm-dd' });
+$(function () {
+    $("#mydate").datepicker({ minDate: 0, maxDate: "+3M", dateFormat: 'yy-mm-dd' });
 });
 const btn = document.getElementById('save_cart_btn');
 const timeframe = document.getElementById('inputGroupSelect01')
@@ -24,7 +24,7 @@ btn.onclick = function () {
     // alert("已加入購物車");
     updateModal("Thanks!", "已加入購物車囉！");
     myModal.show();
-           
+
     cart.push({
         type: "service",
         image: "",
@@ -40,5 +40,5 @@ btn.onclick = function () {
 // reset modal when modal was hidden
 let myModalEl = document.getElementById('myModal')
 myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("","");
+    updateModal("", "");
 })

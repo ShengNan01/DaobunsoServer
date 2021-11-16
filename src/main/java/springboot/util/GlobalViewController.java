@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import lombok.extern.log4j.Log4j2;
 import springboot.login.Login;
 import springboot.login.LoginRepo;
+
 @Log4j2
 @Controller
 public class GlobalViewController {
@@ -21,24 +22,26 @@ public class GlobalViewController {
 	RedisTemplate<Object, Object> redisTemplate;
 	@Autowired
 	public MailUtils mailutils;
-	
+
 	@Autowired
 	LoginRepo loginRepo;
-	
+
 	@Autowired
-	public changePasswordMailUtils	changePasswordMailUtils;
-	
+	public changePasswordMailUtils changePasswordMailUtils;
+
 	@Autowired
-	public forgetPasswordMailUtils  forgetPasswordMailUtils;
-	
+	public forgetPasswordMailUtils forgetPasswordMailUtils;
+
 	@GetMapping("/")
 	public String index() {
 		return "frontpage";
 	}
+
 	@GetMapping("/header")
 	public String header() {
 		return "header";
 	}
+
 	@GetMapping("/footer")
 	public String footer() {
 		return "footer";
@@ -50,33 +53,32 @@ public class GlobalViewController {
 	}
 
 	@GetMapping("/change_password")
-	public String activateMail(@RequestParam String emailToken ,Model model) throws Exception {
+	public String activateMail(@RequestParam String emailToken, Model model) throws Exception {
 		if (changePasswordMailUtils.balanceToken(emailToken)) {
 			System.out.println("成功!!!");
 			return "change_password";
 		}
 		System.out.println("失敗!!!");
-		model.addAttribute("fail" , "fail");
+		model.addAttribute("fail", "fail");
 		return "verify_email";
 
 	}
 
 	@GetMapping("/forgetPswd")
-	public String forgetPswdActiveMail(@RequestParam String emailToken , Model model) throws Exception {
-		if ( forgetPasswordMailUtils.balanceToken(emailToken)) {
+	public String forgetPswdActiveMail(@RequestParam String emailToken, Model model) throws Exception {
+		if (forgetPasswordMailUtils.balanceToken(emailToken)) {
 			System.out.println("成功!!!");
 			return "forgetPswd";
 		}
 		System.out.println("失敗!!!");
-		model.addAttribute("fail","fail");
+		model.addAttribute("fail", "fail");
 		return "forgetPswdEmail";
 	}
-	
+
 	@GetMapping("/feedback")
 	public String feedbackPage() {
 		return "feedback";
 	}
-
 
 	@GetMapping("/forgetPswdEmail")
 	public String forgetPswdEmailPage() {
@@ -92,7 +94,7 @@ public class GlobalViewController {
 	public String loginPage() {
 		return "login";
 	}
-	
+
 	@GetMapping("/maptest")
 	public String maptest() {
 		return "maptest";
@@ -169,23 +171,24 @@ public class GlobalViewController {
 	}
 
 	@GetMapping("/activateMail")
-		public String activateMail(@RequestParam String emailToken, HttpServletResponse response) throws Exception {
-			if (mailutils.balanceToken(emailToken)) {
-				log.info("認證成功!");
-				String member =  (String) redisTemplate.opsForValue().get(emailToken);
-				String[] strs=member.split(",|=");
-				String account = strs[5].toString().trim();
-				 Login bean = loginRepo.findLoginByAccount(account);
-				 bean.setVerification(1);
-				 loginRepo.save(bean);
-				 Cookie cookie = new Cookie("verification", "1"); 
-				 cookie.setMaxAge(7 * 24 * 60 * 60);
-				 response.addCookie(cookie);
-					 return "verification";
-			}
-			log.info("認證失敗!");
-			return "frontpage";
-			}
+	public String activateMail(@RequestParam String emailToken, HttpServletResponse response) throws Exception {
+		if (mailutils.balanceToken(emailToken)) {
+			log.info("認證成功!");
+			String member = (String) redisTemplate.opsForValue().get(emailToken);
+			String[] strs = member.split(",|=");
+			String account = strs[5].toString().trim();
+			Login bean = loginRepo.findLoginByAccount(account);
+			bean.setVerification(1);
+			loginRepo.save(bean);
+			Cookie cookie = new Cookie("verification", "1");
+			cookie.setMaxAge(7 * 24 * 60 * 60);
+			response.addCookie(cookie);
+			return "verification";
+		}
+		log.info("認證失敗!");
+		return "frontpage";
+	}
+
 	@GetMapping("/verification_email")
 	public String verificationEmail() {
 		return "verification_email";

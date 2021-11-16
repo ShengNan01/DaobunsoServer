@@ -1,6 +1,5 @@
 package springboot.payment.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,25 +13,18 @@ import springboot.payment.repository.ProductRepository;
 @Controller
 public class OrderContoller {
 
-    @Autowired
-    private CustomerRepository customerRepository;
-    @Autowired
-    private ProductRepository productRepository;
+	@Autowired
+	private CustomerRepository customerRepository;
+	@Autowired
+	private ProductRepository productRepository;
 
-
-
-
-    @ResponseBody
-    @PostMapping("/placeOrder2")
-    public user placeOrder(@RequestBody user request) {
+	@ResponseBody
+	@PostMapping("/placeOrder2")
+	public user placeOrder(@RequestBody user request) {
 //        user userA = new user();
-        return customerRepository.save(request);
+		return customerRepository.save(request);
 //        userA.setOrderId(request.getOrderId());
 
-
-    }
-
-
-
+	}
 
 }

@@ -21,7 +21,7 @@ public class RegisterController {
 
 	@Autowired
 	RedisTemplate<Object, Object> redisTemplate;
-	
+
 	@Autowired
 	public MailUtils mailutils;
 	@Autowired
@@ -43,22 +43,23 @@ public class RegisterController {
 			return "註冊成功，請重新登入";
 		}
 	}
-	
-    @Autowired
+
+	@Autowired
 	LoginRepo loginRepo;
-    @PostMapping("/app/reg")
-    public String appInsert(@RequestBody @Valid MemberBean member) {
-        String account = member.getAccount();
-        if(memberRepository.findByAccount(account) != null){
-            return "已有重複帳號，請更改";
-        } else {
-            String enPswd = GlobalService.encryptString(member.getPassword());
-            Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());
-            member.setPassword(enPswd);
-            member.setJoin_Date(ts);
-            memberRepository.save(member);
-            String memberId = loginRepo.findMemberIdByAccount(account).toString();
-            return "註冊成功，請重新登入"+"-"+memberId;
-        }
-    }
+
+	@PostMapping("/app/reg")
+	public String appInsert(@RequestBody @Valid MemberBean member) {
+		String account = member.getAccount();
+		if (memberRepository.findByAccount(account) != null) {
+			return "已有重複帳號，請更改";
+		} else {
+			String enPswd = GlobalService.encryptString(member.getPassword());
+			Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());
+			member.setPassword(enPswd);
+			member.setJoin_Date(ts);
+			memberRepository.save(member);
+			String memberId = loginRepo.findMemberIdByAccount(account).toString();
+			return "註冊成功，請重新登入" + "-" + memberId;
+		}
+	}
 }

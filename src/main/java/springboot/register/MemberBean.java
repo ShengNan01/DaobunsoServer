@@ -28,33 +28,33 @@ public class MemberBean {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column (name = "Member_Id")
+	@Column(name = "Member_Id")
 	Integer memberId;
 
 	@NotBlank
-	@Column (name = "Email")
+	@Column(name = "Email")
 	String email;
 
 	@NotBlank
-	@Column (name = "Account")
+	@Column(name = "Account")
 	String account;
 
 	@NotBlank
-	@Column (name = "Password")
+	@Column(name = "Password")
 	String password;
 
 	@NotBlank
-	@Column (name = "Member_name")
+	@Column(name = "Member_name")
 	String member_name;
 
-	@Column (name = "Join_Date")
+	@Column(name = "Join_Date")
 	Timestamp join_Date;
 
 	@Transient
-	@Column (name = "NewPassword")
+	@Column(name = "NewPassword")
 	String newPassword;
-	
-	@Column(name="verification")
+
+	@Column(name = "verification")
 	private Integer verification;
 //	public String getNewPassword() {
 //		return NewPassword;
@@ -127,5 +127,4 @@ public class MemberBean {
 //		this.join_Date = join_Date;
 //	}
 
-	
 }

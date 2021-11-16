@@ -13,11 +13,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 //@EnableAutoConfiguration
 @SpringBootApplication
 public class bootMainApp {
-	public static void main(String[] args) //1.IOC練習 throws IOException
+	public static void main(String[] args) // 1.IOC練習 throws IOException
 	{
-		//IOC容器 (Inversion of Control 控制反轉)
-		ConfigurableApplicationContext run =  SpringApplication.run(bootMainApp.class, args);
-		
+		// IOC容器 (Inversion of Control 控制反轉)
+		ConfigurableApplicationContext run = SpringApplication.run(bootMainApp.class, args);
+
 //		顯示所有被boot管控的bean
 //		String[] names = run.getBeanDefinitionNames();
 //		for(String name:names) {

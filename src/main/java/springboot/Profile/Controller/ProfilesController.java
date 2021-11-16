@@ -82,7 +82,7 @@ public class ProfilesController {
 		System.out.println(memberEmail);
 		Boolean existEmail = memberRepository.existsByEmail(memberEmail);
 		System.out.println(existEmail);
-		
+
 		if (existEmail && memberEmail.equals(member.getEmail())) {
 			MemberBean members = memberRepository.findByEmail(member.getEmail());
 			log.info("寄送驗證信");

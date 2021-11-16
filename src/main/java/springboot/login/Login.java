@@ -22,27 +22,27 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="member")
+@Table(name = "member")
 public class Login {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="Member_Id")
+	@Column(name = "Member_Id")
 	private Integer id;
 
-	@Column(name="Member_name")
+	@Column(name = "Member_name")
 	private String name;
 
-	@Column(name="Email")
+	@Column(name = "Email")
 	private String email;
 
-	@Column(name="Account")
+	@Column(name = "Account")
 	private String account;
 
-	@Column(name="Password")
+	@Column(name = "Password")
 	private String password;
-	
-	@Column(name="verification")
+
+	@Column(name = "verification")
 	private Integer verification;
 
 }

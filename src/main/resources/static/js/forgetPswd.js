@@ -21,46 +21,46 @@ $('#change_btn').click(function (e) {
         updateModal("密碼輸入不相符!", "兩次輸入的新密碼不相符，請重新輸入！");
         myModal.show();
         return;
-    } else if ( $('#pswdnew').val() === ""|| $('#confpswd').val() === "") {
+    } else if ($('#pswdnew').val() === "" || $('#confpswd').val() === "") {
         updateModal("Oops!", "有欄位未填寫，請檢查！！");
         myModal.show();
         return;
-	
-	}else if($('#pswdnew').val().match(regex) === null){
-		 updateModal("輸入的密碼格式不符!", "至少一個小寫字母、一個大寫字母、一個數字，且密碼長度須符合8-16個字元");
-       	 myModal.show();
-         return;
+
+    } else if ($('#pswdnew').val().match(regex) === null) {
+        updateModal("輸入的密碼格式不符!", "至少一個小寫字母、一個大寫字母、一個數字，且密碼長度須符合8-16個字元");
+        myModal.show();
+        return;
     } else {
 
         const memberAccount = JSON.parse(localStorage.res_ok).memberAccount;
-		const memberEmail = JSON.parse(localStorage.res_ok).memberEmail;
+        const memberEmail = JSON.parse(localStorage.res_ok).memberEmail;
         forget_change_pswd = {
-            "account":memberAccount,
-			"email":memberEmail,	
+            "account": memberAccount,
+            "email": memberEmail,
             "newPassword": $('#pswdnew').val(),
         };
         fetch('forgetPswd', {
             //    fetch(urlReg,{
             method: 'POST',
             body: JSON.stringify(forget_change_pswd),
-//            headers: { 'Content-Type': 'application/type' },
+            //            headers: { 'Content-Type': 'application/type' },
             headers: { 'Content-Type': 'application/json' },
         }).then(response => {
             response.text()
-            .then(text=>{
-                if (text === "Success") {
-                    updateModal("成功!","密碼修改完成，請重新登入!")
-                    myModal.show();
-                    $('.modal-footer>button').click(function () {
-                        location.href = './frontpage';
-                    })
-    
-                } else if(text === "Fail") {
-                    updateModal("失敗!", "請重新輸入");
-                    myModal.show();
-                    return;
-                }
-            });
+                .then(text => {
+                    if (text === "Success") {
+                        updateModal("成功!", "密碼修改完成，請重新登入!")
+                        myModal.show();
+                        $('.modal-footer>button').click(function () {
+                            location.href = './frontpage';
+                        })
+
+                    } else if (text === "Fail") {
+                        updateModal("失敗!", "請重新輸入");
+                        myModal.show();
+                        return;
+                    }
+                });
             localStorage.clear()
         }
         )

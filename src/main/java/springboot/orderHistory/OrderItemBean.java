@@ -29,22 +29,21 @@ public class OrderItemBean {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Order_detail_no")
 	Integer order_detail_no;
-	
+
 	@Column(name = "Quantity")
 	Integer quantity;
-	
+
 	@Column(name = "Item_Type")
 	String item_Type;
-	
+
 	@Column(name = "garbage_Start_Date")
 	Date garbage_Start_Date;
-	
+
 	@Column(name = "Garbage_End_Date")
 	Date garbage_End_Date;
-	
-	@ManyToOne (cascade = CascadeType.PERSIST)
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "fk_orderbean_orderno")
 	OrderBean orderBean;
-	
 
 }

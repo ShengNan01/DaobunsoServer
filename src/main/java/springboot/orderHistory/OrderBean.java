@@ -18,23 +18,20 @@ import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="order_master") 
+@Table(name = "order_master")
 public class OrderBean {
 
-	
 	public OrderBean(Integer orderId, Date orderDate, Integer sum) {
 		super();
 		this.orderId = orderId;
 		this.orderDate = orderDate;
 		this.sum = sum;
 	}
-	
-	
-	
 
 	public OrderBean(Integer orderId, @NotBlank String contact, Integer sum) {
 		super();
@@ -43,11 +40,8 @@ public class OrderBean {
 		this.sum = sum;
 	}
 
-
-
-
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Order_Id")
 	Integer orderId;
 
@@ -88,12 +82,10 @@ public class OrderBean {
 	String scheduleGarbage;
 
 	@Transient
-	@OneToMany(mappedBy="orderBean")
+	@OneToMany(mappedBy = "orderBean")
 	Set<OrderItemBean> items = new HashSet<>();
 
-	
 //	@OneToMany(mappedBy="orderBean", cascade=CascadeType.ALL)
 //	Set<OrderItemBean> items = new LinkedHashSet<>();
-	
-	
+
 }

@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="./frontpage"><img src="./image/LOGO1.png" alt="LOGO" width="120rem"></a>
-        <li id ="dropdown-lang"class="nav-item dropdown ms-5 ps-5" style="list-style: none">
+        <!-- <li id ="dropdown-lang"class="nav-item dropdown ms-5 ps-5" style="list-style: none">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -25,7 +25,7 @@
             <li><a id="btn-tw" class="btn dropdown-item" th:href="@{/order_main(l='zh_TW')}">中文</a></li>
             <li><a id="btn-en" class="btn dropdown-item" th:href="@{/order_main(l='en_US')}">English</a></li>
           </ul>
-        </li>
+        </li> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -70,27 +70,6 @@
         </div>
       </div>
     </nav>
-
-    <!-- <div style="text-align: center;height: 10rem; width: 20rem;">
-      <li class="nav-item dropdown">
-        <ul class="dropdown-lang">
-          <li><a id="btn-tw" class="btn btn-cl" th:href="@{/order_main(l='zh_TW')}">中文</a></li>
-          <li><a id="btn-en" class=" btn btn-cl" th:href="@{/order_main(l='en_US')}">English</a></li>
-        </ul>
-      </li>
-    </div> -->
-
-    <!-- <div class="dropdown" style="height: 3rem; width: 8rem;">
-      <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        Default Language
-      </a>
-    
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li><a id="btn-tw" class="btn btn-cl" th:href="@{/order_main(l='zh_TW')}">中文</a></li>
-        <li><a id="btn-en" class=" btn btn-cl" th:href="@{/order_main(l='en_US')}">English</a></li>
-      </ul>
-    </div> -->
-
   </div>
 </body>
 

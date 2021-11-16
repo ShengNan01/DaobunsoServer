@@ -24,12 +24,12 @@ public class MVC_interceptor implements HandlerInterceptor {
 			for (Cookie cookie : cookies) {
 				log.info("把cookie的東西抓出來=" + cookie.getName());
 				if (StringUtils.equalsIgnoreCase(cookie.getName(), "LoginOK")) {
-					for(Cookie verification : cookies) {
+					for (Cookie verification : cookies) {
 						if (StringUtils.equalsIgnoreCase(verification.getName(), "verification")) {
-							if(verification.getValue().equals("1")) {
+							if (verification.getValue().equals("1")) {
 								log.info("有驗證!");
 								return true;
-							}else if(verification.getValue().equals("0")) {
+							} else if (verification.getValue().equals("0")) {
 								log.info("沒有驗證!");
 								response.sendRedirect("/verification_email");
 								return false;

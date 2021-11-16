@@ -1,6 +1,5 @@
 package springboot.payment.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,8 +12,6 @@ import springboot.payment.entity.user;
 @ToString
 public class OrderRequest {
 
-    private user user;
-
-
+	private user user;
 
 }

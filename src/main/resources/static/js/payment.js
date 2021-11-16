@@ -3,18 +3,18 @@
 // reset modal when modal was hidden
 let myModalEl = document.getElementById('myModal')
 myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("","");
+    updateModal("", "");
 })
 
-$(function(){
+$(function () {
     tbody = $('tbody');
     jsonData = JSON.parse(localStorage.getItem('cart'));
 
     // console.log(jsonData.length);
     total = 0;
-    for(let i = 0; i < jsonData.length; i++){
+    for (let i = 0; i < jsonData.length; i++) {
         createCartList(i);
-        if(jsonData[i].type == "service"){
+        if (jsonData[i].type == "service") {
             itemPrice = parseInt(jsonData[i].price);
         } else {
             itemPrice = parseInt(jsonData[i].price) * parseInt(jsonData[i].amount);
@@ -23,7 +23,7 @@ $(function(){
     }
     $('#total').text(total);
 })
-function createCartList(i){
+function createCartList(i) {
     let itemTr = document.createElement('tr');
     tbody.append(itemTr);
 
@@ -53,21 +53,21 @@ function createCartList(i){
     itemTr.appendChild(timeTd);
 
     let numTd = document.createElement('td');
-    if(jsonData[i].type == "service"){
+    if (jsonData[i].type == "service") {
         numTd.innerText = 1;
     } else {
         let numInput = document.createElement('input');
         numInput.type = 'number';
         numInput.value = jsonData[i].amount;
         numInput.min = 1;
-        numInput.addEventListener('input',changItemCount);
+        numInput.addEventListener('input', changItemCount);
         numTd.appendChild(numInput);
     }
     itemTr.appendChild(numTd);
 
     let priceTd = document.createElement('td');
     let priceSpan = document.createElement('span');
-    if(jsonData[i].type == "service"){
+    if (jsonData[i].type == "service") {
         priceSpan.innerText = jsonData[i].price;
     } else {
         priceSpan.innerText = jsonData[i].price * jsonData[i].amount;
@@ -79,7 +79,7 @@ function createCartList(i){
     let delBtn = document.createElement('button');
     delBtn.className = 'btn btn-primary btn-sm text-light btn_delete';
     delBtn.innerText = '刪除';
-    delBtn.addEventListener('click',deleteItem);
+    delBtn.addEventListener('click', deleteItem);
     delTd.appendChild(delBtn);
     itemTr.appendChild(delTd);
 }
@@ -104,10 +104,10 @@ function changItemCount() {
     // console.log(total);
     $('#total').text(total);
 }
-function deleteItem(){
+function deleteItem() {
     let index = this.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.id;
     // console.log(index);
-    let delCount =  $(this).parent().prev().first().text();
+    let delCount = $(this).parent().prev().first().text();
     // console.log(delCount);
     total -= delCount;
     $('#total').text(total);
@@ -124,19 +124,19 @@ localStorage.getItem('cart')
 
 // AJAX傳向後端------------------------------------------------
 
-alert( "準備要結帳了喔" );
+alert("準備要結帳了喔");
 
 $(function () {
 
 
     $('#submiter').click(function (e) {
-        alert( "您的結帳已經寄出" );
+        alert("您的結帳已經寄出");
         e.preventDefault();
 
 
         let maincontactname = $('#maincontactname').val();
-        let maincontactphone =  $('#maincontactphone').val();
-        let maincontactaddress =  $('#maincontactaddress').val();
+        let maincontactphone = $('#maincontactphone').val();
+        let maincontactaddress = $('#maincontactaddress').val();
         let paymentmoney = $('.form-select').val();
         let maincompany = $('#maincompany').val();
         let companyinvoicenumber = $('#companyinvoicenumber').val();
@@ -154,19 +154,19 @@ $(function () {
 
         let userDetail = [];
 
-        for (i=0;i<paymenttype.length;i++){
+        for (i = 0; i < paymenttype.length; i++) {
 
-            var  localDate=  paymenttype[i].date;
-            let date=localDate.split(" ~ ")
-            var startday= date[0];
-            var endday= date[1];
+            var localDate = paymenttype[i].date;
+            let date = localDate.split(" ~ ")
+            var startday = date[0];
+            var endday = date[1];
 
-            let detail={
-                "garbageStartDate" : startday,
-                "garbageEndDate" :endday,
-                "image" :paymenttype[i].image,
-                "itemType" :paymenttype[i].item,
-                "quantity" : paymenttype[i].type=='service'?1:paymenttype[i].amount
+            let detail = {
+                "garbageStartDate": startday,
+                "garbageEndDate": endday,
+                "image": paymenttype[i].image,
+                "itemType": paymenttype[i].item,
+                "quantity": paymenttype[i].type == 'service' ? 1 : paymenttype[i].amount
 
 
             }
@@ -175,7 +175,7 @@ $(function () {
         }
 
         let user = {};
-        for (i=0;i<paymenttype.length;i++){
+        for (i = 0; i < paymenttype.length; i++) {
             user['contact'] = maincontactname;
             user['phone'] = maincontactphone;
             user['address'] = maincontactaddress;
@@ -185,7 +185,7 @@ $(function () {
             user['taxIDnumber'] = companyinvoicenumber;
             user['timeForGarbage'] = paymenttype[i].timeframe;
             user['scheduleGarbage'] = confirm;
-            user['userDetails']= userDetail;
+            user['userDetails'] = userDetail;
         }
 
 
@@ -202,13 +202,13 @@ $(function () {
         // });
 
 
-            fetch(`https://localhost:8443/placeOrder2`,{
+        fetch(`https://localhost:8443/placeOrder2`, {
             method: 'POST',
-            body:JSON.stringify(user),
-            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(user),
+            headers: { 'Content-Type': 'application/json' },
         }).then(
             console.log("ok")
-            );
+        );
 
     });
 });
