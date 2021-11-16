@@ -24,6 +24,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "order_detail")
+
 public class OrderItemBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +44,7 @@ public class OrderItemBean {
 	Date garbage_End_Date;
 	
 	@ManyToOne (cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "fk_OrderBean_orderno")
+	@JoinColumn(name = "fk_orderbean_orderno")
 	OrderBean orderBean;
 	
 

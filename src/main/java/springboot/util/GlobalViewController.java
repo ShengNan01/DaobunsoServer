@@ -95,4 +95,5 @@ public class GlobalViewController {
 	public String verify_emailPage() {
 		return "verify_email";
 	}
+
 }

@@ -34,12 +34,12 @@
                 <div id="sushi" v-for="rl in res" class="sushi card mb-3 col" style="max-width: 540px;height: 14rem;">
                     <div class="row g-0">
                         <div class="col-md-3">
-                            <img src="./image/service_intro/holo/pekora.png"class=" img-fluid rounded-start">
+                            <img src="../static/image/service_intro/holo/pekora.png"class=" img-fluid rounded-start">
                         </div>
                         <div class="col-md-9">
                             <div class="card-body">
                                 <h6 type="date">{{rl.date}}</h6>
-                                <img src="./image/service_intro/holo/Saintquartz.png"v-for="n in rl.star"style="height: 1.5rem;width: 1.5rem;"> 
+                                <img src="../static/image/service_intro/holo/Saintquartz.png"v-for="n in rl.star"style="height: 1.5rem;width: 1.5rem;">
                                 <h5 class="card-title">{{rl.account}}</h5>
                                 <p type="textarea" class="card-text"style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">{{rl.comment}}</p>
 
@@ -149,11 +149,11 @@
     <!-- footer -->
     <footer>
     </footer>
-    <script src="js/jquery-3.6.0.js"></script>
-    <script src="js/vue.js"></script>
+    <script src="../static/js/jquery-3.6.0.js"></script>
+    <script src="../static/js/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.Marquee/1.6.0/jquery.marquee.js" integrity="sha512-fkD+ERYA/LvkGF5GiipDr7myGZH3m8OPbYw62KE6qalbgykahcpfNjWe/RZmsY12qraS+wYUo2e51Zl2hShgVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="js/logincheck.js"></script>
-    <script src="js/feedback.js"></script>
+    <script src="../static/js/logincheck.js"></script>
+    <script src="../static/js/feedback.js"></script>
 </body>
 </html>
