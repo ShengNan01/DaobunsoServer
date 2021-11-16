@@ -5,8 +5,6 @@ let lang = "";
 
 $('langbtn-en').click(() => {
     lang = en;
-
-
 });
 $('langbtn-tw').click(() => {
     lang = tw;
@@ -14,7 +12,7 @@ $('langbtn-tw').click(() => {
 
 
 $(function () {
-    if (getCookieByName("id") != null && getCookieByName("name") != null && getCookieByName("email") != null && getCookieByName("account") != null) {
+    if ( getCookieByName("id") != null && getCookieByName("name") != null && getCookieByName("email") != null && getCookieByName("account") != null) {
         $('#login-dropdown-bottom').text('Log Out');
         $('#login-dropdown-bottom').attr('href', './frontpage');
         $('#nav-login').text(getCookieValueByName('name'));
