@@ -13,4 +13,3 @@ let timeoutID = setTimeout(IndexPage, 5000);
 function IndexPage(){
   location.href = "https://localhost/";
 }
-}
