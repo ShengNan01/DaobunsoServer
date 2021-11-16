@@ -6,13 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/feedback.css">
     <title>Daobunso</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
+    
     <script src="js\jquery-3.6.0.js"></script>
     <script src="js\vue.js"></script>
 </head>
@@ -52,8 +48,8 @@
                             <div class="col-9">
                                 <div class="card-body">
                                     <h6 type="date">{{rl.date}}</h6>
-                                    <img src="./image/service_intro/starClicked.png" v-for="n in rl.star"
-                                        style="width: 2rem;">
+                                    <i class="fas fa-star" v-for="n in rl.star"
+                                        style="height: 2rem;width: 2rem; color: yellow;"></i>
                                     <h5 class="card-title">{{rl.account}}</h5>
                                     <p type="textarea" class="card-text"
                                         style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
@@ -109,21 +105,22 @@
 
                             <!-- 星星 -->
                             <div id="stars" class="btn-group mx-auto col-4" role="group">
-                                <div id="star1" class="star" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img class="img-fluid" src="./image/service_intro/starEmpty.png">
+                                <div style="width: 3rem;">
+                                    <i id="star1"class="fas fa-star" style="border: 2px;"></i>
                                 </div>
-                                <div id="star2" class="star" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img class="img-fluid" src="./image/service_intro/starEmpty.png">
+                                <div style="width: 3rem;">
+                                    <i id="star2"class="fas fa-star" style="border: 2px;"></i>
                                 </div>
-                                <div id="star3" class="star" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img class="img-fluid" src="./image/service_intro/starEmpty.png">
+                                <div style="width: 3rem;">
+                                    <i id="star3"class="fas fa-star" style="border: 2px;"></i>
                                 </div>
-                                <div id="star4" class="star" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img class="img-fluid" src="./image/service_intro/starEmpty.png">
+                                <div style="width: 3rem;">
+                                    <i id="star4"class="fas fa-star" style="border: 2px;"></i>
                                 </div>
-                                <div id="star5" class="star" type="button" style="height:2.5rem;width:2.5rem;">
-                                    <img class="img-fluid" src="./image/service_intro/starEmpty.png">
+                                <div style="width: 3rem;">
+                                    <i id="star5"class="fas fa-star" style="border: 2px;"></i>
                                 </div>
+                                
                             </div>
                             <!-- /星星 -->
 
@@ -222,7 +219,6 @@
         <footer>
             <div th:replace="footer :: footer">Footer</div>
         </footer>
-        <script src="js/common.js"></script>
         <script src="js/feedback.js"></script>
 </body>
 

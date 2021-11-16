@@ -26,7 +26,7 @@ public class forgetPasswordMailUtils {
 		try {
 			MimeMessage mimeMessage = mailSender.createMimeMessage();
 			MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-			helper.setFrom("grfmbiu324568@gmail.com");
+			helper.setFrom("daobunso.company@gmail.com");
 			helper.setTo(email);
 			helper.setSubject("Daobunso忘記密碼驗證信");
 			String emailToken = getEmailToken(member);

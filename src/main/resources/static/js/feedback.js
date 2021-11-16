@@ -6,19 +6,15 @@ let ucomment = "";
 // let wdate = Date();
 
 //定義頁面
-
-
 let uimgsrc = "./image/service_intro/holo/pekora.png";
 let uname = getCookieValueByName("name");
 const starimg = "./image/service_intro/starEmpty.png";
 const hoverstar = "./image/service_intro/star.png";
 const sstarimg = "./image/service_intro/starClicked.png";
-
 //頁面初始化
 $('.feedback').hide();
 $('.user-img img').attr('src', uimgsrc);
 $('.user-name h2').text(uname);
-
 //觀看意見領域
 
 fetch(`https://localhost/gradings`, {
@@ -194,51 +190,31 @@ $('#btn-feedback').click(() => {
 //star
 
 // setTimeout(listenstar(),1000)
+let starv = new Vue({
+    el : '#stars',
+    data :{
+        stars:5,
+    },
+});
+
 $('#stars').hover(() => {
     // listenstar(()=>{
     if ($('#star5').hasClass('star-cl')) {
-        $('#star1 img').attr('src', sstarimg);
-        $('#star2 img').attr('src', sstarimg);
-        $('#star3 img').attr('src', sstarimg);
-        $('#star4 img').attr('src', sstarimg);
-        $('#star5 img').attr('src', sstarimg);
+
     } else if ($('#star4').hasClass('star-cl')) {
-        $('#star1 img').attr('src', sstarimg);
-        $('#star2 img').attr('src', sstarimg);
-        $('#star3 img').attr('src', sstarimg);
-        $('#star4 img').attr('src', sstarimg);
-        $('#star5 img').attr('src', starimg);
+
     } else if ($('#star3').hasClass('star-cl')) {
-        $('#star1 img').attr('src', sstarimg);
-        $('#star2 img').attr('src', sstarimg);
-        $('#star3 img').attr('src', sstarimg);
-        $('#star4 img').attr('src', starimg);
-        $('#star5 img').attr('src', starimg);
+
     } else if ($('#star2').hasClass('star-cl')) {
-        $('#star1 img').attr('src', sstarimg);
-        $('#star2 img').attr('src', sstarimg);
-        $('#star3 img').attr('src', starimg);
-        $('#star4 img').attr('src', starimg);
-        $('#star5 img').attr('src', starimg);
+
     } else if ($('#star1').hasClass('star-cl')) {
-        $('#star1 img').attr('src', sstarimg);
-        $('#star2 img').attr('src', starimg);
-        $('#star3 img').attr('src', starimg);
-        $('#star4 img').attr('src', starimg);
-        $('#star5 img').attr('src', starimg);
+
     } else {
-        $('#star1 img').attr('src', starimg);
-        $('#star2 img').attr('src', starimg);
-        $('#star3 img').attr('src', starimg);
-        $('#star4 img').attr('src', starimg);
-        $('#star5 img').attr('src', starimg);
     }
     $('#star1').hover(() => {
         $('#star1').addClass('star-act');
-        $('#star1 img').attr('src', sstarimg);
     }, () => {
         $('#star1').removeClass('star-act');
-        $('#star1 img').attr('src', starimg);
     });
     $('#star1').click(() => {
         $('#star1').addClass('star-cl');
@@ -251,13 +227,9 @@ $('#stars').hover(() => {
     $('#star2').hover(() => {
         $('#star1').addClass('star-act');
         $('#star2').addClass('star-act');
-        $('#star1 img').attr('src', sstarimg);
-        $('#star2 img').attr('src', sstarimg);
     }, () => {
         $('#star1').removeClass('star-act');
         $('#star2').removeClass('star-act');
-        $('#star1 img').attr('src', starimg);
-        $('#star2 img').attr('src', starimg);
     });
     $('#star2').click(() => {
         $('#star1').addClass('star-cl');
@@ -271,16 +243,10 @@ $('#stars').hover(() => {
         $('#star1').addClass('star-act');
         $('#star2').addClass('star-act');
         $('#star3').addClass('star-act');
-        $('#star1 img').attr('src', sstarimg);
-        $('#star2 img').attr('src', sstarimg);
-        $('#star3 img').attr('src', sstarimg);
     }, () => {
         $('#star1').removeClass('star-act');
         $('#star2').removeClass('star-act');
         $('#star3').removeClass('star-act');
-        $('#star1 img').attr('src', starimg);
-        $('#star2 img').attr('src', starimg);
-        $('#star3 img').attr('src', starimg);
     });
     $('#star3').click(() => {
         $('#star1').addClass('star-cl');
@@ -296,21 +262,12 @@ $('#stars').hover(() => {
         $('#star2').addClass('star-act');
         $('#star3').addClass('star-act');
         $('#star4').addClass('star-act');
-        $('#star1 img').attr('src', sstarimg);
-        $('#star2 img').attr('src', sstarimg);
-        $('#star3 img').attr('src', sstarimg);
-        $('#star4 img').attr('src', sstarimg);
 
     }, () => {
         $('#star1').removeClass('star-act');
         $('#star2').removeClass('star-act');
         $('#star3').removeClass('star-act');
         $('#star4').removeClass('star-act');
-        $('#star1 img').attr('src', starimg);
-        $('#star2 img').attr('src', starimg);
-        $('#star3 img').attr('src', starimg);
-        $('#star4 img').attr('src', starimg);
-        $('#star5 img').attr('src', starimg);
     });
     $('#star4').click(() => {
         $('#star1').addClass('star-cl');
@@ -326,11 +283,6 @@ $('#stars').hover(() => {
         $('#star3').addClass('star-act');
         $('#star4').addClass('star-act');
         $('#star5').addClass('star-act');
-        $('#star1 img').attr('src', sstarimg);
-        $('#star2 img').attr('src', sstarimg);
-        $('#star3 img').attr('src', sstarimg);
-        $('#star4 img').attr('src', sstarimg);
-        $('#star5 img').attr('src', sstarimg);
 
     }, () => {
         $('#star1').removeClass('star-act');
@@ -338,11 +290,6 @@ $('#stars').hover(() => {
         $('#star3').removeClass('star-act');
         $('#star4').removeClass('star-act');
         $('#star5').removeClass('star-act');
-        $('#star1 img').attr('src', starimg);
-        $('#star2 img').attr('src', starimg);
-        $('#star3 img').attr('src', starimg);
-        $('#star4 img').attr('src', starimg);
-        $('#star5 img').attr('src', starimg);
     });
     $('#star5').click(() => {
         $('#star1').addClass('star-cl');
