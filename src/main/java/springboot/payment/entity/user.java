@@ -7,6 +7,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import springboot.orderHistory.OrderItemBean;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.List;
@@ -33,7 +34,7 @@ public class user {
 //    @CreatedDate
 //    @Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "Order_Date")
-	private Timestamp orderDate;
+	private Date orderDate;
 
 	@Column(name = "Member_Id")
 	private int memberId;
@@ -98,11 +99,11 @@ public class user {
 		this.orderId = orderId;
 	}
 
-	public Timestamp getOrderDate() {
+	public Date getOrderDate() {
 		return orderDate;
 	}
 
-	public void setOrderDate(Timestamp orderDate) {
+	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
 
