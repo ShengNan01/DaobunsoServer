@@ -5,16 +5,11 @@ import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import springboot.orderHistory.OrderBean;
 import lombok.extern.log4j.Log4j2;
 import springboot.register.MemberBean;
 import springboot.register.MemberRepository;
@@ -42,18 +37,18 @@ public class Login_Controller {
 		String password = loginBean.getPassword();
 //		System.out.println("Account:"+account +"\tPassword:"+ decryptPassword);
 //		System.out.println("Account:"+loginBean.getAccount() +"\tPassword:"+ loginBean.getPassword());
-		if(loginBean!=null) {
-			
-			if(loginRepo.existsByAccount(loginBean.getAccount())) { //核對確認有這個帳號
-				String decryptPassword = GlobalService.decryptString(GlobalService.KEY
-						,loginRepo.findPasswordByMemberAccount(loginBean.getAccount()));
+		if (loginBean != null) {
+
+			if (loginRepo.existsByAccount(loginBean.getAccount())) { // 核對確認有這個帳號
+				String decryptPassword = GlobalService.decryptString(GlobalService.KEY,
+						loginRepo.findPasswordByMemberAccount(loginBean.getAccount()));
 				String memberId = loginRepo.findMemberIdByAccount(loginBean.getAccount()).toString();
-				
+
 //				System.out.println(loginRepo.findLoginByAccount(account));
 				// 解密後密碼與使用者輸入的密碼比對。如果密碼一樣，就成功豋入
 				if (password.equals(decryptPassword)) {
-					
-					return "OK"+"-"+memberId;				
+
+					return "OK" + "-" + memberId;
 				}
 				// 如果密碼不正確
 				else {
@@ -228,13 +223,13 @@ public class Login_Controller {
 		}
 		return info;
 	}
-	
+
 	@PostMapping("/forgetPswd")
 	public String forgetPswd(@RequestBody MemberBean member) {
 		String account = member.getAccount();
 		String email = member.getEmail();
 		String newPassword = member.getNewPassword();
-		System.out.println("會員帳號 =" + account + "\t" +"會員信箱 =" +email + "\t" +"會員輸入的新密碼 =" + newPassword);
+		System.out.println("會員帳號 =" + account + "\t" + "會員信箱 =" + email + "\t" + "會員輸入的新密碼 =" + newPassword);
 		Boolean exists = memberRepository.existsByEmail(email) && loginRepo.existsByAccount(account);
 		log.info("輸入資料是否存在於資料庫:" + exists);
 		Login loginBean = loginRepo.findLoginByAccount(account);

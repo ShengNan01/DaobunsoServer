@@ -21,6 +21,7 @@ public class MailUtils {
 
 	@Autowired
 	private JavaMailSender mailSender;
+
 	public boolean sendEmail(MemberBean member, String email) {
 				try {
 					MimeMessage mimeMessage = mailSender.createMimeMessage();
@@ -34,15 +35,15 @@ public class MailUtils {
 						@Override
 			            public void run(){
 					mailSender.send(mimeMessage);
-						}
-					}.start();
-				} catch (Exception e) {
-					e.printStackTrace();
-					return false;
 				}
+			}.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 		return true;
 	}
-	
+
 	public String getEmailToken(MemberBean member) throws Exception {
 		String token = UUID.randomUUID().toString();
 		String value = member.toString();

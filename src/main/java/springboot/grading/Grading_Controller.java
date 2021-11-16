@@ -40,18 +40,9 @@ public class Grading_Controller {
 //	MultiValueMap<String, Grading> fMultiValueMap = new LinkedMultiValueMap<>();
 
 	@GetMapping("/gradings")
-	public List<Optional<Grading>> getGradings() {
-		List<Optional<Grading>> gradings = new ArrayList<Optional<Grading>>();
-		while (gradings.size() < 3) {
-			Integer randomidInteger = (Integer) (int) (1 + gradingRepo.findLastid() * Math.random());
-			if (gradingRepo.existsById(randomidInteger)) {
-				gradings.add(gradingRepo.findById(randomidInteger));
-//				System.out.println("gradingRepo.existsById(selectidInteger) = "+ randomidInteger);
-			} else {
-//				System.err.println("Error!! gradingRepo.existsById(selectidInteger) = "+ randomidInteger);
-			}
-		}
-//		System.out.println(gradings);
+	public List<Grading> getGradings() {
+		List<Grading> gradings = new ArrayList<Grading>();
+		gradings = gradingRepo.findAll();
 		return gradings;
 	}
 

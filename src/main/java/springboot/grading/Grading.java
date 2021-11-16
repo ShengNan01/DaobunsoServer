@@ -14,17 +14,17 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="grading")
-public class Grading implements Serializable{
+@Table(name = "grading")
+public class Grading implements Serializable {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Grading_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Grading_id")
 	private Integer objectid;
 
-	@JoinColumn(name = "Account",table = "member",referencedColumnName = "Account")
+	@JoinColumn(name = "Account", table = "member", referencedColumnName = "Account")
 	private String account;
-	
+
 	@Column(name = "Stars")
 	private Integer star;
 
@@ -32,7 +32,6 @@ public class Grading implements Serializable{
 	private String date;
 
 	@Column(name = "Comment")
-	private	String comment;
-	
+	private String comment;
 
 }

@@ -1,89 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>更改密碼_信箱確認	</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/profiles.css">
-   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>更改密碼_信箱確認 </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/profiles.css">
+
 </head>
+
 <body>
   <header>
     <div th:replace="header :: header"></div>
   </header>
-        <div id="nav_title"> 更改密碼 </div>
-        <center><h2>請填寫密碼資訊</h2></center>
-        <hr>
-    <section>
-       <div class ="container  text-white text-shadow   ">
-        
-          <div class="col  p-3 mb-5 bg-white  shadow border  " style="border-radius: 1rem;height: 25rem;">
-              
-                  <form class=" col-6  mx-auto my-4 border-5  ">
-                      <!-- <div class="mb-3 mx-auto  mt-3  ">
+  <div id="nav_title"> 更改密碼 </div>
+  <center>
+    <h2>請填寫密碼資訊</h2>
+  </center>
+  <hr>
+  <section>
+    <div class="container  text-white text-shadow   ">
+
+      <div class="col  p-3 mb-5 bg-white  shadow border  " style="border-radius: 1rem;height: 25rem;">
+
+        <form class=" col-6  mx-auto my-4 border-5  ">
+          <!-- <div class="mb-3 mx-auto  mt-3  ">
                         <label class="form-label" for="ogpswd">  請輸入原密碼</label>
                         <input class="form-control w-80 p-2 shadow-sm" id="ogpswd" type="password" name="password" placeholder="請輸入原密碼"  placeholder="請輸入密碼" minlength="8" required >
                       </div> -->
-                      <div class="mb-3 mx-auto">
-                          <label class="form-label" for="pswdnew">請輸入新密碼</label>
-                          <input class="form-control w-80 p-2 shadow-sm" onkeyup="trigger()" id="pswdnew" type="password" name="password" placeholder="請輸入密碼" minlength="8" required  >
-                      </div>
-                      <div class="indicator">
-                        <span class="weak"></span>
-                        <span class="medium"></span>
-                        <span class="strong"></span>
-                     </div>
-                     <div class="text"></div>
-                      <div class="mb-1 mx-auto ">
-                          <label class="form-label" for="confpswd">請確認新密碼</label>
-                          <input class="form-control w-80 p-2 shadow-sm" id="confpswd" type="password" name="password" placeholder="請輸入密碼" required >
-                      </div>
-                      <div  class=" text-center mx_auto " id ="change_btn">
-                        <button type="submit" class="btn btn-primary btn-lg shadow-sm " >確認修改</button>
-                      </div>
-
+          <div class="mb-3 mx-auto">
+            <label class="form-label" for="pswdnew">請輸入新密碼</label>
+            <input class="form-control w-80 p-2 shadow-sm" onkeyup="trigger()" id="pswdnew" type="password"
+              name="password" placeholder="請輸入密碼" minlength="8" required>
           </div>
-         
-       
-      </div>
-     
-             
+          <div class="indicator">
+            <span class="weak"></span>
+            <span class="medium"></span>
+            <span class="strong"></span>
+          </div>
+          <div class="text"></div>
+          <div class="mb-1 mx-auto ">
+            <label class="form-label" for="confpswd">請確認新密碼</label>
+            <input class="form-control w-80 p-2 shadow-sm" id="confpswd" type="password" name="password"
+              placeholder="請輸入密碼" required>
+          </div>
+          <div class=" text-center mx_auto " id="change_btn">
+            <button type="submit" class="btn btn-primary btn-lg shadow-sm ">確認修改</button>
+          </div>
 
-                    
-            
+      </div>
+
+
+    </div>
+
+
+
+
+
     <center>
-        </li>
-        <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;"> <br>
-        <hr style="width:90%;">
+      </li>
+      <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;"> <br>
+      <hr style="width:90%;">
     </center>
     <ul class="nav justify-content-center">
       <li class="nav-item">
         <a class="nav-link" href="./about_us">關於我們</a>
-          <li class="nav-item">
-            <a class="nav-link" href="./service_intro">服務介紹</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./Userterms">使用須知</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./problem">常見問題</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./feedback">使用回饋</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./service">購買服務</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./shopping">購物商城</a>
-          </li>
-        </ul>
-    </section>
-    <footer>
-      <div th:replace="footer :: footer">Footer</div>
-    </footer>
-      <!-- Modal -->
+      <li class="nav-item">
+        <a class="nav-link" href="./service_intro">服務介紹</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./Userterms">使用須知</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./problem">常見問題</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./feedback">使用回饋</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./service">購買服務</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./shopping">購物商城</a>
+      </li>
+    </ul>
+  </section>
+  <footer>
+    <div th:replace="footer :: footer">Footer</div>
+  </footer>
+  <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -101,9 +108,12 @@
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
   <script src="./js/jquery-3.6.0.js"></script>
-  <script src="js/logincheck.js"></script> 
-   <script src="./js/forgetPswd.js"></script>
-  </body>
+  <script src="js/common.js"></script>
+  <script src="./js/forgetPswd.js"></script>
+</body>
+
 </html>

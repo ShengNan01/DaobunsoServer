@@ -32,7 +32,7 @@ public class changePasswordMailUtils {
 			String emailToken = getEmailToken(member);
 			helper.setText("<a href='https://localhost/change_password?emailToken=" + emailToken + "'>請點擊進入修改密碼頁面"
 					+ "</a></br><h3>如果以上超連線無法訪問，請將以下網址複製到瀏覽器位址列中</h3><h3>https://localhost/change_password?emailToken="
-					+ emailToken + "</h3>",true);
+					+ emailToken + "</h3>", true);
 			new Thread() {
 				@Override
 				public void run() {
@@ -51,7 +51,7 @@ public class changePasswordMailUtils {
 		String value = member.toString();
 		System.out.println(value);
 		redisTemplate.opsForValue().set(token, value);
-		redisTemplate.expire(token, 60 , TimeUnit.SECONDS);
+		redisTemplate.expire(token, 60, TimeUnit.SECONDS);
 		return token;
 	}
 
