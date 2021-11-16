@@ -17,29 +17,53 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="94dp"
         android:orientation="horizontal">
 
 
-        // 訂單資料
-        <TextView
-            android:id="@+id/tvOrderListView"
-            android:layout_width="191dp"
-            android:layout_height="144dp"
-            android:padding="10dp" />
-
-        // comment 評論按鈕
         <TextView
             android:id="@+id/commentBtn"
-            android:layout_width="43dp"
-            android:layout_height="27dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
             android:background="@drawable/comment1"
             android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvOrderListView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvOrderListView"
-            app:layout_constraintVertical_bias="0.504" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvOderId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="TextView"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.173" />
+
+        <TextView
+            android:id="@+id/tvOrderDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:text="TextView"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvOderId" />
+
+        <TextView
+            android:id="@+id/tvSum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="124dp"
+            android:layout_marginBottom="8dp"
+            android:text="TextView"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

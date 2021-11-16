@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_myorderFragment_to_serviceFragment"
             app:destination="@id/serviceFragment" />
+        <action
+            android:id="@+id/action_myorderFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/serviceFragment"
@@ -159,4 +162,16 @@
         android:name="com.example.daobunso.forgetPwFragment"
         android:label="fragment_forget_pw"
         tools:layout="@layout/fragment_forget_pw" />
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="com.example.daobunso.orderDetailFragment"
+        android:label="fragment_order_detail"
+        tools:layout="@layout/fragment_order_detail" >
+        <action
+            android:id="@+id/action_orderDetailFragment_to_indexFragment"
+            app:destination="@id/indexFragment" />
+        <action
+            android:id="@+id/action_orderDetailFragment_to_serviceFragment"
+            app:destination="@id/serviceFragment" />
+    </fragment>
 </navigation>

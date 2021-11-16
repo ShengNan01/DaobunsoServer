@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import springboot.orderHistory.OrderBean;
 import lombok.extern.log4j.Log4j2;
 import springboot.register.MemberBean;
 import springboot.register.MemberRepository;
@@ -39,17 +42,18 @@ public class Login_Controller {
 		String password = loginBean.getPassword();
 //		System.out.println("Account:"+account +"\tPassword:"+ decryptPassword);
 //		System.out.println("Account:"+loginBean.getAccount() +"\tPassword:"+ loginBean.getPassword());
-		if (loginBean != null) {
-
-			if (loginRepo.existsByAccount(loginBean.getAccount())) { // 核對確認有這個帳號
-				String decryptPassword = GlobalService.decryptString(GlobalService.KEY,
-						loginRepo.findPasswordByMemberAccount(loginBean.getAccount()));
-
+		if(loginBean!=null) {
+			
+			if(loginRepo.existsByAccount(loginBean.getAccount())) { //核對確認有這個帳號
+				String decryptPassword = GlobalService.decryptString(GlobalService.KEY
+						,loginRepo.findPasswordByMemberAccount(loginBean.getAccount()));
+				String memberId = loginRepo.findMemberIdByAccount(loginBean.getAccount()).toString();
+				
 //				System.out.println(loginRepo.findLoginByAccount(account));
 				// 解密後密碼與使用者輸入的密碼比對。如果密碼一樣，就成功豋入
 				if (password.equals(decryptPassword)) {
-
-					return "OK";
+					
+					return "OK"+"-"+memberId;				
 				}
 				// 如果密碼不正確
 				else {

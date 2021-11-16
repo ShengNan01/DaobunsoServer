@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDFFDD"
+    android:background="@drawable/bg"
     tools:context=".comment.thanksFragment">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="服務評分"
-        android:textColor="#21425F"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvtkscontent"
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textColor="#21425F"
+        android:textColor="#FFFFFF"
         android:text="感謝回饋，歡迎再次使用服務！"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -55,7 +55,7 @@
         android:layout_width="283dp"
         android:layout_height="313dp"
         android:textColor="#21425F"
-        android:src="@drawable/thankyou1"
+        android:src="@drawable/whitethankyou"
         app:layout_constraintBottom_toTopOf="@+id/btnTksbackhome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

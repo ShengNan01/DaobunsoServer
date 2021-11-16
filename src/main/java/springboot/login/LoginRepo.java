@@ -30,6 +30,8 @@ public interface LoginRepo extends JpaRepository<Login,Integer> {
 	@Query(nativeQuery = true, value="UPDATE daobunso.member SET Password = :password  WHERE Account= :account")
 	Integer UpdatePasswordByAccount(@Param(value = "password")String password,@Param(value = "account")String account);
 	
-	
+	//APP由acount找到memberId
+	@Query(nativeQuery = true, value="SELECT Member_Id FROM daobunso.member WHERE Account= :account")
+	Integer findMemberIdByAccount (String account);
 	
 }

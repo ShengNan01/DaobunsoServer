@@ -1,10 +1,14 @@
 package com.example.daobunso.service;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,10 +23,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -33,18 +39,35 @@ import com.example.daobunso.MainActivity;
 import com.example.daobunso.R;
 import com.google.android.material.appbar.AppBarLayout;
 
+import java.sql.Date;
 import java.util.Calendar;
 
 
 public  class serviceFragment extends Fragment implements
-        AdapterView.OnItemSelectedListener,DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+        /*AdapterView.OnItemSelectedListener,*/ DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     //不能設定成abstract，不然跑不出來==
     private MainActivity activity;//取得本fragment所依從的Activity(非繼承關係)
     //    private Activity activity;//取得本fragment所依從的Activity(非繼承關係)
     private TextView tvMessage;
-    private EditText etDate;
     private int year, month, day;
     private View actionHome;
+    private Spinner spinner_serviceType;
+    private Spinner spinner_serviceTime;
+    private EditText etDate;
+    private EditText etAddress;
+    private EditText etContactPerson;
+    private EditText etContactPhone;
+    private String date;
+    private String address;
+    private String contact;
+    private String phone;
+    Bundle bundle;
+    private final static String PREFERENCES_NAME = "preferences";
+    private SharedPreferences preferences;
+    private String serviceType;
+    private String serviceTime;
+    private String memberId;
+
 
 
     @Override
@@ -59,8 +82,7 @@ public  class serviceFragment extends Fragment implements
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle saveInstanceState) {
         super.onCreateView(inflater, container, saveInstanceState);
-//        activity.setTitle(("服務選擇"));//DAOBUNSO服務頁面
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_service, container, false);
 
     }
@@ -68,12 +90,55 @@ public  class serviceFragment extends Fragment implements
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle saveInstanceState) {
         super.onViewCreated(view, saveInstanceState);
-        Bundle bundle = new Bundle();// Bundle用來把本頁資料傳到下一頁去
 
-//        日期id，並新增showNow()，
         etDate = view.findViewById(R.id.etDate);
-//        showNow();
-        //設定限制選取的日期區間
+        etAddress = view.findViewById(R.id.etAddress);
+        etContactPerson = view.findViewById(R.id.etContactPerson);
+        etContactPhone = view.findViewById(R.id.etContactPhone);
+
+// ============================= 服務類型下拉式選單(spinner) ===================================
+        Resources res =getResources();
+        String[] spServiceType =res.getStringArray(R.array.spServiceType);
+        spinner_serviceType = (Spinner) view.findViewById(R.id.spServiceType);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),R.layout.myspinner,spServiceType);//建立Arrayadapter介面卡
+        spinner_serviceType.setAdapter(adapter);
+        spinner_serviceType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {//點選spinner物件
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                serviceType = spinner_serviceType.getItemAtPosition(i).toString();
+                Toast.makeText(activity,serviceType,Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+// ============================= 服務時段下拉式選單(spinner) ===================================
+        String[] spServiceTime =res.getStringArray(R.array.spServiceTime);
+        spinner_serviceTime = (Spinner) view.findViewById(R.id.spServiceTime);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getContext(),R.layout.myspinner,spServiceTime);//建立Arrayadapter介面卡
+        spinner_serviceTime.setAdapter(adapter1);
+        spinner_serviceTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {//點選spinner物件
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                serviceTime = spinner_serviceTime.getItemAtPosition(i).toString();
+                Toast.makeText(activity,serviceTime,Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+
+// =================================== 選擇日期 ============================================
+
+        showNow();
+
+        //選取日期
         ImageButton btnCalendar = view.findViewById(R.id.btnCalendar);
         btnCalendar.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog =
@@ -91,6 +156,7 @@ public  class serviceFragment extends Fragment implements
         });
 
 
+
         //右上角，回首頁
         view.findViewById(R.id.homepage_btn_service).setOnClickListener(v->{
             Navigation.findNavController(v).navigate(R.id.action_serviceFragment_to_indexFragment2);
@@ -101,14 +167,11 @@ public  class serviceFragment extends Fragment implements
         // 點選送出進入服務訂單頁面
         TextView btnToNewOrder = view.findViewById((R.id.btnToNewOrder));
         btnToNewOrder.setOnClickListener(v -> {
-            EditText etDate = view.findViewById(R.id.etDate);
-            EditText etAddress = view.findViewById(R.id.etAddress);
-            EditText etContactPerson = view.findViewById(R.id.etContactPerson);
-            EditText etContactPhone = view.findViewById(R.id.etContactPhone);
-            String date = etDate.getText().toString().trim();
-            String address = etAddress.getText().toString().trim();
-            String contact = etContactPerson.getText().toString().trim();
-            String phone = etContactPhone.getText().toString().trim();
+
+
+            address = etAddress.getText().toString().trim();
+            contact = etContactPerson.getText().toString().trim();
+            phone = etContactPhone.getText().toString().trim();
             //判斷使用者是否有輸入值
             if (date.isEmpty()) {
                 etDate.setError("Date is empty ");
@@ -132,8 +195,20 @@ public  class serviceFragment extends Fragment implements
                 return;
 
             }
-            btnToNewOrder.setOnClickListener(v1 -> {
-                new AlertDialog.Builder(activity)
+            bundle = new Bundle();
+            //從preference檔，取出memberId
+            preferences = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE);
+            memberId = preferences.getString("memberIdInfo","0");
+            bundle.putString("memberId",memberId);
+            bundle.putString("startDate",date);
+            bundle.putString("address",address);
+            bundle.putString("contact",contact);
+            bundle.putString("phone",phone);
+            bundle.putString("serviceTime",serviceTime);
+            bundle.putString("serviceType",serviceType);
+
+
+            new AlertDialog.Builder(activity)
                         //設定標題
                         .setTitle("訂單確認")
                         //設定圖示
@@ -146,7 +221,6 @@ public  class serviceFragment extends Fragment implements
                         .setNegativeButton("No", (dialog, which) -> dialog.cancel())//關閉對話視窗
                         .setCancelable(false)//必須點擊按鈕方能關閉，預設為true
                         .show();
-            });
         });
     }//onViewCreated內
 
@@ -174,8 +248,10 @@ public  class serviceFragment extends Fragment implements
     /* 將指定的日期顯示在etTextView上。
   一月的值是0而非1，所以「month + 1」後才顯示 */
     private void updateDisplay() {
-        etDate.setText(new StringBuilder().append(year).append("-")
-                .append(pad(month + 1)).append("-").append(day));
+        date = new StringBuilder().append(year).append("-")
+                .append(pad(month + 1)).append("-").append(day).toString();
+        etDate.setText(date);
+
     }
 
     /* 若數字有十位數，直接顯示；
@@ -190,23 +266,10 @@ public  class serviceFragment extends Fragment implements
 
 
 
-    //><
-    @Override
-    public void onItemSelected(
-            AdapterView<?> parent, View view, int position, long id) {
-        tvMessage.setText(parent.getItemAtPosition(position).toString());
-        Log.d("selected", "已選擇服務");
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-        tvMessage.setText("請選擇服務!");
-        Log.d("noSelected", "請選擇服務");
-    }
-
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
     }
+
+
 }

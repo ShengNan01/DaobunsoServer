@@ -25,6 +25,27 @@ import lombok.NoArgsConstructor;
 @Table(name="order_master") 
 public class OrderBean {
 
+	
+	public OrderBean(Integer orderId, Date orderDate, Integer sum) {
+		super();
+		this.orderId = orderId;
+		this.orderDate = orderDate;
+		this.sum = sum;
+	}
+	
+	
+	
+
+	public OrderBean(Integer orderId, @NotBlank String contact, Integer sum) {
+		super();
+		this.orderId = orderId;
+		this.contact = contact;
+		this.sum = sum;
+	}
+
+
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "Order_Id")

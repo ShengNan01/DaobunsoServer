@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDFFDD"
+    android:background="@drawable/bg"
     tools:context=".login.signinFragment">
 
 
-    // 帳號
+
     <EditText
         android:id="@+id/etAccount"
         android:layout_width="wrap_content"
@@ -16,13 +16,15 @@
         android:layout_marginTop="169dp"
         android:ems="10"
         android:hint="ACCOUNT"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    // 密碼
+
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="wrap_content"
@@ -30,6 +32,8 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="PASSWORD"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/etAccount"
         app:layout_constraintTop_toBottomOf="@+id/etAccount" />
@@ -60,7 +64,7 @@
         android:text="CREATE AN ACCOUNT 點我建立新帳號"
         android:textSize="15sp"
         android:textStyle="bold"
-
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/tvLogin"
         app:layout_constraintStart_toStartOf="@+id/tvLogin"
         app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
@@ -71,6 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="REMEMBER ME 記住我"
+        android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/tvLogin"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:text="Oops! 忘記密碼"
+        android:textColor="#FFFFFF"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvCreateAccount"

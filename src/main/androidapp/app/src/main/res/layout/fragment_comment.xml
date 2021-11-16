@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDFFDD"
+    android:background="@drawable/bg"
     tools:context=".comment.commentFragment">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="服務評分"
-        android:textColor="#21425F"
+        android:textColor="#ffffff"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="您寶貴的意見是我們進步的原動力"
-        android:textColor="#21425F"
+        android:textColor="#ffffff"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="歡迎填寫回饋，非常感謝"
-        android:textColor="#21425F"
+        android:textColor="#ffffff"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="50dp"
         android:text="意見填寫"
-        android:textColor="#21425F"
+        android:textColor="#ffffff"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +85,7 @@
         android:ems="10"
         android:gravity="start|top|left"
         android:hint="請由此開始填寫"
+        android:textStyle="bold"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -108,7 +109,7 @@
         android:layout_height="47dp"
         android:layout_marginTop="216dp"
         android:layout_marginEnd="5dp"
-        android:src="@drawable/sad"
+        android:src="@drawable/whitesad"
         app:layout_constraintEnd_toStartOf="@+id/rbStars"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,7 +119,7 @@
         android:layout_height="45dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="216dp"
-        android:src="@drawable/smile"
+        android:src="@drawable/whitesmile"
         app:layout_constraintStart_toEndOf="@+id/rbStars"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,7 +130,7 @@
         android:layout_height="53dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
-        android:src="@drawable/home"
+        android:src="@drawable/whitehome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -139,7 +140,7 @@
         android:layout_height="34dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
-        android:src="@drawable/shoppingcart"
+        android:src="@drawable/whiteshoppingcart"
         app:layout_constraintEnd_toStartOf="@+id/ivHome"
         app:layout_constraintTop_toTopOf="parent" />
 

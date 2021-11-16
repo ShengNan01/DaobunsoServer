@@ -1814,6 +1814,7 @@ drawable baseline_manage_accounts_black_48
 drawable baseline_mark_as_unread_black_48
 drawable baseline_shopping_cart_black_48
 drawable baseline_thumb_up_off_alt_black_48
+drawable bg
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1879,6 +1880,7 @@ drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable myorder1
 drawable navigation_empty_icon
+drawable no_order
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1905,7 +1907,12 @@ drawable thanks
 drawable thankyou1
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable whitehome
 drawable whitelogo
+drawable whitesad
+drawable whiteshoppingcart
+drawable whitesmile
+drawable whitethankyou
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -1989,9 +1996,12 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_myorderFragment_to_commentFragment
 id action_myorderFragment_to_indexFragment
+id action_myorderFragment_to_orderDetailFragment
 id action_myorderFragment_to_serviceFragment
 id action_newOrderFragment_to_confirmOrderFragment
 id action_newOrderFragment_to_indexFragment
+id action_orderDetailFragment_to_indexFragment
+id action_orderDetailFragment_to_serviceFragment
 id action_paymentInfoFragment_to_indexFragment
 id action_serviceFragment_to_indexFragment
 id action_serviceFragment_to_indexFragment2
@@ -2043,6 +2053,7 @@ id buttonPanel
 id cache_measures
 id cancel_action
 id cancel_button
+id cardview
 id carryVelocity
 id cbShowPassword
 id cbShowPassword_ChangePwdPage
@@ -2126,6 +2137,7 @@ id editTextTextPassword
 id edit_query
 id elastic
 id emailbutton
+id empty_view
 id end
 id endToStart
 id end_padder
@@ -2135,6 +2147,7 @@ id etAC
 id etAccount
 id etAddress
 id etComment
+id etCompanyTitle
 id etContactPerson
 id etContactPhone
 id etDate
@@ -2172,6 +2185,8 @@ id ghost_view_holder
 id gone
 id graph
 id graph_wrap
+id group
+id group2
 id group_divider
 id grouping
 id groups
@@ -2300,6 +2315,12 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id orderDetailFragment
+id orderdetail_ed
+id orderdetail_id
+id orderdetail_quantity
+id orderdetail_sd
+id orderdetail_type
 id outline
 id outward
 id overshoot
@@ -2322,8 +2343,6 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
-id rbInvoice
-id rbReceipt
 id rbStars
 id rectangles
 id recyclerView
@@ -2430,6 +2449,11 @@ id textTop
 id textView
 id textView2
 id textView3
+id textView4
+id textView5
+id textView6
+id textView7
+id textView8
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2457,6 +2481,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvAccountTitle
+id tvAddress
 id tvAddressTitle
 id tvComment
 id tvCommentcontent1
@@ -2480,7 +2505,8 @@ id tvModifyPassword
 id tvMyOrder
 id tvNameTitle
 id tvNewPasswordTitle
-id tvOrderListView
+id tvOderId
+id tvOrderDate
 id tvPasswordTitle
 id tvPaymentMethodTitle
 id tvPaymentTitle
@@ -2491,22 +2517,22 @@ id tvReceiptType
 id tvRunning
 id tvService
 id tvServiceEndTime
-id tvServiceEndTime2
-id tvServiceEndTime3
-id tvServiceEndTime4
 id tvServiceEndTitle
-id tvServicePrice
+id tvServicePerson
 id tvServiceStartTitle
 id tvServiceStartTitle2
 id tvServiceStartTitle3
 id tvServiceStartTitle5
+id tvServiceTime
 id tvServiceTimeTitle
 id tvServiceType
 id tvServiceTypeTitle
 id tvStartDate
+id tvSum
 id tvTotalPrice
 id tvTotalPriceTitle
 id tvUserName
+id tv_OrderDate
 id tvtkscontent
 id unchecked
 id uniform
@@ -2600,6 +2626,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout activity_welcome
+layout checkout_spinner_item
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2625,6 +2652,7 @@ layout fragment_index
 layout fragment_member
 layout fragment_myorder
 layout fragment_new_order
+layout fragment_order_detail
 layout fragment_payment_info
 layout fragment_service
 layout fragment_signin
@@ -2673,6 +2701,7 @@ layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout myorder_list_view
+layout myspinner
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -2688,6 +2717,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout orderdetail_item_view
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

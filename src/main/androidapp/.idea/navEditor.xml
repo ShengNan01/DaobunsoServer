@@ -198,6 +198,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_myorderFragment_to_orderDetailFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_myorderFragment_to_serviceFragment">
                               <value>
                                 <LayoutPositions />
@@ -230,6 +235,30 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="orderDetailFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-266" />
+                            <option name="y" value="634" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="order_detail_2_Fragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-594" />
+                            <option name="y" value="835" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -298,6 +327,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_signinFragment_to_createAccountFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_signinFragment_to_forgetPwFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

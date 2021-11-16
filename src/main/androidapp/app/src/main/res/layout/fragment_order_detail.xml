@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:background="@drawable/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!--如果RecyclerView為水平捲動，而且要讓一筆資料佔一整個頁面，
+        「layout_width」要設定為「match_parent」；
+        如果垂直捲動則「layout_height」要設定為「match_parent」-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="訂單明細"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"/>
+
+    <LinearLayout
+        style="?android:buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:gravity="center">
+
+<!--        &lt;!&ndash;點擊「First」按鈕會切換到第1個會員&ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/btFirst"-->
+<!--            style="?android:buttonBarButtonStyle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="第一筆" />-->
+
+<!--        &lt;!&ndash;點擊「Last」按鈕會切換到最後一個會員&ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/btLast"-->
+<!--            style="?android:buttonBarButtonStyle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="最後一筆" />-->
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivShippingcart"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/ivHome"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/whiteshoppingcart" />
+
+    <ImageView
+        android:id="@+id/ivHome"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/whitehome" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

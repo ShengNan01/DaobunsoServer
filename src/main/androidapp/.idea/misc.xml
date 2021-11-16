@@ -3,13 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_change_password.xml" value="0.1" />
-        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_comment.xml" value="0.1398148148148148" />
-        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_create_account.xml" value="0.1" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/drawable-v24/textview.xml" value="0.2" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/drawable/textview_border.xml" value="0.184375" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/activity_welcome.xml" value="0.18385416666666668" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/checkout_spinner_item.xml" value="0.33" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_change_password.xml" value="0.22" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_comment.xml" value="0.1" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_confirm_order.xml" value="0.25" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_create_account.xml" value="0.25" />
         <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_forget_pw.xml" value="0.25" />
         <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_index.xml" value="0.25" />
-        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_member.xml" value="0.1" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_member.xml" value="0.25" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_myorder.xml" value="0.33" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_new_order.xml" value="0.25" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_order_detail.xml" value="0.22" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_order_detail_2_.xml" value="0.22" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_payment_info.xml" value="0.25" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_service.xml" value="0.22" />
         <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_signin.xml" value="0.33" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/fragment_thanks.xml" value="0.25" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/myorder_list_view.xml" value="0.33" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/myspinner.xml" value="0.18385416666666668" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/order_fragment_empty_view.xml" value="0.22" />
+        <entry key="..\:/_devSpring/workspace/Daobunso_Project/src/main/androidapp/app/src/main/res/layout/orderdetail_item_view.xml" value="0.25" />
       </map>
     </option>
   </component>
