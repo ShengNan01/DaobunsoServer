@@ -115,8 +115,11 @@ $('#btn-list').click(function () {
                             $('#feedback-comment').val(ucomment);
                             $('#feedback-id h2').text(oid);
                             $('#feedback-id').show();
-
-                            $('#star' + getstar).addClass('star-cl');
+                            
+                            for(let temp =getstar;temp>=1;temp--){
+                                 $('#star' + temp).addClass('star-cl');
+                            }
+                           
 
                         },
                         del: (key) => {
@@ -190,27 +193,10 @@ $('#btn-feedback').click(() => {
 //star
 
 // setTimeout(listenstar(),1000)
-let starv = new Vue({
-    el : '#stars',
-    data :{
-        stars:5,
-    },
-});
 
 $('#stars').hover(() => {
     // listenstar(()=>{
-    if ($('#star5').hasClass('star-cl')) {
 
-    } else if ($('#star4').hasClass('star-cl')) {
-
-    } else if ($('#star3').hasClass('star-cl')) {
-
-    } else if ($('#star2').hasClass('star-cl')) {
-
-    } else if ($('#star1').hasClass('star-cl')) {
-
-    } else {
-    }
     $('#star1').hover(() => {
         $('#star1').addClass('star-act');
     }, () => {
