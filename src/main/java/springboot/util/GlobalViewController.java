@@ -171,24 +171,23 @@ public class GlobalViewController {
 	}
 
 	@GetMapping("/activateMail")
-	public String activateMail(@RequestParam String emailToken, HttpServletResponse response) throws Exception {
-		if (mailutils.balanceToken(emailToken)) {
-			log.info("認證成功!");
-			String member = (String) redisTemplate.opsForValue().get(emailToken);
-			String[] strs = member.split(",|=");
-			String account = strs[5].toString().trim();
-			Login bean = loginRepo.findLoginByAccount(account);
-			bean.setVerification(1);
-			loginRepo.save(bean);
-			Cookie cookie = new Cookie("verification", "1");
-			cookie.setMaxAge(7 * 24 * 60 * 60);
-			response.addCookie(cookie);
-			return "verification";
-		}
-		log.info("認證失敗!");
-		return "frontpage";
-	}
-
+		public String activateMail(@RequestParam String emailToken, HttpServletResponse response) throws Exception {
+			if (mailutils.balanceToken(emailToken)) {
+				log.info("認證成功!");
+				String member =  (String) redisTemplate.opsForValue().get(emailToken);
+				String[] strs=member.split(",|=");
+				String account = strs[5].toString().trim();
+				 Login bean = loginRepo.findLoginByAccount(account);
+				 bean.setVerification(1);
+				 loginRepo.save(bean);
+				 Cookie cookie = new Cookie("verification", "1"); 
+				 cookie.setMaxAge(7 * 24 * 60 * 60);
+				 response.addCookie(cookie);
+					 return "verification";
+			}
+			log.info("認證失敗!");
+			return "verificationFail";
+			}
 	@GetMapping("/verification_email")
 	public String verificationEmail() {
 		return "verification_email";

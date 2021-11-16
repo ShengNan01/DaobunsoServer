@@ -1,5 +1,7 @@
 
 
+
+
 // reset modal when modal was hidden
 let myModalEl = document.getElementById('myModal')
 myModalEl.addEventListener('hidden.bs.modal', function (event) {
@@ -141,6 +143,7 @@ $(function () {
         let maincompany = $('#maincompany').val();
         let companyinvoicenumber = $('#companyinvoicenumber').val();
         let confirm = $('#lastconfirm').val();
+        let memberid=getCookieByName("id");
         let totalPrice = $('#total').text();
 
         // -------------把LOCALSTORAGE用成一個變數
@@ -185,6 +188,7 @@ $(function () {
             user['taxIDnumber'] = companyinvoicenumber;
             user['timeForGarbage'] = paymenttype[i].timeframe;
             user['scheduleGarbage'] = confirm;
+            user['memberId'] =memberid;
             user['userDetails'] = userDetail;
         }
 
@@ -202,7 +206,7 @@ $(function () {
         // });
 
 
-        fetch(`https://localhost:8443/placeOrder2`, {
+        fetch(`https://localhost/placeOrder2`, {
             method: 'POST',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' },

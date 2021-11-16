@@ -24,6 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b24bcf34-e532-4c29-8f78-552ee5bfdf87" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springboot/payment/entity/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/springboot/payment/entity/user.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/payment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +173,7 @@
       <workItem from="1636612256433" duration="67378000" />
       <workItem from="1637041217195" duration="3000" />
       <workItem from="1637043218908" duration="167000" />
+      <workItem from="1637043652849" duration="1164000" />
     </task>
     <servers />
   </component>
