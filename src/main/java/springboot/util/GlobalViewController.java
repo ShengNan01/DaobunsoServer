@@ -184,7 +184,7 @@ public class GlobalViewController {
 					 return "verification";
 			}
 			log.info("認證失敗!");
-			return "frontpage";
+			return "verificationFail";
 			}
 	@GetMapping("/verification_email")
 	public String verificationEmail() {
