@@ -148,36 +148,46 @@ public class ExampleAllInOne {
 		return form;
 	}
 	
-	public static String genAioCheckOutALL(Integer totalprice , Integer id ){
-		UUID uid = UUID.randomUUID();//訂單編號
-		AioCheckOutALL obj = new AioCheckOutALL();
-		obj.setMerchantTradeNo("testCompany0004");//訂單編號自行設定寫法
-//		obj.setMerchantTradeDate("2017/01/01 08:05:23");
-		obj.setMerchantTradeDate("yyyy/MM/dd HH:mm:ss");
-		obj.setTotalAmount("totalprice");
-//		obj.setTradeDesc("test Description");//Daobunso 倒幫手垃圾代收服務
-		obj.setTradeDesc("Daobunso 倒幫手垃圾代收服務");
-//		obj.setItemName("TestItem");//結帳付款
-		obj.setItemName("結帳付款");
-//		obj.setReturnURL("https://211.23.128.214:5000");//接收的controller+id
-		obj.setReturnURL("https://localhost/payment" +id);//接收的controller+id
-		obj.setNeedExtraPaidInfo("N");
-		String form = all.aioCheckOut(obj, null);
-		return form;
-	}
+//	public static String genAioCheckOutALL(Integer totalprice , Integer id ){
+//		UUID uid = UUID.randomUUID();//訂單編號
+//		AioCheckOutALL obj = new AioCheckOutALL();
+//		obj.setMerchantTradeNo("testCompany0004");//訂單編號自行設定寫法
+////		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+//		obj.setMerchantTradeDate("yyyy/MM/dd HH:mm:ss");
+//		obj.setTotalAmount("totalprice");
+////		obj.setTradeDesc("test Description");//Daobunso 倒幫手垃圾代收服務
+//		obj.setTradeDesc("Daobunso 倒幫手垃圾代收服務");
+////		obj.setItemName("TestItem");//結帳付款
+//		obj.setItemName("結帳付款");
+////		obj.setReturnURL("https://211.23.128.214:5000");//接收的controller+id
+//		obj.setReturnURL("https://localhost/payment" +id);//接收的controller+id
+//		obj.setNeedExtraPaidInfo("N");
+//		String form = all.aioCheckOut(obj, null);
+//		return form;
+//	}
 	
-	public String getAioChecOutAll(String value, Integer id) {
-		UUID uid = UUID.randomUUID();//訂單編號
+	public String getAioChecOutAll(String price, String id) {
 		AioCheckOutALL obj = new AioCheckOutALL();
-		obj.setMerchantTradeNo("testCompany0004");//訂單編號自行設定寫法
-//		obj.setMerchantTradeDate("2017/01/01 08:05:23");
-		obj.setMerchantTradeDate("yyyy/MM/dd HH:mm:ss");
-		obj.setTotalAmount("price");
-		obj.setTradeDesc("test Description");//Daobunso 倒幫手垃圾代收服務
-		obj.setItemName("TestItem");//結帳付款
-		obj.setReturnURL("http://211.23.128.214:5000");//接收的controller+id
+		log.info(id);
+		obj.setMerchantTradeNo(id);
+		log.info(1);
+		obj.setMerchantTradeDate("2017/01/01 08:05:23");
+		log.info(2);
+//		obj.setMerchantTradeDate("yyyy/MM/dd HH:mm:ss");
+		obj.setTotalAmount(price);
+		log.info(3);
+		obj.setTradeDesc("Daobunso");//Daobunso 倒幫手垃圾代收服務
+		log.info(4);
+		obj.setItemName("結帳付款");//結帳付款
+		log.info(5);
+		obj.setReturnURL("http://211.23.128.214:5000");
+		log.info(6);
+		obj.setOrderResultURL("https://localhost/orders/" + id);//接收的controller+id
+		log.info(7);
 		obj.setNeedExtraPaidInfo("N");
+		log.info(8);
 		String form = all.aioCheckOut(obj, null);
+		log.info(9);
 		return form;
 	}
 	

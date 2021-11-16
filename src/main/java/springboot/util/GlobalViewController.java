@@ -104,11 +104,11 @@ public class GlobalViewController {
 	public String order_mainPage() {
 		return "order_main";
 	}
-
-	@GetMapping("/payment")
-	public String paymentPage() {
-		return "payment";
-	}
+//
+//	@GetMapping("/payment")
+//	public String paymentPage() {
+//		return "payment";
+//	}
 
 	@GetMapping("/problem")
 	public String problemPage() {

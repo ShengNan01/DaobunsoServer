@@ -52,7 +52,7 @@ public class user {
 	private String timeForGarbage;
 
 	@Column(name = "Sum")
-	private int sum;
+	private String sum;
 
 	@Column(name = "Pay_Type")
 	private String payType;
@@ -65,126 +65,113 @@ public class user {
 
 	@Column(name = "Schedule_Garbage")
 	private String scheduleGarbage;
-
-//    @Transient
+	
+	@Transient
+	@Column(name = "PayPayment")
+	private String payPayment;
+	
+	@Column(name = "DetailNo")
+	private String detailNo;
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_orderbean_orderno", referencedColumnName = "Order_Id")
 	private List<userDetail> userDetails;
-//    Set<userDetail> userDetails = new HashSet<>();
 
-//    @Override
-//    public String toString() {
-//        return "user{" +
-//                "orderId=" + orderId +
-//                ", orderDate=" + orderDate +
-//                ", memberId=" + memberId +
-//                ", address='" + address + '\'' +
-//                ", phone='" + phone + '\'' +
-//                ", contact='" + contact + '\'' +
-//                ", timeForGarbage='" + timeForGarbage + '\'' +
-//                ", sum=" + sum +
-//                ", payType='" + payType + '\'' +
-//                ", taxIDnumber='" + taxIDnumber + '\'' +
-//                ", companytitle='" + companytitle + '\'' +
-//                ", scheduleGarbage='" + scheduleGarbage + '\'' +
-//                ", userDetails=" + userDetails +
-//                '}';
-//    }
 
-	public int getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
-
-	public Date getOrderDate() {
-		return orderDate;
-	}
-
-	public void setOrderDate(Date orderDate) {
-		this.orderDate = orderDate;
-	}
-
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getContact() {
-		return contact;
-	}
-
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-
-	public String getTimeForGarbage() {
-		return timeForGarbage;
-	}
-
-	public void setTimeForGarbage(String timeForGarbage) {
-		this.timeForGarbage = timeForGarbage;
-	}
-
-	public int getSum() {
-		return sum;
-	}
-
-	public void setSum(int sum) {
-		this.sum = sum;
-	}
-
-	public String getPayType() {
-		return payType;
-	}
-
-	public void setPayType(String payType) {
-		this.payType = payType;
-	}
-
-	public String getTaxIDnumber() {
-		return taxIDnumber;
-	}
-
-	public void setTaxIDnumber(String taxIDnumber) {
-		this.taxIDnumber = taxIDnumber;
-	}
-
-	public String getCompanytitle() {
-		return companytitle;
-	}
-
-	public void setCompanytitle(String companytitle) {
-		this.companytitle = companytitle;
-	}
-
-	public String getScheduleGarbage() {
-		return scheduleGarbage;
-	}
-
-	public void setScheduleGarbage(String scheduleGarbage) {
-		this.scheduleGarbage = scheduleGarbage;
-	}
+//	public int getOrderId() {
+//		return orderId;
+//	}
+//
+//	public void setOrderId(int orderId) {
+//		this.orderId = orderId;
+//	}
+//
+//	public Date getOrderDate() {
+//		return orderDate;
+//	}
+//
+//	public void setOrderDate(Date orderDate) {
+//		this.orderDate = orderDate;
+//	}
+//
+//	public int getMemberId() {
+//		return memberId;
+//	}
+//
+//	public void setMemberId(int memberId) {
+//		this.memberId = memberId;
+//	}
+//
+//	public String getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(String address) {
+//		this.address = address;
+//	}
+//
+//	public String getPhone() {
+//		return phone;
+//	}
+//
+//	public void setPhone(String phone) {
+//		this.phone = phone;
+//	}
+//
+//	public String getContact() {
+//		return contact;
+//	}
+//
+//	public void setContact(String contact) {
+//		this.contact = contact;
+//	}
+//
+//	public String getTimeForGarbage() {
+//		return timeForGarbage;
+//	}
+//
+//	public void setTimeForGarbage(String timeForGarbage) {
+//		this.timeForGarbage = timeForGarbage;
+//	}
+//
+//	public int getSum() {
+//		return sum;
+//	}
+//
+//	public void setSum(int sum) {
+//		this.sum = sum;
+//	}
+//
+//	public String getPayType() {
+//		return payType;
+//	}
+//
+//	public void setPayType(String payType) {
+//		this.payType = payType;
+//	}
+//
+//	public String getTaxIDnumber() {
+//		return taxIDnumber;
+//	}
+//
+//	public void setTaxIDnumber(String taxIDnumber) {
+//		this.taxIDnumber = taxIDnumber;
+//	}
+//
+//	public String getCompanytitle() {
+//		return companytitle;
+//	}
+//
+//	public void setCompanytitle(String companytitle) {
+//		this.companytitle = companytitle;
+//	}
+//
+//	public String getScheduleGarbage() {
+//		return scheduleGarbage;
+//	}
+//
+//	public void setScheduleGarbage(String scheduleGarbage) {
+//		this.scheduleGarbage = scheduleGarbage;
+//	}
 
 }
