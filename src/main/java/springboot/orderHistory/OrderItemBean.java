@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "order_detail")
+
 public class OrderItemBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
