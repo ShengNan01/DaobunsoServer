@@ -23,8 +23,8 @@
             <i class="fas fa-globe-asia"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a id="langbtn-tw" class="btn dropdown-item">中文</a></li>
-            <li><a id="langbtn-en" class="btn dropdown-item" >English</a></li>
+            <li><a id="langbtn-tw" class="btn dropdown-item" href="?lang=zh_TW">中文</a></li>
+            <li><a id="langbtn-en" class="btn dropdown-item" href="?lang=en_US">English</a></li>
           </ul>
         </li>
 
@@ -38,8 +38,8 @@
             <li class="nav-item dropdown">
               <a id="nav-login" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                 aria-expanded="false">Log In</a>
-              <ul class="dropdown-menu">
-                <li><a id="login-dropdown-1" class="dropdown-item" href="./profiles">個人資訊</a></li>
+              <ul class="dropdown-menu">              
+                <li><a id="login-dropdown-1" class="dropdown-item" th:href="@{/profiles(l='en_US')}">個人資訊</a></li>
                 <li><a id="login-dropdown-2" class="dropdown-item" href="./order_main">訂單管理</a></li>
                 <li><a id="login-dropdown-3" class="dropdown-item" href="./shopping_cart">購物車</a></li>
                 <li>
