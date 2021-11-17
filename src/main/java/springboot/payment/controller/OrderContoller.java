@@ -44,12 +44,11 @@ public class OrderContoller {
 		String detailNo = uid.toString().replaceAll("-", "").substring(0, 20);
 		userpayment.setDetailNo(detailNo);
 		customerRepository.save(userpayment);
-		
 		Integer orderId = userpayment.getOrderId();
 		String sum = userpayment.getSum();
 		System.out.println( "結帳總金額:" + sum);
 		log.info("跳轉綠界頁面");
-		String paymentValue = exampleAllInOne.getAioChecOutAll(sum, detailNo);// 獲得Html code
+		String paymentValue = exampleAllInOne.getAioCheckOutAll(sum, detailNo , , );// 獲得Html code
 		log.info("123");
 		user userBean = new user();
 		userBean.setPayPayment(paymentValue); // 將html code塞到Bean中

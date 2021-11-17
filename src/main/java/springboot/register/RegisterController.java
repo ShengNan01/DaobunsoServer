@@ -32,7 +32,11 @@ public class RegisterController {
 		String account = member.getAccount();
 		if (memberRepository.findByAccount(account) != null) {
 			return "已有重複帳號，請更改";
-		} else {
+		}
+//		else if(memberRepository.existsByEmail(member.getEmail())) {
+//			return "已有重複信箱，請更改";
+//		}
+		else {
 			String enPswd = GlobalService.encryptString(member.getPassword());
 			Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());
 			member.setPassword(enPswd);

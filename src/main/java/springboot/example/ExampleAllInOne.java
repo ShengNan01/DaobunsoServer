@@ -1,6 +1,8 @@
 package springboot.example;
 
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Hashtable;
 import java.util.UUID;
 
@@ -166,28 +168,19 @@ public class ExampleAllInOne {
 //		return form;
 //	}
 	
-	public String getAioChecOutAll(String price, String id) {
+	public String getAioCheckOutAll(String price, String id , String orderitem , String URL ) {
 		AioCheckOutALL obj = new AioCheckOutALL();
-		log.info(id);
 		obj.setMerchantTradeNo(id);
-		log.info(1);
-		obj.setMerchantTradeDate("2017/01/01 08:05:23");
-		log.info(2);
-//		obj.setMerchantTradeDate("yyyy/MM/dd HH:mm:ss");
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date current = new Date();
+		obj.setMerchantTradeDate(sdFormat.format(current));
 		obj.setTotalAmount(price);
-		log.info(3);
 		obj.setTradeDesc("Daobunso");//Daobunso 倒幫手垃圾代收服務
-		log.info(4);
 		obj.setItemName("結帳付款");//結帳付款
-		log.info(5);
 		obj.setReturnURL("http://211.23.128.214:5000");
-		log.info(6);
-		obj.setOrderResultURL("https://localhost/orders/" + id);//接收的controller+id
-		log.info(7);
-		obj.setNeedExtraPaidInfo("N");
-		log.info(8);
+		obj.setOrderResultURL("https://localhost/orders/");//接收的controller+id
+		obj.setNeedExtraPaidInfo("Y");
 		String form = all.aioCheckOut(obj, null);
-		log.info(9);
 		return form;
 	}
 	
