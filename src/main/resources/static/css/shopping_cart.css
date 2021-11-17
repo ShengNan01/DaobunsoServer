@@ -63,14 +63,14 @@ tbody img {
   width: 6rem;
 }
 
-form .btn, .btn {
+#payment_btn {
   font-size: 1rem;
   width: 7rem;
   color: #FFF;
   background-color: #2D3E4D;
 }
 
-form .btn:hover {
+#payment_btn:hover {
   background-color: #3EB595;
 }
 

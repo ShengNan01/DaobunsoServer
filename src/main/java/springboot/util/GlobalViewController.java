@@ -100,9 +100,9 @@ public class GlobalViewController {
 		return "maptest";
 	}
 
-	@GetMapping("/order_main")
-	public String order_mainPage() {
-		return "order_main";
+	@GetMapping("/orders")
+	public String ordersPage() {
+		return "orders";
 	}
 
 	@GetMapping("/payment")
