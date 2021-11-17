@@ -79,11 +79,6 @@ $('#btn-list').click(function () {
     ucomment = "";
     $('#feedback-comment').val("");
     $('#feedback-id').hide();
-    $('#star1 img').attr('src', starimg);
-    $('#star2 img').attr('src', starimg);
-    $('#star3 img').attr('src', starimg);
-    $('#star4 img').attr('src', starimg);
-    $('#star5 img').attr('src', starimg);
     // ~數值init
     $('.feedback').hide();
     $('#btn-ex').removeClass("tog");
@@ -138,6 +133,9 @@ $('#btn-list').click(function () {
         });
         // ~GET
     } else {
+        // $('#btn-list').text("修改/刪除意見");
+        // $('#btn-list').removeClass('tog')
+        // $('#feedback-list').hide();
         location.reload();
     }
 });

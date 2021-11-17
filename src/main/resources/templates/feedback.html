@@ -10,6 +10,8 @@
     <title>Daobunso</title>
     <script src="js\jquery-3.6.0.js"></script>
     <script src="js\vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -107,19 +109,19 @@
                             <!-- 星星 -->
                             <div id="stars" class="btn-group mx-auto col-4" role="group">
                                 <div style="width: 3rem;">
-                                    <i id="star1" class="fas fa-star" style="border: 2px;"></i>
+                                    <i id="star1" class="fas fa-star"></i>
                                 </div>
                                 <div style="width: 3rem;">
-                                    <i id="star2" class="fas fa-star" style="border: 2px;"></i>
+                                    <i id="star2" class="fas fa-star"></i>
                                 </div>
                                 <div style="width: 3rem;">
-                                    <i id="star3" class="fas fa-star" style="border: 2px;"></i>
+                                    <i id="star3" class="fas fa-star"></i>
                                 </div>
                                 <div style="width: 3rem;">
-                                    <i id="star4" class="fas fa-star" style="border: 2px;"></i>
+                                    <i id="star4" class="fas fa-star"></i>
                                 </div>
                                 <div style="width: 3rem;">
-                                    <i id="star5" class="fas fa-star" style="border: 2px;"></i>
+                                    <i id="star5" class="fas fa-star"></i>
                                 </div>
 
                             </div>
@@ -127,11 +129,19 @@
 
                         </div>
                         <div id="feedback-id" class="row col-6" style="display: none;">
-                            <div class="col-3">
-                                <h3 style="color:rgb(24, 51, 59)">編號:</h3>
+                            <div class="col-1">
+                                <!-- hastag icon -->
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hashtag"
+                                    class="svg-inline--fa fa-hashtag" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512">
+                                    <path fill="currentColor"
+                                        d="M416 127.1h-58.23l9.789-58.74c2.906-17.44-8.875-33.92-26.3-36.83c-17.53-2.875-33.92 8.891-36.83 26.3L292.9 127.1H197.8l9.789-58.74c2.906-17.44-8.875-33.92-26.3-36.83c-17.53-2.875-33.92 8.891-36.83 26.3L132.9 127.1H64c-17.67 0-32 14.33-32 32C32 177.7 46.33 191.1 64 191.1h58.23l-21.33 128H32c-17.67 0-32 14.33-32 32c0 17.67 14.33 31.1 32 31.1h58.23l-9.789 58.74c-2.906 17.44 8.875 33.92 26.3 36.83C108.5 479.9 110.3 480 112 480c15.36 0 28.92-11.09 31.53-26.73l11.54-69.27h95.12l-9.789 58.74c-2.906 17.44 8.875 33.92 26.3 36.83C268.5 479.9 270.3 480 272 480c15.36 0 28.92-11.09 31.53-26.73l11.54-69.27H384c17.67 0 32-14.33 32-31.1c0-17.67-14.33-32-32-32h-58.23l21.33-128H416c17.67 0 32-14.32 32-31.1C448 142.3 433.7 127.1 416 127.1zM260.9 319.1H165.8L187.1 191.1h95.12L260.9 319.1z">
+                                    </path>
+                                </svg>
+                                <!-- ~hastag icon -->
                             </div>
-                            <div class="col-9">
-                                <h2 style="color: rgb(47, 194, 162)"></h2>
+                            <div class="col-11">
+                                <h2></h2>
                             </div>
 
                         </div>
@@ -162,21 +172,81 @@
             <!-- <li v-for="rli in res" class="editli" style="list-style-type:none; display: none;">{{rel}}</li> -->
             <div id="table_edit">
                 <div class="row">
-                    <div class="col-1">編號</div>
-                    <div class="col-2">時間</div>
-                    <div class="col-2">評等</div>
-                    <div class="col-7">內容</div>
+                    <div class="col-1">
+                        <!-- hastag-icon -->
+                        <svg style="width: 1.5rem;" aria-hidden="true" focusable="false" data-prefix="fas"
+                            data-icon="hashtag" class="svg-inline--fa fa-hashtag" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M416 127.1h-58.23l9.789-58.74c2.906-17.44-8.875-33.92-26.3-36.83c-17.53-2.875-33.92 8.891-36.83 26.3L292.9 127.1H197.8l9.789-58.74c2.906-17.44-8.875-33.92-26.3-36.83c-17.53-2.875-33.92 8.891-36.83 26.3L132.9 127.1H64c-17.67 0-32 14.33-32 32C32 177.7 46.33 191.1 64 191.1h58.23l-21.33 128H32c-17.67 0-32 14.33-32 32c0 17.67 14.33 31.1 32 31.1h58.23l-9.789 58.74c-2.906 17.44 8.875 33.92 26.3 36.83C108.5 479.9 110.3 480 112 480c15.36 0 28.92-11.09 31.53-26.73l11.54-69.27h95.12l-9.789 58.74c-2.906 17.44 8.875 33.92 26.3 36.83C268.5 479.9 270.3 480 272 480c15.36 0 28.92-11.09 31.53-26.73l11.54-69.27H384c17.67 0 32-14.33 32-31.1c0-17.67-14.33-32-32-32h-58.23l21.33-128H416c17.67 0 32-14.32 32-31.1C448 142.3 433.7 127.1 416 127.1zM260.9 319.1H165.8L187.1 191.1h95.12L260.9 319.1z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="col-3">
+                        <!-- clock-icon -->
+                        <svg style="width: 1.5rem;" aria-hidden="true" focusable="false" data-prefix="fas"
+                            data-icon="clock" class="svg-inline--fa fa-clock" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor"
+                                d="M256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512zM232 256C232 264 236 271.5 242.7 275.1L338.7 339.1C349.7 347.3 364.6 344.3 371.1 333.3C379.3 322.3 376.3 307.4 365.3 300L280 243.2V120C280 106.7 269.3 96 255.1 96C242.7 96 231.1 106.7 231.1 120L232 256z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="col-2">
+                        <!-- star-grading-icon -->
+                        <svg style="width: 1.5rem;" aria-hidden="true" focusable="false" data-prefix="fas"
+                            data-icon="star-half-stroke" class="svg-inline--fa fa-star-half-stroke" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path fill="currentColor"
+                                d="M528.5 171.5l-146.4-21.29l-65.43-132.4c-5.873-11.83-17.31-17.81-28.78-17.81c-11.39 0-22.82 5.89-28.7 17.8l-65.43 132.4L47.47 171.5C21.2 175.3 10.68 207.6 29.72 226.1l105.9 102.1l-25.04 145.5C107 495.3 123.6 512 142.2 512c4.932 0 10.01-1.172 14.88-3.75L288 439.6l130.9 68.7c4.865 2.553 9.926 3.713 14.85 3.713c18.61 0 35.21-16.61 31.65-37.41l-25.05-145.5l105.9-102.1C565.3 207.6 554.8 175.3 528.5 171.5zM406.9 294.7L388.8 312.3l23.83 138.4L288 385.4V68l62.31 126.1l139.2 20.25L406.9 294.7z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="col-6">
+                        <!-- content-icon -->
+                        <svg style="width: 1.5rem;" aria-hidden="true" focusable="false" data-prefix="far"
+                            data-icon="file-lines" class="svg-inline--fa fa-file-lines" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path fill="currentColor"
+                                d="M365.3 93.38l-74.63-74.64C278.6 6.742 262.3 0 245.4 0L64-.0001c-35.35 0-64 28.65-64 64l.0065 384c0 35.34 28.65 64 64 64H320c35.2 0 64-28.8 64-64V138.6C384 121.7 377.3 105.4 365.3 93.38zM336 448c0 8.836-7.164 16-16 16H64.02c-8.838 0-16-7.164-16-16L48 64.13c0-8.836 7.164-16 16-16h160L224 128c0 17.67 14.33 32 32 32h79.1V448zM96 280C96 293.3 106.8 304 120 304h144C277.3 304 288 293.3 288 280S277.3 256 264 256h-144C106.8 256 96 266.8 96 280zM264 352h-144C106.8 352 96 362.8 96 376s10.75 24 24 24h144c13.25 0 24-10.75 24-24S277.3 352 264 352z">
+                            </path>
+                        </svg>
+                    </div>
                 </div>
-
-                <div v-if="" v-for="(rel,key) in res" class="row">
+                <div v-if="rel == 0" class="row">
+                    <div class="col">
+                        沒東西
+                    </div>
+                </div>
+                <div v-for="(rel,key) in res" class="row mt-4">
                     <div class="col-1">{{rel.objectid}}</div>
-                    <div class="col-2">{{rel.date}}</div>
+                    <div class="col-3">{{rel.date}}</div>
                     <div class="col-2">{{rel.star}}</div>
                     <div class="col-5">{{rel.comment}}</div>
-                    <div class="col-2 row">
-                        <div @click="edit(key)" class="btn-edit btn btn-outline-primary my-1 mx-1 col" type="button">編輯
+                    <div class="col-1 row">
+                        <div @click="edit(key)" class="btn-edit btn btn-outline-primary my-1 mx-1 col" type="button">
+                            <!-- edit-icon -->
+                            <svg style="width: 1rem;" aria-hidden="true" focusable="false" data-prefix="fas"
+                                data-icon="pen-ruler" class="svg-inline--fa fa-pen-ruler" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                    d="M109.5 244.1l134.6-134.6L199.9 65.37L138.3 127.1C136.1 128.3 134.4 129.4 132.6 129.4c-1.812 0-4.312-1.031-5.594-2.312L115.8 115.9C112.7 112.8 112.7 107.7 115.8 104.6L177.5 42.95L143.9 9.31c-12.41-12.39-32.5-12.39-44.87 0L9.29 99.01c-12.37 12.39-12.37 32.47 0 44.86L109.5 244.1zM497.9 127.2c18.75-18.75 18.75-49.17-.0006-67.92l-45.25-45.25c-18.78-18.77-49.19-18.77-67.97 0l-45.1 46l113.2 113.2L497.9 127.2zM469.1 334.5l-61.69 61.69c-3.094 3.094-8.117 3.07-11.21-.0239l-11.19-11.19c-3.094-3.094-3.094-8.125 0-11.2l61.69-61.69L402.5 267.9l-134.6 134.6l100.2 100.2c12.41 12.39 32.5 12.39 44.87 0l89.72-89.7c12.37-12.39 12.37-32.47 0-44.86L469.1 334.5zM316.1 82.71l-289.8 289.8c-4.656 4.656-7.763 10.63-8.896 17.12l-17.04 97.47c-2.533 14.49 10.09 27.1 24.58 24.56l97.53-17.1c6.478-1.135 12.45-4.239 17.1-8.89l289.8-289.8L316.1 82.71z">
+                                </path>
+                            </svg>
+                            <!-- ~edit-icon -->
+
                         </div>
-                        <div @click="del(key)" class="btn btn-outline-primary my-1 mx-1 col" type="button">刪除</div>
+                        <div @click="del(key)" class="btn btn-outline-primary my-1 mx-1 col" type="button">
+                            <!-- trash-icon -->
+                            <svg style="width: 1rem;" aria-hidden="true" focusable="false" data-prefix="fas"
+                                data-icon="trash" class="svg-inline--fa fa-trash" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M53.21 467c1.562 24.84 23.02 45 47.9 45h245.8c24.88 0 46.33-20.16 47.9-45L416 128H32L53.21 467zM432 32H320l-11.58-23.16c-2.709-5.42-8.25-8.844-14.31-8.844H153.9c-6.061 0-11.6 3.424-14.31 8.844L128 32H16c-8.836 0-16 7.162-16 16V80c0 8.836 7.164 16 16 16h416c8.838 0 16-7.164 16-16V48C448 39.16 440.8 32 432 32z">
+                                </path>
+                            </svg>
+                            <!-- ~trash-icon -->
+                        </div>
                     </div>
                 </div>
             </div>
