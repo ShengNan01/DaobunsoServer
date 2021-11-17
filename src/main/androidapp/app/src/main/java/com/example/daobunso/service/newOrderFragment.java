@@ -77,7 +77,7 @@ public class newOrderFragment extends Fragment implements
         TextView tvServiceEndTime = view.findViewById(R.id.tvServiceEndTime);
         TextView tvTotalPrice = view.findViewById(R.id.tvTotalPrice);
 
-        if(serviceType.equals("一次型")){
+        if(serviceType.equals("單次方案")){
             sum = "100";
             tvTotalPrice.setText("NTD "+sum);
             tvServicePrice.setText("NTD "+sum);
@@ -101,11 +101,23 @@ public class newOrderFragment extends Fragment implements
             tvEndDate.setText(endDate);
 
         }
-        else if(serviceType.equals("社區型")){
+        else if(serviceType.equals("社區方案")){
             sum = "4500";
             tvTotalPrice.setText("NTD "+sum);
             tvServicePrice.setText("NTD "+sum);
-            endDate="請詳簽約方案";
+
+            String[] dateArray = startDate.split("-");
+            int year = Integer.parseInt(dateArray[0]);
+            int month = Integer.parseInt(dateArray[1]);
+            int date = Integer.parseInt(dateArray[2]);
+
+            Calendar cl = Calendar.getInstance();
+            cl.set(year,month-1,date);
+            cl.add(Calendar.MONTH,1);
+            java.util.Date date1 =cl.getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            endDate = sdf.format(date1);
+            tvEndDate.setText(endDate);
             tvEndDate.setText(endDate);
         }
 

@@ -16,6 +16,10 @@ public interface OrdersResopository extends JpaRepository<OrderBean,Integer> {
 	List<String[]> findInfoByMemberId(Integer memberId);
 	
 	
+	@Query(nativeQuery = true,value=" SELECT MAX(Order_Id) FROM daobunso.order_master;")
+	Integer findLastid();
+	
+	
 	
 
 }

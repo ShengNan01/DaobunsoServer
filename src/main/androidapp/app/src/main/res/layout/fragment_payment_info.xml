@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".service.paymentInfoFragment"
-            android:id="@+id/constraintLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".service.paymentInfoFragment">
 
-            <!--「entries="@array/textFoodArray"」
+    <!--「entries="@array/textFoodArray"」
                     指定textFoodArray所代表的字串陣列為清單內容-->
 
 
@@ -23,55 +22,55 @@
         android:id="@+id/tvServiceTypeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="服務類型："
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvServiceStartTitle3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPriceTitle" />
+        app:layout_constraintStart_toStartOf="@+id/tvServiceStartTitle3" />
 
     <TextView
         android:id="@+id/tvPriceTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="訂購人帳號："
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvServiceTypeTitle"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/dividerService"
         app:layout_constraintTop_toBottomOf="@+id/dividerService" />
 
     <TextView
         android:id="@+id/tvServiceStartTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginBottom="29dp"
         android:gravity="center"
         android:text="服務開始日期："
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvServiceEndTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvServiceStartTitle5" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvServiceStartTitle5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="訂購日期："
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvServiceStartTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvServiceStartTitle2" />
 
@@ -79,216 +78,208 @@
         android:id="@+id/tvServiceStartTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="垃圾收取時段："
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvServiceStartTitle5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvServiceStartTitle3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
 
     <TextView
         android:id="@+id/tvServiceStartTitle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="74dp"
         android:gravity="center"
         android:text="垃圾收取地址："
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvServiceStartTitle2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvServiceTypeTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPriceTitle" />
 
     <TextView
         android:id="@+id/tvServiceEndTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="36dp"
         android:gravity="center"
         android:text="服務結束日期："
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvTotalPriceTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvEndDate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvServiceStartTitle" />
+        app:layout_constraintTop_toTopOf="@+id/tvEndDate" />
 
     <TextView
         android:id="@+id/tvTotalPriceTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
         android:gravity="center"
         android:text="總金額："
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnToIndexPage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvServiceEndTitle" />
 
     <View
         android:id="@+id/dividerService"
-        android:layout_width="367dp"
+        android:layout_width="0dp"
         android:layout_height="3dp"
-        android:layout_marginBottom="611dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginEnd="22dp"
         android:background="@drawable/buttonview"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPaymentTitle" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:hint="address"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tvServiceTime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvServiceTime"
-        app:layout_constraintTop_toBottomOf="@+id/tvServiceType" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvServiceStartTitle3" />
+
+    <TextView
+        android:id="@+id/tvEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:hint="enddate"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/tvStartDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvStartDate" />
 
     <TextView
         android:id="@+id/tvTotalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="120dp"
+        android:layout_marginEnd="96dp"
         android:gravity="center"
         android:hint="totalprice"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/btnToIndexPage"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTotalPriceTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEndDate" />
-
-    <TextView
-        android:id="@+id/tvServicePerson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="person"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tvServiceType"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvServiceType"
-        app:layout_constraintTop_toBottomOf="@+id/dividerService" />
-
-    <TextView
-        android:id="@+id/tvStartDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="startdate"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tvEndDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.031"
-        app:layout_constraintStart_toStartOf="@+id/tvEndDate"
-        app:layout_constraintTop_toBottomOf="@+id/tv_OrderDate" />
-
-    <TextView
-        android:id="@+id/tv_OrderDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="orderdate"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tvStartDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvStartDate"
-        app:layout_constraintTop_toBottomOf="@+id/tvServiceTime" />
+        app:layout_constraintTop_toTopOf="@+id/tvTotalPriceTitle"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvServiceTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
         android:gravity="center"
         android:hint="servicetime"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tv_OrderDate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_OrderDate"
-        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+        app:layout_constraintTop_toTopOf="@+id/tvServiceStartTitle2" />
 
     <TextView
-        android:id="@+id/tvEndDate"
+        android:id="@+id/tv_OrderDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="enddate"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:hint="orderdate"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tvTotalPrice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
-        app:layout_constraintStart_toStartOf="@+id/tvTotalPrice"
-        app:layout_constraintTop_toBottomOf="@+id/tvStartDate" />
+        app:layout_constraintStart_toStartOf="@+id/tvServiceTime"
+        app:layout_constraintTop_toBottomOf="@+id/tvServiceTime" />
+
+    <TextView
+        android:id="@+id/tvStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:hint="startdate"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/tv_OrderDate"
+        app:layout_constraintTop_toBottomOf="@+id/tv_OrderDate" />
 
     <TextView
         android:id="@+id/tvServiceType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="108dp"
         android:hint="service"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tvAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvAddress"
+        app:layout_constraintEnd_toEndOf="@+id/dividerService"
         app:layout_constraintTop_toBottomOf="@+id/tvServicePerson" />
 
     <TextView
+        android:id="@+id/tvServicePerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="person"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/tvServiceType"
+        app:layout_constraintTop_toBottomOf="@+id/dividerService" />
+
+    <TextView
         android:id="@+id/btnToIndexPage"
-        android:layout_width="100dp"
+        android:layout_width="99dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/backhomebtn"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tvTotalPrice"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="@+id/tvTotalPriceTitle" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvPaymentTitle"
-        android:layout_width="162dp"
+        android:layout_width="133dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="14dp"
         android:gravity="center"
         android:text="服務訂單明細"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/dividerService"
-        app:layout_constraintEnd_toEndOf="@+id/dividerService"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="@+id/dividerService"
+        app:layout_constraintBottom_toBottomOf="@+id/dividerService"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

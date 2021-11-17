@@ -69,17 +69,18 @@
 
         <EditText
             android:id="@+id/etAddress"
-            android:layout_width="215dp"
-            android:layout_height="0dp"
+            android:layout_width="136dp"
+            android:layout_height="48dp"
             android:layout_marginBottom="16dp"
             android:ems="10"
-            android:hint="垃圾收取地點(詳細地址)"
+            android:hint="垃圾收取地址"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:textColorHint="#FFFFFF"
             android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/etContactPerson"
+            app:layout_constraintEnd_toStartOf="@+id/textView9"
             app:layout_constraintStart_toStartOf="@+id/etContactPerson" />
 
         <EditText
@@ -203,6 +204,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvNameTitle"
             app:layout_constraintEnd_toEndOf="@+id/tvDatePickTitle2"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -229,6 +231,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/whitehome" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="* search *"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/etAddress"
+            app:layout_constraintStart_toEndOf="@+id/etAddress"
+            app:layout_constraintTop_toTopOf="@+id/etAddress"
+            app:layout_constraintVertical_bias="0.586" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 

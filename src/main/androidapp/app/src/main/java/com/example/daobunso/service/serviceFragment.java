@@ -5,26 +5,17 @@ import static android.content.Context.MODE_PRIVATE;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.ClipData;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavHostController;
-import androidx.navigation.Navigation;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -33,14 +24,17 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.daobunso.MainActivity;
 import com.example.daobunso.R;
-import com.google.android.material.appbar.AppBarLayout;
 
-import java.sql.Date;
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.List;
 
 
 public  class serviceFragment extends Fragment implements
@@ -58,7 +52,7 @@ public  class serviceFragment extends Fragment implements
     private EditText etContactPerson;
     private EditText etContactPhone;
     private String date;
-    private String address;
+    private String locationName;
     private String contact;
     private String phone;
     Bundle bundle;
@@ -67,7 +61,7 @@ public  class serviceFragment extends Fragment implements
     private String serviceType;
     private String serviceTime;
     private String memberId;
-
+    private StringBuilder sb;
 
 
     @Override
@@ -97,16 +91,16 @@ public  class serviceFragment extends Fragment implements
         etContactPhone = view.findViewById(R.id.etContactPhone);
 
 // ============================= 服務類型下拉式選單(spinner) ===================================
-        Resources res =getResources();
-        String[] spServiceType =res.getStringArray(R.array.spServiceType);
+        Resources res = getResources();
+        String[] spServiceType = res.getStringArray(R.array.spServiceType);
         spinner_serviceType = (Spinner) view.findViewById(R.id.spServiceType);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),R.layout.myspinner,spServiceType);//建立Arrayadapter介面卡
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.myspinner, spServiceType);//建立Arrayadapter介面卡
         spinner_serviceType.setAdapter(adapter);
         spinner_serviceType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {//點選spinner物件
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 serviceType = spinner_serviceType.getItemAtPosition(i).toString();
-                Toast.makeText(activity,serviceType,Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, serviceType, Toast.LENGTH_SHORT).show();
 
             }
 
@@ -116,15 +110,15 @@ public  class serviceFragment extends Fragment implements
         });
 
 // ============================= 服務時段下拉式選單(spinner) ===================================
-        String[] spServiceTime =res.getStringArray(R.array.spServiceTime);
+        String[] spServiceTime = res.getStringArray(R.array.spServiceTime);
         spinner_serviceTime = (Spinner) view.findViewById(R.id.spServiceTime);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getContext(),R.layout.myspinner,spServiceTime);//建立Arrayadapter介面卡
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getContext(), R.layout.myspinner, spServiceTime);//建立Arrayadapter介面卡
         spinner_serviceTime.setAdapter(adapter1);
         spinner_serviceTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {//點選spinner物件
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 serviceTime = spinner_serviceTime.getItemAtPosition(i).toString();
-                Toast.makeText(activity,serviceTime,Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, serviceTime, Toast.LENGTH_SHORT).show();
 
             }
 
@@ -156,10 +150,32 @@ public  class serviceFragment extends Fragment implements
         });
 
 
-
         //右上角，回首頁
-        view.findViewById(R.id.homepage_btn_service).setOnClickListener(v->{
+        view.findViewById(R.id.homepage_btn_service).setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.action_serviceFragment_to_indexFragment2);
+        });
+
+        // 點選search，找確切地址
+        TextView searchBtn = view.findViewById((R.id.searchBtn));
+        searchBtn.setOnClickListener(v -> {
+            locationName = etAddress.getText().toString().trim();
+            // geocode
+            Address address = geocode(locationName); // geocode(): return an Address object
+            if (address == null) {
+                Toast.makeText(activity, "找不到此地址", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            // reverse geocode
+            double latitude = address.getLatitude();
+            double longitude = address.getLongitude();
+            Address addressReverse = reverseGeocode(latitude, longitude);
+            sb = new StringBuilder();
+            if (addressReverse != null) {
+                for (int i = 0; i <= addressReverse.getMaxAddressLineIndex(); i++) {
+                    sb.append(addressReverse.getAddressLine(i)).append("\n");
+                }
+            }
+            etAddress.setText(sb);
         });
 
 
@@ -169,14 +185,14 @@ public  class serviceFragment extends Fragment implements
         btnToNewOrder.setOnClickListener(v -> {
 
 
-            address = etAddress.getText().toString().trim();
+//            address = etAddress.getText().toString().trim();
             contact = etContactPerson.getText().toString().trim();
             phone = etContactPhone.getText().toString().trim();
             //判斷使用者是否有輸入值
             if (date.isEmpty()) {
                 etDate.setError("Date is empty ");
             }
-            if (address.isEmpty()) {
+            if (locationName.isEmpty()) {
                 etAddress.setError("Address is empty ");
             }
             if (contact.isEmpty()) {
@@ -186,7 +202,7 @@ public  class serviceFragment extends Fragment implements
                 etContactPhone.setError("ContactPhone is empty ");
             }
             ;
-            if (date.isEmpty() || address.isEmpty() || contact.isEmpty() || phone.isEmpty()) {
+            if (date.isEmpty() || locationName.isEmpty() || contact.isEmpty() || phone.isEmpty()) {
                 etDate.setError(" 請填寫完整資料 ");
                 etAddress.setError("請填寫完整資料");
                 etContactPerson.setError("請填寫完整資料 ");
@@ -198,29 +214,29 @@ public  class serviceFragment extends Fragment implements
             bundle = new Bundle();
             //從preference檔，取出memberId
             preferences = activity.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE);
-            memberId = preferences.getString("memberIdInfo","0");
-            bundle.putString("memberId",memberId);
-            bundle.putString("startDate",date);
-            bundle.putString("address",address);
-            bundle.putString("contact",contact);
-            bundle.putString("phone",phone);
-            bundle.putString("serviceTime",serviceTime);
-            bundle.putString("serviceType",serviceType);
+            memberId = preferences.getString("memberIdInfo", "0");
+            bundle.putString("memberId", memberId);
+            bundle.putString("startDate", date);
+            bundle.putString("address", sb.toString());
+            bundle.putString("contact", contact);
+            bundle.putString("phone", phone);
+            bundle.putString("serviceTime", serviceTime);
+            bundle.putString("serviceType", serviceType);
 
 
             new AlertDialog.Builder(activity)
-                        //設定標題
-                        .setTitle("訂單確認")
-                        //設定圖示
-                        .setIcon(R.drawable.logo1)
-                        //設定訊息文字
-                        .setMessage("是否確定送出訂單")
-                        //設定positive與negative按鈕上面的文字與點擊事件監聽器
-                        .setPositiveButton("Yes", (dialog, which) -> Navigation.findNavController(v)
-                                .navigate(R.id.action_serviceFragment_to_newOrderFragment, bundle))//導向付款頁面
-                        .setNegativeButton("No", (dialog, which) -> dialog.cancel())//關閉對話視窗
-                        .setCancelable(false)//必須點擊按鈕方能關閉，預設為true
-                        .show();
+                    //設定標題
+                    .setTitle("訂單確認")
+                    //設定圖示
+                    .setIcon(R.drawable.logo1)
+                    //設定訊息文字
+                    .setMessage("是否確定送出訂單")
+                    //設定positive與negative按鈕上面的文字與點擊事件監聽器
+                    .setPositiveButton("Yes", (dialog, which) -> Navigation.findNavController(v)
+                            .navigate(R.id.action_serviceFragment_to_newOrderFragment, bundle))//導向付款頁面
+                    .setNegativeButton("No", (dialog, which) -> dialog.cancel())//關閉對話視窗
+                    .setCancelable(false)//必須點擊按鈕方能關閉，預設為true
+                    .show();
         });
     }//onViewCreated內
 
@@ -265,11 +281,45 @@ public  class serviceFragment extends Fragment implements
     }
 
 
-
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
     }
 
 
+    // geocode function
+    private Address geocode(String locationName) {
+        Geocoder geocoder = new Geocoder(activity);
+        List<Address> addressList = null;
+        try {
+            addressList = geocoder.getFromLocationName(locationName, 1);
+        } catch (IOException e) {
+            Log.e("google map", e.toString());
+        }
+
+        if (addressList == null || addressList.isEmpty()) {
+            return null;
+        } else {
+            return addressList.get(0);
+        }
+    }
+
+    // reverseGeocode
+    private Address reverseGeocode(double latitude, double longitude) {
+        Geocoder geocoder = new Geocoder(activity);
+        List<Address> addressList = null;
+        try {
+            addressList = geocoder.getFromLocation(latitude, longitude, 1);
+        } catch (IOException e) {
+            Log.e("google map", e.toString());
+        }
+
+        if (addressList == null || addressList.isEmpty()) {
+            return null;
+        } else {
+            return addressList.get(0);
+        }
+
+
+    }
 }

@@ -68,6 +68,7 @@ public class OrdersController {
 		ob.setOrderDate(ts);
 		ordersResopository.save(ob);
 		System.out.println(ob.getOrderId().toString());
+	
 		return "已新增至訂單主檔"+"-"+ob.getOrderId().toString();
 	}
 	
@@ -75,8 +76,9 @@ public class OrdersController {
 	public String insertOrderDetail(@RequestBody OrderItemBean oib) {
 	
 		System.out.println(oib);
-	  
-		orderDetailsRepository.save(oib);
+//		Integer orderId = ordersResopository.findLastid();
+//		ordersResopository.getById(orderId);
+//		orderDetailsRepository.save(oib);
 		return "已新增至訂單detail檔";
 	}
 

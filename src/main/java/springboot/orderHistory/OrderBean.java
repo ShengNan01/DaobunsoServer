@@ -4,14 +4,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 // 本類別存放訂單資料
 
@@ -87,9 +88,13 @@ public class OrderBean {
 	@Column(name = "Schedule_Garbage")
 	String scheduleGarbage;
 
-	@Transient
-	@OneToMany(mappedBy="orderBean")
+//	@Transient
+//	@OneToMany(mappedBy="orderBean")
+	 @OneToMany(cascade = CascadeType.ALL)
+	 @JoinColumn(name="fk_orderbean_orderno",referencedColumnName = "Order_Id")
 	Set<OrderItemBean> items = new HashSet<>();
+	 
+
 
 	
 //	@OneToMany(mappedBy="orderBean", cascade=CascadeType.ALL)

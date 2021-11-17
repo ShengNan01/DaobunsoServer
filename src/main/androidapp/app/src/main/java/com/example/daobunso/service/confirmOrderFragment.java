@@ -168,12 +168,18 @@ public class confirmOrderFragment extends Fragment {
             jsonObject_detail.addProperty("garbage_Start_Date", startDate);
             jsonObject_detail.addProperty("garbage_End_Date", endDate);
 
-//            int count;
+//            jsonObject.addProperty("quantity", "1");
+//            jsonObject.addProperty("item_Type", serviceType);
+//            jsonObject.addProperty("garbage_Start_Date", startDate);
+//            jsonObject.addProperty("garbage_End_Date", endDate);
+//            jsonObject.addProperty("fk_orderbean_orderno", OrderId);
+
+
             String result_master = RemoteAccess.getRemoteData(url, jsonObject.toString());
             if(result_master.contains("已新增至訂單主檔")){
                String[] result_master_array = result_master.split("-");
                String OrderId = result_master_array[1];
-                jsonObject_detail.addProperty("fk_order_bean_orderno", OrderId);
+                jsonObject_detail.addProperty("fk_orderbean_orderno", OrderId);
 
                 String url_detail = "http://10.0.2.2:8080/app/insertOrderDetail";
                 String result_detail = RemoteAccess.getRemoteData(url_detail, jsonObject_detail.toString());
@@ -189,10 +195,6 @@ public class confirmOrderFragment extends Fragment {
             else{
                 Toast.makeText(activity,"訂單主檔建立失敗", Toast.LENGTH_SHORT).show();
             }
-
-
-
-
 
         }
         else {
