@@ -1,13 +1,12 @@
 // 多語
-const en = "(l='en_US')";
-const tw = "(l='zh_TW')";
-let lang = "";
-
-$('langbtn-en').click(() => {
-    lang = en;
+let lang =  sessionStorage.getItem('lang');
+$('#langbtn-en').click(() => {
+    sessionStorage.setItem('lang',"?");
+    console.log(sessionStorage.getItem('lang'));
 });
-$('langbtn-tw').click(() => {
-    lang = tw;
+$('#langbtn-tw').click(() => {
+    sessionStorage.setItem('lang',"(l='zh_TW')");
+    console.log(sessionStorage.getItem('lang'));
 });
 
 
