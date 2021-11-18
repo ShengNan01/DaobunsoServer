@@ -177,8 +177,8 @@ public class ExampleAllInOne {
 		obj.setTotalAmount(price);
 		obj.setTradeDesc("Daobunso");//Daobunso 倒幫手垃圾代收服務
 		obj.setItemName("Daobunso132");//結帳付款
-		obj.setReturnURL("https://www.youtube.com");
-		obj.setOrderResultURL("https://news.pts.org.tw/");//接收的controller+id
+		obj.setReturnURL("http://211.23.128.214:5000");
+		obj.setOrderResultURL("https://localhost/");//接收的controller+id
 		obj.setNeedExtraPaidInfo("Y");
 		log.info("test");
 		String form = all.aioCheckOut(obj, null);

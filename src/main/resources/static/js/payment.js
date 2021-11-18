@@ -143,7 +143,7 @@ $(function () {
         let maincompany = $('#maincompany').val();
         let companyinvoicenumber = $('#companyinvoicenumber').val();
         let confirm = $('#lastconfirm').val();
-        let memberid=getCookieByName("id");
+        let memberid = getCookieByName("id");
         let totalPrice = $('#total').text();
 
         // -------------把LOCALSTORAGE用成一個變數
@@ -188,7 +188,7 @@ $(function () {
             user['taxIDnumber'] = companyinvoicenumber;
             user['timeForGarbage'] = paymenttype[i].timeframe;
             user['scheduleGarbage'] = confirm;
-            user['memberId'] =memberid;
+            user['memberId'] = memberid;
             user['userDetails'] = userDetail;
         }
 
@@ -206,15 +206,26 @@ $(function () {
         // });
 
 
-        fetch(`https://localhost/placeOrder2`, {
+        //		fetch(`https://localhost/placeOrder2`, {
+        //			method: 'POST',
+        //			body: JSON.stringify(user),
+        //			headers: { 'Content-Type': 'application/json' },
+        //		}).then(
+        //			console.log("ok")
+        //		);
+
+
+
+        fetch(`https://localhost/payment`, {
             method: 'POST',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' },
-        }).then(
-            console.log("ok")
-        );
-
+        }).then(response=>{
+            response
+        });
     });
+
+
 });
 
 

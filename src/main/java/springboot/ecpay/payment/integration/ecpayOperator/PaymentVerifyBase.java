@@ -17,11 +17,12 @@ import springboot.ecpay.payment.integration.exception.EcpayException;
 
 @Log4j2
 public class PaymentVerifyBase{
-	protected String confPath = "/ecpay/payment/integration/config/EcpayPayment.xml";
+	protected String confPath = "/springboot/ecpay/payment/integration/config/EcpayPayment.xml";
 	protected Document doc;
 	public PaymentVerifyBase(){
 		URL fileURL = this.getClass().getResource(confPath);
-		log.info("test0");
+		log.info(confPath);
+		log.info(fileURL);
 		doc = EcpayFunction.xmlParser(fileURL.toString());
 		log.info("test");
 		doc.getDocumentElement().normalize();
