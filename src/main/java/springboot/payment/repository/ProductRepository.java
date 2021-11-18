@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 import springboot.payment.entity.userDetail;
 
-//@EnableJpaRepositories
-//@Repository
+@EnableJpaRepositories
+@Repository
 public interface ProductRepository extends JpaRepository<userDetail, Integer> {
 }
