@@ -17,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import springboot.language.MyLocaleResolver;
 
@@ -35,85 +36,68 @@ request 不同請求獲取不同物件，同一個請求獲取同一物件
 //@PropertySource("MCV_config.properties")//psrc指定properties檔案路徑
 //@EnableConfigurationProperties(Games.class)//開啟配置綁定，讓組件自動配置到容器中
 //@EnableConfigurationProperties(Music.class)
-@EnableTransactionManagement//可執行交易
+@EnableTransactionManagement // 可執行交易
 @ComponentScan
 //@EnableWebMvc
 @Configuration
 public class MVC_config implements WebMvcConfigurer {
-	//Redis NoSQL 信箱驗證資料庫API
+	// Redis NoSQL 信箱驗證資料庫API
 	@Bean
-    public RedisTemplate<String, Object> empRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
-        template.setConnectionFactory(redisConnectionFactory);
-        template.setKeySerializer(new StringRedisSerializer());
-        template.setDefaultSerializer(new GenericJackson2JsonRedisSerializer());
-        return template;
-    }
-	
-   @Bean
-	public LocaleResolver localeResolver () {
+	public RedisTemplate<String, Object> empRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+		RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
+		template.setConnectionFactory(redisConnectionFactory);
+		template.setKeySerializer(new StringRedisSerializer());
+		template.setDefaultSerializer(new GenericJackson2JsonRedisSerializer());
+		return template;
+	}
+
+	@Bean
+	public LocaleResolver localeResolver() {
 		return new MyLocaleResolver();
 	}
 
+//	@Bean
+//	public LocaleChangeInterceptor localeChangeInterceptor() {
+//		LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+//		// Defaults to "locale" if not set
+//		localeChangeInterceptor.setParamName("language");
+//		return localeChangeInterceptor;
+//	}
+//
+//	@Override
+//	public void addInterceptors(InterceptorRegistry interceptorRegistry) {
+//		interceptorRegistry.addInterceptor(localeChangeInterceptor());
+//	}
 
-//       @Bean
-//       public LocaleResolver localeResolver() {
-//           // 也可以换成 SessionLocalResolver, 区别在于国际化的应用范围
-//           CookieLocaleResolver localeResolver = new CookieLocaleResolver();
-//           localeResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-//           return localeResolver;
-//       }
+//     @Bean
+//     public LocaleResolver localeResolver() {
+//         // 也可以换成 SessionLocalResolver, 区别在于国际化的应用范围
+//         CookieLocaleResolver localeResolver = new CookieLocaleResolver();
+//         localeResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
+//         return localeResolver;
+//     }
 
-       @Bean
-       public LocaleChangeInterceptor localeChangeInterceptor() {
-           LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-           // Defaults to "locale" if not set
-           localeChangeInterceptor.setParamName("language");
-           return localeChangeInterceptor;
-       }
-
-       @Override
-       public void addInterceptors(InterceptorRegistry interceptorRegistry) {
-           interceptorRegistry.addInterceptor(localeChangeInterceptor());
-       }
-   
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-	
 //	//默認解析器 其中locale表示默認語言,當請求中未包含語種信息，則設置默認語種當前默認為TAIWAN, zh_TW
 //    @Bean
 //    @ConditionalOnMissingBean
 //    @ConditionalOnProperty(prefix = "spring.mvc", name = "locale")
-//    public LocaleResolver localeResolver() {
+//    public LocaleResolver localeResolver1() {
 //        SessionLocaleResolver slr = new SessionLocaleResolver();
 //        slr.setDefaultLocale(Locale.TAIWAN);
 //        return slr;
 //    }
 //    
-    //默認攔截器 其中lang表示切換語言的參數名
+	// 默認攔截器 其中lang表示切換語言的參數名
 //     @Bean
 //     public LocaleChangeInterceptor localeChangeInterceptor() {
 //         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
 //         lci.setParamName("lang");
 //         return lci;
 //     }
-     
+
 //     @Override
 //     public void addInterceptors(InterceptorRegistry registry){
 //         registry.addInterceptor(localeChangeInterceptor());
 //     }
-       
-     
+
 }
