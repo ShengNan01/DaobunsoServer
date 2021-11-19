@@ -33,6 +33,12 @@ $("#verify_email_btn").click(function () {
                         myModal.show();
                     }
 
+                }).catch((err) => {
+                    $(this).width('5rem');
+                    $(this).text("註冊");
+                    updateModal("Oops!", "發生錯誤!");
+                    myModal.show();
+                    return;
                 });
         });
     };

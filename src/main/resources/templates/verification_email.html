@@ -16,6 +16,7 @@
 
 <body>
   <header>
+    <div th:replace="header :: header"></div>
   </header>
 
   <nav>
@@ -31,7 +32,7 @@
 
   <section>
     <div class="container">
-      <div class="row  p-5 mb-5  bg-white  shadow border" style="border-radius: 1rem;">
+      <div class="row  p-5 mb-5  bg-white  shadow border" style="border-radius: 1rem; margin:0px auto;">
 
         <div class=" col-8 mt-5 mx-auto  ">
           <label class="form-label" for="email">請輸入註冊信箱</label>
@@ -77,6 +78,7 @@
     </ul>
   </section>
   <footer>
+    <div th:replace="footer :: footer"></div>
   </footer>
 
 

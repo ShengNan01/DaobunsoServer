@@ -92,7 +92,7 @@ $('#change_btn').click(function (e) {
                         myModal.show();
                         $('.modal-footer>button').click(function () {
                             location.href = './frontpage';
-                        })
+                        });
 
                     } else if (text === "Fail") {
                         updateModal("密碼更改失敗!", "請重新輸入原+密碼");
