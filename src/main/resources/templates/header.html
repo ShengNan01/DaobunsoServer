@@ -14,10 +14,9 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="./"></a>
-
-        <img src="./image/LOGO1.png" alt="LOGO" width="120rem">
-
+        <a id="hreffrontpage" class="navbar-brand" href="./">
+          <img src="./image/LOGO1.png" alt="LOGO" width="120rem">
+        </a>
         <li id="dropdown-lang" class="nav-item dropdown ms-5 ps-5" style="list-style: none">
           <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -43,37 +42,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
-              <a id="nav-login" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+              <a id="nav-login" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button"
                 aria-expanded="false">Log In</a>
               <ul class="dropdown-menu">
                 <li>
-                  <a id="login-dropdown-1" class="dropdown-item" href="./profiles">個人資訊</a>
+                  <a id="dropdown-profiles" class="dropdown-item" href="./profiles">個人資訊</a>
                 </li>
                 <li>
-                  <!-- <a id="login-dropdown-2" class="dropdown-item" th:if="${lang} = (l='en_US')" th:href="@{/order_main(l='en_US')}"th:text="#{order.title}">訂單管理</a> -->
-                  <a id="login-dropdown-2" class="dropdown-item" href="./orders?lang=en_US" th:text="#{order.title}">訂單管理</a>
+                  <a id="dropdown-orders" class="dropdown-item" href="./orders"
+                    th:text="#{order.title}">訂單管理</a>
                 </li>
-                <li><a id="login-dropdown-3" class="dropdown-item" href="./shopping_cart">購物車</a></li>
+                <li><a id="dropdown-shopping_cart" class="dropdown-item" href="./shopping_cart">購物車</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a id="login-dropdown-bottom" class="dropdown-item togin" href="./login">Log In</a></li>
+                <li><a id="dropdown-login" class="dropdown-item togin" href="./login">Log In</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./frontpage">Home</a>
+              <a id="nav-frontpage" class="nav-link" href="./frontpage">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./about_us">About</a>
+              <a id="nav-about_us" class="nav-link" href="./about_us">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./shopping">Shopping</a>
+              <a id="nav-shopping" class="nav-link" href="./shopping">Shopping</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./service">Service</a>
+              <a id="nav-service" class="nav-link" href="./service">Service</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./shopping_cart">Shopping Cart</a>
+              <a id="nav-shopping_cart" class="nav-link" href="./shopping_cart">Shopping Cart</a>
             </li>
           </ul>
 

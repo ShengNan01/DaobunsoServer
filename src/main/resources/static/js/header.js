@@ -1,23 +1,49 @@
-// 多語
-let lang =  sessionStorage.getItem('lang');
-$('#langbtn-en').click(() => {
-    sessionStorage.setItem('lang',"?l=en_US");
-    console.log(sessionStorage.getItem('lang'));
-    
-
-});
-$('#langbtn-tw').click(() => {
-    sessionStorage.setItem('lang',"(l='zh_TW')");
-    console.log(sessionStorage.getItem('lang'));
-});
+// 多語化
+{
+    // 進入頁面的初始化
+    let langsearch = sessionStorage.getItem('lang');
+    langinit();
+    // ~進入頁面的初始化
+    // 語言按鈕
+    $('#langbtn-en').click(() => {
+        sessionStorage.setItem('lang', "?l=en_US");
+        langsearch = sessionStorage.getItem('lang');
+        console.log(sessionStorage.getItem('lang'));
+        langinit();
+        window.location.href = window.location.protocol + window.location.pathname + langsearch;
+    });
+    $('#langbtn-tw').click(() => {
+        sessionStorage.setItem('lang', "?l=zh_TW");
+        langsearch = sessionStorage.getItem('lang');
+        console.log(sessionStorage.getItem('lang'));
+        langinit();
+        window.location.href = window.location.protocol + window.location.pathname + langsearch;
+    });
+    // ~語言按鈕
+    // 連結初始化
+    function langinit() {
+        $('#hreffrontpage').attr('href', "./" + langsearch);
+        $('#dropdown-profiles').attr('href', "./profiles" + langsearch);
+        $('#dropdown-orders').attr('href', "./orders" + langsearch);
+        $('#dropdown-shopping_cart').attr('href', "./shopping_cart" + langsearch);
+        $('#dropdown-login').attr('href', "./login" + langsearch);
+        $('#nav-frontpage').attr('href', "./frontpage" + langsearch);
+        $('#nav-about_us').attr('href', "./about_us" + langsearch);
+        $('#nav-shopping').attr('href', "./shopping" + langsearch);
+        $('#nav-service').attr('href', "./service" + langsearch);
+        $('#nav-shopping_cart').attr('href', "./shopping_cart" + langsearch);
+    }
+    // ~連結初始化
+}
+// ~多語化
 
 
 $(function () {
-    if ( getCookieByName("id") != null && getCookieByName("name") != null && getCookieByName("email") != null && getCookieByName("account") != null) {
-        $('#login-dropdown-bottom').text('Log Out');
-        $('#login-dropdown-bottom').attr('href', './frontpage');
+    if (getCookieByName("id") != null && getCookieByName("name") != null && getCookieByName("email") != null && getCookieByName("account") != null) {
+        $('#dropdown-login').text('Log Out');
+        $('#dropdown-login').attr('href', './frontpage');
         $('#nav-login').text(getCookieValueByName('name'));
-        $('#login-dropdown-bottom').click(() => {
+        $('#dropdown-login').click(() => {
             deleteCookie('id');
             deleteCookie('account');
             deleteCookie('name');
@@ -26,8 +52,8 @@ $(function () {
             deleteCookie('LoginOK');
         });
     } else {
-        $('.login-dropdown-bottom').text('Log In');
-        $('.login-dropdown-1,.login-dropdown-2').click(function (e) {
+        $('.dropdown-login').text('Log In');
+        $('#dropdown-profiles,#dropdown-orders').click(function (e) {
             e.preventDefault();
             updateModal("Oops!", "請先登入會員！");
             myModal.show();
@@ -35,7 +61,7 @@ $(function () {
                 location.href = "./login";
             });
         });
-        $('#login-dropdown-bottom').click(function () {
+        $('#dropdown-login').click(function () {
             location.assign('./login');
         });
     }
