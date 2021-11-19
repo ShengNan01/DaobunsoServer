@@ -17,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import springboot.language.MyLocaleResolver;
 
@@ -80,7 +81,7 @@ public class MVC_config implements WebMvcConfigurer {
 //    @Bean
 //    @ConditionalOnMissingBean
 //    @ConditionalOnProperty(prefix = "spring.mvc", name = "locale")
-//    public LocaleResolver localeResolver() {
+//    public LocaleResolver localeResolver1() {
 //        SessionLocaleResolver slr = new SessionLocaleResolver();
 //        slr.setDefaultLocale(Locale.TAIWAN);
 //        return slr;
