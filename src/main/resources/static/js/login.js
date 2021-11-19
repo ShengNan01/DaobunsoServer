@@ -201,6 +201,10 @@ $('#login_btn').click(function(e) {
 					$("#pswd").val(null);
 				}
 			});
+		}).catch((err) => {
+			updateModal("Oops!", "發生錯誤!");
+			myModal.show();
+			return;
 		});
 	};
 });

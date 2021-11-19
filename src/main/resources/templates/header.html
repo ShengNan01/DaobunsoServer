@@ -50,8 +50,8 @@
                   <a id="login-dropdown-1" class="dropdown-item" href="./profiles">個人資訊</a>
                 </li>
                 <li>
-                  <!-- <a id="login-dropdown-2" class="dropdown-item" th:if="${lang} = (l='en_US')" th:href="@{/order_main(l='en_US')}"th:text="#{order.title}">訂單管理</a>
-                  <a id="login-dropdown-2" class="dropdown-item" th:if="${lang} = (l='zh_TW')" th:href="@{/order_main(l='zh_TW')}"th:text="#{order.title}">訂單管理</a> -->
+                  <!-- <a id="login-dropdown-2" class="dropdown-item" th:if="${lang} = (l='en_US')" th:href="@{/order_main(l='en_US')}"th:text="#{order.title}">訂單管理</a> -->
+                  <a id="login-dropdown-2" class="dropdown-item" href="./orders?lang=en_US" th:text="#{order.title}">訂單管理</a>
                 </li>
                 <li><a id="login-dropdown-3" class="dropdown-item" href="./shopping_cart">購物車</a></li>
                 <li>

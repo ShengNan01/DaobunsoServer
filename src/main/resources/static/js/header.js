@@ -1,8 +1,10 @@
 // 多語
 let lang =  sessionStorage.getItem('lang');
 $('#langbtn-en').click(() => {
-    sessionStorage.setItem('lang',"?");
+    sessionStorage.setItem('lang',"?l=en_US");
     console.log(sessionStorage.getItem('lang'));
+    
+
 });
 $('#langbtn-tw').click(() => {
     sessionStorage.setItem('lang',"(l='zh_TW')");
