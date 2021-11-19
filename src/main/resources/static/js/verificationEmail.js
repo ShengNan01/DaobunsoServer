@@ -8,7 +8,6 @@ $(()=>{
         });
     }
 });
-let myModal = new bootstrap.Modal(document.getElementById('myModal'));
 const memberId = getCookieValueByName('id');
 const regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 $("#verify_email_btn").click(function () {
@@ -59,16 +58,6 @@ $("#verify_email_btn").click(function () {
         };
     }
 });
-//Modal Function
-function updateModal(title, massage) {
-    $('#modal-title').text(title);
-    $('#massage-content').text(massage);
-}
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function () {
-    updateModal("", "");
-})
 //跳頁
 function nextPage() {
     location.href = "https://localhost/"

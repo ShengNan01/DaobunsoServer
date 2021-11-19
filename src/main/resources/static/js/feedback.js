@@ -8,15 +8,12 @@ let ucomment = "";
 //定義頁面
 let uimgsrc = "./image/service_intro/holo/pekora.png";
 let uname = getCookieValueByName("name");
-const starimg = "./image/service_intro/starEmpty.png";
-const hoverstar = "./image/service_intro/star.png";
-const sstarimg = "./image/service_intro/starClicked.png";
+
 //頁面初始化
 $('.feedback').hide();
 $('.user-img img').attr('src', uimgsrc);
 $('.user-name h2').text(uname);
 //觀看意見領域
-
 fetch(`https://localhost/gradings`, {
     method: 'GET',
 }).then((response) => {
@@ -110,11 +107,11 @@ $('#btn-list').click(function () {
                             $('#feedback-comment').val(ucomment);
                             $('#feedback-id h2').text(oid);
                             $('#feedback-id').show();
-                            
-                            for(let temp =getstar;temp>=1;temp--){
-                                 $('#star' + temp).addClass('star-cl');
+
+                            for (let temp = getstar; temp >= 1; temp--) {
+                                $('#star' + temp).addClass('star-cl');
                             }
-                           
+
 
                         },
                         del: (key) => {
@@ -188,10 +185,8 @@ $('#btn-feedback').click(() => {
     }
 });
 //~意見送出按鈕
+
 //star
-
-// setTimeout(listenstar(),1000)
-
 $('#stars').hover(() => {
     // listenstar(()=>{
 
@@ -284,6 +279,4 @@ $('#stars').hover(() => {
         getstar = 5;
     });
 })
-
-
 //~star

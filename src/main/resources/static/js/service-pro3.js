@@ -62,13 +62,6 @@ if (cartJson) {
    cart = JSON.parse(cartJson);
 }
 
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
-
-function updateModal(title, massage) {
-   $('#modal-title').text(title);
-   $('#massage-content').text(massage);
-}
-
 btn.onclick = function () {
    // alert("已加入購物車");
    updateModal("Thanks!", "已加入購物車囉！");
@@ -87,9 +80,3 @@ btn.onclick = function () {
 
    localStorage.setItem('cart', JSON.stringify(cart))
 };
-
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-   updateModal("", "");
-})

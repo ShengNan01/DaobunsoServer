@@ -37,7 +37,7 @@
 }
 // ~多語化
 
-
+// 登入dropdown
 $(function () {
     if (getCookieByName("id") != null && getCookieByName("name") != null && getCookieByName("email") != null && getCookieByName("account") != null) {
         $('#dropdown-login').text('Log Out');
@@ -66,7 +66,8 @@ $(function () {
         });
     }
 });
-//  控制Cookie方法
+// ~登入dropdown
+// 控制Cookie方法
 {
     function getCookieByName(name) {
         let arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
@@ -98,4 +99,17 @@ $(function () {
         return value;
     }
 }
-//  ~控制Cookie方法
+// ~控制Cookie方法
+
+// modal方法
+let myModal = new bootstrap.Modal(document.getElementById('myModal'))
+function updateModal(title, massage) {
+  $('#modal-title').text(title);
+  $('#massage-content').text(massage);
+}
+// reset modal when modal was hidden
+let myModalEl = document.getElementById("myModal");
+myModalEl.addEventListener("hidden.bs.modal", function (event) {
+  updateModal("", "");
+});
+// ~modal方法

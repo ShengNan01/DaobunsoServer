@@ -1,10 +1,3 @@
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
-
-function updateModal(title, massage) {
-    $('#modal-title').text(title);
-    $('#massage-content').text(massage);
-}
-
 $(function () {
     $("#mydate").datepicker({ minDate: 0, maxDate: "+3M", dateFormat: 'yy-mm-dd' });
 });
@@ -36,9 +29,3 @@ btn.onclick = function () {
 
     localStorage.setItem('cart', JSON.stringify(cart))
 };
-
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("", "");
-})

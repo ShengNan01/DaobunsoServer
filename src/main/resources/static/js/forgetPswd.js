@@ -1,4 +1,3 @@
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
 const indicator = document.querySelector(".indicator");
 const input = document.querySelector("#pswdnew");
 const weak = document.querySelector(".weak");
@@ -8,11 +7,6 @@ const text = document.querySelector(".text");
 let regExpWeak = /[a-z]/;
 let regExpMedium = /\d+/;
 let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
-
-function updateModal(title, massage) {
-    $('#modal-title').text(title);
-    $('#massage-content').text(massage);
-}
 let urlReg = 'https://localhost/forgetPswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
@@ -66,16 +60,6 @@ $('#change_btn').click(function (e) {
         )
     }
 });
-
-
-$('.dropdown-item:eq(3)').click(function () {
-    localStorage.removeItem('member');
-});
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("", "");
-})
 
 //密碼強度
 function trigger() {

@@ -1,4 +1,3 @@
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
 const indicator = document.querySelector(".indicator");
 const input = document.querySelector("#pswdNew");
 const weak = document.querySelector(".weak");
@@ -9,12 +8,7 @@ let regExpWeak = /[a-z]/;
 let regExpMedium = /\d+/;
 let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 
-
-function updateModal(title, massage) {
-	$('#modal-title').text(title);
-	$('#massage-content').text(massage);
-}
-$(".register").on('click', function() {
+$(".register").on('click', function () {
 	$("#form_in").hide();
 	$("#form_reg").show();
 })
@@ -35,7 +29,7 @@ const regex_password = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,
 const regex_account = new RegExp(/^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$/);
 const regex_email = new RegExp(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/);
 
-$('#signup_btn').click(function(e) {
+$('#signup_btn').click(function (e) {
 	e.preventDefault();
 	if ($('#pswdNew').val() !== $('#repswd').val()) {
 		// alert('兩次輸入的密碼不相符，請重新輸入！');
@@ -82,7 +76,7 @@ $('#signup_btn').click(function(e) {
 					// alert(text);
 					updateModal("Congratulations!", text);
 					myModal.show();
-					$('.modal-footer>button').click(function() {
+					$('.modal-footer>button').click(function () {
 						location.reload();
 					})
 				} else {
@@ -145,7 +139,7 @@ function trigger() {
 
 // Login
 
-$(document).ready(function() {
+$(document).ready(function () {
 	if (getCookieValueByName('account') != undefined && getCookieValueByName('name') != undefined && getCookieValueByName('email') != undefined && getCookieValueByName('password') != undefined) {
 		$("#account").val(getCookieValueByName('account'));
 		$("#pswd").val(getCookieValueByName('password') + "==");
@@ -158,7 +152,7 @@ $(document).ready(function() {
 
 // 判斷#rememberMe有沒有勾
 let rememberMe = false;
-$("#rememberMe").click(function() {
+$("#rememberMe").click(function () {
 	$(this).toggleClass('tog');
 	if ($('#rememberMe').hasClass('tog')) {
 		rememberMe = true;
@@ -169,7 +163,7 @@ $("#rememberMe").click(function() {
 // ~判斷#rememberMe有沒有勾
 
 // 登入按鈕
-$('#login_btn').click(function(e) {
+$('#login_btn').click(function (e) {
 	e.preventDefault();
 
 	if ($('#account').val() === "" || $('#pswd').val() === "") {
@@ -208,9 +202,3 @@ $('#login_btn').click(function(e) {
 		});
 	};
 });
-
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function(event) {
-	updateModal("", "");
-})

@@ -1,15 +1,3 @@
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
-
-function updateModal(title, massage) {
-    $('#modal-title').text(title);
-    $('#massage-content').text(massage);
-}
-// reset modal when modal was hidden
-let myModalEl = document.getElementById("myModal");
-myModalEl.addEventListener("hidden.bs.modal", function (event) {
-    updateModal("", "");
-});
-
 let p1imgsrc = "./image/trashbag1.jpg";
 let p2imgsrc = "./image/trashbag2.jpg";
 let p3imgsrc = "./image/trashbag3.jpg";

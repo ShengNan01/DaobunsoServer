@@ -1,10 +1,4 @@
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
-let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'))
-
-function updateModal(title, massage) {
-    $('.modal-title').text(title);
-    $('.modal-body').text(massage);
-}
+let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
 $('#payment_btn').click(function () {
     if (getCookieValueByName("LoginOK") != null) {
         updateModal("Final Check!", "確定要結帳了嗎？");
@@ -22,12 +16,6 @@ $('#payment_btn').click(function () {
         })
     }
 });
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("", "");
-})
-
 $(function () {
     tbody = $('tbody');
     jsonData = JSON.parse(localStorage.getItem('cart'));

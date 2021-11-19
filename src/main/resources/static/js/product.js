@@ -1,9 +1,3 @@
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
-
-function updateModal(title, massage) {
-    $('#modal-title').text(title);
-    $('#massage-content').text(massage);
-}
 //接收shopping頁面的sessionStorage
 let spcatch = JSON.parse(sessionStorage.getItem('splink'))[0];
 let imgsrc = spcatch.p_imgsrc;
@@ -79,9 +73,3 @@ cart_add.click(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
 });
 //~cart-add
-
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("", "");
-})

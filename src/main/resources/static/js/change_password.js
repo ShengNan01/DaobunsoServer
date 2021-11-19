@@ -1,4 +1,3 @@
-let myModal = new bootstrap.Modal(document.getElementById('myModal'))
 const indicator = document.querySelector(".indicator");
 const input = document.querySelector("#pswdnew");
 const weak = document.querySelector(".weak");
@@ -45,10 +44,6 @@ $('#pswdnew').keyup(function () {
         text.style.display = "none";
     }
 });
-function updateModal(title, massage) {
-    $('#modal-title').text(title);
-    $('#massage-content').text(massage);
-}
 
 let urlReg = 'https://localhost/Change_pswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
@@ -85,32 +80,20 @@ $('#change_btn').click(function (e) {
             //            headers: { 'Content-Type': 'application/type' },=>415error
             headers: { 'Content-Type': 'application/json' },
         }).then(response => {
-            response.text()
-                .then(text => {
-                    if (text === "Success") {
-                        updateModal("成功!", "密碼修改完成!")
-                        myModal.show();
-                        $('.modal-footer>button').click(function () {
-                            location.href = './frontpage';
-                        });
+            response.text().then(text => {
+                if (text === "Success") {
+                    updateModal("成功!", "密碼修改完成!")
+                    myModal.show();
+                    $('.modal-footer>button').click(function () {
+                        location.href = './frontpage';
+                    });
 
-                    } else if (text === "Fail") {
-                        updateModal("密碼更改失敗!", "請重新輸入原+密碼");
-                        myModal.show();
-                        return;
-                    }
-                });
-        }
-        )
+                } else if (text === "Fail") {
+                    updateModal("密碼更改失敗!", "請重新輸入原+密碼");
+                    myModal.show();
+                    return;
+                }
+            });
+        });
     }
 });
-
-
-$('.dropdown-item:eq(3)').click(function () {
-    localStorage.removeItem('member');
-});
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("", "");
-})

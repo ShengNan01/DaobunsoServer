@@ -1,13 +1,3 @@
-
-
-
-
-// reset modal when modal was hidden
-let myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-    updateModal("", "");
-})
-
 $(function () {
     tbody = $('tbody');
     jsonData = JSON.parse(localStorage.getItem('cart'));
@@ -143,7 +133,7 @@ $(function () {
         let maincompany = $('#maincompany').val();
         let companyinvoicenumber = $('#companyinvoicenumber').val();
         let confirm = $('#lastconfirm').val();
-        let memberid=getCookieByName("id");
+        let memberid = getCookieByName("id");
         let totalPrice = $('#total').text();
 
         // -------------把LOCALSTORAGE用成一個變數
@@ -188,11 +178,9 @@ $(function () {
             user['taxIDnumber'] = companyinvoicenumber;
             user['timeForGarbage'] = paymenttype[i].timeframe;
             user['scheduleGarbage'] = confirm;
-            user['memberId'] =memberid;
+            user['memberId'] = memberid;
             user['userDetails'] = userDetail;
         }
-
-
 
         // $.ajax({
         //     url: `https://localhost:8443/placeOrder2`,
@@ -204,7 +192,6 @@ $(function () {
         //         $('#message').text('您的結帳已送出成功~');
         //     }
         // });
-
 
         fetch(`https://localhost/placeOrder2`, {
             method: 'POST',
