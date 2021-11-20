@@ -15,29 +15,6 @@ function check() {
       return false;
    }
 }
-// 日期選取
-$(function () {
-   $("#mydate").datepicker({
-      minDate: 0,
-      maxDate: "+3M", dateFormat: 'yy-mm-dd',
-
-      onSelect: function (selected) {
-         $("#enddate").datepicker("option", "minDate", selected);
-         var date = $(this).datepicker('getDate');
-         var tempStartDate = new Date(date);
-         var default_end = new Date(tempStartDate.getFullYear(), tempStartDate.getMonth(), tempStartDate.getDate() + 30);
-         $('#enddate').datepicker('setDate', default_end);
-      }
-   });
-   $("#enddate").datepicker({
-      minDate: 0, maxDate: "+3M", dateFormat: 'yy-mm-dd',
-
-      onSelect: function (selected) {
-         $("#mydate").datepicker("option", "maxDate", selected);
-      }
-   });
-});
-// 日期選取
 const btn = document.getElementById('save_cart_btn');
 const timeframe = document.getElementById('inputGroupSelect01')
 const date = document.getElementById('mydate');
@@ -69,3 +46,29 @@ btn.onclick = function () {
 
    localStorage.setItem('cart', JSON.stringify(cart))
 };
+
+
+
+// 日期選取
+$(function () {
+   $("#mydate").datepicker({
+      minDate: 0,
+      maxDate: "+3M", dateFormat: 'yy-mm-dd',
+
+      onSelect: function (selected) {
+         $("#enddate").datepicker("option", "minDate", selected);
+         var date = $(this).datepicker('getDate');
+         var tempStartDate = new Date(date);
+         var default_end = new Date(tempStartDate.getFullYear(), tempStartDate.getMonth(), tempStartDate.getDate() + 30);
+         $('#enddate').datepicker('setDate', default_end);
+      }
+   });
+   $("#enddate").datepicker({
+      minDate: 0, maxDate: "+3M", dateFormat: 'yy-mm-dd',
+
+      onSelect: function (selected) {
+         $("#mydate").datepicker("option", "maxDate", selected);
+      }
+   });
+});
+// 日期選取

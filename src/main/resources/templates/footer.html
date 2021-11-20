@@ -7,37 +7,85 @@
 <body>
         <div th:fragment="footer">
                 <link rel="stylesheet" href="./css/footer.css">
+                
                 <center>
                         <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;">
                         <br>
                         <hr style="width:90%;"> <br>
                 </center>
 
-                <div id="sec_area_8">
-                        <a href="./about_us" th:text="#{area8.aboutUs}">關於我們</a>
-                        <a href="./service_intro" th:text="#{area8.serviceIntro}">服務介紹</a>
-                        <a href="./Userterms" th:text="#{area8.guide}">使用須知</a>
-                        <a href="./problem" th:text="#{area8.faq}">常見問題</a>
-                        <a href="./feedback" th:text="#{area8.feedback}">使用回饋</a>
-                        <a href="./service" th:text="#{area8.service}">購買服務</a>
-                        <a href="./shopping" th:text="#{area8.shopping}">購物商城</a>
+                <div id="sec_area_8" >
+                        <div class="row d-flex justify-content-around w-75 mx-auto">
+                                
+                                <a id="footer-about_us" class="col" href="./about_us">
+                                        <div style="width: 6.8rem;" th:text="#{area8.aboutUs}">關於我們</div>
+                                </a>
+                                <a id="footer-service_intro" class="col" href="./service_intro">
+                                        <div style="width: 6.8rem;" th:text="#{area8.serviceIntro}">服務介紹</div>
+                                </a>
+                                <a id="footer-Userterms" class="col" href="./Userterms">
+                                        <div style="width: 6.8rem;" th:text="#{area8.guide}">使用須知</div>
+                                </a>
+                                <a id="footer-problem" class="col" href="./problem">
+                                        <div style="width: 6.8rem;" th:text="#{area8.faq}">常見問題</div>
+                                </a>
+                                <a id="footer-feedback"class="col" href="./feedback">
+                                        <div style="width: 6.8rem;" th:text="#{area8.feedback}">使用回饋</div>
+                                </a>
+                                <a id="footer-service" class="col" href="./service">
+                                        <div style="width: 6.8rem;" th:text="#{area8.service}">購買服務</div>
+                                </a>
+                                <a id="footer-shopping" class="col" href="./shopping">
+                                        <div style="width: 6.8rem;" th:text="#{area8.shopping}">購物商城</div>
+                                </a>
+
+                        </div>
+
                 </div>
 
                 <div id="footer_info">
-                        <img id="footer_logo" src="./image/LOGO2.png" alt="footer_logo" width="200rem">
-                        <a href="#"><img id="footer_media_fb" src="./image/iconmonstr-facebook-3-240.png" alt="fb sign"
-                                        width="30rem"></a>
-                        <a href="#"><img id="footer_media_IG" src="./image/iconmonstr-instagram-11-240.png"
-                                        alt="IG sign" width="30rem"></a>
-                        <a href="#"><img id="footer_media_Line" src="./image/iconmonstr-line-3-240.png" alt="Line sign"
-                                        width="30rem"></a>
-                        <a href="#"><img id="footer_media_Twitter" src="./image/iconmonstr-twitter-3-240.png"
-                                        alt="Twitter sign" width="30rem"></a>
+                        <div class="container">
+                                <div class="row">
+                                        <div class="col-4 pe-3 d-flex justify-content-end">
+                                                <img id="footer_logo" src="./image/LOGO2.png" alt="footer_logo"
+                                                        style="width: 12rem;height: 8.3rem;">
+                                        </div>
+                                        <div class="col-8 ">
+                                                <div class="row w-50 p-4">
+                                                        <div class="col d-flex justify-content-around">
+                                                                <a href="#"><img id="footer_media_fb"
+                                                                                src="./image/iconmonstr-facebook-3-240.png"
+                                                                                alt="fb sign" width="30rem"></a>
+                                                                <a href="#"><img id="footer_media_IG"
+                                                                                src="./image/iconmonstr-instagram-11-240.png"
+                                                                                alt="IG sign" width="30rem"></a>
+                                                                <a href="#"><img id="footer_media_Line"
+                                                                                src="./image/iconmonstr-line-3-240.png"
+                                                                                alt="Line sign" width="30rem"></a>
+                                                                <a href="#"><img id="footer_media_Twitter"
+                                                                                src="./image/iconmonstr-twitter-3-240.png"
+                                                                                alt="Twitter sign" width="30rem"></a>
+                                                        </div>
 
-                        <p>DAOBUNSO &copy; 2021 Garbage Connections. All Rights Reserved.<br>
-                                僅為北科大 Java 017 班專題展示使用 <br>
-                                如有任何問題請聯絡：susansusan1996@gmail.com</p>
+                                                </div>
+                                                <div class="row px-4">
+                                                        <div class="col">
+                                                                DAOBUNSO &copy; 2021 Garbage Connections. All Rights
+                                                                Reserved.<br>
+                                                                僅為北科大 Java 017 班專題展示使用 <br>
+                                                                如有任何問題請聯絡：susansusan1996@gmail.com
+                                                        </div>
+
+                                                </div>
+
+
+                                        </div>
+                                </div>
+                        </div>
+
+
                 </div>
+                <script src="./js/footer.js"></script>
 
         </div>
 </body>

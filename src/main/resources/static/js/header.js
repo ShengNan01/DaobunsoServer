@@ -2,9 +2,9 @@
 {
     // 進入頁面的初始化
     let langsearch;
-    if(sessionStorage.getItem('lang')==null){
+    if (sessionStorage.getItem('lang') == null) {
         sessionStorage.setItem('lang', "?l=zh_TW");
-    }else{
+    } else {
         langsearch = sessionStorage.getItem('lang');
         langinit();
     }
@@ -25,6 +25,7 @@
     // ~語言按鈕
     // 連結初始化
     function langinit() {
+        // headerherf
         $('#hreffrontpage').attr('href', "./" + langsearch);
         $('#dropdown-profiles').attr('href', "./profiles" + langsearch);
         $('#dropdown-orders').attr('href', "./orders" + langsearch);
@@ -35,6 +36,7 @@
         $('#nav-shopping').attr('href', "./shopping" + langsearch);
         $('#nav-service').attr('href', "./service" + langsearch);
         $('#nav-shopping_cart').attr('href', "./shopping_cart" + langsearch);
+        // ~headerherf
     }
     // ~連結初始化
 }
@@ -107,12 +109,12 @@ $(function () {
 // modal方法
 let myModal = new bootstrap.Modal(document.getElementById('myModal'))
 function updateModal(title, massage) {
-  $('#modal-title').text(title);
-  $('#massage-content').text(massage);
+    $('#modal-title').text(title);
+    $('#massage-content').text(massage);
 }
 // reset modal when modal was hidden
 let myModalEl = document.getElementById("myModal");
 myModalEl.addEventListener("hidden.bs.modal", function (event) {
-  updateModal("", "");
+    updateModal("", "");
 });
 // ~modal方法

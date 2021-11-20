@@ -30,7 +30,7 @@
 
 
       <!-- 圖片內 -->
-      <div class="box1">
+      <div class="box1 col-6">
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
@@ -42,21 +42,21 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-              <img src="./image/pexels-cottonbro-4604668.jpg" class="d-block" alt="...">
+              <img src="./image/pexels-cottonbro-4604668.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class="text1">可靠的服務只是一個開始</h5>
                 <p class="text1">使命必達是我們對您的信念,給您最好的服務是我們願望</p>
               </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-              <img src="./image/pexels-anna-shvets-3683199.jpg" class="d-block" alt="...">
+              <img src="./image/pexels-anna-shvets-3683199.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class="text1">一次一袋減少負擔</h5>
                 <p class="text1">若您的垃圾量過多,可以再幫您進行加購的服務</p>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="./image/proj1-4.jpg" class="d-block" alt="...">
+              <img src="./image/proj1-4.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5 class="text1">確實做好分類跟回收</h5>
                 <p class="text1">我們的垃圾袋有配合者不同的項目來搭配使用,請確實作好分類回收</p>
@@ -78,7 +78,7 @@
       <!-- ---------------------------圖片內----------------------------------- -->
 
       <!-- 旁邊文字 -->
-      <div class="col-md-8">
+      <div class="col-6">
         <div class="card-body">
           <h3 class="fw-bold">月租方案：一周可以選擇3個時段(一個月以30天為主)</h3>
           <p class="card-text">適合對象：3-4人 小家庭/ 外宿族群/</p>
@@ -197,7 +197,8 @@
   <footer>
     <div th:replace="footer :: footer"></div>
   </footer>
-
+  
+  <script src="./js/jquery-ui.js"></script>
   <script src="./js/service-pro2.js"></script>
 </body>
 

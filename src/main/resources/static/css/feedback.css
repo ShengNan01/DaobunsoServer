@@ -108,3 +108,9 @@ a.nav-link:hover {
 .star-cl{
     color: yellow;
 }
+.btn :hover {
+    color: #74bee0;
+}
+.btn :active{
+    color:rgb(0, 0, 87);
+}

@@ -93,14 +93,13 @@ a.nav-link:hover {
   line-height: 3rem;
 }
 
-.card {
+/* .card {
   height: 1000px;
-}
+} */
 
 .box1 {
   position: relative;
   width: 700px;
-  height: 10px;
 }
 
 .d-block {
@@ -123,7 +122,6 @@ a.nav-link:hover {
 
 .card-body {
   position: relative;
-  left: 300px;
 }
 
 .list-group {

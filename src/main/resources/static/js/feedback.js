@@ -3,7 +3,6 @@ let oid = 0;
 let uaccount = getCookieValueByName("account");
 let getstar = 0;
 let ucomment = "";
-// let wdate = Date();
 
 //定義頁面
 let uimgsrc = "./image/service_intro/holo/pekora.png";
@@ -58,13 +57,21 @@ $('#btn-ex').click(function () {
     $('#feedback-comment').val("");
     $('#feedback-id').hide();
     // ~數值init
-    $(this).toggleClass('tog');
-    if ($(this).hasClass('tog')) {
+    $(this).toggleClass('active');
+    if ($(this).hasClass('active')) {
         $('.feedback').show();
-        $('#btn-ex').text("收起");
+
+
+        // $('#btn-ex').text("收起");
+
+
     } else {
         $('.feedback').hide();
-        $('#btn-ex').text("填寫意見");
+
+
+        // $('#btn-ex').text("填寫意見");
+
+
     }
 });
 //~意見填寫展開按鈕tog
@@ -78,12 +85,22 @@ $('#btn-list').click(function () {
     $('#feedback-id').hide();
     // ~數值init
     $('.feedback').hide();
-    $('#btn-ex').removeClass("tog");
-    $('#btn-ex').text("填寫意見");
-    $(this).toggleClass('tog');
-    if ($('#btn-list').hasClass('tog')) {
+    $('#btn-ex').removeClass("active");
+
+
+
+    // $('#btn-ex').text("填寫意見");
+
+
+
+    $(this).toggleClass('active');
+    if ($('#btn-list').hasClass('active')) {
         $('#feedback-list').show();
-        $('#btn-list').text("收起意見列表");
+
+
+        // $('#btn-list').text("收起意見列表");
+
+
         // GET
         fetch(`https://localhost/grading?uaccount=${uaccount}`, {
             method: 'GET',
@@ -107,12 +124,9 @@ $('#btn-list').click(function () {
                             $('#feedback-comment').val(ucomment);
                             $('#feedback-id h2').text(oid);
                             $('#feedback-id').show();
-
                             for (let temp = getstar; temp >= 1; temp--) {
                                 $('#star' + temp).addClass('star-cl');
                             }
-
-
                         },
                         del: (key) => {
                             // console.log(key);
@@ -130,9 +144,6 @@ $('#btn-list').click(function () {
         });
         // ~GET
     } else {
-        // $('#btn-list').text("修改/刪除意見");
-        // $('#btn-list').removeClass('tog')
-        // $('#feedback-list').hide();
         location.reload();
     }
 });
@@ -142,7 +153,6 @@ $('#btn-list').click(function () {
 $('#btn-feedback').click(() => {
     ucomment = $('#feedback-comment').val();
     if (oid == 0) {
-
         if (getstar != 0 && ucomment != '') {
             fetch(`https://localhost/grading?email=${getCookieByName('email')}`, {
                 method: 'POST',
@@ -156,7 +166,6 @@ $('#btn-feedback').click(() => {
                 alert("成功送出意見!!");
                 location.reload();
             });
-
         } else {
             alert("項目不完整!");
         }
@@ -175,13 +184,10 @@ $('#btn-feedback').click(() => {
             }).then(response => {
                 alert("重新編輯完成!!");
                 location.reload();
-
             });
-
         } else {
             alert("項目不完整!!");
         }
-
     }
 });
 //~意見送出按鈕
