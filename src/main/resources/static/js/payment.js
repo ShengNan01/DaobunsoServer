@@ -181,28 +181,27 @@ $(function () {
             user['memberId'] = memberid;
             user['userDetails'] = userDetail;
         }
+        console.log(user);
+        localStorage.setItem("User", JSON.stringify(user));
+        location.href = "./payPayment";
 
-        // $.ajax({
-        //     url: `https://localhost:8443/placeOrder2`,
-        //     type: 'POST',
-        //     async: false,
-        //     contentType: 'application/json;charset=utf-8',
-        //     data: JSON.stringify(user),
-        //     success: function (response) {
-        //         $('#message').text('您的結帳已送出成功~');
-        //     }
-        // });
-
-        fetch(`https://localhost/placeOrder2`, {
-            method: 'POST',
-            body: JSON.stringify(user),
-            headers: { 'Content-Type': 'application/json' },
-        }).then(
-            console.log("ok")
-        );
 
     });
 });
+
+
+
+// $.ajax({
+//     url: `https://localhost:8443/placeOrder2`,
+//     type: 'POST',
+//     async: false,
+//     contentType: 'application/json;charset=utf-8',
+//     data: JSON.stringify(user),
+//     success: function (response) {
+//         $('#message').text('您的結帳已送出成功~');
+//     }
+// });
+
 
 
 

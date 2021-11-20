@@ -6,19 +6,25 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import lombok.extern.log4j.Log4j2;
 import springboot.ecpay.payment.integration.errorMsg.ErrorMessage;
 import springboot.ecpay.payment.integration.exception.EcpayException;
 
+@Log4j2
 public class PaymentVerifyBase{
-	protected String confPath = "/ecpay/payment/integration/config/EcpayPayment.xml";
+	protected String confPath = "/springboot/ecpay/payment/integration/config/EcpayPayment.xml";
 	protected Document doc;
 	public PaymentVerifyBase(){
 		URL fileURL = this.getClass().getResource(confPath);
+		log.info(confPath);
+		log.info(fileURL);
 		doc = EcpayFunction.xmlParser(fileURL.toString());
+		log.info("test");
 		doc.getDocumentElement().normalize();
 	}
 	

@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.extern.log4j.Log4j2;
@@ -110,6 +111,11 @@ public class GlobalViewController {
 		return "payment";
 	}
 
+	@GetMapping("/payPayment")
+	public String payPaymentPage() {
+		return "payPayment";
+	}
+	
 	@GetMapping("/problem")
 	public String problemPage() {
 		return "problem";
@@ -169,6 +175,8 @@ public class GlobalViewController {
 	public String verify_emailPage() {
 		return "verify_email";
 	}
+	
+	
 
 	@GetMapping("/activateMail")
 		public String activateMail(@RequestParam String emailToken, HttpServletResponse response) throws Exception {
@@ -192,4 +200,7 @@ public class GlobalViewController {
 	public String verificationEmail() {
 		return "verification_email";
 	}
+	
+	
+	
 }

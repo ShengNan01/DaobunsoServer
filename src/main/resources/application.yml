@@ -39,29 +39,3 @@ redis:
     host: 127.0.0.1
     port: 6379
     
-Conf: #綠界XML
-  OperatingMode: Test
-  MercProfile: Stage_Account
-  IsProjectContractor: N
-  
-  MerchantInfo:
-        MInfo name: "Stage_Account"
-        MerchantID: 2000132
-        HashKey: 5294y06JbISpM5x9
-        HashIV: v77hoKGq4kWxNNIS
-  IgnorePayment: 
-  
-  
-  
-  
-  logging:
-  config:  classpath:log4j2.xml
-  level:
-    root: INFO
-    javax.activation: info
-    org.apache.catalina: INFO
-    org.apache.commons.beanutils.converters: INFO
-    org.apache.coyote.http11.Http11Processor: INFO
-    org.apache.http: INFO
-    org.apache.tomcat: INFO
-    org.springframework: INFO

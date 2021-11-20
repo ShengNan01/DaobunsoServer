@@ -54,10 +54,7 @@ import springboot.ecpay.payment.integration.verification.VerifyTradeNoAio;
 
 @RestController
 public class AllInOne extends AllInOneBase{
-	
-	
 	public AllInOne() {
-		
 	}
 	
 	private final static Logger log = Logger.getLogger(AllInOne.class.getName());
@@ -461,9 +458,13 @@ public class AllInOne extends AllInOneBase{
 			throw new EcpayException(ErrorMessage.UNDIFINED_OBJECT);
 		}
 		try {
+			log.info("test0");
 			VerifyAioCheckOut verify = new VerifyAioCheckOut();
+			log.info("test1");
 			aioCheckOutUrl = verify.getAPIUrl(operatingMode);
+			log.info("test2");
 			verify.verifyParams(obj);
+			log.info("test3");
 			if(invoice != null){
 				log.info("aioCheckOut invoice params: " + invoice.toString());
 				verify.verifyParams(invoice);
@@ -481,6 +482,7 @@ public class AllInOne extends AllInOneBase{
 			log.error(e.getNewExceptionMessage());
 			throw new EcpayException(e.getNewExceptionMessage());
 		}
+		log.info("test4");
 		return out.toString();
 	}
 	

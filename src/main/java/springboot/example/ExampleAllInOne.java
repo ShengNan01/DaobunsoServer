@@ -6,12 +6,10 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.log4j.Log4j2;
 import springboot.ecpay.payment.integration.AllInOne;
-import springboot.ecpay.payment.integration.AllInOneBase;
 import springboot.ecpay.payment.integration.domain.AioCheckOutALL;
 import springboot.ecpay.payment.integration.domain.AioCheckOutATM;
 import springboot.ecpay.payment.integration.domain.AioCheckOutBARCODE;
@@ -34,11 +32,7 @@ import springboot.ecpay.payment.integration.domain.TradeNoAioObj;
 @RestController
 public class ExampleAllInOne {
 	
-	@Autowired
-	public AllInOne allInOne;
-	
-	@Autowired
-	public AllInOneBase allInOneBase;
+
 	
 	public static AllInOne all;
 	public static void main(String[] args) {
@@ -150,37 +144,42 @@ public class ExampleAllInOne {
 		return form;
 	}
 	
-//	public static String genAioCheckOutALL(Integer totalprice , Integer id ){
-//		UUID uid = UUID.randomUUID();//訂單編號
+//	public String genAioCheckOutALL(String price, String id ){
+////		UUID uid = UUID.randomUUID();//訂單編號
 //		AioCheckOutALL obj = new AioCheckOutALL();
-//		obj.setMerchantTradeNo("testCompany0004");//訂單編號自行設定寫法
+//		obj.setMerchantTradeNo(id);//訂單編號自行設定寫法
 ////		obj.setMerchantTradeDate("2017/01/01 08:05:23");
 //		obj.setMerchantTradeDate("yyyy/MM/dd HH:mm:ss");
-//		obj.setTotalAmount("totalprice");
+//		obj.setTotalAmount(price);
 ////		obj.setTradeDesc("test Description");//Daobunso 倒幫手垃圾代收服務
 //		obj.setTradeDesc("Daobunso 倒幫手垃圾代收服務");
 ////		obj.setItemName("TestItem");//結帳付款
 //		obj.setItemName("結帳付款");
 ////		obj.setReturnURL("https://211.23.128.214:5000");//接收的controller+id
-//		obj.setReturnURL("https://localhost/payment" +id);//接收的controller+id
+////		obj.setReturnURL("https://localhost/");//接收的controller+id
 //		obj.setNeedExtraPaidInfo("N");
 //		String form = all.aioCheckOut(obj, null);
 //		return form;
 //	}
 	
-	public String getAioCheckOutAll(String price, String id , String orderitem , String URL ) {
+	public static String genAioCheckOutALL(String price, String id  ) {
 		AioCheckOutALL obj = new AioCheckOutALL();
 		obj.setMerchantTradeNo(id);
+		log.info(price);
+		log.info(id);
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date current = new Date();
 		obj.setMerchantTradeDate(sdFormat.format(current));
+//		obj.setMerchantTradeDate("2012/03/21 15:40:18");
 		obj.setTotalAmount(price);
 		obj.setTradeDesc("Daobunso");//Daobunso 倒幫手垃圾代收服務
-		obj.setItemName("結帳付款");//結帳付款
+		obj.setItemName("Daobunso132");//結帳付款
 		obj.setReturnURL("http://211.23.128.214:5000");
-		obj.setOrderResultURL("https://localhost/orders/");//接收的controller+id
-		obj.setNeedExtraPaidInfo("Y");
+		obj.setOrderResultURL("https://localhost/");//接收的controller+id
+		obj.setNeedExtraPaidInfo("N");
+		log.info(obj);
 		String form = all.aioCheckOut(obj, null);
+		log.info(form);
 		return form;
 	}
 	

@@ -10,15 +10,17 @@ import java.util.regex.Pattern;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import lombok.extern.log4j.Log4j2;
 import springboot.ecpay.payment.integration.domain.InvoiceObj;
 import springboot.ecpay.payment.integration.ecpayOperator.PaymentVerifyBase;
 import springboot.ecpay.payment.integration.errorMsg.ErrorMessage;
 import springboot.ecpay.payment.integration.exception.EcpayException;
-
+@Log4j2
 public class VerifyAioCheckOut extends PaymentVerifyBase {
-
+	
 	public VerifyAioCheckOut(){
 		super();
+		
 	}
 	
 	public String getAPIUrl(String mode) throws EcpayException{
