@@ -111,6 +111,11 @@ public class GlobalViewController {
 		return "payment";
 	}
 
+	@GetMapping("/payPayment")
+	public String payPaymentPage() {
+		return "payPayment";
+	}
+	
 	@GetMapping("/problem")
 	public String problemPage() {
 		return "problem";
@@ -171,13 +176,8 @@ public class GlobalViewController {
 		return "verify_email";
 	}
 	
-	@GetMapping("/payPayment")
-	public String payPayment() {
-		return "payPayment";
-	}
 	
-	
-	
+
 	@GetMapping("/activateMail")
 		public String activateMail(@RequestParam String emailToken, HttpServletResponse response) throws Exception {
 			if (mailutils.balanceToken(emailToken)) {
@@ -200,4 +200,7 @@ public class GlobalViewController {
 	public String verificationEmail() {
 		return "verification_email";
 	}
+	
+	
+	
 }

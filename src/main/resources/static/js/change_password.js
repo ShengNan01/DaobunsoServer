@@ -95,7 +95,7 @@ $('#change_btn').click(function (e) {
                         })
 
                     } else if (text === "Fail") {
-                        updateModal("密碼更改失敗!", "請重新輸入原+密碼");
+                        updateModal("密碼更改失敗!", "請重新輸入原密碼");
                         myModal.show();
                         return;
                     }
