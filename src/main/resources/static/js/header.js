@@ -1,8 +1,15 @@
 // 多語化
 {
     // 進入頁面的初始化
-    let langsearch = sessionStorage.getItem('lang');
-    langinit();
+    let langsearch;
+    if (sessionStorage.getItem('lang') == null) {
+        // 設定初始語言
+        sessionStorage.setItem('lang', "?l=zh_TW");
+        // ~設定初始語言
+    } else {
+        langsearch = sessionStorage.getItem('lang');
+        langinit();
+    }
     // ~進入頁面的初始化
     // 語言按鈕
     $('#langbtn-en').click(() => {
