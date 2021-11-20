@@ -1,21 +1,24 @@
 // 多語化
 {
     // 進入頁面的初始化
-    let langsearch = sessionStorage.getItem('lang');
-    langinit();
+    let langsearch;
+    if(sessionStorage.getItem('lang')==null){
+        sessionStorage.setItem('lang', "?l=zh_TW");
+    }else{
+        langsearch = sessionStorage.getItem('lang');
+        langinit();
+    }
     // ~進入頁面的初始化
     // 語言按鈕
     $('#langbtn-en').click(() => {
         sessionStorage.setItem('lang', "?l=en_US");
         langsearch = sessionStorage.getItem('lang');
-        console.log(sessionStorage.getItem('lang'));
         langinit();
         window.location.href = window.location.protocol + window.location.pathname + langsearch;
     });
     $('#langbtn-tw').click(() => {
         sessionStorage.setItem('lang', "?l=zh_TW");
         langsearch = sessionStorage.getItem('lang');
-        console.log(sessionStorage.getItem('lang'));
         langinit();
         window.location.href = window.location.protocol + window.location.pathname + langsearch;
     });
