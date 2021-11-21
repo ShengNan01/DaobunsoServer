@@ -63,3 +63,26 @@ p3btn.click(() => {
     });
     sessionStorage.setItem('splink', JSON.stringify(splink));
 });
+
+//
+fetch(`https://localhost//products`, {
+    method: 'GET',
+}).then((response) => {
+    response.json().then((res) => {
+        // console.log(res);
+
+        let productv = new Vue({
+
+            el: '#productv',
+            data: {
+                res,
+            },
+            methods:{
+                storeparam:(key)=>{
+                    localStorage.setItem('spl',res[key]);
+                    alert(res[key]);
+                }
+            }
+        });
+    });
+});

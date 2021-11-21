@@ -16,66 +16,25 @@
     <header>
         <div th:replace="header :: header"></div>
     </header>
+
     <nav>
         <div id="nav_title" th:text="#{shopping.title}">商品選擇</div>
     </nav>
-
-    <!-- --------------------------------------------- -->
-
-    <div class="shopping">
+    <div id="productv" class="shopping">
         <div class="container">
             <div class="row">
-                <div class="col-3 m-auto">
-                    <div class="card product1" style="width: 20rem;">
-                        <img src="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <p class="card-content"></p>
+                <div v-for="(rel,key) in res" @click="storeparam(key)" class="btn col m-auto product"
+                    style="width: 20rem;">
 
-                            <div class="col">
-                                <div class="price" style="color: red"></div>
-                            </div>
-
-                            <div class="col" style="margin-left: 12rem;">
-                                <a class="spl btn btn-primary" th:text="#{shopping.spl}">前往商品</a>
-                            </div>
+                    <div class="product-body">
+                        <img :src="rel.imagepath" class="product-imgsrc">
+                        <h5 class="product-title">{{rel.name}}</h5>
+                        <div class="col">
+                            <div style="color: red">{{rel.price}}元</div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-3 m-auto">
-                    <div class="card product2" style="width: 20rem;">
-                        <img src="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <p class="card-content"></p>
 
-                            <div class="col">
-                                <div class="price" style="color: red"></div>
-                            </div>
-
-                            <div class="col" style="margin-left: 12rem;">
-                                <a class="spl btn btn-primary" th:text="#{shopping.spl}">前往商品</a>
-                            </div>
-                        </div>
                     </div>
 
-                </div>
-                <div class="col-3 m-auto">
-                    <div class="card product3" style="width: 20rem;">
-                        <img src="" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <p class="card-content"></p>
-
-                            <div class="col">
-                                <div class="price" style="color: red;"></div>
-                            </div>
-
-                            <div class="col" style="margin-left: 12rem;">
-                                <a class="spl btn btn-primary" th:text="#{shopping.spl}">前往商品</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

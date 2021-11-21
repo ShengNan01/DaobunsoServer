@@ -218,3 +218,13 @@
     font-size: 0.8rem;
     font-weight: 300;
 }
+
+#service-hover {
+  width: 368px;
+  margin: 30px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  transform: translateY(0px);
+  transition: 0.5s;
+}

@@ -83,19 +83,19 @@ a.nav-link:hover {
   line-height: 3rem;
 }
 
-.container {
+#login-container {
   border: 5px dashed #2D3E4D;
   margin: 5rem auto;
   padding: 3rem 0;
 }
 
-.container label {
+#login-container label {
   font-size: 1.25rem;
   color: #2D3E4D;
   font-weight: 900;
 }
 
-.container .btn {
+#login-container .btn {
   font-size: 1.25rem;
   width: 5rem;
   color: #FFF;
@@ -103,18 +103,18 @@ a.nav-link:hover {
   margin-left: 3rem;
 }
 
-.container .btn:hover {
+#login-container .btn:hover {
   background-color: #3EB595;
 }
 
-.container form a {
+#login-container form a {
   margin-left: 20rem;
   font-size: 1.2rem;
   text-decoration: none;
   color: #000;
 }
 
-.container form a:hover {
+#login-container form a:hover {
   color: #2f2fec;
 }
 

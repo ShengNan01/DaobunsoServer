@@ -18,7 +18,7 @@
     <div id="nav_title" th:text="#{login.title}">登入.註冊 Login.Register</div>
   </nav>
   <section>
-    <div class="container">
+    <div id="login-container" class="container">
       <div class="row">
         <div class="col-6 mx-auto">
           <form method="POST" id="form_in">
@@ -76,12 +76,10 @@
       </div>
     </div>
   </section>
-
   <footer>
     <div th:replace="footer :: footer"></div>
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+  
   <script src="./js/login.js"></script>
 </body>
 

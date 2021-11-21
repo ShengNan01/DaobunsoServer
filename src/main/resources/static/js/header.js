@@ -58,7 +58,7 @@ $(function () {
         });
     } else {
         $('.dropdown-login').text('Log In');
-        $('#dropdown-profiles,#dropdown-orders').click(function (e) {
+        $('#dropdown-profiles,#dropdown-orders,#footer-feedback').click(function (e) {
             e.preventDefault();
             updateModal("Oops!", "請先登入會員！");
             myModal.show();

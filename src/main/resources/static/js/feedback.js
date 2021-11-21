@@ -20,18 +20,14 @@ fetch(`https://localhost/gradings`, {
         console.log(res);
 
         const width = $(window).width();
-        console.log(width);
         let result = null;
 
         // display dispatcher
         if (width >= 1183) {
             result = res.slice(0, 3)
-        }
-
-        else if (width > 768 && width < 1183) {
+        }else if (width > 768 && width < 1183) {
             result = res.slice(0, 2)
-        }
-        else {
+        }else {
             result = [res[0]];
         }
         // ~display dispatcher

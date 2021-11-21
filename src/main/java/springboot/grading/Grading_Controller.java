@@ -86,31 +86,4 @@ public class Grading_Controller {
 		gradingRepo.save(g);
 		return "新增評論成功";
 	}
-
-//	@PutMapping("/feedback")
-//	public String putF(
-//			@RequestParam("oid") String oid,
-//			@RequestBody Feedback fe) {
-//		System.out.println(oid);
-//		if(fMultiValueMap.containsValue(oid)) {
-//		}
-//		return "add";
-//	}
-//	@DeleteMapping("/feedback")
-//	public String deleteF() {
-//		return "delete";
-//	}
-//	@GetMapping(value = "/verify")
-//	public void getverify( 
-//			@RequestParam("uid") String uid,
-//			@RequestParam("email") String email) {
-//		System.out.println(uid);
-//		System.out.println(email);
-//	}
-//	
-//	RequestMapping("/feedback/submit{x}")
-//	public Holo getFeedback(@PathVariable("x") String x) {
-//		System.out.println(x);
-//		return neolHolo;
-//	}
 }

@@ -187,12 +187,17 @@ $('#login_btn').click(function (e) {
 			// 將Server回覆的boolean值轉為文字存入res
 			response.text().then(res => {
 				if (res == "true") {
-					alert("登入成功! res狀態:" + res);
-					location.assign('./frontpage');
+					updateModal("登入成功!"," LoginOK:" + getCookieValueByName('LoginOK'));
+					myModal.show();
+					$('.modal-footer>button').click(function () {
+                        location.href = './frontpage';
+                    });
 				} else {
-					alert("登入失敗! res狀態:" + res + "\n請重新登入");
+					updateModal("登入失敗!","這樣不夠酷!");
+					myModal.show();
 					$("#account").val(null);
 					$("#pswd").val(null);
+					return;
 				}
 			});
 		}).catch((err) => {

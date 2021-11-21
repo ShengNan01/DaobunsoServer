@@ -7,16 +7,16 @@
 <body>
         <div th:fragment="footer">
                 <link rel="stylesheet" href="./css/footer.css">
-                
+
                 <center>
                         <img src="./image/LOGO1.png" alt="LOGO" width="150rem" style="padding-bottom: 1.5rem;">
                         <br>
                         <hr style="width:90%;"> <br>
                 </center>
 
-                <div id="sec_area_8" >
+                <div id="sec_area_8">
                         <div class="row d-flex justify-content-around w-75 mx-auto">
-                                
+
                                 <a id="footer-about_us" class="col" href="./about_us">
                                         <div style="width: 6.8rem;" th:text="#{area8.aboutUs}">關於我們</div>
                                 </a>
@@ -29,7 +29,7 @@
                                 <a id="footer-problem" class="col" href="./problem">
                                         <div style="width: 6.8rem;" th:text="#{area8.faq}">常見問題</div>
                                 </a>
-                                <a id="footer-feedback"class="col" href="./feedback">
+                                <a id="footer-feedback" class="col" href="./feedback">
                                         <div style="width: 6.8rem;" th:text="#{area8.feedback}">使用回饋</div>
                                 </a>
                                 <a id="footer-service" class="col" href="./service">
@@ -85,6 +85,26 @@
 
 
                 </div>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="modal-title"></h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body" id="massage-content">
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                
                 <script src="./js/footer.js"></script>
 
         </div>
