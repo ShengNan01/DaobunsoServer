@@ -170,17 +170,18 @@ public class ExampleAllInOne {
 		obj.setMerchantTradeNo(id);
 		log.info(price);
 		log.info(id);
-//		log.info(details);
+		log.info(items);
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date current = new Date();
 		obj.setMerchantTradeDate(sdFormat.format(current));
 		obj.setTotalAmount(price);
 		obj.setTradeDesc("Daobunso");//Daobunso 倒幫手垃圾代收服務
 		obj.setItemName(items);//結帳付款
-		obj.setReturnURL("https://localhost/");
+		obj.setReturnURL("https://localhost" );
 		obj.setClientBackURL("https://localhost/");
 //		obj.setOrderResultURL("https://localhost/");//接收的controller+id
 		obj.setNeedExtraPaidInfo("Y");
+		obj.setInvoiceMark("Y");
 		log.info(obj);
 		String form = all.aioCheckOut(obj, null);
 		log.info(form);

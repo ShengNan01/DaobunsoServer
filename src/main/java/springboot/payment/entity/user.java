@@ -34,7 +34,7 @@ public class user {
 //    @CreatedDate
 //    @Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "Order_Date")
-	private Date orderDate;
+	private Timestamp orderDate;
 
 	@Column(name = "Member_Id")
 	private int memberId;
