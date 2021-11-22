@@ -1,19 +1,23 @@
 package springboot.payment.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.log4j.Log4j2;
 import springboot.ecpay.payment.integration.AllInOne;
 import springboot.example.ExampleAllInOne;
 import springboot.payment.entity.user;
+import springboot.payment.entity.userDetail;
 import springboot.payment.repository.CustomerRepository;
 import springboot.payment.repository.ProductRepository;
 
@@ -36,18 +40,72 @@ public class OrderController {
 //	}
 	
 	@PostMapping("/payPayment")
-	public String PayPaymentPage(@RequestBody user userpayment) {
+	public String  PayPaymentPage(@RequestBody user userpayment) {
 		ExampleAllInOne.initial();
 		UUID uid = UUID.randomUUID();// 訂單編號
-		String detailNo = "O" + uid.toString().replaceAll("-", "").substring(0, 9);
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMddHHmm");
+		Date current = new Date();
+		String detailNo = "DBS" + sdFormat.format(current) +uid.toString().replaceAll("-", "").substring(0, 5);
+		System.out.println(detailNo);
 		userpayment.setDetailNo(detailNo);
-		customerRepository.save(userpayment);
+		customerRepository.save(userpayment);// 這邊之後要移到另一個方法
+		List<userDetail> detail = userpayment.getUserDetails();
+		
+
+		StringBuilder orderItems = new StringBuilder();
+//		StringJoiner orderItems = new StringJoiner(" ");
+		for(int i=0;i<detail.size();i++) {
+			if ((detail.get(i).getGarbageStartDate())== null&& (detail.get(i).getGarbageEndDate()) == null) {
+//				orderItems.append(String.format("商品%", i+1))
+				orderItems.append("商品 "+ (i+1))
+				.append(" "+ detail.get(i).getItemType())
+				.append( " 數量: " +detail.get(i).getQuantity()+"#"); 
+			}else if((detail.get(i).getGarbageStartDate())!= null&& (detail.get(i).getGarbageEndDate()) != null) {
+				orderItems.append("商品 "+ (i+1))
+				.append(" "+detail.get(i).getItemType())
+				.append( " 數量: " +detail.get(i).getQuantity()+" ")
+				.append("服務期限:"+"("+detail.get(i).getGarbageStartDate())
+				.append("~"+detail.get(i).getGarbageEndDate()+")"+"#");				
+			}else {
+				orderItems.append("商品 "+ (i+1))
+				.append(" "+detail.get(i).getItemType())
+				.append( " 數量: " +detail.get(i).getQuantity()+" ")
+				.append("服務期限:"+"("+detail.get(i).getGarbageStartDate())
+				.append("~"+detail.get(i).getGarbageStartDate()+")"+"#");			
+			}
+			
+		}
+		log.info("分隔線");
 		Integer orderId = userpayment.getOrderId();
 		String sum = userpayment.getSum();
 		System.out.println("結帳總金額:" + sum);
 		log.info("跳轉綠界頁面");
-		String paymentValue = exampleAllInOne.genAioCheckOutALL(sum, detailNo);// 獲得Html code
-		log.info(paymentValue);
+		System.out.println(detail.toString());
+		Map<String , String> map = new HashMap<>();
+		String paymentValue = exampleAllInOne.genAioCheckOutALL(sum, detailNo,orderItems.toString());// 獲得Html code
 		return paymentValue;
+//		if(paymentValue !=null) {
+//			map.put("paymentPage" , paymentValue);
+//			return ResponseEntity.ok().body(paymentValue);			
+//		}else {
+//			map.put("message", "交易失敗");
+//			return ResponseEntity.badRequest();
+		}
+	
+	
+
+		
+
+
+	
+	
+	
+	@PostMapping("/ecpayResponse")
+	public String ecpayResponse(@RequestBody String ecpayResponse) {
+		String [] responses = ecpayResponse.split("&");
+		Map<String,String> info = new HashMap<>();
+		
+		return "";
 	}
+
 }
