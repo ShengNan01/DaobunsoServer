@@ -4,7 +4,6 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-// @Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,22 +13,22 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Product_Id")
+	@Column(name = "ProductId")
 	private Integer id;
 
-	@Column(name = "Product_Name")
+	@Column(name = "ProductName")
 	private String name;
 
-	@Column(name = "Product_Image")
+	@Column(name = "ProductImage")
 	private String imagepath;
-	
+
 	@Column(name = "Inventory")
 	private Integer inventory;
 
-	@Column(name = "Sale_Price")
+	@Column(name = "SalePrice")
 	private Integer price;
-	
-	@Column(name = "Product_Content")
+
+	@Column(name = "ProductContent")
 	private String content;
 
 }

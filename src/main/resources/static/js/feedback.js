@@ -126,7 +126,7 @@ $('#btn-list').click(function () {
                         },
                         del: (key) => {
                             // console.log(key);
-                            console.log(res[key].objectid);
+                            // console.log(res[key].objectid);
                             fetch(`https://localhost/grading?objectid=${res[key].objectid}&account=${getCookieByName('account')}&email=${getCookieByName('email')}`, {
                                 method: 'DELETE',
                             }).then(response => {

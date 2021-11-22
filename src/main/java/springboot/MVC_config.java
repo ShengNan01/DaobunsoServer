@@ -51,14 +51,6 @@ public class MVC_config implements WebMvcConfigurer {
 		return new MyLocaleResolver();
 	}
 
-//       @Bean
-//       public LocaleResolver localeResolver() {
-//           // 也可以换成 SessionLocalResolver, 区别在于国际化的应用范围
-//           CookieLocaleResolver localeResolver = new CookieLocaleResolver();
-//           localeResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-//           return localeResolver;
-//       }
-
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor() {
 		LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
