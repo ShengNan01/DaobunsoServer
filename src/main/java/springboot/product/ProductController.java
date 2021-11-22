@@ -24,10 +24,9 @@ public class ProductController {
 	}
 	
 	@GetMapping("/productd")
-	public String getP(@RequestParam Integer id) {
-//		System.out.println(id);
-		System.out.println(productRepo.getById(id));
-		return productRepo.getById(id).toString();
+	public Optional<Product> getP(@RequestParam Integer id) {
+		System.out.println(productRepo.findById(id));
+		return productRepo.findById(id);
 	}
 	
 }

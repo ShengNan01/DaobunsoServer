@@ -27,25 +27,14 @@
   </center>
   <div class="container">
     <table class="cart_table table table-hover">
-      <thead class="cart_table_head">
+      <thead class="cart_table_head" style="text-align: center;font-size: 1.25rem;font-weight: 700;">
         <tr>
-          <th class="col" th:text="#{order.no}">編號</th>
-          <th class="col" th:text="#{order.time}">訂購時間</th>
-          <th class="col" th:text="#{order.totalPrice}">總價</th>
+          <td th:text="#{order.no}">編號</th>
+          <td th:text="#{order.time}">訂購時間</th>
+          <td th:text="#{order.totalPrice}">總價</th>
         </tr>
       </thead>
       <tbody class="cart_table_body" id="order_main">
-        <!-- <tr>
-                    <td>
-                      <span>編號</span>
-                    </td>
-                  <td>
-                    <span>訂購時間</span>
-                </td>
-                  <td>
-                      <span>總價</span>
-                  </td>
-                </tr> -->
       </tbody>
     </table>
     <br />
@@ -56,29 +45,15 @@
         <h2 th:text="#{order.detail}">訂單明細</h2>
       </center>
       <table class="cart_table table table-hover">
-        <thead class="cart_table_head">
+        <thead class="cart_table_head" style="text-align: center;font-size: 1.25rem;font-weight: 700;">
           <tr>
-            <th class="col" th:text="#{order.itemName}">名稱</th>
-            <th class="col" th:text="#{order.startDate}">起始日期</th>
-            <th class="col" th:text="#{order.endDate}">結束日期</th>
-            <th class="col" th:text="#{order.quantity}">數量</th>
+            <th th:text="#{order.itemName}">名稱</th>
+            <th th:text="#{order.startDate}">起始日期</th>
+            <th th:text="#{order.endDate}">結束日期</th>
+            <th th:text="#{order.quantity}">數量</th>
           </tr>
         </thead>
         <tbody class="cart_table_body" id="item_details">
-          <!-- <tr>
-                        <td>
-                          <span id="">名稱</span>
-                        </td>
-                        <td>
-                          <span>起始日期</span>
-                      </td>
-                      <td>
-                        <span>結束日期</span>
-                    </td>
-                      <td>
-                          <span>數量</span>
-                      </td>
-                    </tr> -->
         </tbody>
       </table>
     </div>

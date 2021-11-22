@@ -1,3 +1,15 @@
+// modal方法
+// let myModal = new bootstrap.Modal(document.getElementById('myModal'))
+// function updateModal(title, massage) {
+//     $('#modal-title').text(title);
+//     $('#massage-content').text(massage);
+// }
+// // reset modal when modal was hidden
+// let myModalEl = document.getElementById("myModal");
+// myModalEl.addEventListener("hidden.bs.modal", function (event) {
+//     updateModal("", "");
+// });
+// ~modal方法
 let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
 $('#payment_btn').click(function () {
     if (getCookieValueByName("LoginOK") != null) {
@@ -16,6 +28,7 @@ $('#payment_btn').click(function () {
         })
     }
 });
+
 $(function () {
     tbody = $('tbody');
     jsonData = JSON.parse(localStorage.getItem('cart'));
