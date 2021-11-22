@@ -4,8 +4,10 @@ import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.log4j.Log4j2;
@@ -26,13 +28,14 @@ import springboot.ecpay.payment.integration.domain.QueryCreditCardPeriodInfoObj;
 import springboot.ecpay.payment.integration.domain.QueryTradeInfoObj;
 import springboot.ecpay.payment.integration.domain.QueryTradeObj;
 import springboot.ecpay.payment.integration.domain.TradeNoAioObj;
+import springboot.payment.entity.userDetail;
 
 
 @Log4j2
 @RestController
 public class ExampleAllInOne {
 	
-
+	
 	
 	public static AllInOne all;
 	public static void main(String[] args) {
@@ -162,21 +165,22 @@ public class ExampleAllInOne {
 //		return form;
 //	}
 	
-	public static String genAioCheckOutALL(String price, String id  ) {
+	public static  String genAioCheckOutALL(String price, String id ,String items) {
 		AioCheckOutALL obj = new AioCheckOutALL();
 		obj.setMerchantTradeNo(id);
 		log.info(price);
 		log.info(id);
+//		log.info(details);
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date current = new Date();
 		obj.setMerchantTradeDate(sdFormat.format(current));
-//		obj.setMerchantTradeDate("2012/03/21 15:40:18");
 		obj.setTotalAmount(price);
 		obj.setTradeDesc("Daobunso");//Daobunso 倒幫手垃圾代收服務
-		obj.setItemName("Daobunso132");//結帳付款
-		obj.setReturnURL("http://211.23.128.214:5000");
-		obj.setOrderResultURL("https://localhost/");//接收的controller+id
-		obj.setNeedExtraPaidInfo("N");
+		obj.setItemName(items);//結帳付款
+		obj.setReturnURL("https://localhost/");
+		obj.setClientBackURL("https://localhost/");
+//		obj.setOrderResultURL("https://localhost/");//接收的controller+id
+		obj.setNeedExtraPaidInfo("Y");
 		log.info(obj);
 		String form = all.aioCheckOut(obj, null);
 		log.info(form);
@@ -291,5 +295,6 @@ public class ExampleAllInOne {
 		String form = all.aioCheckOut(obj, null);
 		return form;
 	}
+	
 	
 }
