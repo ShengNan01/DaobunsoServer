@@ -60,15 +60,29 @@ $('.cart-add').click(() => {
     $('.modal-footer>button').click(function () {
         location.href = './shopping_cart';
     })
-    cart.push({
-        type: "product",
-        image: imgsrc,
-        item: product_name,
-        price: product_price,
-        amount: product_amount,
-        timeframe: "",
-        date: "",
-    });
+    if (product_amount === '數量') {
+        let product_amount = 1;
+
+        cart.push({
+            type: "product",
+            image: imgsrc,
+            item: product_name,
+            price: product_price,
+            amount: product_amount,
+            timeframe: "",
+            date: "",
+        });
+    }else{
+        cart.push({
+            type: "product",
+            image: imgsrc,
+            item: product_name,
+            price: product_price,
+            amount: product_amount,
+            timeframe: "",
+            date: "",
+        });
+    }
     localStorage.setItem('cart', JSON.stringify(cart));
 });
 //~cart-add
