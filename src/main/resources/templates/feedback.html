@@ -31,7 +31,7 @@
     </div>
     </div>
 
-    <div class="nav_title">網站回饋 User Feedback</div>
+    <div class="nav_title" th:text="#{feedback.title}">網站回饋</div>
     <div>
         <!-- 隨機意見跑馬燈 -->
         <div id="marquee" class="container " style="display: none;">
@@ -170,7 +170,7 @@
                         <!-- 送出按鈕 -->
                         <div class="col-2 d-grid gap-2 d-md-flex me-5">
                             <button id="btn-feedback" class="btn btn-primary" type="button"
-                                style="height: 3rem; width: 6rem;">送出</button>
+                                style="height: 3rem; width: 6rem;" th:text="#{feedback.submit}">送出</button>
                         </div>
                         <!-- /送出按鈕 -->
 

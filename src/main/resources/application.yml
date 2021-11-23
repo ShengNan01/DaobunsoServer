@@ -21,7 +21,7 @@ spring:
             enable: true  
   messages:
     encoding: UTF-8
-    basename: i18n/area8, i18n/order, i18n/login, i18n/frontpage, i18n/aboutus, i18n/shopping, i18n/userterms, i18n/problem
+    basename: i18n/area8, i18n/feedback, i18n/header, i18n/serviceIntro, i18n/verifyemail, i18n/profiles, i18n/shoppingcart, i18n/serviceproject3, i18n/serviceproject2, i18n/serviceproject1, i18n/order, i18n/login, i18n/frontpage, i18n/aboutus, i18n/shopping, i18n/userterms, i18n/problem, i18n/service
     cache-duration: 3600
 server:
   port: 443

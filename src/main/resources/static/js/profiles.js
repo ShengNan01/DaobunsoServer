@@ -17,3 +17,22 @@ if (verification == 0) {
     $("#buttonVerification").hide();
 }
 // window.onload;
+
+
+
+//// 進入頁面的語言初始化
+////let langsearch;
+//if (sessionStorage.getItem('lang') == null) {
+//    sessionStorage.setItem('lang', "?l=zh_TW");
+//} else {
+//    langsearch = sessionStorage.getItem('lang');
+//    langinit();
+//}
+//// ~進入頁面的語言初始化
+//
+//function langinit() {
+//    // profilesherf
+//    $('.btn btn-lg active text-center mt-2 me-5').attr('href', "./verify_email" + langsearch);
+//	$('.btn  btn-lg active mt-2').attr('href', "./verification_email" + langsearch);
+//
+//}

@@ -54,35 +54,35 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a id="nav-login" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button"
-                aria-expanded="false">Log In</a>
+                aria-expanded="false" th:text="#{header.login}">Log In</a>
               <ul class="dropdown-menu">
                 <li>
-                  <a id="dropdown-profiles" class="dropdown-item" href="./profiles">個人資訊</a>
+                  <a id="dropdown-profiles" class="dropdown-item" href="./profiles" th:text="#{header.personalInfo}">個人資訊</a>
                 </li>
                 <li>
-                  <a id="dropdown-orders" class="dropdown-item" href="./orders" th:text="#{order.title}">訂單管理</a>
+                  <a id="dropdown-orders" class="dropdown-item" href="./orders" th:text="#{header.title}">訂單管理</a>
                 </li>
-                <li><a id="dropdown-shopping_cart" class="dropdown-item" href="./shopping_cart">購物車</a></li>
+                <li><a id="dropdown-shopping_cart" class="dropdown-item" href="./shopping_cart" th:text="#{header.shoppingCart}">購物車</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a id="dropdown-login" class="dropdown-item togin" href="./login">Log In</a></li>
+                <li><a id="dropdown-login" class="dropdown-item togin" href="./login" th:text="#{header.login}">Log In</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a id="nav-frontpage" class="nav-link" href="./frontpage">Home</a>
+              <a id="nav-frontpage" class="nav-link" href="./frontpage" th:text="#{header.home}">Home</a>
             </li>
             <li class="nav-item">
-              <a id="nav-about_us" class="nav-link" href="./about_us">About</a>
+              <a id="nav-about_us" class="nav-link" href="./about_us" th:text="#{header.about}">About</a>
             </li>
             <li class="nav-item">
-              <a id="nav-shopping" class="nav-link" href="./shopping">Shopping</a>
+              <a id="nav-shopping" class="nav-link" href="./shopping" th:text="#{header.shopping}">Shopping</a>
             </li>
             <li class="nav-item">
-              <a id="nav-service" class="nav-link" href="./service">Service</a>
+              <a id="nav-service" class="nav-link" href="./service" th:text="#{header.service}">Service</a>
             </li>
             <li class="nav-item">
-              <a id="nav-shopping_cart" class="nav-link" href="./shopping_cart">Shopping Cart</a>
+              <a id="nav-shopping_cart" class="nav-link" href="./shopping_cart" th:text="#{header.shoppingCart}">Shopping Cart</a>
             </li>
           </ul>
         </div>
