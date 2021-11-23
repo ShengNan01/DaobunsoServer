@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>個人資訊</title>
+  <title th:text="#{profiles.profiles}">個人資訊</title>
   <link rel="stylesheet" href="./css/login.css">
   <link rel="stylesheet" href="./css/profiles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
   </header>
 
   <nav>
-    <div id="nav_title"> 我的帳戶 </div>
+    <div id="nav_title" th:text="#{profiles.myAccount}"> 我的帳戶 </div>
   </nav>
 
   <div class="container text-white text-shadow   ">
@@ -26,26 +26,26 @@
       <form class=" col-5  mx-auto  ">
         <fieldset class="fieldset mb-2 mt-5">
 
-          <label class="form-label" for="account">帳號*</label>
+          <label class="form-label" for="account" th:text="#{profiles.account}">帳號*</label>
           <div class="mb-3 mx-auto shadow-sm">
             <input class="form-control w-80 p-2" id="account" type="text" name="account" disabled="disabled">
           </div>
-          <label class="form-label " for="last name">名稱*</label>
+          <label class="form-label " for="last name" th:text="#{profiles.name}">名稱*</label>
           <div class="mb-3 mx-auto shadow-sm ">
             <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName" name="inlineFormInputName"
               disabled="disabled">
           </div>
-          <label class="form-label" for="email"> 電子信箱*</label>
+          <label class="form-label" for="email" th:text="#{profiles.email}"> 電子信箱*</label>
           <div class="mb-3 mx-auto shadow-sm">
             <input class="form-control w-80 p-2 " id="email" type="email" name="email" disabled="disabled">
           </div>
         </fieldset>
         <fieldset>
           <div text-center class="container-fluid text-center mx_auto mb-5  ">
-            <a href="./verify_email" class="btn  btn-lg active text-center mt-2 me-5" role="button"
-              aria-pressed="true">修改密碼</a>
+            <a href="./verify_email" class="btn btn-lg active text-center mt-2 me-5" role="button"
+              aria-pressed="true" th:text="#{profiles.resetPassword}">重設密碼</a>
             <a href="./verification_email" class="btn  btn-lg active mt-2" role="button" aria-pressed="true"
-              id="buttonVerification">信箱驗證</a>
+              id="buttonVerification" th:text="#{profiles.verification}">信箱驗證</a>
           </div>
           <!-- btn-primary -->
         </fieldset>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>服務介紹</title>
+    <title th:text="#{serviceIntro.title}">服務介紹</title>
     <link rel="stylesheet" href="./css/service_intro.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -15,7 +15,7 @@
         <div th:replace="header :: header"></div>
     </header>
     <nav>
-        <div id="nav_title">服務介紹 Service Introduction</div>
+        <div id="nav_title" th:text="#{serviceIntro.title}">服務介紹</div>
     </nav>
     <div class="main">
         <div class="container w-100 h-100">
@@ -102,60 +102,60 @@
         <div class="row" style="height: 20rem;">
             <div id="magnifier-default" class="col">
                 <h1>Daobunso</h1><br>
-                <h3>致熱愛環境的你與我</h3>
-                <h3>或許努力不被人所看見，但不代表沒有意義</h3>
+                <h3 th:text="#{serviceIntro.h3_1}">致熱愛環境的你與我</h3>
+                <h3 th:text="#{serviceIntro.h3_2}">或許努力不被人所看見，但不代表沒有意義</h3>
             </div>
             <div id="magnifier-1" class="col" style="display: none;">
-                <h2>登入帳號</h2>
-                <h3>登入網頁版Daobunso會員帳號，或使用Daobunso App登入帳號，並確認您的帳號是已開通狀態</h3>
+                <h2 th:text="#{serviceIntro.h2_1}">登入帳號</h2>
+                <h3 th:text="#{serviceIntro.h3_3}">登入網頁版Daobunso會員帳號，或使用Daobunso App登入帳號，並確認您的帳號是已開通狀態</h3>
             </div>
             <div id="magnifier-2" class="col" style="display: none;">
-                <h2>訂單新增</h2>
-                <h3>登入帳號後點選"服務SERVICE"選擇適合的服務方案，即可開始填寫新訂單相關內容，確認完內容後可進行訂單發佈。</h3>
+                <h2 th:text="#{serviceIntro.h2_2}">訂單填寫</h2>
+                <h3 th:text="#{serviceIntro.h3_4}">登入帳號後點選"服務SERVICE"選擇適合的服務方案，即可開始填寫新訂單相關內容，確認完內容後可進行訂單發佈。</h3>
             </div>
             <div id="magnifier-3" class="col" style="display: none;">
-                <h2>訂單發佈</h2>
-                <h3>選擇方案後，即可開始填寫新訂單相關內容，確認完訂單內容後便可進行訂單發佈。</h3>
+                <h2 th:text="#{serviceIntro.h2_3}">訂單發佈</h2>
+                <h3 th:text="#{serviceIntro.h3_5}">選擇方案後，即可開始填寫新訂單相關內容，確認完訂單內容後便可進行訂單發佈。</h3>
             </div>
             <div id="magnifier-4" class="col" style="display: none;">
-                <h2>人員派送</h2>
-                <h3>訂單發佈後，系統將會確認相關資訊，並分派人員於指定時間到地點進行代收作業。</h3>
+                <h2 th:text="#{serviceIntro.h2_4}">完成訂單</h2>
+                <h3 th:text="#{serviceIntro.h3_6}">下訂單後，系統將會確認相關資訊，並分派人員於指定時間到地點進行代收作業。</h3>
             </div>
             <div id="magnifier-5" class="col" style="display: none;">
-                <h2>服務人員訂單確認</h2>
-                <h3>代收人員到達後將訂單內容與實際代收項目進行比對，並評估使否需要額外服務費用。</h3>
+                <h2 th:text="#{serviceIntro.h2_5}">服務人員訂單確認</h2>
+                <h3 th:text="#{serviceIntro.h3_7}">代收人員到達後將訂單內容與實際代收項目進行比對，並評估使否需要額外服務費用。</h3>
             </div>
             <div id="magnifier-6" class="col" style="display: none;">
-                <h2>訂單完成</h2>
-                <h3>確認相關事項完成後，代收人員將會收取代收項目，並完成該筆訂單。</h3>
+                <h2 th:text="#{serviceIntro.h2_6}">訂單完成</h2>
+                <h3 th:text="#{serviceIntro.h3_8}">確認相關事項完成後，代收人員將會收取代收項目，並完成該筆訂單。</h3>
             </div>
         </div>
     </div>
     <div id="service-text" class="container mt-5">
         <div class="row">
             <div class="px-4" style="height: 15rem;width: 26rem;border-radius: 5px;">
-                <div class="area3_p1">住宅型垃圾代收</div>
-                <div class="area3_p2">為您的家庭或個人提供廢棄物與回收物的快速解決方案。</div>
+                <div class="area3_p1" th:text="#{serviceIntro.area3_p1_1}">住宅型垃圾代收</div>
+                <div class="area3_p2" th:text="#{serviceIntro.area3_p2_1}">為您的家庭或個人提供廢棄物與回收物的快速解決方案。</div>
             </div>
             <div class="px-4" style="height: 15rem;width: 26rem;border-radius: 5px;">
-                <div class="area3_p1">垃圾箱定點收取</div>
-                <div class="area3_p2">為您設置廢棄物與回收物定點垃圾箱，方便您用於交付和儲放訂單物品，能有效提升個人的時間安排。</div>
+                <div class="area3_p1" th:text="#{serviceIntro.area3_p1_2}">指定地點收取垃圾</div>
+                <div class="area3_p2" th:text="#{serviceIntro.area3_p2_2}">地點您決定，垃圾我來收!</div>
             </div>
             <div class="px-4" style="height: 15rem;width: 26rem;border-radius: 5px;">
-                <div class="area3_p1">垃圾箱出售</div>
-                <div class="area3_p2">我們為服務項目提供多種尺寸的專屬垃圾箱可供購買</div>
+                <div class="area3_p1" th:text="#{serviceIntro.area3_p1_3}">垃圾袋出售</div>
+                <div class="area3_p2" th:text="#{serviceIntro.area3_p2_3}">我們提供多種類型的垃圾袋可供購買</div>
             </div>
             <div class="px-4" style="height: 15rem;width: 26rem;border-radius: 5px;">
-                <div class="area3_p1">回收物分類代收</div>
-                <div class="area3_p2">為各種類回收物品提供代收服務(不包含大型回收物件，且須完成回收分類)，若有破碎物請先排除安全性問題並備註內容物後再發佈訂單</div>
+                <div class="area3_p1" th:text="#{serviceIntro.area3_p1_4}">回收物分類代收</div>
+                <div class="area3_p2" th:text="#{serviceIntro.area3_p2_4}">為各種類回收物品提供代收服務(不包含大型回收物件，且須完成回收分類)，若有破碎物請先排除安全性問題並備註內容物後再發佈訂單</div>
             </div>
             <div class="px-4" style="height: 15rem;width: 26rem;border-radius: 5px;">
-                <div class="area3_p1">燈泡.電池和電子產品</div>
-                <div class="area3_p2">為燈泡、電池及電子產品等特殊回收物提供專屬的回收服務</div>
+                <div class="area3_p1" th:text="#{serviceIntro.area3_p1_5}">我們提供特殊回收物收取服務</div>
+                <div class="area3_p2" th:text="#{serviceIntro.area3_p2_5}">除了收取常見的回收物如寶特瓶、鐵鋁罐、玻璃瓶、紙類，我們也可收取燈泡、電池和電子產品。</div>
             </div>
             <div class="px-4" style="height: 15rem;width: 26rem;border-radius: 5px;">
-                <div class="area3_p1">社區共同訂單</div>
-                <div class="area3_p2">以社區為單位提供大型訂單，可與服務人員聯繫並確認訂單相關內容與收取時間</div>
+                <div class="area3_p1"  th:text="#{serviceIntro.area3_p1_6}">社區共同訂單</div>
+                <div class="area3_p2"  th:text="#{serviceIntro.area3_p2_6}">以社區為單位提供大型訂單，可與服務人員聯繫並確認訂單相關內容與收取時間</div>
             </div>
         </div>
     </div>

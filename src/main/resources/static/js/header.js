@@ -28,14 +28,16 @@
         // headerherf
         $('#hreffrontpage').attr('href', "./" + langsearch);
         $('#dropdown-profiles').attr('href', "./profiles" + langsearch);
+
         $('#dropdown-orders').attr('href', "./orders" + langsearch);
         $('#dropdown-shopping_cart').attr('href', "./shopping_cart" + langsearch);
         $('#dropdown-login').attr('href', "./login" + langsearch);
         $('#nav-frontpage').attr('href', "./frontpage" + langsearch);
         $('#nav-about_us').attr('href', "./about_us" + langsearch);
-        $('#nav-shopping').attr('href', "./shopping" + langsearch);
+        $('#nav-shopping').attr('href', "./service" + langsearch);
         $('#nav-service').attr('href', "./service" + langsearch);
         $('#nav-shopping_cart').attr('href', "./shopping_cart" + langsearch);
+
         // ~headerherf
     }
     // ~連結初始化
