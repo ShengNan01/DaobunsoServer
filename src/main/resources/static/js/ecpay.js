@@ -17,6 +17,6 @@ fetch('payPayment', {
             //  $('#ecpay').append(ecpayPageReturn);
             $('#ecpay').html(ecpayPageReturn);
         })
-        // localStorage.clear();
+//        localStorage.clear();
     }  
 );

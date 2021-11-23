@@ -77,7 +77,7 @@ public class OrderController {
 
 		}
 		log.info("分隔線");
-		Integer orderId = userpayment.getOrderId();
+//		Integer orderId = userpayment.getOrderId();
 		String sum = userpayment.getSum();
 		System.out.println("結帳總金額:" + sum);
 		log.info("跳轉綠界頁面");
