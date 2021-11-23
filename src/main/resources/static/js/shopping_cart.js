@@ -11,9 +11,18 @@
 // });
 // ~modal方法
 let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+function updatePayModal(title, massage) {
+        $('#pay-title').text(title);
+        $('#pay-content').text(massage);
+    }
+    let paymentModalEl = document.getElementById("paymentModal");
+    paymentModalEl.addEventListener("hidden.bs.modal", function (event) {
+        updatePayModal("", "");
+    });
+
 $('#payment_btn').click(function () {
     if (getCookieValueByName("LoginOK") != null) {
-        updateModal("Final Check!", "確定要結帳了嗎？");
+        updatePayModal("Final Check!", "確定要結帳了嗎？");
         paymentModal.show();
         $("#paymentOK").click(function () {
             location.href = './payment';
