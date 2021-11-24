@@ -8,5 +8,5 @@ import springboot.payment.entity.user;
 @EnableJpaRepositories
 @Repository
 public interface CustomerRepository extends JpaRepository<user, Integer> {
-
+ user findBydetailNo(String detailNo);
 }

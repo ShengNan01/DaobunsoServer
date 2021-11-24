@@ -65,7 +65,7 @@
 // });
 
 //
-fetch(`https://localhost/products`, {
+fetch(`https://daobunso.myddns.me/products`, {
     method: 'GET',
 }).then((response) => {
     response.json().then((res) => {
@@ -79,8 +79,8 @@ fetch(`https://localhost/products`, {
             methods:{
                 spl:(id)=>{
                     sessionStorage.setItem('productid',id);
-                    // window.location.href = `https://localhost/product?id=${id}`;
-                    window.location.href = `https://localhost/product`;
+                    // window.location.href = `https://daobunso.myddns.me/product?id=${id}`;
+                    window.location.href = `https://daobunso.myddns.me/product`;
                 }
             }
         });

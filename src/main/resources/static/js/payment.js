@@ -192,7 +192,7 @@ $(function () {
 
 
 // $.ajax({
-//     url: `https://localhost:8443/placeOrder2`,
+//     url: `https://daobunso.myddns.me:8443/placeOrder2`,
 //     type: 'POST',
 //     async: false,
 //     contentType: 'application/json;charset=utf-8',

@@ -73,6 +73,9 @@ public class user {
 	@Column(name = "DetailNo")
 	private String detailNo;
 	
+	@Column(name= "PaymentStatus")
+	private String paymentStatus;
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_orderbean_orderno", referencedColumnName = "Order_Id")
 	private List<userDetail> userDetails;

@@ -1,5 +1,5 @@
 
-let url = 'https://localhost/payPayment'
+let url = 'https://daobunso.myddns.me/payPayment'
 
 jsonData = JSON.parse(localStorage.getItem('User'));
 console.log(jsonData);

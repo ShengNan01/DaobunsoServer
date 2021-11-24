@@ -45,7 +45,7 @@ $('#pswdnew').keyup(function () {
     }
 });
 
-let urlReg = 'https://localhost/Change_pswd';
+let urlReg = 'https://daobunso.myddns.me/Change_pswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
     e.preventDefault();
@@ -69,6 +69,15 @@ $('#change_btn').click(function (e) {
     } else {
 
         const memberId = getCookieValueByName('id');
+        $(()=>{
+            if (memberId == null) {
+                updateModal("Oops!", "請先進行登入再寄發驗證信!");
+                myModal.show();
+                $('.modal-footer>button').click(function () {
+                    location.href = './login';
+                });
+            }
+        });
         changepswd = {
             "memberId": memberId,
             "password": $('#ogpswd').val(),

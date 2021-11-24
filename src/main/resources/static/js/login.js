@@ -24,7 +24,7 @@ $(".register").on('click', function () {
 //     return true;
 //   }
 // });
-let urlReg = 'https://localhost/reg';
+let urlReg = 'https://daobunso.myddns.me/reg';
 const regex_password = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 const regex_account = new RegExp(/^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$/);
 const regex_email = new RegExp(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/);
@@ -175,7 +175,7 @@ $('#login_btn').click(function (e) {
 		let account = $('#account').val();
 		let password = $('#pswd').val();
 
-		fetch(`https://localhost/logincheck?rememberMe=${rememberMe}`, {
+		fetch(`https://daobunso.myddns.me/logincheck?rememberMe=${rememberMe}`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			// 將JavaScript物件轉為JSON物件

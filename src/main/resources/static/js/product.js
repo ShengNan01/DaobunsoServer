@@ -4,8 +4,8 @@ let imgsrc;
 let product_name;
 let product_price;
 let id = sessionStorage.getItem('productid');
-// fetch(`https://localhost/productq?id=${id}`, {
-fetch(`https://localhost/productd?id=${id}`, {
+// fetch(`https://daobunso.myddns.me/productq?id=${id}`, {
+fetch(`https://daobunso.myddns.me/productd?id=${id}`, {
     method: 'GET',
 }).then(response => {
     response.json().then(res => {

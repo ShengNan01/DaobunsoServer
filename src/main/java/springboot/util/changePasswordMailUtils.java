@@ -30,8 +30,8 @@ public class changePasswordMailUtils {
 			helper.setTo(email);
 			helper.setSubject("Daobunso修改密碼驗證信");
 			String emailToken = getEmailToken(member);
-			helper.setText("<h3><a href='https://localhost/change_password?emailToken=" + emailToken + "'>請點擊進入修改密碼頁面</h3>"
-					+ "</a></br><h3>如果以上超連線無法訪問，請將以下網址複製到瀏覽器位址列中</h3><h3>https://localhost/change_password?emailToken="
+			helper.setText("<h3><a href='https://daobunso.myddns.me/change_password?emailToken=" + emailToken + "'>請點擊進入修改密碼頁面</h3>"
+					+ "</a></br><h3>如果以上超連線無法訪問，請將以下網址複製到瀏覽器位址列中</h3><h3>https://daobunso.myddns.me/change_password?emailToken="
 					+ emailToken + "</h3>", true);
 			new Thread() {
 				@Override
@@ -51,7 +51,7 @@ public class changePasswordMailUtils {
 		String value = member.toString();
 		System.out.println(value);
 		redisTemplate.opsForValue().set(token, value);
-		redisTemplate.expire(token, 20, TimeUnit.SECONDS);
+		redisTemplate.expire(token, 120, TimeUnit.SECONDS);
 		return token;
 	}
 

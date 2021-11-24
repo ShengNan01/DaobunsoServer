@@ -29,7 +29,7 @@ $("#submit").click(function (e) {
             email: email,
             account: account,
         }
-        let url = 'https://localhost/forgetPswdEmail';
+        let url = 'https://daobunso.myddns.me/forgetPswdEmail';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(forget_pswd),
@@ -67,5 +67,5 @@ $("#submit").click(function (e) {
 });
 //跳頁
 function nextPage() {
-    location.href = "https://localhost/"
+    location.href = "https://daobunso.myddns.me/"
 }

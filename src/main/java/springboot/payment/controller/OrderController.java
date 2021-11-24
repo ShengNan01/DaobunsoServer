@@ -51,8 +51,6 @@ public class OrderController {
 		String detailNo = "DBS" + sdFormat.format(current) + uid.toString().replaceAll("-", "").substring(0, 5);
 		System.out.println(detailNo);
 		userpayment.setDetailNo(detailNo);
-		Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());
-		userpayment.setOrderDate(ts);
 		customerRepository.save(userpayment);// 這邊之後要移到另一個方法
 		List<userDetail> detail = userpayment.getUserDetails();
 
@@ -93,19 +91,34 @@ public class OrderController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(paymentValue);
 		}
 	}
-}
 
-//	@PostMapping("/ecpayResponse")
-//	public String ecpayResponse(@RequestBody String ecpayResponse, user userpayment) {
-//		System.out.println(ecpayResponse);
-//		String[] responses = ecpayResponse.split("&|=");
-//		Map<String, String> responseInfo = new HashMap<>();
-//		log.info(responses);
-////			for(int i = 1; i<responses.length;i++) {
-////				String[] returnKeyAndValue = responses[i].split("=");
-//
-////			}
-////			log.info("ecpayResponse:" + responseInfo);
-//		customerRepository.save(userpayment);
-//		return "1|OK";
-//	}
+	@PostMapping("/ecpayResponse")
+	public String ecpayResponse(@RequestBody String ecpayResponse) {
+		System.out.println(ecpayResponse);
+		String[] responses = ecpayResponse.split("&");
+		Map<String, String> responseInfo = new HashMap<>();
+		for (int i = 1; i < responses.length; i++) {
+			String[] returnKeyAndValue = responses[i].split("=");
+			if(returnKeyAndValue.length ==1) {
+				responseInfo.put(returnKeyAndValue[0], "none");
+			}else {
+				responseInfo.put(returnKeyAndValue[0], returnKeyAndValue[1]);
+				log.info(returnKeyAndValue[0] + returnKeyAndValue[1]);
+			}
+		}
+			log.info("ecpayResponse:" + responseInfo);
+			String orderId = responseInfo.get("MerchantTradeNo");
+			Integer PaymentStatus = Integer.valueOf(responseInfo.get("RtnCode"));
+			Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());
+			user user = customerRepository.findBydetailNo(orderId);
+			if(PaymentStatus == 1) {
+				user.setPaymentStatus("付款成功");
+				user.setOrderDate(ts);
+			}else {
+				user.setPaymentStatus("付款失敗");
+				user.setOrderDate(ts);
+			}
+		customerRepository.save(user);
+		return "1|OK";
+	}
+}
