@@ -49,9 +49,6 @@
     </table>
   </div>
 
-  <footer>
-    <div th:replace="footer :: footer"></div>
-  </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/forgetPswdEmail.js"></script>
   <script th:if="${fail} eq fail" th:src="@{./js/emailExpired_thymeleaf.js}"></script>

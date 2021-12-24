@@ -13,7 +13,7 @@ $('.feedback').hide();
 $('.user-img img').attr('src', uimgsrc);
 $('.user-name h2').text(uname);
 //觀看意見領域
-fetch(`https://daobunso.myddns.me/gradings`, {
+fetch(`https://localhost/gradings`, {
     method: 'GET',
 }).then((response) => {
     response.json().then(res => {
@@ -98,7 +98,7 @@ $('#btn-list').click(function () {
 
 
         // GET
-        fetch(`https://daobunso.myddns.me/grading?uaccount=${uaccount}`, {
+        fetch(`https://localhost/grading?uaccount=${uaccount}`, {
             method: 'GET',
         }).then((response) => {
             response.json().then(res => {
@@ -127,7 +127,7 @@ $('#btn-list').click(function () {
                         del: (key) => {
                             // console.log(key);
                             // console.log(res[key].objectid);
-                            fetch(`https://daobunso.myddns.me/grading?objectid=${res[key].objectid}&account=${getCookieByName('account')}&email=${getCookieByName('email')}`, {
+                            fetch(`https://localhost/grading?objectid=${res[key].objectid}&account=${getCookieByName('account')}&email=${getCookieByName('email')}`, {
                                 method: 'DELETE',
                             }).then(response => {
                                 alert("刪除意見成功");
@@ -150,7 +150,7 @@ $('#btn-feedback').click(() => {
     ucomment = $('#feedback-comment').val();
     if (oid == 0) {
         if (getstar != 0 && ucomment != '') {
-            fetch(`https://daobunso.myddns.me/grading?email=${getCookieByName('email')}`, {
+            fetch(`https://localhost/grading?email=${getCookieByName('email')}`, {
                 method: 'POST',
                 body: JSON.stringify({
                     account: uaccount,
@@ -168,7 +168,7 @@ $('#btn-feedback').click(() => {
     } else {
         ucomment = $('#feedback-comment').val();
         if (getstar != 0 && ucomment != '') {
-            fetch(`https://daobunso.myddns.me/grading?email=${getCookieByName('email')}`, {
+            fetch(`https://localhost/grading?email=${getCookieByName('email')}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     objectid: oid,

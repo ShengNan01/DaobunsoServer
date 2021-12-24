@@ -47,10 +47,6 @@
     </div>
   </section>
 
-  <footer>
-    <div th:replace="footer :: footer"></div>
-  </footer>
-
   <script src="./js/verify_email.js"></script>
   <script th:if="${fail} eq fail" th:src="@{./js/emailExpired_thymeleaf.js}"></script>
 </body>

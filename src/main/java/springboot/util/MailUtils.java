@@ -30,13 +30,13 @@ public class MailUtils {
 					helper.setTo(email);
 					helper.setSubject("Daobunso信箱驗證信");
 					String emailToken = getEmailToken(member);
-					helper.setText("<h3><a href='https://daobunso.myddns.me/activateMail?emailToken="+emailToken+"'>點我驗證啟用帳號</h3>"+"</a></br><h3>如果以上超連線無法訪問，請將以下網址複製到瀏覽器位址列中</h3><h3>https://daobunso.myddns.me/activateMail?emailToken="+emailToken+"</h3>",true);
+					helper.setText("<h3><a href='https://localhost/activateMail?emailToken="+emailToken+"'>點我驗證啟用帳號</h3>"+"</a></br><h3>如果以上超連線無法訪問，請將以下網址複製到瀏覽器位址列中</h3><h3>https://localhost/activateMail?emailToken="+emailToken+"</h3>",true);
 					new Thread() {
 						@Override
 			            public void run(){
-					mailSender.send(mimeMessage);
-				}
-			}.start();
+							mailSender.send(mimeMessage);
+						}
+					}.start();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

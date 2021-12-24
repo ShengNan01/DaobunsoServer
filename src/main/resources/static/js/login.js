@@ -24,7 +24,10 @@ $(".register").on('click', function () {
 //     return true;
 //   }
 // });
-let urlReg = 'https://daobunso.myddns.me/reg';
+myModalEl.addEventListener("hidden.bs.modal", function (event) {
+    updateModal("", "");
+});
+let urlReg = 'https://localhost/reg';
 const regex_password = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 const regex_account = new RegExp(/^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$/);
 const regex_email = new RegExp(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/);
@@ -175,7 +178,7 @@ $('#login_btn').click(function (e) {
 		let account = $('#account').val();
 		let password = $('#pswd').val();
 
-		fetch(`https://daobunso.myddns.me/logincheck?rememberMe=${rememberMe}`, {
+		fetch(`https://localhost/logincheck?rememberMe=${rememberMe}`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			// 將JavaScript物件轉為JSON物件
@@ -187,13 +190,13 @@ $('#login_btn').click(function (e) {
 			// 將Server回覆的boolean值轉為文字存入res
 			response.text().then(res => {
 				if (res == "true") {
-					updateModal("登入成功!"," LoginOK:" + getCookieValueByName('LoginOK'));
+					updateModal("恭喜!","登入成功!");
 					myModal.show();
 					$('.modal-footer>button').click(function () {
                         location.href = './frontpage';
                     });
 				} else {
-					updateModal("登入失敗!","這樣不夠酷!");
+					updateModal("登入失敗!","請重新再試!");
 					myModal.show();
 					$("#account").val(null);
 					$("#pswd").val(null);

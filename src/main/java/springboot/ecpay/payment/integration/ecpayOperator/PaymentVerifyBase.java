@@ -1,13 +1,10 @@
 package springboot.ecpay.payment.integration.ecpayOperator;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.springframework.core.io.ClassPathResource;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -21,14 +18,10 @@ public class PaymentVerifyBase {
 	protected Document doc;
 
 	public PaymentVerifyBase() {
-		try {
-			String confPath = URLDecoder.decode(new ClassPathResource("EcpayPayment.xml").getPath(), "UTF-8");
-			log.info(confPath);
-			doc = EcpayFunction.xmlParser(confPath);
-			doc.getDocumentElement().normalize();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+		String confPath = "./src/main/java/springboot/ecpay/payment/integration/config/EcpayPayment.xml";
+		log.info(confPath);
+		doc = EcpayFunction.xmlParser(confPath);
+		doc.getDocumentElement().normalize();
 	}
 
 	protected void requireCheck(String FieldName, String objValue, String require) {

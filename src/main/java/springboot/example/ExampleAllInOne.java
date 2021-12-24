@@ -177,7 +177,7 @@ public class ExampleAllInOne {
 		obj.setTotalAmount(price);
 		obj.setTradeDesc("Daobunso");//Daobunso 倒幫手垃圾代收服務
 		obj.setItemName(items);//結帳付款
-		obj.setReturnURL("https://daobunso.myddns.me/ecpayResponse" );
+		obj.setReturnURL("https://localhost/ecpayResponse" );
 		obj.setClientBackURL("https://daobunso.myddns.me/");
 //		obj.setOrderResultURL("https://localhost/");//接收的controller+id
 		obj.setNeedExtraPaidInfo("Y");

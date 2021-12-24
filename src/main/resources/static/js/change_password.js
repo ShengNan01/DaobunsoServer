@@ -45,7 +45,7 @@ $('#pswdnew').keyup(function () {
     }
 });
 
-let urlReg = 'https://daobunso.myddns.me/Change_pswd';
+let urlReg = 'https://localhost/Change_pswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
     e.preventDefault();

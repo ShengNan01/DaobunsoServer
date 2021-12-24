@@ -14,6 +14,7 @@ import lombok.extern.log4j.Log4j2;
 import springboot.login.LoginRepo;
 import springboot.util.GlobalService;
 import springboot.util.MailUtils;
+import springboot.util.NewMailUtils;
 
 @Log4j2
 @RestController
@@ -24,6 +25,8 @@ public class RegisterController {
 
 	@Autowired
 	public MailUtils mailutils;
+	@Autowired 
+	public NewMailUtils newMailUtils;
 	@Autowired
 	private MemberRepository memberRepository;
 
@@ -42,8 +45,14 @@ public class RegisterController {
 			member.setPassword(enPswd);
 			member.setJoin_Date(ts);
 			memberRepository.save(member);
+			try {
+				newMailUtils.sendEmail(member, member.getEmail());
+			} catch (Exception e) {
+				e.printStackTrace();
+				log.info("發送失敗!");
+			}
 			log.info("寄送驗證信");
-			mailutils.sendEmail(member, member.getEmail());
+//			mailutils.sendEmail(member, member.getEmail());
 			return "註冊成功，請重新登入";
 		}
 	}

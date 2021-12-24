@@ -30,7 +30,7 @@ $("#verify_email_btn").click(function () {
                 "email": email,
                 "memberId": memberId,
             }
-            let url = 'https://daobunso.myddns.me/verification_email';
+            let url = 'https://localhost/verification_email';
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify(Email),
@@ -60,5 +60,5 @@ $("#verify_email_btn").click(function () {
 });
 //跳頁
 function nextPage() {
-    location.href = "https://daobunso.myddns.me/"
+    location.href = "https://localhost/"
 }

@@ -7,7 +7,7 @@ const text = document.querySelector(".text");
 let regExpWeak = /[a-z]/;
 let regExpMedium = /\d+/;
 let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
-let urlReg = 'https://daobunso.myddns.me/forgetPswd';
+let urlReg = 'https://localhost/forgetPswd';
 const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,16}$/);
 $('#change_btn').click(function (e) {
     e.preventDefault();
